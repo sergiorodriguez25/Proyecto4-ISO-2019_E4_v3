@@ -43,7 +43,7 @@
     	<!--  <div class="col-lg-4"> -->
     	<div class="text-center">
     	
-        	<img src="https://lh5.googleusercontent.com/8CzBXd7XdM0SgzPzFhfq93MRZuK-ubHEMzFpH7m4QZ9exBMIqa-IHb1wYNovmhXju-_pJz8TBQb1Ai-a-vQ=w1366-h608" class="img-fluid rounded">
+        	<img src="https://drive.google.com/open?id=1L9OBZyBWlg3rgRikLxjrzy2KUNbxPHNr" class="img-fluid rounded">
     	</div>
         </div>
 	</div>
@@ -62,7 +62,7 @@
         </div>
         
         <!--   <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button> -->
-        <a href = "https://www.google.com/" class="btn btn-lg btn-primary btn-block" type="submit">Login</a>
+        <a href = "http://localhost:8080/tgh/citas" class="btn btn-lg btn-primary btn-block" type="submit">Login</a>
         
       </form>
 
