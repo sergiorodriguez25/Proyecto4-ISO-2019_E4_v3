@@ -1,4 +1,1 @@
 language: java
-
-script:
- - Java -cp .:/usr/share/Java/junit.jar org.junit.runner.JUnitCore CucumberRunner
