@@ -14,6 +14,7 @@ public class AccesoSteps {
 	
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
+		System.setProperty("webdriver.chrome.driver","Recursos//chromedriver.exe");
 		driver = new ChromeDriver();
 	}
 
@@ -24,7 +25,7 @@ public class AccesoSteps {
 
 	@Then("^Se muestra la pagina principal$")
 	public void se_muestra_la_pagina_principal() throws Throwable {
-		if(driver.getCurrentUrl() == "http://localhost:8080/tgh/");
-		throw new PendingException();
+		if(driver.getCurrentUrl() != "http://localhost:8080/tgh/")
+			throw new Exception();
 	}
 }
