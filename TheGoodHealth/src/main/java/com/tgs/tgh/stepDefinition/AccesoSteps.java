@@ -29,18 +29,21 @@ public class AccesoSteps {
 	public void se_muestra_la_pagina_principal() throws Throwable {
 		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/"))
 			throw new Exception();
+		driver.quit();
 	}
 	
 	//Scenario2
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
+		driver = new ChromeDriver();
+		driver.get("http://localhost:8080/tgh/");
 		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/"))
 			throw new Exception();
 	}
 
 	@When("^Se introduce cualquier credencial$")
 	public void se_introduce_cualquier_credencial() throws Throwable {
-		driver.findElement(By.className("buttonLargeAlt")).click();
+		driver.findElement(By.className("btn")).click();
 	}
 
 	@Then("^Se muestra la pagina citas$")
