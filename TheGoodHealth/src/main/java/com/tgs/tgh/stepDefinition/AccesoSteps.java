@@ -25,7 +25,7 @@ public class AccesoSteps {
 
 	@Then("^Se muestra la pagina principal$")
 	public void se_muestra_la_pagina_principal() throws Throwable {
-		if(driver.getCurrentUrl() != "http://localhost:8080/tgh/")
+		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/"))
 			throw new Exception();
 	}
 }
