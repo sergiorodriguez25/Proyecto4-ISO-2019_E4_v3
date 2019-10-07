@@ -1,3 +1,4 @@
 language: java
-script: 
-- sudo TheGoodHealth/src/main/java/com/tgs/tgh/cucumber/CucumberRunner.java
+install: ant deps
+script:
+  - ant test
