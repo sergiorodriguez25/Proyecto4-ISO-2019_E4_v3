@@ -43,7 +43,7 @@
     	<!--  <div class="col-lg-4"> -->
     	<div class="text-center">
     	
-        	<img src="https://drive.google.com/open?id=1L9OBZyBWlg3rgRikLxjrzy2KUNbxPHNr" class="img-fluid rounded">
+        	<img src="Recursos//IconoTGH.jpg" class="img-fluid rounded">
     	</div>
         </div>
 	</div>
