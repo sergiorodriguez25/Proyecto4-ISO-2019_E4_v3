@@ -26,7 +26,7 @@
         <pathelement location="C:/Users/jaime/.m2/repository/org/slf4j/jcl-over-slf4j/1.6.6/jcl-over-slf4j-1.6.6.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/org/slf4j/slf4j-log4j12/1.6.6/slf4j-log4j12-1.6.6.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/log4j/log4j/1.2.15/log4j-1.2.15.jar"/>
-        <pathelement location="C:/Users/jaime/.m2/repository/junit/junit/4.7/junit-4.7.jar"/>
+        <pathelement location="/lib/junit-4.12.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar"/>
