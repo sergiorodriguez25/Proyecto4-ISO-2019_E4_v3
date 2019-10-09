@@ -5,5 +5,5 @@ before_script:
 
 script:
 - cd TheGoodHealth
-- ant build-project
+- ant build
 - ant CucumberRunner
