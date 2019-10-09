@@ -1,5 +1,6 @@
 language: java
 
-script: 
+script:
+- cd TheGoodHealth
 - ant build
 - ant CucumberRunner
