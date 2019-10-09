@@ -5,4 +5,4 @@ before_script:
 
 script:
 - cd TheGoodHealth
-- ant test -lib ./lib/junit-4.7.jar
+- ant CucumberRunner -lib ./lib/junit-4.7.jar
