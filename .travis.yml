@@ -15,4 +15,4 @@ deploy:
     secure: 5468840c-379e-49a7-b61d-274f5f9f15ff
   app: tgh
   on:
-   repo: Proyecto4-ISO-2019-E4
+   repo: Proyecto4-ISO-2019-E4/TheGoodHealth
