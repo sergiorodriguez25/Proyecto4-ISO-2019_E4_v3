@@ -1,5 +1,5 @@
 language: java
 
 script: 
-- cd TheGoodHealth
-- mvn test
+- ant build
+- ant CucumberRunner
