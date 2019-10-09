@@ -52,7 +52,7 @@
         <pathelement location="C:/Users/jaime/.m2/repository/info/cukes/cucumber-html/0.2.3/cucumber-html-0.2.3.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/info/cukes/cucumber-jvm-deps/1.0.5/cucumber-jvm-deps-1.0.5.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/info/cukes/gherkin/2.12.2/gherkin-2.12.2.jar"/>
-        <pathelement location="C:/Users/jaime/.m2/repository/info/cukes/cucumber-junit/1.2.5/cucumber-junit-1.2.5.jar"/>
+        <pathelement location="/lib/junit-4.12.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar"/>
         <pathelement location="C:/Users/jaime/.m2/repository/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar"/>
