@@ -1,9 +1,6 @@
 language: java
 
-before_script:
-   - sudo apt-get install ant-optional
-
 script:
 - cd TheGoodHealth
-- ant build
-- ant CucumberRunner
+- mvn build
+- mvn test
