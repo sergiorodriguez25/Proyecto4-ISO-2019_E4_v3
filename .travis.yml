@@ -2,5 +2,9 @@ language: java
 
 script:
 - cd TheGoodHealth
-- mvn build
 - mvn test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: 5468840c-379e-49a7-b61d-274f5f9f15ff
