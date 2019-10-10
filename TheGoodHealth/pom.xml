@@ -6,10 +6,9 @@
 	<groupId>com.tgs</groupId>
 	<artifactId>tgh</artifactId>
 	<name>TheGoodHealth</name>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
