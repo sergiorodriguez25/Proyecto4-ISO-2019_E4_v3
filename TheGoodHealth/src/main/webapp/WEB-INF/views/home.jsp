@@ -43,8 +43,7 @@
     	<!--  <div class="col-lg-4"> -->
     	<div class="text-center">
     	
-        	<img src="/tgh/Recursos/IconoTGH.png" class="img-fluid rounded">
-    	</div>
+			<a href='http://www.subirimagenes.com/otros-iconotgh-9911960.html'><img src='http://s2.subirimagenes.com/otros/previo/thump_9911960iconotgh.jpg' alt='subir imagenes' border='0' ></a>    	</div>
         </div>
 	</div>
     <div class="container">
