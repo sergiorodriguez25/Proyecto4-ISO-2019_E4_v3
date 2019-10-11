@@ -60,8 +60,8 @@
           </label>
         </div>
         
-        <!--   <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button> -->
-        <a href = "/tgh/citas" class="btn btn-lg btn-primary btn-block" type="submit">Login</a>
+        <a href = "/tgh/citas" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</a>
+        <a href = "/tgh/registro" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</a>
         
       </form>
 
