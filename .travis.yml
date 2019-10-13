@@ -2,8 +2,7 @@ language: java
 
 script:
 - cd TheGoodHealth
-- mvn build
-- mvn test
+- mvn install
 - cd ..
 
 deploy:
