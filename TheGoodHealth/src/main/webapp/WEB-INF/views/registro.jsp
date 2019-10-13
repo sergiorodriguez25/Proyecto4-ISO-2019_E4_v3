@@ -14,7 +14,16 @@
 
     <!-- Bootstrap core CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  	 
+  	 <link rel="stylesheet" href="datePicker/css/bootstrap-datepicker.css">
+    <script src="datePicker/js/bootstrap-datepicker.min.js"></script>
+    <!--Esta fue la linea que agregué --->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    
+    <script src="datePicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <!--Y esta otra también--->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css">
+  	 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
@@ -30,6 +39,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script>
+        $( document ).ready(function() {
+            $('#fecha').datepicker();
+        });
+    </script>
   </head>
 
   <style>
@@ -53,33 +68,10 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/tgh">Inicio</a>
+  <a class="navbar-brand" href="/tgh">Registro</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1">Mis citas <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Pedir cita</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle disabled" href="#" tabindex="-1" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Mi Perfil</a>
-          <a class="dropdown-item" href="#">Información</a>
-          <a class="dropdown-item" href="#">Cerrar sesión</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
-  </div>
 </nav>
 
 <main role="main" class="container">
@@ -132,7 +124,7 @@
         
         <div class="mb-3">
           <label for="nacimiento">Fecha de nacimiento</label>
-          <input type="text" class="form-control" id="nacimiento" placeholder="" required>
+          <input type="text" id="fecha_ini" class="form-control">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
@@ -250,7 +242,7 @@
         </div>
 
         <hr class="mb-4">
-        <a href = "/tgh" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
+        <a href = "/tgh/citas" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
       </form>
     </div>
   </div>
@@ -266,5 +258,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+  	 
+  	  <script>
+
+  	$('#fecha_ini').datepicker({
+        format: "dd/mm/yyyy",
+        startDate: "1/1/1900",
+        endDate: "13/10/2019",
+        todayBtn: "linked",
+        language: "es",
+        todayHighlight: true
+    });
+
+  </script>
   </body>
 </html>
