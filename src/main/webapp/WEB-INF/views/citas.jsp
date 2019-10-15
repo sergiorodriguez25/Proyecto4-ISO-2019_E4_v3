@@ -71,7 +71,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="#">Mi Perfil</a>
           <a class="dropdown-item" href="#">Información</a>
-          <a class="dropdown-item" href="/tgh">Cerrar sesión</a>
+          <a class="dropdown-item" href="/">Cerrar sesión</a>
         </div>
       </li>
     </ul>

@@ -60,8 +60,8 @@
           </label>
         </div>
         
-        <a href = "/tgh/citas" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</a>
-        <a href = "/tgh/registro" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</a>
+        <a href = "/citas" class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesión</a>
+        <a href = "/registro" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</a>
         
       </form>
 
