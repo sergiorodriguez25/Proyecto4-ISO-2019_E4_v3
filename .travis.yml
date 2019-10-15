@@ -1,7 +1,9 @@
 language: java
 
 script:
+- cd TheGoodHealth
 - mvn clean install
+- cd ..
 
 deploy:
   provider: heroku
