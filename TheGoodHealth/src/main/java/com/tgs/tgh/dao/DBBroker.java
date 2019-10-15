@@ -29,8 +29,8 @@ public class DBBroker<T> {
 	    
 	    public void insertOne(){
 	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
-	    	Document doc = new Document("Nombre", "Jorge")
-	                .append("Apellidos", "Mena Muñoz");
+	    	Document doc = new Document("Nombre", "Alvaro")
+	                .append("Apellidos", "Gimenez");
 	    	collection.insertOne(doc);
 	    }
 	
