@@ -17,7 +17,7 @@
 	</properties>
 	
 	<dependencies>
-	
+		<!-- MongoDB -->
 		<dependency>
        		<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
