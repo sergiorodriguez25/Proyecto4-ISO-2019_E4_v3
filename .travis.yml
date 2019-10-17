@@ -1,4 +1,5 @@
 language: java
+
 addons:
   chrome: stable
  
@@ -11,9 +12,9 @@ addons:
   - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
   
 script:
-  - whereis google-chrome-stable
-  - whereis chromedriver
-  - mvn test
+- whereis google-chrome-stable
+- whereis chromedriver
+- mvn test
 
 deploy:
   provider: heroku
