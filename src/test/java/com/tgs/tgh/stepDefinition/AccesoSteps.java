@@ -16,7 +16,7 @@ public class AccesoSteps {
 	//Scenario1
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
-		System.setProperty("webdriver.chrome.driver","Recursos//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","Recursos//chromedriver");
 		driver = new ChromeDriver();
 	}
 
