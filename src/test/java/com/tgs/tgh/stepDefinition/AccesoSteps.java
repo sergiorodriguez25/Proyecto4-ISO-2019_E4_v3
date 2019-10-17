@@ -23,6 +23,8 @@ public class AccesoSteps {
 		final DesiredCapabilities dc = new DesiredCapabilities();
 		dc.setJavascriptEnabled(true);
 		dc.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+		
+		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
 
 		return new ChromeDriver(dc);
 	}
