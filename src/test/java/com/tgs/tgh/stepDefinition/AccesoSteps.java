@@ -22,12 +22,12 @@ public class AccesoSteps {
 
 	@When("^Se introduce la direccion web$")
 	public void se_introduce_la_direccion_web() throws Throwable {
-		driver.get("http://localhost:8080/tgh/");
+		driver.get("https://the-good-health.herokuapp.com");
 	}
 
 	@Then("^Se muestra la pagina principal$")
 	public void se_muestra_la_pagina_principal() throws Throwable {
-		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/"))
+		if(!driver.getCurrentUrl().equals("https://the-good-health.herokuapp.com/"))
 			throw new Exception();
 		driver.quit();
 	}
@@ -36,8 +36,8 @@ public class AccesoSteps {
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
 		driver = new ChromeDriver();
-		driver.get("http://localhost:8080/tgh/");
-		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/"))
+		driver.get("https://the-good-health.herokuapp.com");
+		if(!driver.getCurrentUrl().equals("https://the-good-health.herokuapp.com/"))
 			throw new Exception();
 	}
 
@@ -48,7 +48,7 @@ public class AccesoSteps {
 
 	@Then("^Se muestra la pagina citas$")
 	public void se_muestra_la_pagina_citas() throws Throwable {
-		if(!driver.getCurrentUrl().equals("http://localhost:8080/tgh/citas"))
+		if(!driver.getCurrentUrl().equals("https://the-good-health.herokuapp.com/citas"))
 			throw new Exception();
 	    driver.quit();
 	}

@@ -1,7 +1,7 @@
 language: java
 
 script:
-- mvn clean install
+- mvn test
 
 deploy:
   provider: heroku
