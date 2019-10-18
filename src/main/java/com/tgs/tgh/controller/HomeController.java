@@ -8,8 +8,12 @@ import java.util.Map;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,10 +39,12 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String login(Map<String, String> jso) throws Exception {
-		String dni = jso.get("dni");
-		String pwd = jso.get("pwd");
+		System.out.println(jso);
+		String dni = jso.get("DNI");
+		String pwd = jso.get("password");
 		Usuario usuario = Manager.get().login(dni, pwd);
 		
 		JSONObject resultado = new JSONObject();
