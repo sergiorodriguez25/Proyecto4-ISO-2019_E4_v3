@@ -3,8 +3,6 @@ package com.tgs.tgh.stepDefinition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,26 +11,12 @@ import cucumber.api.java.en.When;
 public class AccesoSteps {
 
 	WebDriver driver;
-	
-	public WebDriver webDriver() {
-		final ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.setBinary("/path/to/google-chrome-stable");
-		chromeOptions.addArguments("--headless");
-		chromeOptions.addArguments("--disable-gpu");
-
-		final DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setJavascriptEnabled(true);
-		dc.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-		
-		System.setProperty("webdriver.chrome.driver","/usr/local/bin/chromedriver");
-
-		return new ChromeDriver(dc);
-	}
 
 	// Scenario1
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
-		driver = webDriver();
+		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+		driver = new ChromeDriver();
 	}
 
 	@When("^Se introduce la direccion web$")
