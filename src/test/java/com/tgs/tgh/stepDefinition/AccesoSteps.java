@@ -12,17 +12,21 @@ import cucumber.api.java.en.When;
 public class AccesoSteps {
 
 	WebDriver driver;
-
-	// Scenario1
-	@Given("^Se abre el navegador$")
-	public void se_abre_el_navegador() throws Throwable {
-		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+	
+	public static WebDriver inicializarWebDriver() {
 		final ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-extensions");
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
-		driver = new ChromeDriver(options);
+		return new ChromeDriver(options);
+	}
+
+	// Scenario1
+	@Given("^Se abre el navegador$")
+	public void se_abre_el_navegador() throws Throwable {
+		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+		driver = inicializarWebDriver();
 	}
 
 	@When("^Se introduce la direccion web$")
@@ -40,7 +44,7 @@ public class AccesoSteps {
 	// Scenario2
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
-		driver = new ChromeDriver();
+		driver = inicializarWebDriver();
 		driver.get("https://the-good-health.herokuapp.com");
 		if (!driver.getCurrentUrl().equals("https://the-good-health.herokuapp.com/"))
 			throw new Exception();
