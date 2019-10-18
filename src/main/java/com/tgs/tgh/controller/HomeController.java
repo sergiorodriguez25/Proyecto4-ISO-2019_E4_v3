@@ -3,7 +3,9 @@ package com.tgs.tgh.controller;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Map;
 
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tgs.tgh.dao.DBBroker;
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
 
 /**
  * Handles requests for the application home page.
@@ -29,6 +33,16 @@ public class HomeController {
 		
 		DBBroker.get().insertOne();
 		return "home";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Map<String, String> jso) throws Exception {
+		String dni = jso.get("dni");
+		String pwd = jso.get("pwd");
+		Usuario usuario = Manager.get().login(dni, pwd);
+		
+		JSONObject resultado = new JSONObject();
+		return "citas";
 	}
 	
 	@RequestMapping(value = "/citas", method = RequestMethod.GET)
