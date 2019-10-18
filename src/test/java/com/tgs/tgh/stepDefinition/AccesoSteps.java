@@ -3,6 +3,7 @@ package com.tgs.tgh.stepDefinition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -15,8 +16,12 @@ public class AccesoSteps {
 	// Scenario1
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
-		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
-		driver = new ChromeDriver();
+		final ChromeOptions options = new ChromeOptions();
+		options.addArguments("--disable-extensions");
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--no-sandbox");
+		driver = new ChromeDriver(options);
 	}
 
 	@When("^Se introduce la direccion web$")
