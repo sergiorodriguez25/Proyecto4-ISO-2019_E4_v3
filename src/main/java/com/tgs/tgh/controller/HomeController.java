@@ -41,11 +41,13 @@ public class HomeController {
 	
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String login(Map<String, String> jso) throws Exception {
+	public String login(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
 		String dni = jso.get("DNI");
+		System.out.println(dni);
 		String pwd = jso.get("password");
-		Usuario usuario = Manager.get().login(dni, pwd);
+		System.out.println(pwd);
+//		Usuario usuario = Manager.get().login(dni, pwd);
 		
 		JSONObject resultado = new JSONObject();
 		return "citas";

@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
     <title>The Good Health</title>
 
@@ -74,31 +73,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
     <script type="text/javascript">
-	$('#logearseBtn').click(function (){
+    jQuery(document).ready(function($) {
+    	$('#logearseBtn').click(function(event) {
+    		event.preventDefault();
+    		enviarDatos();
+    	});
+    });
+    
+	function enviarDatos(){
 		var data = {
-			DNI:$('#inputDNI').val(),
-			password:$('#inputPassword').val(),
+			DNI : $('#inputDNI').val(),
+			password : $('#inputPassword').val(),
 		};
 		var url = "/login";
 		var type = "POST";
-		var success = "OK";
+		var dataType = "json";
+		var timeout = 100000;
+		var success;
+		var xhrFields;
 		var headers = {
-	            'Content-Type' : 'application/json'
+			'Accept' : 'application/json',
+			'Content-Type' : 'application/json; charset=UTF-8'
 		};
-		var xhrFields = {
-				withCredentials: true
-		};
-		data = JSON.stringify(data);
 		
+		data = JSON.stringify(data);
+		console.log(data);
 		$.ajax({
 			type: type,
 			url: url,
 			data: data,
-			headers : headers,
-			xhrFields: xhrFields,
-			success: success
+			dataType : dataType,
+		    timeout : timeout,
+	        headers : headers,
+	        xhrFields: {
+	            withCredentials: true
+	        },
+	        success : function(data) {
+	          console.log("SUCCESS: ", data);
+	        },
+	        error : function(e) {
+	          console.log("ERROR: ", e);
+	        },
+	        done : function(e) {
+	        }
 		});
-	});
+	};
     </script>
   </body>
 </html>
