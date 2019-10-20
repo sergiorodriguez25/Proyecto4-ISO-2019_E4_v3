@@ -7,5 +7,5 @@ import com.tgs.tgh.model.Usuario;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, String> {
-	Usuario findByDNIAndPassword(String DNI, String password);
+	Usuario findByDNIAndPassword(String dni, String pwd);
 }

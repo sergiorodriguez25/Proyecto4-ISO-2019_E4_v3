@@ -35,7 +35,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-		DBBroker.get().insertOne();
+//		DBBroker.get().insertOne();
 		return "home";
 	}
 	
@@ -47,7 +47,7 @@ public class HomeController {
 		System.out.println(dni);
 		String pwd = jso.get("password");
 		System.out.println(pwd);
-//		Usuario usuario = Manager.get().login(dni, pwd);
+		Usuario usuario = Manager.get().login(dni, pwd);
 		
 		JSONObject resultado = new JSONObject();
 		return "citas";

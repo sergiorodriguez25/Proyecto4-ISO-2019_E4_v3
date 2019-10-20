@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.tgs.tgh.dao.UsuarioDAO;
+
 @Document (collection = "Usuarios")
 public class Usuario {
 
@@ -91,6 +93,10 @@ public class Usuario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public static Usuario identify(String userName, String pwd) throws Exception {
+		return UsuarioDAO.login(userName, pwd);
 	}
 
 }
