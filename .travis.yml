@@ -11,8 +11,6 @@ install:
   - sudo chmod +x /usr/local/share/chromedriver
   
 script:
-  - mvn build
-  - java -jar target/tgh-1.0.0-BUILD-SNAPSHOT.jar
   - mvn test
 
 deploy:
