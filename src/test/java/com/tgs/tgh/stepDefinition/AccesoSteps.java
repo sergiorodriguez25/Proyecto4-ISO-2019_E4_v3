@@ -19,7 +19,7 @@ public class AccesoSteps {
 	// Scenario1
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
-		driver = WebDriver.inicializarWebDriver();
+		driver = WebDriver.webDriver();
 	}
 
 	@When("^Se introduce la direccion web$")
@@ -37,7 +37,7 @@ public class AccesoSteps {
 	// Scenario2
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
-		driver = WebDriver.inicializarWebDriver();
+		driver = WebDriver.webDriver();
 		driver.get("https://the-good-health.herokuapp.com");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());

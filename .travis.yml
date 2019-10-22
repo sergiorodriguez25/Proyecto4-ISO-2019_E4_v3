@@ -1,19 +1,12 @@
 language: java
 
-sudo: required
-
-addons: # get google-chrome-stable
-  chrome: stable
-
-install:
-  - wget -N http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -P ~/
-  - unzip ~/chromedriver_linux64.zip -d ~/
-  - rm ~/chromedriver_linux64.zip
-  - sudo mv -f ~/chromedriver /usr/local/share/
-  - sudo chmod +x /usr/local/share/chromedriver
+addons:
+  sauce_connect:
+    username: JaimePerezP
+    access_key: ac5fb3c9-f21a-4952-b319-a11d1d3b7f91
   
 script:
-  - mvn test
+  - mvn verify -B
 
 deploy:
   provider: heroku
