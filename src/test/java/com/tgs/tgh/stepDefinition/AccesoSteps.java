@@ -28,7 +28,7 @@ public class AccesoSteps {
 	@When("^Se introduce la direccion web$")
 	public void se_introduce_la_direccion_web() throws Throwable {
 		driver.get("http://" + driver.getCapabilities().getCapability("username") + ":"
-				+ driver.getCapabilities().getCapability("accessKey") + "@:4445/wd/hub");
+				+ driver.getCapabilities().getCapability("accessKey") + "@localhost:4445/wd/hub");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -43,7 +43,7 @@ public class AccesoSteps {
 	public void estamos_en_la_pagina_principal() throws Throwable {
 		driver = WebDriver.webDriver();
 		driver.get("http://" + driver.getCapabilities().getCapability("username") + ":"
-				+ driver.getCapabilities().getCapability("accessKey") + "@:4445/wd/hub");
+				+ driver.getCapabilities().getCapability("accessKey") + "@localhost:4445/wd/hub");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());
 	}
