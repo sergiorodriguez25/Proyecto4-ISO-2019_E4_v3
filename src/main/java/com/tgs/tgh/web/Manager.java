@@ -35,12 +35,12 @@ public class Manager {
 	
 	public Usuario login(String dni, String pwd) throws Exception {
 		if (dni.length()==0 || pwd.length()==0)
-			throw new Exception("Credenciales inválidas");
+			throw new Exception("Credenciales invalidas");
 		Usuario usuario=UsuarioDAO.login(dni, pwd);
 //		Usuario usuario = usuRepo.findByDNIAndPassword(dni, pwd);
 		System.out.println(usuario);
 		if (usuario==null)
-			throw new Exception("Credenciales inválidas");
+			throw new Exception("Credenciales invalidas");
 		
 		Usuario yaConectado=this.usuarios.get(dni);
 		if (yaConectado!=null) 
