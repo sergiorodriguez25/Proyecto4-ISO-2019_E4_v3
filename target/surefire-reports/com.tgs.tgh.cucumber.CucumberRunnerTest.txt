@@ -1,4 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.018 sec
+Tests run: 8, Failures: 4, Errors: 0, Skipped: 2, Time elapsed: 14.584 sec <<< FAILURE!
+Then Se muestra la pagina principal(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.005 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:38)
+	at ?.Then Se muestra la pagina principal(AccesoTest.feature:8)
+
+Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.005 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:38)
+	at ?.Then Se muestra la pagina principal(AccesoTest.feature:8)
+
+Given Estamos en la pagina principal(Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas)  Time elapsed: 0 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:48)
+	at ?.Given Estamos en la pagina principal(AccesoTest.feature:12)
+
+Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas  Time elapsed: 0 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:48)
+	at ?.Given Estamos en la pagina principal(AccesoTest.feature:12)
+
