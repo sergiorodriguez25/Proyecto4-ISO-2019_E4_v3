@@ -6,7 +6,8 @@ addons:
     access_key: ac5fb3c9-f21a-4952-b319-a11d1d3b7f91
   
 script:
-  - mvn verify -B
+  - mvn spring-boot:run
+  - mvn test
 
 deploy:
   provider: heroku
