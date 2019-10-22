@@ -2,6 +2,9 @@ language: java
 
 addons: # get google-chrome-stable
   chrome: stable
+  sauce_connect:
+    username: JaimePerezP
+    access_key: ac5fb3c9-f21a-4952-b319-a11d1d3b7f91
 
 install:
   - wget -N http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -P ~/

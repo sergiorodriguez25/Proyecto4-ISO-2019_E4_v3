@@ -1,18 +1,17 @@
 package com.tgs.tgh.stepDefinition;
 
+import java.net.URL;
+
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class WebDriver {
 	
-	public static ChromeDriver inicializarWebDriver() {
-		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
-		final ChromeOptions options = new ChromeOptions();
-		options.addArguments("--disable-extensions");
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		options.addArguments("--no-sandbox");
-		return new ChromeDriver(options);
+	public static ChromeDriver inicializarWebDriver() throws Exception {
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4445/"), capabilities);
+		return (ChromeDriver) driver;
 	}
 
 }

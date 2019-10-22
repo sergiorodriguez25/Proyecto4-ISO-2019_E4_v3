@@ -39,7 +39,7 @@ public class AccesoSteps {
 		driver = WebDriver.inicializarWebDriver();
 		driver.get("https://the-good-health.herokuapp.com");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		assertEquals("The Good Health", driver.getTitle());
+		assertEquals("Citas", driver.getTitle());
 	}
 
 	@When("^Se introduce cualquier credencial$")
