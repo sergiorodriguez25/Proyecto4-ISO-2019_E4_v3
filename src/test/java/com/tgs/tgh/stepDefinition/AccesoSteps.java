@@ -6,7 +6,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Value;
 
 import cucumber.api.java.en.Given;
@@ -54,7 +53,7 @@ public class AccesoSteps {
 
 	@Then("^Se muestra la pagina citas$")
 	public void se_muestra_la_pagina_citas() throws Throwable {
-		assertEquals("The Good Health", driver.getTitle());
+		assertEquals("Citas", driver.getTitle());
 		driver.quit();
 	}
 }
