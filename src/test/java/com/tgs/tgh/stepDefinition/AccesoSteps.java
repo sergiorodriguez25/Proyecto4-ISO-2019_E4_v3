@@ -28,7 +28,7 @@ public class AccesoSteps {
 	@When("^Se introduce la direccion web$")
 	public void se_introduce_la_direccion_web() throws Throwable {
 		driver.get(
-				"https://JaimePerezP:ac5fb3c9-f21a-4952-b319-a11d1d3b7f91@ondemand.eu-central-1.saucelabs.com/wd/hub");
+				"https://JaimePerezP:ac5fb3c9-f21a-4952-b319-a11d1d3b7f91@localhost:4445/wd/hub");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -43,7 +43,7 @@ public class AccesoSteps {
 	public void estamos_en_la_pagina_principal() throws Throwable {
 		driver = WebDriver.webDriver();
 		driver.get(
-				"https://JaimePerezP:ac5fb3c9-f21a-4952-b319-a11d1d3b7f91@ondemand.eu-central-1.saucelabs.com/wd/hub");
+				"https://JaimePerezP:ac5fb3c9-f21a-4952-b319-a11d1d3b7f91@localhost:4445/wd/hub");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());
 	}
