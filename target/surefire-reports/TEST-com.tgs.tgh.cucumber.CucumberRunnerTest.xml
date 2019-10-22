@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="4" name="com.tgs.tgh.cucumber.CucumberRunnerTest" time="0.019" errors="0" skipped="2">
+<testsuite tests="8" failures="4" name="com.tgs.tgh.cucumber.CucumberRunnerTest" time="0.009" errors="0" skipped="2">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_161\bin"/>
-    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jre1.8.0_221\bin"/>
+    <property name="java.vm.version" value="25.221-b11"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\Documentos\GitHub\Proyecto4-ISO-2019_E4"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,10 +16,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4"/>
-    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="user.dir" value="E:\Documentos\GitHub\Proyecto4-ISO-2019_E4"/>
+    <property name="java.runtime.version" value="1.8.0_221-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_161\lib\endorsed"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jre1.8.0_221\lib\endorsed"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="C:\Users\jaime\AppData\Local\Temp\"/>
     <property name="line.separator" value="
@@ -27,9 +27,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\jaime\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6673976016693312000.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\jaime\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6696823407576944455.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_161\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\MATLAB\R2016b\runtime\win64;C:\Program Files\MATLAB\R2016b\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\System32\OpenSSH\;C:\Users\jaime\Documents\apache-maven-3.5.4\bin\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\GNAT\2017\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;C:\Users\jaime\AppData\Local\GitHubDesktop\bin;C:\Users\jaime\AppData\Roaming\npm;C:\Users\jaime\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;;C:\Users\jaime\Desktop;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jre1.8.0_221\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_221/bin/server;C:/Program Files/Java/jre1.8.0_221/bin;C:/Program Files/Java/jre1.8.0_221/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\apache-maven-3.6.2\bin;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;C:\Users\jaime\AppData\Local\GitHubDesktop\bin;C:\WINDOWS\System32;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -38,22 +38,22 @@
     <property name="user.timezone" value="Europe/Paris"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="file.encoding" value="Cp1252"/>
-    <property name="user.name" value="jaime"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Jaime"/>
     <property name="java.class.path" value="C:\Users\jaime\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.13.0.20190716-1623\jars\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="C:\Program Files\Java\jre1.8.0_161"/>
+    <property name="java.home" value="C:\Program Files\Java\jre1.8.0_221"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B verify"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="es"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_161"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_161\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_161\lib\resources.jar;C:\Program Files\Java\jre1.8.0_161\lib\rt.jar;C:\Program Files\Java\jre1.8.0_161\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_161\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_161\lib\jce.jar;C:\Program Files\Java\jre1.8.0_161\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_161\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_161\classes"/>
+    <property name="java.version" value="1.8.0_221"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jre1.8.0_221\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jre1.8.0_221\lib\resources.jar;C:\Program Files\Java\jre1.8.0_221\lib\rt.jar;C:\Program Files\Java\jre1.8.0_221\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_221\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_221\lib\jce.jar;C:\Program Files\Java\jre1.8.0_221\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_221\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_221\classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4\EMBEDDED"/>
+    <property name="maven.home" value="E:\Documentos\GitHub\Proyecto4-ISO-2019_E4\EMBEDDED"/>
     <property name="file.separator" value="\"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -61,49 +61,47 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Given Se abre el navegador" time="0.009"/>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Given Se abre el navegador" time="0.002"/>
   <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="When Se introduce la direccion web" time="0"/>
-  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Then Se muestra la pagina principal" time="0.005">
-    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Then Se muestra la pagina principal" time="0.002">
+    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:38)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:36)
 	at ✽.Then Se muestra la pagina principal(AccesoTest.feature:8)
 </failure>
-    <system-out>localhost
-</system-out>
   </testcase>
-  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Scenario: Al acceder a la aplicacion se muestra la pagina principal" time="0.005">
-    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Scenario: Al acceder a la aplicacion se muestra la pagina principal" time="0.003">
+    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:38)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:36)
 	at ✽.Then Se muestra la pagina principal(AccesoTest.feature:8)
 </failure>
   </testcase>
   <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Given Estamos en la pagina principal" time="0">
-    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;
+    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:48)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:46)
 	at ✽.Given Estamos en la pagina principal(AccesoTest.feature:12)
 </failure>
-    <system-err>oct 22, 2019 3:58:38 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFORMACIÓN: Detected dialect: OSS
+    <system-err>oct 22, 2019 5:10:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFORMACI�N: Detected dialect: OSS
 </system-err>
   </testcase>
   <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" time="0">
-    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[localhost]&gt;
+    <failure message="expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[The Good Health]&gt; but was:&lt;[]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:48)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:46)
 	at ✽.Given Estamos en la pagina principal(AccesoTest.feature:12)
 </failure>
   </testcase>
-  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="When Se introduce cualquier credencial" time="0">
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="When Se introduce cualquier credencial" time="0.001">
     <skipped/>
   </testcase>
-  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Then Se muestra la pagina citas" time="0">
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Then Se muestra la pagina citas" time="0.001">
     <skipped/>
   </testcase>
 </testsuite>

@@ -13,9 +13,9 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class AccesoSteps {
-	
+
 	@Value("${server.port}")
-    private int serverPort;
+	private int serverPort;
 
 	RemoteWebDriver driver;
 
@@ -27,7 +27,10 @@ public class AccesoSteps {
 
 	@When("^Se introduce la direccion web$")
 	public void se_introduce_la_direccion_web() throws Throwable {
-		driver.get(String.format("http://localhost:%d/", serverPort));
+		String webPort = System.getenv("PORT");
+		if (webPort == null || webPort.isEmpty())
+			webPort = "8080";
+		driver.get("http://localhost:" + webPort + "/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
@@ -41,7 +44,7 @@ public class AccesoSteps {
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
 		driver = WebDriver.webDriver();
-		driver.get(String.format("http://localhost:%d/", serverPort));
+		driver.get("http://localhost:8080/");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());
 	}
