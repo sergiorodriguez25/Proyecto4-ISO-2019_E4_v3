@@ -8,10 +8,18 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class WebDriver {
 	
-	public static ChromeDriver inicializarWebDriver() throws Exception {
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://localhost:4445/"), capabilities);
-		return (ChromeDriver) driver;
+	public static RemoteWebDriver inicializarWebDriver() throws Exception {
+		String sauceUserName = "JaimePerezP";
+	    String sauceAccessKey = "ac5fb3c9-f21a-4952-b319-a11d1d3b7f91";
+	    
+	    DesiredCapabilities capabilities = new DesiredCapabilities();
+	    capabilities.setCapability("username", sauceUserName);
+	    capabilities.setCapability("accessKey", sauceAccessKey);
+	    capabilities.setCapability("browserName", "Chrome");
+	    capabilities.setCapability("platform", "Windows 10");
+	    capabilities.setCapability("version", "latest");
+
+	    return new RemoteWebDriver(new URL("https://ondemand.eu-central-1.saucelabs.com:443/wd/hub"), capabilities);
 	}
 
 }

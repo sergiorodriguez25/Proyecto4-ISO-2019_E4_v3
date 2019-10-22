@@ -2,14 +2,8 @@ language: java
 
 sudo: required
 
-services:
-  - xvfb
-
 addons: # get google-chrome-stable
   chrome: stable
-  sauce_connect:
-    username: JaimePerezP
-    access_key: ac5fb3c9-f21a-4952-b319-a11d1d3b7f91
 
 install:
   - wget -N http://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip -P ~/
@@ -20,6 +14,7 @@ install:
 
 before_script:
   - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   - rackup  # start a Web server
   - sleep 3 # give Web server some time to bind to sockets, etc

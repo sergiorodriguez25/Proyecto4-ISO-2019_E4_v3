@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -13,7 +14,7 @@ import cucumber.api.java.en.When;
 
 public class AccesoSteps {
 
-	ChromeDriver driver;
+	RemoteWebDriver driver;
 
 	// Scenario1
 	@Given("^Se abre el navegador$")
@@ -39,7 +40,7 @@ public class AccesoSteps {
 		driver = WebDriver.inicializarWebDriver();
 		driver.get("https://the-good-health.herokuapp.com");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		assertEquals("Citas", driver.getTitle());
+		assertEquals("The Good Health", driver.getTitle());
 	}
 
 	@When("^Se introduce cualquier credencial$")
