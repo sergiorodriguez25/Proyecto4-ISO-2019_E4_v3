@@ -15,14 +15,10 @@ install:
   - rm ~/chromedriver_linux64.zip
   - sudo mv -f ~/chromedriver /usr/local/share/
   - sudo chmod +x /usr/local/share/chromedriver
-
-before_script:
-  - "export DISPLAY=:99.0"
-  - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
   
 script:
+  - javac src/main/java/launch/Main.java
+  - java src/main/java/launch/Main
   - mvn test
 
 deploy:
