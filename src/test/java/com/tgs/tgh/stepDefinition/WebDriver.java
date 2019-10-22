@@ -19,7 +19,7 @@ public class WebDriver {
 		capabilities.setCapability("platform", "Windows 10");
 		capabilities.setCapability("version", "latest");
 
-		return new RemoteWebDriver(new URL("http://"+sauceUserName+":"+sauceAccessKey+"@localhost:4445/wd/hub"), capabilities);
+		return new RemoteWebDriver(new URL("https://"+sauceUserName+":"+sauceAccessKey+"@ondemand.eu-central-1.saucelabs.com/wd/hub"), capabilities);
 	}
 
 }
