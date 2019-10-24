@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 4, Skipped: 4, Time elapsed: 1.157 sec <<< FAILURE!
-Given Se abre el navegador(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.007 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 4, Skipped: 4, Time elapsed: 0.984 sec <<< FAILURE!
+Given Se abre el navegador(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
@@ -16,7 +16,7 @@ java.lang.IllegalStateException: The driver executable does not exist: C:\usr\lo
 	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:25)
 	at ?.Given Se abre el navegador(AccesoTest.feature:6)
 
-Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.031 sec  <<< ERROR!
+Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
@@ -30,7 +30,7 @@ java.lang.IllegalStateException: The driver executable does not exist: C:\usr\lo
 	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:25)
 	at ?.Given Se abre el navegador(AccesoTest.feature:6)
 
-Given Estamos en la pagina principal(Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas)  Time elapsed: 0.001 sec  <<< ERROR!
+Given Estamos en la pagina principal(Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
@@ -44,7 +44,7 @@ java.lang.IllegalStateException: The driver executable does not exist: C:\usr\lo
 	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:43)
 	at ?.Given Estamos en la pagina principal(AccesoTest.feature:12)
 
-Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas  Time elapsed: 0.001 sec  <<< ERROR!
+Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
