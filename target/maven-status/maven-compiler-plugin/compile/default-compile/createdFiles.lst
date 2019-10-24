@@ -1,2 +1,5 @@
+launch\Main.class
 com\tgs\tgh\dao\DBBroker$1.class
+com\tgs\tgh\web\Manager.class
 com\tgs\tgh\web\Manager$1.class
+com\tgs\tgh\web\Manager$ManagerHolder.class
