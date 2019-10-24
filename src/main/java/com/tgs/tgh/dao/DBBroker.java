@@ -31,13 +31,6 @@ public class DBBroker<T> {
 	        return SingletonHolder.singleton;
 	    }
 	    
-//	    public void insertOne(){
-//	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
-//	    	Document doc = new Document("Nombre", "Alvaro")
-//	                .append("Apellidos", "Gimenez");
-//	    	collection.insertOne(doc);
-//	    }
-	    
 	    public Usuario loginUser(String dni, String pwd){
 	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
 	    	Document doc = new Document("dni", dni)
@@ -47,5 +40,4 @@ public class DBBroker<T> {
 			return null;
 	    }
 
-		
 }

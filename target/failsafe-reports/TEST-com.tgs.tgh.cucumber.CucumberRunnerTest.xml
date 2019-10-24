@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="8" failures="0" name="com.tgs.tgh.cucumber.CucumberRunnerTest" time="0.042" errors="4" skipped="4">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_191\jre\bin"/>
+    <property name="java.vm.version" value="25.191-b12"/>
+    <property name="shared.loader" value=""/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="tomcat.util.buf.StringCache.byte.enabled" value="true"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4"/>
+    <property name="java.runtime.version" value="1.8.0_191-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_191\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\jaime\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="java.naming.factory.url.pkgs" value="org.apache.naming"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\jaime\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf598702841292308178.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_191\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\MATLAB\R2016b\runtime\win64;C:\Program Files\MATLAB\R2016b\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\WINDOWS\System32\OpenSSH\;C:\Users\jaime\Documents\apache-maven-3.5.4\bin\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\GNAT\2017\bin;C:\Program Files\Java\jdk1.8.0_101\bin;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;C:\Users\jaime\AppData\Local\GitHubDesktop\bin;C:\Users\jaime\AppData\Roaming\npm;C:\Users\jaime\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\jaime\AppData\Local\Microsoft\WindowsApps;;C:\Users\jaime\Desktop;;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\jaime"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="catalina.useNaming" value="true"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="catalina.home" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4\target\tomcat"/>
+    <property name="user.name" value="jaime"/>
+    <property name="java.class.path" value="C:\Users\jaime\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.13.0.20190716-1623\jars\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.naming.factory.initial" value="org.apache.naming.java.javaURLContextFactory"/>
+    <property name="package.definition" value="sun.,java.,org.apache.catalina.,org.apache.coyote.,org.apache.tomcat.,org.apache.jasper."/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_191\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B verify"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_191"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_191\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_191\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_191\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_191\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="server.loader" value=""/>
+    <property name="maven.home" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4\EMBEDDED"/>
+    <property name="catalina.base" value="C:\Users\jaime\Documents\GitHub\Proyecto4-ISO-2019_E4\target\tomcat"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="common.loader" value="${catalina.home}/lib,${catalina.home}/lib/*.jar"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="package.access" value="sun.,org.apache.catalina.,org.apache.coyote.,org.apache.tomcat.,org.apache.jasper.,sun.beans."/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Given Se abre el navegador" time="0.008">
+    <error message="The driver executable does not exist: C:\usr\local\share\chromedriver" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:132)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:156)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:346)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:91)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:25)
+	at ✽.Given Se abre el navegador(AccesoTest.feature:6)
+</error>
+  </testcase>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Scenario: Al acceder a la aplicacion se muestra la pagina principal" time="0.009">
+    <error message="The driver executable does not exist: C:\usr\local\share\chromedriver" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:132)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:156)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:346)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:91)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:25)
+	at ✽.Given Se abre el navegador(AccesoTest.feature:6)
+</error>
+  </testcase>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="When Se introduce la direccion web" time="0.009">
+    <skipped/>
+  </testcase>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Then Se muestra la pagina principal" time="0.009">
+    <skipped/>
+  </testcase>
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Given Estamos en la pagina principal" time="0.001">
+    <error message="The driver executable does not exist: C:\usr\local\share\chromedriver" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:132)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:156)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:346)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:91)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:43)
+	at ✽.Given Estamos en la pagina principal(AccesoTest.feature:12)
+</error>
+  </testcase>
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" time="0.001">
+    <error message="The driver executable does not exist: C:\usr\local\share\chromedriver" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:137)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:132)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:156)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:346)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:91)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.estamos_en_la_pagina_principal(AccesoSteps.java:43)
+	at ✽.Given Estamos en la pagina principal(AccesoTest.feature:12)
+</error>
+  </testcase>
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="When Se introduce cualquier credencial" time="0.002">
+    <skipped/>
+  </testcase>
+  <testcase classname="Scenario: Al introducir cualquier credencial en el login se muestra la pagina de citas" name="Then Se muestra la pagina citas" time="0.003">
+    <skipped/>
+  </testcase>
+</testsuite>
