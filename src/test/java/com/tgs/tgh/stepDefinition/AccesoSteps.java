@@ -14,9 +14,6 @@ import cucumber.api.java.en.When;
 
 public class AccesoSteps {
 
-	@Value("${server.port}")
-	private int serverPort;
-
 	ChromeDriver driver;
 
 	// Scenario1
@@ -37,23 +34,4 @@ public class AccesoSteps {
 		driver.quit();
 	}
 
-	// Scenario2
-	@Given("^Estamos en la pagina principal$")
-	public void estamos_en_la_pagina_principal() throws Throwable {
-		driver = WebDriver.webDriver();
-		driver.get("http://localhost:8080");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		assertEquals("The Good Health", driver.getTitle());
-	}
-
-	@When("^Se introduce cualquier credencial$")
-	public void se_introduce_cualquier_credencial() throws Throwable {
-		driver.findElement(By.className("btn")).click();
-	}
-
-	@Then("^Se muestra la pagina citas$")
-	public void se_muestra_la_pagina_citas() throws Throwable {
-		assertEquals("Citas", driver.getTitle());
-		driver.quit();
-	}
 }
