@@ -1,1 +1,1 @@
-web: sh target/bin/webapp
+war:deploy /target/tgh-1.0.0-BUILD-SNAPSHOT.war
