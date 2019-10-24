@@ -6,7 +6,6 @@
 	<groupId>com.tgs</groupId>
 	<artifactId>tgh</artifactId>
 	<name>TheGoodHealth</name>
-	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
