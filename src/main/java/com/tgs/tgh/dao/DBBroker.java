@@ -26,12 +26,5 @@ public class DBBroker<T> {
 	    public static DBBroker get(){
 	        return SingletonHolder.singleton;
 	    }
-	    
-	    public void insertOne(){
-	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
-	    	Document doc = new Document("Nombre", "Alvaro")
-	                .append("Apellidos", "Gimenez");
-	    	collection.insertOne(doc);
-	    }
 	
 }
