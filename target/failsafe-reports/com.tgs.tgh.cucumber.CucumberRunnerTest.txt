@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 4, Skipped: 4, Time elapsed: 1.04 sec <<< FAILURE!
-Given Se abre el navegador(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.016 sec  <<< ERROR!
+Tests run: 8, Failures: 0, Errors: 4, Skipped: 4, Time elapsed: 0.7 sec <<< FAILURE!
+Given Se abre el navegador(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
@@ -16,7 +16,7 @@ java.lang.IllegalStateException: The driver executable does not exist: C:\usr\lo
 	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:25)
 	at ?.Given Se abre el navegador(AccesoTest.feature:6)
 
-Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.016 sec  <<< ERROR!
+Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0 sec  <<< ERROR!
 java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
