@@ -1,4 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.49 sec
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 2, Time elapsed: 1.42 sec <<< FAILURE!
+Given Se abre el navegador(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.009 sec  <<< ERROR!
+java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:22)
+	at ?.Given Se abre el navegador(AccesoTest.feature:6)
+
+Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.012 sec  <<< ERROR!
+java.lang.IllegalStateException: The driver executable does not exist: C:\usr\local\share\chromedriver
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
+	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
+	at org.openqa.selenium.remote.service.DriverService.findExecutable(DriverService.java:141)
+	at org.openqa.selenium.chrome.ChromeDriverService.access$000(ChromeDriverService.java:35)
+	at org.openqa.selenium.chrome.ChromeDriverService$Builder.findDefaultExecutable(ChromeDriverService.java:159)
+	at org.openqa.selenium.remote.service.DriverService$Builder.build(DriverService.java:355)
+	at org.openqa.selenium.chrome.ChromeDriverService.createDefaultService(ChromeDriverService.java:94)
+	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:157)
+	at com.tgs.tgh.stepDefinition.WebDriver.webDriver(WebDriver.java:17)
+	at com.tgs.tgh.stepDefinition.AccesoSteps.se_abre_el_navegador(AccesoSteps.java:22)
+	at ?.Given Se abre el navegador(AccesoTest.feature:6)
+
