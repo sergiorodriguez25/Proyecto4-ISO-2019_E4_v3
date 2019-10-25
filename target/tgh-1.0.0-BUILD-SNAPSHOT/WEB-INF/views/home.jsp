@@ -42,7 +42,7 @@
     	<!--  <div class="col-lg-4"> -->
     	<div class="text-center">
     	
-			<a href='/'><img src='http://s2.subirimagenes.com/otros/previo/thump_9911960iconotgh.jpg' alt='subir imagenes' border='0' ></a>    	</div>
+			<a><img src='http://s2.subirimagenes.com/otros/previo/thump_9911960iconotgh.jpg' alt='subir imagenes' border='0' ></a>    	</div>
         </div>
 	</div>
     <div class="container">
@@ -53,6 +53,9 @@
         <input type="email" id="inputDNI" name = "dni" class="form-control" placeholder="DNI" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Contraseña" required>
+        <div>
+        <label id="labelMalLogin"></label>
+        </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Recordar contraseña
@@ -85,15 +88,12 @@
 			DNI : $('#inputDNI').val(),
 			password : $('#inputPassword').val(),
 		};
-		var url = "/login";
+		var url = "/home";
 		var type = "POST";
-		var dataType = "json";
-		var timeout = 100000;
 		var success;
 		var xhrFields;
 		var headers = {
-			'Accept' : 'application/json',
-			'Content-Type' : 'application/json; charset=UTF-8'
+			'Content-Type' : 'application/json'
 		};
 		
 		data = JSON.stringify(data);
@@ -102,22 +102,29 @@
 			type: type,
 			url: url,
 			data: data,
-			dataType : dataType,
-		    timeout : timeout,
 	        headers : headers,
 	        xhrFields: {
 	            withCredentials: true
 	        },
-	        success : function(data) {
-	          console.log("SUCCESS: ", data);
-	        },
-	        error : function(e) {
-	          console.log("ERROR: ", e);
-	        },
-	        done : function(e) {
-	        }
+	        success : loginOK,
+	        error : loginError
 		});
 	};
+	
+	function loginOK() {
+        console.log("Credenciales correctas");
+        var forma = document.forms[0];
+        forma.action="/citas";
+        forma.submit(); 
+    }
+	
+	function loginError() {
+        console.log("Credenciales incorrectas");
+        $('#labelMalLogin').html("Credenciales inválidas. Por favor vuelva a introducir los datos");
+        $('#labelMalLogin').css("color", "red");
+        $('#inputDNI').val("");
+        $('#inputPassword').val("");
+    }
     </script>
   </body>
 </html>

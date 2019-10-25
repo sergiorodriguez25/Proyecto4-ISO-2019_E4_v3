@@ -60,6 +60,8 @@ public class DBBroker<T> {
 						bso.get("Email").asString().getValue()
 				);
 				return user;
+				
 			}
-
+			return null;
+	    }
 }
