@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 31.822 s <<< FAILURE! - in com.tgs.tgh.cucumber.CucumberRunnerTest
+Then Se muestra la pagina principal(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.009 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+
+Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.009 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
+

@@ -1,18 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.tgs.tgh.cucumber.CucumberRunnerTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 14.654 sec <<< FAILURE!
-Then Se muestra la pagina principal(Scenario: Al acceder a la aplicacion se muestra la pagina principal)  Time elapsed: 0.006 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:33)
-	at ?.Then Se muestra la pagina principal(AccesoTest.feature:8)
-
-Scenario: Al acceder a la aplicacion se muestra la pagina principal  Time elapsed: 0.007 sec  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<[The Good Health]> but was:<[localhost]>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.tgs.tgh.stepDefinition.AccesoSteps.se_muestra_la_pagina_principal(AccesoSteps.java:33)
-	at ?.Then Se muestra la pagina principal(AccesoTest.feature:8)
-
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.927 sec
