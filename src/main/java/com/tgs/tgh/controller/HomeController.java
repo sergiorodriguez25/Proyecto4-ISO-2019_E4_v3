@@ -2,6 +2,7 @@ package com.tgs.tgh.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -40,17 +41,19 @@ public class HomeController {
 	}
 	
 	@CrossOrigin(origins = "*", allowCredentials = "true")
-	@PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String login(@RequestBody Map<String, String> jso) throws Exception {
+	@PostMapping(value = "/home", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Usuario login(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
 		String dni = jso.get("DNI");
 		System.out.println(dni);
 		String pwd = jso.get("password");
 		System.out.println(pwd);
 		Usuario usuario = Manager.get().login(dni, pwd);
-		
-		JSONObject resultado = new JSONObject();
-		return "citas";
+		HashMap<String, Object> resultado=new HashMap<String, Object>();
+		resultado.put("type", "OK");
+		resultado.put("resultado", usuario);
+		System.out.println(resultado);
+		return usuario;
 	}
 	
 	@RequestMapping(value = "/citas", method = RequestMethod.GET)

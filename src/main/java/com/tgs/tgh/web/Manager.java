@@ -37,8 +37,6 @@ public class Manager {
 		if (dni.length()==0 || pwd.length()==0)
 			throw new Exception("Credenciales invalidas");
 		Usuario usuario=UsuarioDAO.login(dni, pwd);
-//		Usuario usuario = usuRepo.findByDNIAndPassword(dni, pwd);
-		System.out.println(usuario);
 		if (usuario==null)
 			throw new Exception("Credenciales invalidas");
 		

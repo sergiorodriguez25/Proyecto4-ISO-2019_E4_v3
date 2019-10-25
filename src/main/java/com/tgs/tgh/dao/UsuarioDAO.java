@@ -10,8 +10,10 @@ import com.tgs.tgh.model.Usuario;
 public class UsuarioDAO {
 
 	public static Usuario login(String dni, String pwd) throws Exception {
-		DBBroker.get().loginUser(dni, pwd);
-		Usuario usu = new Usuario();
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("Password", new BsonString(pwd));
+		Usuario usu = DBBroker.get().loginUser(criterion);
 		return usu;
 	}
 }

@@ -1,5 +1,9 @@
 package com.tgs.tgh.dao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 import org.bson.Document;
@@ -38,12 +42,32 @@ public class DBBroker<T> {
 //	    	collection.insertOne(doc);
 //	    }
 	    
-	    public Usuario loginUser(String dni, String pwd){
-	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
-	    	Document doc = new Document("dni", dni)
-	                .append("nombre", pwd);
-	    	System.out.println(collection.find());
-	        FindIterable<Document> iterable = db.getCollection("Usuarios").find();
+	    public Usuario loginUser(BsonDocument criterion) throws ParseException{
+	    	MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	System.out.println("criterion: " + criterion);
+	    	FindIterable<BsonDocument> iterator = collection.find(criterion);
+	    	System.out.println("iterator: " + iterator);
+	    	if (iterator==null)
+				return null;
+			BsonDocument bso=iterator.first();
+			System.out.println("bso: " + bso);
+			if(bso!=null) {
+				long cp = bso.get("CP").asInt32().getValue();
+				int codpost=(int) cp;
+				Usuario user = new Usuario(
+						bso.get("DNI").asString().getValue(), 
+						bso.get("Password").asString().getValue(),
+						bso.get("Nombre").asString().getValue(),
+						bso.get("Apellidos").asString().getValue(),
+						bso.get("FNac").asString().getValue(),
+						bso.get("Domicilio").asString().getValue(),
+						bso.get("Poblacion").asString().getValue(),
+						codpost,
+						bso.get("Telefono").asInt32().getValue(),
+						bso.get("Email").asString().getValue()
+				);
+				return user;
+			}
 			return null;
 	    }
 
