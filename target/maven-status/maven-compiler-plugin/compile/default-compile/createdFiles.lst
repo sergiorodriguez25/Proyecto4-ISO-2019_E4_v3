@@ -1,0 +1,11 @@
+com\tgs\tgh\model\Usuario.class
+launch\Main.class
+com\tgs\tgh\dao\DBBroker$SingletonHolder.class
+com\tgs\tgh\dao\DBBroker$1.class
+com\tgs\tgh\web\Manager.class
+com\tgs\tgh\web\Manager$1.class
+com\tgs\tgh\controller\HomeController.class
+com\tgs\tgh\web\Manager$ManagerHolder.class
+com\tgs\tgh\dao\DBBroker.class
+com\tgs\tgh\dao\UsuarioDAO.class
+com\tgs\tgh\dao\UsuarioRepository.class

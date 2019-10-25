@@ -35,13 +35,6 @@ public class DBBroker<T> {
 	        return SingletonHolder.singleton;
 	    }
 	    
-//	    public void insertOne(){
-//	    	MongoCollection<Document> collection = db.getCollection("Usuarios");
-//	    	Document doc = new Document("Nombre", "Alvaro")
-//	                .append("Apellidos", "Gimenez");
-//	    	collection.insertOne(doc);
-//	    }
-	    
 	    public Usuario loginUser(BsonDocument criterion) throws ParseException{
 	    	MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 	    	System.out.println("criterion: " + criterion);
@@ -68,8 +61,5 @@ public class DBBroker<T> {
 				);
 				return user;
 			}
-			return null;
-	    }
 
-		
 }
