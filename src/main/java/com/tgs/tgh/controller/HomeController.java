@@ -71,10 +71,25 @@ public class HomeController {
 	
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/registro", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public String registro(@RequestBody Map<String, String> jso) {
+	public Usuario registro(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
+		String dni = jso.get("DNI");
+		String pwd = jso.get("password");
+		String nombre = jso.get("nombre");
+		String apellidos = jso.get("apellidos");
+		String nacimiento = jso.get("nacimiento");
+		String domicilio = jso.get("domicilio");
+		String poblacion = jso.get("poblacion");
+		String cp = jso.get("cp");
+		String telefono = jso.get("telefono");
+		String email = jso.get("email");
 		
-		return null;
+		boolean existeDNI = Manager.get().comprobarSiExisteDNI(dni);
+		if(existeDNI) throw new Exception("El DNI ya existe en la Base de Datos");
+		else {
+			Usuario usuario = Manager.get().registro(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp, telefono, email);
+			return usuario;
+		}
 		
 	}
 	

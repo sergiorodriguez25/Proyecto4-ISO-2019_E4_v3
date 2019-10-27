@@ -46,5 +46,17 @@ public class Manager {
 		this.usuarios.put(dni, usuario);
 		return usuario;
 	}
+	
+	public Usuario registro(String dni, String pwd, String nombre, String apellidos, String nacimiento,
+			String domicilio, String poblacion, String cp, String telefono, String email) {
+		//Controlar que el dni no exista en la bd
+		Usuario usuario=UsuarioDAO.registro(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp, telefono, email);
+		return usuario;
+	}
+
+	public boolean comprobarSiExisteDNI(String dni) {
+		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
+		return comprobar;
+	}
 
 }

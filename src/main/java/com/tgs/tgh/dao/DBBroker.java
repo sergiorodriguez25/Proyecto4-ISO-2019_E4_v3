@@ -64,4 +64,35 @@ public class DBBroker<T> {
 			}
 			return null;
 	    }
+
+		public Usuario regitrarUser(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	collection.insertOne(criterion);
+	    	
+//	    	long cp = (int) criterion.get("CP").asInt32().getValue();
+//	    	
+//	    	Usuario user = new Usuario(
+//	    			criterion.getString("DNI").getValue(),
+//	    			criterion.getString("Password").getValue(),
+//	    			criterion.getString("Nombre").getValue(),
+//	    			criterion.getString("Apellidos").getValue(),
+//	    			criterion.getString("FNac").getValue(),
+//	    			criterion.getString("Domicilio").getValue(),
+//	    			criterion.getString("Poblacion").getValue(),
+//	    			(int) cp,
+//	    			criterion.getString("Telefono").asInt32().getValue(),
+//	    			criterion.getString("Email").getValue()
+//	    	);
+	    	
+	    	return null;
+		}
+
+		public boolean comprobarDNIEnBD(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	FindIterable<BsonDocument> iterator = collection.find(criterion);
+	    	if (iterator==null)
+				return false;
+	    	
+			return true;
+		}
 }

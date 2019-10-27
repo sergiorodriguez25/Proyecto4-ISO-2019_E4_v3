@@ -50,7 +50,7 @@
       <form class="form-signin">
         <h2 class="form-signin-heading">Introduce tus datos para iniciar sesión</h2>
         <label for="inputDNI" class="sr-only">DNI</label>
-        <input type="email" id="inputDNI" name = "dni" class="form-control" placeholder="DNI" required autofocus>
+        <input type="text" id="inputDNI" name = "dni" class="form-control" placeholder="DNI" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" name = "password" class="form-control" placeholder="Contraseña" required>
         <div>

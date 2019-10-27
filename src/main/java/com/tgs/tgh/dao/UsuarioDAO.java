@@ -16,4 +16,29 @@ public class UsuarioDAO {
 		Usuario usu = DBBroker.get().loginUser(criterion);
 		return usu;
 	}
+
+	public static Usuario registro(String dni, String pwd, String nombre, String apellidos, String nacimiento,
+			String domicilio, String poblacion, String cp, String telefono, String email) {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("Password", new BsonString(pwd));
+		criterion.append("Nombre", new BsonString(nombre));
+		criterion.append("Apellidos", new BsonString(apellidos));
+		criterion.append("FNac", new BsonString(nacimiento));
+		criterion.append("Domicilio", new BsonString(domicilio));
+		criterion.append("Poblacion", new BsonString(poblacion));
+		criterion.append("CP", new BsonString(cp));
+		criterion.append("Telefono", new BsonString(telefono));
+		criterion.append("Email", new BsonString(email));
+		
+		Usuario usu = DBBroker.get().regitrarUser(criterion);
+		return usu;
+	}
+
+	public static boolean comprobarDNI(String dni) {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		boolean comprobar = DBBroker.get().comprobarDNIEnBD(criterion);
+		return comprobar;
+	}
 }
