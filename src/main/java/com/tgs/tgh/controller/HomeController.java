@@ -69,19 +69,19 @@ public class HomeController {
 		return "citas";
 	}
 	
-	@RequestMapping(value = "/registro", method = RequestMethod.GET)
-	public String registro(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/registro", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public String registro(@RequestBody Map<String, String> jso) {
+		System.out.println(jso);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		return null;
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	}
+	
+	@RequestMapping(value = "/registro",method = RequestMethod.GET)
+	public String registro() {
 		
 		return "registro";
 	}
-
 	
 }

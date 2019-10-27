@@ -52,7 +52,6 @@ public class RegisterSteps {
 		elementEmail.sendKeys("prueba@prueba.com");
 		elementPwd.sendKeys("prueba");
 		elementPwdRepe.sendKeys("prueba");
-		
 	}
 
 	@When("^Se pulsa el boton$")
@@ -67,4 +66,42 @@ public class RegisterSteps {
 	    assertEquals("Citas", driver.getTitle());
 	    driver.quit();
 	}
+
+	@When("^Se introducen todos los datos existentes$")
+	public void se_introducen_todos_los_datos_existentes() throws Throwable {
+		WebElement elementDNI, elementNombre, elementApellidos, elementFecha, elementDomicilio,
+		elementPoblacion, elementCP, elementTelefono, elementEmail, elementPwd, elementPwdRepe;
+		
+		elementDNI = driver.findElement(By.id("dni"));
+		elementNombre = driver.findElement(By.id("nombre"));
+		elementApellidos = driver.findElement(By.id("apellidos"));
+		elementFecha = driver.findElement(By.id("nacimiento"));
+		elementDomicilio = driver.findElement(By.id("domicilio"));
+		elementPoblacion = driver.findElement(By.id("poblacion"));
+		elementCP = driver.findElement(By.id("cp"));
+		elementTelefono = driver.findElement(By.id("telefono"));
+		elementEmail = driver.findElement(By.id("email"));
+		elementPwd = driver.findElement(By.id("password1"));
+		elementPwdRepe= driver.findElement(By.id("password2"));
+		
+		elementDNI.sendKeys("00000000Z");
+		elementNombre.sendKeys("Prueba");
+		elementApellidos.sendKeys("Prueba");
+		elementFecha.sendKeys("26/10/1998");
+		elementDomicilio.sendKeys("Calle Prueba");
+		elementPoblacion.sendKeys("Ciudad Real");
+		elementCP.sendKeys("13003");
+		elementTelefono.sendKeys("600000000");
+		elementEmail.sendKeys("prueba@prueba.com");
+		elementPwd.sendKeys("prueba");
+		elementPwdRepe.sendKeys("prueba");
+	}
+
+	@Then("^El input dni se vacia$")
+	public void el_input_dni_se_vacia() throws Throwable {
+		WebElement elementDNI = driver.findElement(By.id("inputDNI"));
+		assertEquals("", elementDNI.getText());
+		driver.quit();
+	}
+
 }

@@ -7,3 +7,10 @@ Feature: Comprobar el correcto funcionamiento del registro de un usuario
     When Se introducen todos los datos
     And Se pulsa el boton
     Then Se abre la pagina de citas
+
+	@Scenario2
+  Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina
+    Given Estamos en la pagina de registro
+    When Se introducen todos los datos existentes
+    And Se pulsa el boton
+    Then El input dni se vacia

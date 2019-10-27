@@ -211,7 +211,7 @@
         
         <div class="mb-3">
           <label for="telefono">Teléfono<span class="text-muted"></span></label>
-          <input type="telefono" class="form-control" id="email" placeholder="">
+          <input type="telefono" class="form-control" id="telefono" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
@@ -227,7 +227,7 @@
         
         <div class="mb-3">
           <label for="password1">Contraseña<span class="text-muted"></span></label>
-          <input type="contraseña1" class="form-control" id="email" placeholder="">
+          <input type="contraseña1" class="form-control" id="password1" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
@@ -235,7 +235,7 @@
         
         <div class="mb-3">
           <label for="password2">Repita la contraseña<span class="text-muted"></span></label>
-          <input type="contraseña2" class="form-control" id="email" placeholder="">
+          <input type="contraseña2" class="form-control" id="password2" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
@@ -255,12 +255,64 @@
   
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript">
     
+    </script>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    	$('#registrarUsuario').click(function(event) {
+    		event.preventDefault();
+    		enviarDatos();
+    	});
+    });
+    
+	function enviarDatos(){
+		var data = {
+			nombre : $('#nombre').val(),
+			apellidos : $('#apellidos').val(),
+			DNI : $('#dni').val(),
+			nacimiento : $('#fecha_ini').val(),
+			domicilio : $('#domicilio').val(),
+			poblacion : $('#poblacion').val(),
+			cp : $('#cp').val(),
+			telefono : $('#telefono').val(),
+			email : $('#email').val(),
+			password : $('#password1').val(),
+			
+		};
+		var url = "/registro";
+		var type = "POST";
+		var success;
+		var xhrFields;
+		var headers = {
+			'Content-Type' : 'application/json'
+		};
+		
+		data = JSON.stringify(data);
+		console.log(data);
+		$.ajax({
+			type: type,
+			url: url,
+			data: data,
+	        headers : headers,
+	        xhrFields: {
+	            withCredentials: true
+	        },
+	        success : RegisterOK
+		});
+	};
+	
+	function RegisterOK() {
+        console.log("Registro completado");
+        var forma = document.forms[0];
+        forma.action="/citas";
+        forma.submit(); 
+    }
     </script>
   	<script>
 
