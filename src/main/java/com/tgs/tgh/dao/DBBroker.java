@@ -67,7 +67,9 @@ public class DBBroker<T> {
 
 		public Usuario regitrarUser(BsonDocument criterion) {
 			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-	    	collection.insertOne(criterion);
+	    	System.out.println(criterion.getString("DNI").getValue());
+			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
+	    		collection.insertOne(criterion);
 	    	
 //	    	long cp = (int) criterion.get("CP").asInt32().getValue();
 //	    	
@@ -90,7 +92,8 @@ public class DBBroker<T> {
 		public boolean comprobarDNIEnBD(BsonDocument criterion) {
 			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 	    	FindIterable<BsonDocument> iterator = collection.find(criterion);
-	    	if (iterator==null)
+	    	BsonDocument bso=iterator.first();
+	    	if (bso==null)
 				return false;
 	    	
 			return true;

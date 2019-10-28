@@ -235,7 +235,7 @@
     					|| $('#domicilio').val()=="" || $('#poblacion').val()==""
     						|| $('#cp').val()=="" || $('#telefono').val()==""
     							|| $('#email').val()=="" || $('#password').val()==""){
-    			window.alert("Tiene que rellenar todos los campos.");
+    			alert("Tiene que rellenar todos los campos.");
     		}
     		else {
     			event.preventDefault();

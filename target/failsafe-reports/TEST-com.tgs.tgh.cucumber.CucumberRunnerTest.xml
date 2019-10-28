@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="24" failures="0" name="com.tgs.tgh.cucumber.CucumberRunnerTest" time="0.065" errors="4" skipped="4">
+<testsuite tests="24" failures="0" name="com.tgs.tgh.cucumber.CucumberRunnerTest" time="0.005" errors="0" skipped="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -19,7 +19,7 @@
     <property name="user.language" value="es"/>
     <property name="java.naming.factory.initial" value="org.apache.naming.java.javaURLContextFactory"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
-    <property name="classworlds.conf" value="C:\Users\jorge\eclipse-workspace-Maria\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4465875981301531924.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\jorge\eclipse-workspace-Maria\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf1848233348816506457.tmp"/>
     <property name="java.version" value="1.8.0_144"/>
     <property name="java.util.logging.manager" value="org.apache.juli.ClassLoaderLogManager"/>
     <property name="user.timezone" value="Europe/Paris"/>
@@ -78,7 +78,7 @@
     <property name="tomcat.maven.http.port" value="8080"/>
     <property name="java.specification.version" value="1.8"/>
   </properties>
-  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Given Se abre el navegador" time="0.004"/>
+  <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Given Se abre el navegador" time="0.002"/>
   <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="When Se introduce la direccion web" time="0"/>
   <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Then Se muestra la pagina principal" time="0"/>
   <testcase classname="Scenario: Al acceder a la aplicacion se muestra la pagina principal" name="Scenario: Al acceder a la aplicacion se muestra la pagina principal" time="0.001"/>
@@ -86,168 +86,20 @@
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" name="When Se introducen las credenciales invalidas" time="0"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" name="And Se pulsa el boton de iniciar sesion" time="0"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" name="Then Los input se vacian" time="0"/>
-  <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" name="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" time="0"/>
+  <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" name="Scenario: Al introducir las credenciales y pulsar el boton de login, son incorrectas y no cambia de pagina" time="0.001"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="Given Estamos en la pagina principal" time="0"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="When Se introducen las credenciales validas" time="0"/>
-  <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="And Se pulsa el boton de iniciar sesion" time="0"/>
+  <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="And Se pulsa el boton de iniciar sesion" time="0.001"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="Then Se abre la pagina de citas" time="0"/>
   <testcase classname="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" name="Scenario: Al introducir las credenciales y pulsar el boton de login, son correctas y se muestra la pagina de citas" time="0"/>
   <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="Given Estamos en la pagina de registro" time="0"/>
-  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="When Se introducen todos los datos" time="0.005">
-    <error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: b171a017ca6dae8c0df17211598444eb
-*** Element info: {Using=id, value=nacimiento}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: b171a017ca6dae8c0df17211598444eb
-*** Element info: {Using=id, value=nacimiento}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.tgs.tgh.stepDefinition.RegisterSteps.se_introducen_todos_los_datos(RegisterSteps.java:35)
-	at ✽.When Se introducen todos los datos(RegisterTest.feature:7)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" time="0.006">
-    <error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: b171a017ca6dae8c0df17211598444eb
-*** Element info: {Using=id, value=nacimiento}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60880}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: b171a017ca6dae8c0df17211598444eb
-*** Element info: {Using=id, value=nacimiento}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.tgs.tgh.stepDefinition.RegisterSteps.se_introducen_todos_los_datos(RegisterSteps.java:35)
-	at ✽.When Se introducen todos los datos(RegisterTest.feature:7)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="And Se pulsa el boton" time="0.006">
-    <skipped/>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="Then Se abre la pagina de citas" time="0.006">
-    <skipped/>
-  </testcase>
+  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="When Se introducen todos los datos" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="And Se pulsa el boton" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="Then Se va a la pagina de citas" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" name="Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado" time="0"/>
   <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="Given Estamos en la pagina de registro" time="0"/>
-  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="When Se introducen todos los datos" time="0.001">
-    <error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60923}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6d32419b49ee3d31393068429205b75c
-*** Element info: {Using=id, value=nacimiento}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60923}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6d32419b49ee3d31393068429205b75c
-*** Element info: {Using=id, value=nacimiento}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.tgs.tgh.stepDefinition.RegisterSteps.se_introducen_todos_los_datos(RegisterSteps.java:35)
-	at ✽.When Se introducen todos los datos(RegisterTest.feature:14)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" time="0.012">
-    <error message="no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60923}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6d32419b49ee3d31393068429205b75c
-*** Element info: {Using=id, value=nacimiento}" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#nacimiento&quot;}
-  (Session info: chrome=77.0.3865.120)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;LAPTOP-MNCEEUGJ&apos;, ip: &apos;192.168.1.29&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_144&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.120, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\jorge\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60923}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6d32419b49ee3d31393068429205b75c
-*** Element info: {Using=id, value=nacimiento}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at com.tgs.tgh.stepDefinition.RegisterSteps.se_introducen_todos_los_datos(RegisterSteps.java:35)
-	at ✽.When Se introducen todos los datos(RegisterTest.feature:14)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="And Se pulsa el boton" time="0.012">
-    <skipped/>
-  </testcase>
-  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="Then El input dni se vacia" time="0.012">
-    <skipped/>
-  </testcase>
+  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="When Se introducen todos los datos existentes" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="And Se pulsa el boton" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="Then Aparece un alert" time="0"/>
+  <testcase classname="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" name="Scenario: Al introducir los datos de un usuario existente y pulsar el boton de registrarse, no cambia de pagina" time="0"/>
 </testsuite>
