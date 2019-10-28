@@ -104,6 +104,7 @@
             <div class="invalid-feedback">
               Información necesaria.
             </div>
+            <label id="labelNombreMal"></label>
           </div>
           <div class="col-md-6 mb-3">
             <label for="apellidos">Apellidos</label>
@@ -111,6 +112,7 @@
             <div class="invalid-feedback">
               Información necesaria.
             </div>
+            <label id="labelApellidosMal"></label>
           </div>
         </div>
         
@@ -120,6 +122,7 @@
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelDNIMal"></label>
         </div>
         
         <div class="mb-3">
@@ -128,6 +131,7 @@
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelFechaMal"></label>
         </div>
         
         <div class="mb-3">
@@ -136,6 +140,7 @@
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelDomicilioMal"></label>
         </div>
         
         <div class="row">
@@ -199,6 +204,7 @@
             <div class="invalid-feedback">
               Información necesaria.
             </div>
+            <label id="labelPoblacionMal"></label>
           </div>
           <div class="col-md-6 mb-3">
             <label for="cp">Código postal</label>
@@ -206,15 +212,17 @@
             <div class="invalid-feedback">
               Información necesaria.
             </div>
+            <label id="labelCpMal"></label>
           </div>
         </div>
         
         <div class="mb-3">
           <label for="telefono">Teléfono<span class="text-muted"></span></label>
-          <input type="telefono" class="form-control" id="email" placeholder="">
+          <input type="telefono" class="form-control" id="telefono" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelTelefonoMal"></label>
         </div>
         
         <div class="mb-3">
@@ -223,26 +231,30 @@
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelEmailMal"></label>
         </div>
         
         <div class="mb-3">
           <label for="contraseña1">Contraseña<span class="text-muted"></span></label>
-          <input type="contraseña1" class="form-control" id="email" placeholder="">
+          <input type="password" class="form-control" id="contraseña" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelContraseñaMal"></label>
         </div>
         
         <div class="mb-3">
           <label for="contraseña2">Repita la contraseña<span class="text-muted"></span></label>
-          <input type="contraseña2" class="form-control" id="email" placeholder="">
+          <input type="password" class="form-control" id="RepetirContraseña" placeholder="">
           <div class="invalid-feedback">
             Información necesaria.
           </div>
+          <label id="labelRepetirContraseñaMal"></label>
         </div>
 
         <hr class="mb-4">
-        <a href = "/citas" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
+        <!-- <a href = "/citas" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a> -->
+        <a id="EnviarBtn" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
       </form>
     </div>
   </div>
@@ -272,5 +284,218 @@
     });
 
   </script>
+ 
+  <script type="text/javascript">
+      	$('#EnviarBtn').click(function(event) {
+    		comprobarNombre(document.getElementById("nombre").value);
+    		comprobarApellidos(document.getElementById("apellidos").value);
+    		comprobarDNI(document.getElementById("dni").value)
+    		comprobarFecha(document.getElementById("fecha_ini").value);
+    		comprobarDomicilio(document.getElementById("domicilio").value);
+    		comprobarPoblacion(document.getElementById("poblacion").value)
+    		comprobarCp(document.getElementById("cp").value);
+    		comprobarTelefono(document.getElementById("telefono").value);
+    		comprobarEmail(document.getElementById("email").value);
+    		comprobarContraseña(document.getElementById("contraseña").value);
+    		comprobarRepetirContraseña(document.getElementById("RepetirContraseña").value);
+    		coincidenContraseñas(document.getElementById("contraseña").value, document.getElementById("RepetirContraseña").value);
+    	});
+      	
+      	var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^";
+      	
+      	function comprobarNombre(texto){
+      		document.getElementById("labelNombreMal").style.display = 'none';
+      		
+      		if (texto == '') {
+      			document.getElementById("labelNombreMal").style.display = 'inline';
+       	        $('#labelNombreMal').html("El nombre es obligatorio.");
+       	        $('#labelNombreMal').css("color", "red");
+      			return 1;
+      		}	
+
+       	   for(i=0; i<texto.length; i++){
+       	      if (caracterInvalido.indexOf(texto.charAt(i),0)!=-1){
+       	    	document.getElementById("labelNombreMal").style.display = 'inline';
+       	        $('#labelNombreMal').html("El nombre no es válido.");
+       	        $('#labelNombreMal').css("color", "red");
+       	         return 1;  //si devuelve 1 es un caracter invalido,  ver si es necesario que tenga return
+       	      }
+       	   }
+       	   return 0;  //si devuelve 0 es porque vale
+      	}
+      	
+      	function comprobarApellidos(texto){
+      		document.getElementById("labelApellidosMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelApellidosMal").style.display = 'inline';
+       	        $('#labelApellidosMal').html("Los apellidos son obligatorios.");
+       	        $('#labelApellidosMal').css("color", "red");
+      			return 1;
+      		}	
+       		for(i=0; i<texto.length; i++){
+       	      if (caracterInvalido.indexOf(texto.charAt(i),0)!=-1){
+       	    	document.getElementById("labelApellidosMal").style.display = 'inline';
+       	        $('#labelApellidosMal').html("Los apellidos no son válidos.");
+       	        $('#labelApellidosMal').css("color", "red");
+       	        return 1;  //si devuelve 1 es un caracter invalido,  ver si es necesario que tenga return
+       	      }
+       	   }
+       	   return 0;  //si devuelve 0 es porque vale
+      	}
+      	
+      	function comprobarDNI(texto){
+      		document.getElementById("labelDNIMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelDNIMal").style.display = 'inline';
+       	        $('#labelDNIMal').html("El DNI es obligatorio.");
+       	        $('#labelDNIMal').css("color", "red");
+      			return 1;
+      		}	
+      		if (texto.length != 9) {
+       	    	document.getElementById("labelDNIMal").style.display = 'inline';
+       	        $('#labelDNIMal').html("El DNI no es válido.");
+       	        $('#labelDNIMal').css("color", "red");
+       	        return 1;  //si devuelve 1 es un caracter invalido,  ver si es necesario que tenga return
+      		}
+      		for(i=0; i<texto.length; i++){
+      			if (i==8){
+      				if (/[A-Z]/.test(texto.charAt(i)) == false) {
+      	       	    	document.getElementById("labelDNIMal").style.display = 'inline';
+      	       	        $('#labelDNIMal').html("El DNI no es válido.");
+      	       	        $('#labelDNIMal').css("color", "red");
+      	       	        return 1;
+      				}
+      			}
+      			else{
+      				if (isNaN(texto.charAt(i)) == true) {
+      	       	    	document.getElementById("labelDNIMal").style.display = 'inline';
+      	       	        $('#labelDNIMal').html("El DNI no es válido.");
+      	       	        $('#labelDNIMal').css("color", "red");
+      	       	        return 1;
+      				}
+      			}
+      		}
+      		return 0;
+      	}
+      	
+      	function comprobarFecha(texto){
+      		document.getElementById("labelFechaMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelFechaMal").style.display = 'inline';
+       	        $('#labelFechaMal').html("La fecha de nacimiento es obligatoria.");
+       	        $('#labelFechaMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function comprobarDomicilio(texto){
+      		document.getElementById("labelDomicilioMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelDomicilioMal").style.display = 'inline';
+       	        $('#labelDomicilioMal').html("El domicilio es obligatorio.");
+       	        $('#labelDomicilioMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function comprobarPoblacion(texto){
+      		document.getElementById("labelPoblacionMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelPoblacionMal").style.display = 'inline';
+       	        $('#labelPoblacionMal').html("La población es obligatoria.");
+       	        $('#labelPoblacionMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function comprobarCp(texto){
+      		document.getElementById("labelCpMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelCpMal").style.display = 'inline';
+       	        $('#labelCpMal').html("El código postal es obligatorio.");
+       	        $('#labelCpMal').css("color", "red");
+      			return 1;
+      		}	
+      		if (isNaN(texto) == true) {
+       	    	document.getElementById("labelCpMal").style.display = 'inline';
+       	        $('#labelCpMal').html("El código postal no es válido.");
+       	        $('#labelCpMal').css("color", "red");
+       	        return 1;  //si devuelve 1 es un caracter invalido,  ver si es necesario que tenga return
+      		}
+      		return 0;
+      	}
+      	
+      	function comprobarTelefono(texto){
+      		document.getElementById("labelTelefonoMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelTelefonoMal").style.display = 'inline';
+       	        $('#labelTelefonoMal').html("El telefono es obligatorio.");
+       	        $('#labelTelefonoMal').css("color", "red");
+      			return 1;
+      		}	
+      		if (isNaN(texto) == true) {
+       	    	document.getElementById("labelTelefonoMal").style.display = 'inline';
+       	        $('#labelTelefonoMal').html("El telefono no es válido.");
+       	        $('#labelTelefonoMal').css("color", "red");
+       	        return 1;  //si devuelve 1 es un caracter invalido,  ver si es necesario que tenga return
+      		}
+      		return 0;
+      	}
+      	
+      	function comprobarEmail(texto){
+      		document.getElementById("labelEmailMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelEmailMal").style.display = 'inline';
+       	        $('#labelEmailMal').html("El correo electrónico es obligatorio.");
+       	        $('#labelEmailMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function comprobarContraseña(texto){
+      		document.getElementById("labelContraseñaMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelContraseñaMal").style.display = 'inline';
+       	        $('#labelContraseñaMal').html("La contraseña es obligatoria.");
+       	        $('#labelContraseñaMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function comprobarRepetirContraseña(texto){
+      		document.getElementById("labelRepetirContraseñaMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelRepetirContraseñaMal").style.display = 'inline';
+       	        $('#labelRepetirContraseñaMal').html("La repetición de contraseña es obligatoria.");
+       	        $('#labelRepetirContraseñaMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+      	
+      	function coincidenContraseñas(c1, c2){
+      		document.getElementById("labelRepetirContraseñaMal").style.display = 'none';
+      		if (c2 == '') {
+      			document.getElementById("labelRepetirContraseñaMal").style.display = 'inline';
+       	        $('#labelRepetirContraseñaMal').html("La repetición de contraseña es obligatoria.");
+       	        $('#labelRepetirContraseñaMal').css("color", "red");
+      			return 1;
+      		}
+
+			if (c1 != c2) {
+      			document.getElementById("labelRepetirContraseñaMal").style.display = 'inline';
+       	        $('#labelRepetirContraseñaMal').html("Las contraseñas no coinciden, inténtalo de nuevo.");
+       	        $('#labelRepetirContraseñaMal').css("color", "red");
+       	     	return 1;
+			}
+      		return 0;
+      	}
+  </script>
+  
   </body>
 </html>
