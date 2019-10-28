@@ -40,8 +40,8 @@ public class RegisterSteps {
 		elementCP = driver.findElement(By.id("cp"));
 		elementTelefono = driver.findElement(By.id("telefono"));
 		elementEmail = driver.findElement(By.id("email"));
-		elementPwd = driver.findElement(By.id("password1"));
-		elementPwdRepe = driver.findElement(By.id("password2"));
+		elementPwd = driver.findElement(By.id("contraseña"));
+		elementPwdRepe = driver.findElement(By.id("RepetirContraseña"));
 
 		elementDNI.sendKeys("00000000Z");
 		elementNombre.sendKeys("Prueba");
@@ -70,8 +70,8 @@ public class RegisterSteps {
 		elementCP = driver.findElement(By.id("cp"));
 		elementTelefono = driver.findElement(By.id("telefono"));
 		elementEmail = driver.findElement(By.id("email"));
-		elementPwd = driver.findElement(By.id("password1"));
-		elementPwdRepe = driver.findElement(By.id("password2"));
+		elementPwd = driver.findElement(By.id("contraseña"));
+		elementPwdRepe = driver.findElement(By.id("RepetirContraseña"));
 
 		elementDNI.sendKeys("05720500D");
 		elementNombre.sendKeys("Prueba");

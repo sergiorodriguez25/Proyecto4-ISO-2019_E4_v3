@@ -17,11 +17,11 @@
   	 
   	 <link rel="stylesheet" href="datePicker/css/bootstrap-datepicker.css">
     <script src="datePicker/js/bootstrap-datepicker.min.js"></script>
-    <!--Esta fue la linea que agregué --->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
     
     <script src="datePicker/locales/bootstrap-datepicker.es.min.js"></script>
-    <!--Y esta otra también--->
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css">
   	 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -250,16 +250,6 @@
           </div>
           <label id="labelRepetirContraseñaMal"></label>
         </div>
-        
-        <div class="mb-3">
-          <label for="password1">Contraseña<span class="text-muted"></span></label>
-          <input type="password" class="form-control" id="password1" placeholder="">
-        </div>
-        
-        <div class="mb-3">
-          <label for="password2">Repita la contraseña<span class="text-muted"></span></label>
-          <input type="password" class="form-control" id="password2" placeholder="">
-        </div>
 
         <hr class="mb-4">
         <a id = "registrarUsuario" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
@@ -283,10 +273,7 @@
     <script type="text/javascript">
     jQuery(document).ready(function($) {
     	$('#registrarUsuario').click(function(event) {
-    		if((comprobarNombre(document.getElementById("nombre").value) + comprobarApellidos(document.getElementById("apellidos").value) + comprobarDNI(document.getElementById("dni").value) + comprobarFecha(document.getElementById("fecha_ini").value) + comprobarDomicilio(document.getElementById("domicilio").value) + comprobarPoblacion(document.getElementById("poblacion").value) + comprobarCp(document.getElementById("cp").value) + comprobarTelefono(document.getElementById("telefono").value) + comprobarEmail(document.getElementById("email").value) + comprobarContraseña(document.getElementById("contraseña").value) + comprobarRepetirContraseña(document.getElementById("RepetirContraseña").value) + coincidenContraseñas(document.getElementById("contraseña").value, document.getElementById("RepetirContraseña").value)) != 0){
-    			alert("Tiene que rellenar todos los campos.");
-    		}
-    		else {
+    		if(!(comprobarNombre(document.getElementById("nombre").value) + comprobarApellidos(document.getElementById("apellidos").value) + comprobarDNI(document.getElementById("dni").value) + comprobarFecha(document.getElementById("fecha_ini").value) + comprobarDomicilio(document.getElementById("domicilio").value) + comprobarPoblacion(document.getElementById("poblacion").value) + comprobarCp(document.getElementById("cp").value) + comprobarTelefono(document.getElementById("telefono").value) + comprobarEmail(document.getElementById("email").value) + comprobarContraseña(document.getElementById("contraseña").value) + comprobarRepetirContraseña(document.getElementById("RepetirContraseña").value) + coincidenContraseñas(document.getElementById("contraseña").value, document.getElementById("RepetirContraseña").value)) != 0){
     			event.preventDefault();
         		enviarDatos();
     		}
@@ -306,7 +293,7 @@
 			cp : $('#cp').val(),
 			telefono : $('#telefono').val(),
 			email : $('#email').val(),
-			password : $('#password1').val(),
+			password : $('#contraseña').val(),
 			
 		};
 		var url = "/registro";
@@ -351,8 +338,8 @@
         $('#cp').val("");
         $('#telefono').val("");
         $('#email').val("");
-        $('#password1').val("");
-        $('#password2').val("");
+        $('#contraseña').val("");
+        $('#RepetirContraseña').val("");
     }
 
     function comprobarNombre(texto){
@@ -524,7 +511,7 @@
       		if (texto == '') {
       			document.getElementById("labelRepetirContraseñaMal").style.display = 'inline';
        	        $('#labelRepetirContraseñaMal').html("La repetición de contraseña es obligatoria.");
-       	        $('#labelRepetirContraseñaMal').css("color", "red");
+       	        $('#labelRepetirContraseóaMal').css("color", "red");
       			return 1;
       		}	
       		return 0;
@@ -534,7 +521,7 @@
       		document.getElementById("labelRepetirContraseñaMal").style.display = 'none';
       		if (c2 == '') {
       			document.getElementById("labelRepetirContraseñaMal").style.display = 'inline';
-       	        $('#labelRepetirContraseñaMal').html("La repetición de contraseña es obligatoria.");
+       	        $('#labelRepetirContraseñMal').html("La repetición de contraseña es obligatoria.");
        	        $('#labelRepetirContraseñaMal').css("color", "red");
       			return 1;
       		}
