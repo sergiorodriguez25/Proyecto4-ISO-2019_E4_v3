@@ -45,23 +45,59 @@ public class DBBroker<T> {
 			BsonDocument bso=iterator.first();
 			System.out.println("bso: " + bso);
 			if(bso!=null) {
-				long cp = bso.get("CP").asInt32().getValue();
-				int codpost=(int) cp;
-				Usuario user = new Usuario(
-						bso.get("DNI").asString().getValue(), 
-						bso.get("Password").asString().getValue(),
-						bso.get("Nombre").asString().getValue(),
-						bso.get("Apellidos").asString().getValue(),
-						bso.get("FNac").asString().getValue(),
-						bso.get("Domicilio").asString().getValue(),
-						bso.get("Poblacion").asString().getValue(),
-						codpost,
-						bso.get("Telefono").asInt32().getValue(),
-						bso.get("Email").asString().getValue()
-				);
+				Usuario user = new Usuario(null, null, null, null, null, null, null, 0, 0, null);
+//			}
+//				long cp = bso.get("CP").asInt32().getValue();
+//				int codpost=(int) cp;
+//				Usuario user = new Usuario(
+//						bso.get("DNI").asString().getValue(), 
+//						bso.get("Password").asString().getValue(),
+//						bso.get("Nombre").asString().getValue(),
+//						bso.get("Apellidos").asString().getValue(),
+//						bso.get("FNac").asString().getValue(),
+//						bso.get("Domicilio").asString().getValue(),
+//						bso.get("Poblacion").asString().getValue(),
+//						codpost,
+//						bso.get("Telefono").asInt32().getValue(),
+//						bso.get("Email").asString().getValue()
+//				);
 				return user;
 				
 			}
 			return null;
 	    }
+
+		public Usuario regitrarUser(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	System.out.println(criterion.getString("DNI").getValue());
+			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
+	    		collection.insertOne(criterion);
+	    	
+//	    	long cp = (int) criterion.get("CP").asInt32().getValue();
+//	    	
+//	    	Usuario user = new Usuario(
+//	    			criterion.getString("DNI").getValue(),
+//	    			criterion.getString("Password").getValue(),
+//	    			criterion.getString("Nombre").getValue(),
+//	    			criterion.getString("Apellidos").getValue(),
+//	    			criterion.getString("FNac").getValue(),
+//	    			criterion.getString("Domicilio").getValue(),
+//	    			criterion.getString("Poblacion").getValue(),
+//	    			(int) cp,
+//	    			criterion.getString("Telefono").asInt32().getValue(),
+//	    			criterion.getString("Email").getValue()
+//	    	);
+	    	
+	    	return null;
+		}
+
+		public boolean comprobarDNIEnBD(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	FindIterable<BsonDocument> iterator = collection.find(criterion);
+	    	BsonDocument bso=iterator.first();
+	    	if (bso==null)
+				return false;
+	    	
+			return true;
+		}
 }

@@ -48,10 +48,6 @@ public class HomeController {
 		String pwd = jso.get("password");
 		System.out.println(pwd);
 		Usuario usuario = Manager.get().login(dni, pwd);
-		HashMap<String, Object> resultado=new HashMap<String, Object>();
-		resultado.put("type", "OK");
-		resultado.put("resultado", usuario);
-		System.out.println(resultado);
 		return usuario;
 	}
 	
@@ -69,19 +65,34 @@ public class HomeController {
 		return "citas";
 	}
 	
-	@RequestMapping(value = "/registro", method = RequestMethod.GET)
-	public String registro(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/registro", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Usuario registro(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		String dni = jso.get("DNI");
+		String pwd = jso.get("password");
+		String nombre = jso.get("nombre");
+		String apellidos = jso.get("apellidos");
+		String nacimiento = jso.get("nacimiento");
+		String domicilio = jso.get("domicilio");
+		String poblacion = jso.get("poblacion");
+		String cp = jso.get("cp");
+		String telefono = jso.get("telefono");
+		String email = jso.get("email");
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		boolean existeDNI = Manager.get().comprobarSiExisteDNI(dni);
+		if(existeDNI) throw new Exception("El DNI ya existe en la Base de Datos");
+		else {
+			Usuario usuario = Manager.get().registro(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp, telefono, email);
+			return usuario;
+		}
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	}
+	
+	@RequestMapping(value = "/registro",method = RequestMethod.GET)
+	public String registro() {
 		
 		return "registro";
 	}
-
 	
 }

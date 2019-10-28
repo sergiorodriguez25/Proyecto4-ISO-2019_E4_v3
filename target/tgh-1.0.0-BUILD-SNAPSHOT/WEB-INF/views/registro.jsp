@@ -101,41 +101,26 @@
           <div class="col-md-6 mb-3">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Información necesaria.
-            </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="apellidos">Apellidos</label>
             <input type="text" class="form-control" id="apellidos" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Información necesaria.
-            </div>
           </div>
         </div>
         
         <div class="mb-3">
           <label for="dni">DNI</label>
           <input type="text" class="form-control" id="dni" placeholder="00000000X" required>
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
         </div>
         
         <div class="mb-3">
-          <label for="nacimiento">Fecha de nacimiento</label>
+          <label for="fecha_ini">Fecha de nacimiento</label>
           <input type="text" id="fecha_ini" class="form-control">
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
         </div>
         
         <div class="mb-3">
           <label for="domicilio">Domicilio</label>
           <input type="text" class="form-control" id="domicilio" placeholder="Calle de residencia N0 0X" required>
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
         </div>
         
         <div class="row">
@@ -196,53 +181,35 @@
               <option>Zamora</option>
               <option>Zaragoza</option>
             </select>
-            <div class="invalid-feedback">
-              Información necesaria.
-            </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="cp">Código postal</label>
             <input type="text" class="form-control" id="cp" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Información necesaria.
-            </div>
           </div>
         </div>
         
         <div class="mb-3">
           <label for="telefono">Teléfono<span class="text-muted"></span></label>
-          <input type="telefono" class="form-control" id="email" placeholder="">
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
+          <input type="telefono" class="form-control" id="telefono" placeholder="">
         </div>
         
         <div class="mb-3">
           <label for="email">Correo electrónico<span class="text-muted">(Optional)</span></label>
           <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com">
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
         </div>
         
         <div class="mb-3">
-          <label for="contraseña1">Contraseña<span class="text-muted"></span></label>
-          <input type="contraseña1" class="form-control" id="email" placeholder="">
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
+          <label for="password1">Contraseña<span class="text-muted"></span></label>
+          <input type="password" class="form-control" id="password1" placeholder="">
         </div>
         
         <div class="mb-3">
-          <label for="contraseña2">Repita la contraseña<span class="text-muted"></span></label>
-          <input type="contraseña2" class="form-control" id="email" placeholder="">
-          <div class="invalid-feedback">
-            Información necesaria.
-          </div>
+          <label for="password2">Repita la contraseña<span class="text-muted"></span></label>
+          <input type="password" class="form-control" id="password2" placeholder="">
         </div>
 
         <hr class="mb-4">
-        <a href = "/citas" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
+        <a id = "registrarUsuario" class="btn btn-primary btn-lg btn-block" type="submit">Enviar</a>
       </form>
     </div>
   </div>
@@ -255,22 +222,99 @@
   
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-  	 
-  	  <script>
-
-  	$('#fecha_ini').datepicker({
-        format: "dd/mm/yyyy",
-        startDate: "1/1/1900",
-        endDate: "13/10/2019",
-        todayBtn: "linked",
-        language: "es",
-        todayHighlight: true
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    	$('#registrarUsuario').click(function(event) {
+    		if($('#nombre').val()=="" || $('#apellidos').val()=="" || $('#dni').val()=="" 
+    				|| $('#apellidos').val()=="" || $('#fecha_ini').val()==""
+    					|| $('#domicilio').val()=="" || $('#poblacion').val()==""
+    						|| $('#cp').val()=="" || $('#telefono').val()==""
+    							|| $('#email').val()=="" || $('#password').val()==""){
+    			alert("Tiene que rellenar todos los campos.");
+    		}
+    		else {
+    			event.preventDefault();
+        		enviarDatos();
+    		}
+    	});
     });
+    
+	function enviarDatos(){
+		var data = {
+			nombre : $('#nombre').val(),
+			apellidos : $('#apellidos').val(),
+			DNI : $('#dni').val(),
+			nacimiento : $('#fecha_ini').val(),
+			domicilio : $('#domicilio').val(),
+			poblacion : $('#poblacion').val(),
+			cp : $('#cp').val(),
+			telefono : $('#telefono').val(),
+			email : $('#email').val(),
+			password : $('#password1').val(),
+			
+		};
+		var url = "/registro";
+		var type = "POST";
+		var success;
+		var xhrFields;
+		var headers = {
+			'Content-Type' : 'application/json'
+		};
+		
+		data = JSON.stringify(data);
+		console.log(data);
+		$.ajax({
+			type: type,
+			url: url,
+			data: data,
+	        headers : headers,
+	        xhrFields: {
+	            withCredentials: true
+	        },
+	        success : RegisterOK,
+	        error : RegisterError
+		});
+	};
+	
+	function RegisterOK() {
+        console.log("Registro completado");
+        var forma = document.forms[0];
+        forma.action="/citas";
+        forma.submit(); 
+    }
+	
+	function RegisterError() {
+        console.log("Ya existe el dni");
+        window.alert("El DNI que ha introducido ya está en uso.");
+        $('#nombre').val("");
+        $('#apellidos').val("");
+        $('#dni').val("");
+        $('#fecha_ini').val("");
+        $('#domicilio').val("");
+        $('#poblacion').val("");
+        $('#cp').val("");
+        $('#telefono').val("");
+        $('#email').val("");
+        $('#password1').val("");
+        $('#password2').val("");
+    }
+    </script>
+  	<script>
 
-  </script>
+  		$('#fecha_ini').datepicker({
+        	format: "dd/mm/yyyy",
+        	startDate: "1/1/1900",
+        	endDate: "13/10/2019",
+        	todayBtn: "linked",
+        	language: "es",
+        	todayHighlight: true
+    	});
+
+  	</script>
   </body>
 </html>
