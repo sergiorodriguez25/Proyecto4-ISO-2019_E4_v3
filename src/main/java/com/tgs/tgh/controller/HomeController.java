@@ -48,10 +48,6 @@ public class HomeController {
 		String pwd = jso.get("password");
 		System.out.println(pwd);
 		Usuario usuario = Manager.get().login(dni, pwd);
-		HashMap<String, Object> resultado=new HashMap<String, Object>();
-		resultado.put("type", "OK");
-		resultado.put("resultado", usuario);
-		System.out.println(resultado);
 		return usuario;
 	}
 	

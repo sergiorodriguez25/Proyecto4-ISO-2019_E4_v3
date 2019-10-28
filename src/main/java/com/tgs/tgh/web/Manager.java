@@ -37,13 +37,9 @@ public class Manager {
 		if (dni.length()==0 || pwd.length()==0)
 			throw new Exception("Credenciales invalidas");
 		Usuario usuario=UsuarioDAO.login(dni, pwd);
-		if (usuario==null)
+		if(usuario==null)
 			throw new Exception("Credenciales invalidas");
 		
-		Usuario yaConectado=this.usuarios.get(dni);
-		if (yaConectado!=null) 
-			return yaConectado;
-		this.usuarios.put(dni, usuario);
 		return usuario;
 	}
 	

@@ -45,20 +45,22 @@ public class DBBroker<T> {
 			BsonDocument bso=iterator.first();
 			System.out.println("bso: " + bso);
 			if(bso!=null) {
-				long cp = bso.get("CP").asInt32().getValue();
-				int codpost=(int) cp;
-				Usuario user = new Usuario(
-						bso.get("DNI").asString().getValue(), 
-						bso.get("Password").asString().getValue(),
-						bso.get("Nombre").asString().getValue(),
-						bso.get("Apellidos").asString().getValue(),
-						bso.get("FNac").asString().getValue(),
-						bso.get("Domicilio").asString().getValue(),
-						bso.get("Poblacion").asString().getValue(),
-						codpost,
-						bso.get("Telefono").asInt32().getValue(),
-						bso.get("Email").asString().getValue()
-				);
+				Usuario user = new Usuario(null, null, null, null, null, null, null, 0, 0, null);
+//			}
+//				long cp = bso.get("CP").asInt32().getValue();
+//				int codpost=(int) cp;
+//				Usuario user = new Usuario(
+//						bso.get("DNI").asString().getValue(), 
+//						bso.get("Password").asString().getValue(),
+//						bso.get("Nombre").asString().getValue(),
+//						bso.get("Apellidos").asString().getValue(),
+//						bso.get("FNac").asString().getValue(),
+//						bso.get("Domicilio").asString().getValue(),
+//						bso.get("Poblacion").asString().getValue(),
+//						codpost,
+//						bso.get("Telefono").asInt32().getValue(),
+//						bso.get("Email").asString().getValue()
+//				);
 				return user;
 				
 			}
