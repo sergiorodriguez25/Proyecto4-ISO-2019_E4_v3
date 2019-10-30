@@ -13,7 +13,7 @@ Feature: Comprobar el correcto funcionamiento de la eliminacion de una cita de u
     When Elimino la cita
     Then Salta la excepcion correspondiete
     
-  @Scenario2
+  @Scenario3
   Scenario: Al eliminar una cita existente de un paciente, esta se elimina de la vista de citas
     Given Estoy en la pagina de citas
     When Pulso el boton de eliminar de una cita
