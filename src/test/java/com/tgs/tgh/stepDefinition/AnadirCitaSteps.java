@@ -45,18 +45,6 @@ public class AnadirCitaSteps {
 	    throw new PendingException();
 	}
 
-	@Given("^Estoy en la pagina de citas$")
-	public void estoy_en_la_pagina_de_citas() throws Throwable {
-		driver = WebDriver.webDriver();
-		driver.get("http://localhost:8080");
-		WebElement elementDNI, elementPwd;
-	    elementDNI = driver.findElement(By.id("inputDNI"));
-	    elementDNI.sendKeys("05720500D");
-	    elementPwd = driver.findElement(By.id("inputPassword"));
-	    elementPwd.sendKeys("Jorge");
-		assertEquals("Citas", driver.getTitle());
-	}
-
 	@When("^Pulso el boton de anadir una cita$")
 	public void pulso_el_boton_de_anadir_una_cita() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions

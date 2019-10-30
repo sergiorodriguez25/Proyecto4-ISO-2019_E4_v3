@@ -57,7 +57,9 @@ public class EliminarCitaSteps {
 	    elementDNI.sendKeys("05720500D");
 	    elementPwd = driver.findElement(By.id("inputPassword"));
 	    elementPwd.sendKeys("Jorge");
+	    driver.findElementById("logearseBtn").click();
 	    assertEquals("Citas", driver.getTitle());
+	   
 	}
 
 	@When("^Pulso el boton de eliminar de una cita$")
