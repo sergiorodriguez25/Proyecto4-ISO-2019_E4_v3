@@ -124,11 +124,17 @@
 		}
 		else {
 			console.log("Credenciales correctas");
-			console.log(jso.resultado.usuario.nombre);
-	        location.href="/citas?nombre="+jso.resultado.usuario.nombre+"&apellidos="+jso.resultado.usuario.apellidos;
+			console.log(jso.resultado.usuario.apellidos);
+			var apellidosCodificado = encode_utf8(jso.resultado.usuario.apellidos);
+			var nombreCodificado = encode_utf8(jso.resultado.usuario.nombre);
+	        location.href="/citas?nombre="+nombreCodificado+"&apellidos="+apellidosCodificado;
 		}
         
     }
+	
+	function encode_utf8(s) {
+		  return unescape(encodeURIComponent(s));
+	}
 	
 	function loginError() {
         
