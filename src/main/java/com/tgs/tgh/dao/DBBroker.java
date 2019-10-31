@@ -59,6 +59,7 @@ public class DBBroker<T> {
 						bso.get("Telefono").asString().getValue(),
 						bso.get("Email").asString().getValue()
 				);
+
 				return user;
 				
 			}
@@ -68,8 +69,7 @@ public class DBBroker<T> {
 		public Usuario regitrarUser(BsonDocument criterion) {
 			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 	    	System.out.println(criterion.getString("DNI").getValue());
-			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
-	    		collection.insertOne(criterion);
+	    	collection.insertOne(criterion);
 	    	
 	    	long cp = (int) criterion.get("CP").asInt32().getValue();
 	    	
@@ -142,5 +142,14 @@ public class DBBroker<T> {
 	    			bso.get("CentroMedico").asString().getValue()
 			);
 			return paciente;
+		
+		public boolean eliminarUser(BsonDocument criterion){
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+			try {
+				collection.deleteOne(criterion);
+			}catch(Exception e) {
+				return false;
+			}
+			return true;
 		}
 }

@@ -80,6 +80,10 @@ public class Manager {
 		System.out.println(usuario);
 		return usuario;
 	}
+	
+	public void eliminarUsuario(Usuario usuario) throws Exception {
+		UsuarioDAO.eliminar(usuario);
+	}
 
 	public boolean comprobarSiExisteDNI(String dni) {
 		boolean comprobar = UsuarioDAO.comprobarDNI(dni);

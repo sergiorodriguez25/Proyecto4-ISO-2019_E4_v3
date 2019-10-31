@@ -34,6 +34,24 @@ public class UsuarioDAO {
 		Usuario usu = DBBroker.get().regitrarUser(criterion);
 		return usu;
 	}
+	
+	public static void eliminar(Usuario usuario) throws Exception {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		criterion.append("Password", new BsonString(usuario.getPassword()));
+		criterion.append("Nombre", new BsonString(usuario.getNombre()));
+		criterion.append("Apellidos", new BsonString(usuario.getApellidos()));
+		criterion.append("FNac", new BsonString(usuario.getFechaNac()));
+		criterion.append("Domicilio", new BsonString(usuario.getDomicilio()));
+		criterion.append("Poblacion", new BsonString(usuario.getPoblacion()));
+		criterion.append("CP", new BsonString(usuario.getCodigoPostal()));
+		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
+		criterion.append("Email", new BsonString(usuario.getEmail()));
+		
+		boolean comprobar = DBBroker.get().eliminarUser(criterion);
+		if(!comprobar)
+			throw new Exception("Error al eliminar el usuario");
+	}
 
 	public static boolean comprobarDNI(String dni) {
 		BsonDocument criterion=new BsonDocument();
