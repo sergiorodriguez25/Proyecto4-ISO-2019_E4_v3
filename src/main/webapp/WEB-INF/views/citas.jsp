@@ -53,7 +53,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Paciente</a>
+  <a class="navbar-brand" href="#">THE GOOD HEALTH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -114,39 +114,40 @@
 	 <div class="row d-flex justify-content-center">
     	<div class="container">
 
-		<table class="table table-hover table-ligth">
-    		<thead>
-        		<tr>
-            		<th>Consulta</th>
-            		<th>Nombre Médico</th>
-            		<th>Localización</th>
-            		<th>Fecha</th>
-        		</tr>
-    		</thead>
-    		<tbody>
-        		<tr>
-            		<td>Pediatría</td>
-            		<td>Dr. Antonio Fernández</td>
-            		<td>102</td>
-            		<td>22/01/2020</td>
-        		</tr>
-        		<tr>
-            		<td>Dermatología</td>
-            		<td>Dra. María Villa</td>
-            		<td>93</td>
-            		<td>29/07/2020</td>
-        		</tr>
-        		<tr>
-            		<td>Médico de Cabecera</td>
-            		<td>Dr. Miguel Sánchez</td>
-            		<td>22</td>
-            		<td>26/10/2021</td>
-        		</tr>
-    		</tbody>
+		  <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+			  <thead>
+			    <tr>
+			      <th class="th-sm">Hora
+			      </th>
+			      <th class="th-sm">Fecha
+			      </th>
+			      <th class="th-sm">Especialidad
+			      </th>
+			      <th class="th-sm">Nombre Médico
+			      </th>
+			      <th class="th-sm">Centro Sanitario
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>17:15</td>
+			      <td>24/05/2019</td>
+			      <td>Alergología</td>
+			      <td>Rosa Zamora</td>
+			      <td>Hospital Universitario</td>
+			    </tr>
+			    <tr>
+			      <td>18:30</td>
+			      <td>28/06/2019</td>
+			      <td>Pediatría</td>
+			      <td>Jose Antonio Pérez</td>
+			      <td>Hospital Universitario</td>
+			    </tr>
+			  </tbody>
 		</table>  
   </div>
   <br>
-  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>
+  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>    
   </div>
   </br>
 
