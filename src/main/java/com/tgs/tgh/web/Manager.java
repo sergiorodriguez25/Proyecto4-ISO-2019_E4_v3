@@ -49,6 +49,10 @@ public class Manager {
 		Usuario usuario=UsuarioDAO.registro(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp, telefono, email);
 		return usuario;
 	}
+	
+	public void eliminarUsuario(Usuario usuario) throws Exception {
+		UsuarioDAO.eliminar(usuario);
+	}
 
 	public boolean comprobarSiExisteDNI(String dni) {
 		boolean comprobar = UsuarioDAO.comprobarDNI(dni);

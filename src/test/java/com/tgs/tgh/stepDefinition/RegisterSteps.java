@@ -11,6 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -96,6 +99,8 @@ public class RegisterSteps {
 	public void se_abre_la_pagina_de_citas() throws Throwable {
 		assertEquals("Registro", driver.getTitle());
 		driver.quit();
+		Manager.get().eliminarUsuario(new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com"));
 	}
 
 	@Then("^Aparece un alert$")

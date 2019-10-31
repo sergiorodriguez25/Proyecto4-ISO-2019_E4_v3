@@ -45,7 +45,7 @@ public class DBBroker<T> {
 			BsonDocument bso=iterator.first();
 			System.out.println("bso: " + bso);
 			if(bso!=null) {
-				Usuario user = new Usuario(null, null, null, null, null, null, null, 0, 0, null);
+				Usuario user = new Usuario(null, null, null, null, null, null, null, null, null, null);
 //			}
 //				long cp = bso.get("CP").asInt32().getValue();
 //				int codpost=(int) cp;
@@ -70,8 +70,7 @@ public class DBBroker<T> {
 		public Usuario regitrarUser(BsonDocument criterion) {
 			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 	    	System.out.println(criterion.getString("DNI").getValue());
-			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
-	    		collection.insertOne(criterion);
+	    	collection.insertOne(criterion);
 	    	
 //	    	long cp = (int) criterion.get("CP").asInt32().getValue();
 //	    	
@@ -98,6 +97,16 @@ public class DBBroker<T> {
 	    	if (bso==null)
 				return false;
 	    	
+			return true;
+		}
+		
+		public boolean eliminarUser(BsonDocument criterion){
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+			try {
+				collection.deleteOne(criterion);
+			}catch(Exception e) {
+				return false;
+			}
 			return true;
 		}
 }
