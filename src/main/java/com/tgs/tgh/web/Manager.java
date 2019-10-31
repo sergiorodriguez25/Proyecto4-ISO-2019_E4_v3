@@ -64,21 +64,32 @@ public class Manager {
 		}
 		else {
 			Paciente paciente = PacienteDAO.esPaciente(usuario);
-			jso.put("centro", "centrolMedico");
+			jso.put("centro", "centroMedico");
 //			jso.put("centro", paciente.getCentroMedico());
 			return new JSONObject().put("usuario", jso);
 					
 		}
 	}
 	
-	public Usuario registro(String dni, String pwd, String nombre, String apellidos, String nacimiento,
+	public JSONObject registro(String dni, String pwd, String nombre, String apellidos, String nacimiento,
 			String domicilio, String poblacion, String 
 			cp, String telefono, String email) {
 		//Controlar que el dni no exista en la bd
 		Usuario usuario = UsuarioDAO.registro(dni, pwd, nombre, apellidos, 
 				nacimiento, domicilio, poblacion, cp, telefono, email);
+		JSONObject jso = new JSONObject();
+		jso.put("dni", usuario.getDNI());
+		jso.put("apellidos",usuario.getApellidos());
+		jso.put("nombre",usuario.getNombre());
+		jso.put("domicilio",usuario.getDomicilio());
+		jso.put("email",usuario.getEmail());
+		jso.put("nacimiento",usuario.getFechaNac());
+		jso.put("poblacion",usuario.getPoblacion());
+		jso.put("telefono",usuario.getTelefono());
+		jso.put("password",usuario.getPassword());
+		jso.put("cp",usuario.getCodigoPostal());
 		System.out.println(usuario);
-		return usuario;
+		return new JSONObject().put("usuario", jso);
 	}
 
 	public boolean comprobarSiExisteDNI(String dni) {

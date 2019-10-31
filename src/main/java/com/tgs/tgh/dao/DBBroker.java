@@ -71,8 +71,6 @@ public class DBBroker<T> {
 			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
 	    		collection.insertOne(criterion);
 	    	
-	    	long cp = (int) criterion.get("CP").asInt32().getValue();
-	    	
 	    	Usuario user = new Usuario(
 	    			criterion.getString("DNI").getValue(),
 	    			criterion.getString("Password").getValue(),
