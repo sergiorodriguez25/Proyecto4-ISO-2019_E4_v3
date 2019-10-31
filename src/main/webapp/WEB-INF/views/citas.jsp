@@ -126,6 +126,8 @@
 			      <th class="th-sm">Nombre Médico
 			      </th>
 			      <th class="th-sm">Centro Sanitario
+			      </th>
+			      <th class="th-sm">Opciones
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -135,6 +137,9 @@
 			      <td>Alergología</td>
 			      <td>Rosa Zamora</td>
 			      <td>Hospital Universitario</td>
+			      <td>
+			      	<a href = "/" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      </td>
 			    </tr>
 			    <tr>
 			      <td>18:30</td>
@@ -142,12 +147,15 @@
 			      <td>Pediatría</td>
 			      <td>Jose Antonio Pérez</td>
 			      <td>Hospital Universitario</td>
+			      <td>
+			      	<a href = "/" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      </td>
 			    </tr>
 			  </tbody>
 		</table>  
   </div>
   <br>
-  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>    
+  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>  
   </div>
   </br>
 
