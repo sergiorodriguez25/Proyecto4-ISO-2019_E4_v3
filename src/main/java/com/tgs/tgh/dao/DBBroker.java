@@ -38,43 +38,55 @@ public class DBBroker<T> {
 		return SingletonHolder.singleton;
 	}
 
-	public Usuario loginUser(BsonDocument criterion) throws ParseException {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-		System.out.println("criterion: " + criterion);
-		FindIterable<BsonDocument> iterator = collection.find(criterion);
-		System.out.println("iterator: " + iterator);
-		if (iterator == null)
+	public Usuario loginUser(BsonDocument criterion) throws ParseException{
+	    	MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	System.out.println("criterion: " + criterion);
+	    	FindIterable<BsonDocument> iterator = collection.find(criterion);
+	    	System.out.println("iterator: " + iterator);
+	    	if (iterator==null)
+				return null;
+			BsonDocument bso=iterator.first();
+			System.out.println("bso: " + bso);
+			if(bso!=null) {
+				Usuario user = new Usuario(
+						bso.get("DNI").asString().getValue(), 
+						bso.get("Password").asString().getValue(),
+						bso.get("Nombre").asString().getValue(),
+						bso.get("Apellidos").asString().getValue(),
+						bso.get("FNac").asString().getValue(),
+						bso.get("Domicilio").asString().getValue(),
+						bso.get("Poblacion").asString().getValue(),
+						bso.get("CP").asString().getValue(),
+						bso.get("Telefono").asString().getValue(),
+						bso.get("Email").asString().getValue()
+				);
+				return user;
+				
+			}
 			return null;
-		BsonDocument bso = iterator.first();
-		System.out.println("bso: " + bso);
-		if (bso != null) {
-			Usuario user = new Usuario(bso.get("DNI").asString().getValue(), bso.get("Password").asString().getValue(),
-					bso.get("Nombre").asString().getValue(), bso.get("Apellidos").asString().getValue(),
-					bso.get("FNac").asString().getValue(), bso.get("Domicilio").asString().getValue(),
-					bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
-					bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
+	    }
 
-			return user;
-
+		public Usuario regitrarUser(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	    	System.out.println(criterion.getString("DNI").getValue());
+			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
+	    		collection.insertOne(criterion);
+	    	
+	    	Usuario user = new Usuario(
+	    			criterion.getString("DNI").getValue(),
+	    			criterion.getString("Password").getValue(),
+	    			criterion.getString("Nombre").getValue(),
+	    			criterion.getString("Apellidos").getValue(),
+	    			criterion.getString("FNac").getValue(),
+	    			criterion.getString("Domicilio").getValue(),
+	    			criterion.getString("Poblacion").getValue(),
+	    			criterion.getString("CP").getValue(),
+	    			criterion.getString("Telefono").getValue(),
+	    			criterion.getString("Email").getValue()
+	    	);
+	    	
+	    	return user;
 		}
-		return null;
-	}
-
-	public Usuario regitrarUser(BsonDocument criterion) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-		System.out.println(criterion.getString("DNI").getValue());
-		collection.insertOne(criterion);
-
-		long cp = (int) criterion.get("CP").asInt32().getValue();
-
-		Usuario user = new Usuario(criterion.getString("DNI").getValue(), criterion.getString("Password").getValue(),
-				criterion.getString("Nombre").getValue(), criterion.getString("Apellidos").getValue(),
-				criterion.getString("FNac").getValue(), criterion.getString("Domicilio").getValue(),
-				criterion.getString("Poblacion").getValue(), criterion.getString("CP").getValue(),
-				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue());
-
-		return user;
-	}
 
 	public boolean comprobarDNIEnBD(BsonDocument criterion) {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);

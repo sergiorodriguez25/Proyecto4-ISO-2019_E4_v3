@@ -101,10 +101,11 @@
 			<div class="col-md-3">
 			<div class="card">
   				<div class="card-body">
+  				<form action="getParametersURL"></form>
   					<div class="text-center">
-            		 	<img src="https://cdn.pixabay.com/photo/2015/12/22/04/00/photo-1103596_1280.png" class="img-fluid rounded" width="50" height="50">   
+            		 	<label id="nombreApellidos"></label>
          			</div>
-         				<div><h5 class="text-center">Jorge Mena Muñoz</h5></div>
+         				
          		</div>
 				</div>
           	</div>
@@ -159,5 +160,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    		getParametersURL();
+    });
+    
+    function getParametersURL() {
+    	var name="nombre";
+    	var surname="apellidos";
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+        var regex2 = new RegExp("[\\?&]" + surname + "=([^&#]*)"),
+        results2 = regex2.exec(location.search);
+        console.log(results);
+        console.log(decodeURIComponent(results2[1].replace(/\+/g, " ")));
+        $('#nombreApellidos').html(decodeURIComponent(results[1].replace(/\+/g, " ")) + " " + decodeURIComponent(results2[1].replace(/\+/g, " ")));
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    </script>
   </body>
 </html>

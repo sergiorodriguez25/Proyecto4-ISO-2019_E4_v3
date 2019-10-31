@@ -319,11 +319,13 @@
 		});
 	};
 	
-	function RegisterOK() {
+	function RegisterOK(respuesta) {
+		console.log(respuesta);
+		var jso = JSON.parse(respuesta);
         console.log("Registro completado");
-        var forma = document.forms[0];
-        forma.action="/citas";
-        forma.submit(); 
+        var apellidosCodificado = encode_utf8(jso.resultado.usuario.apellidos);
+		var nombreCodificado = encode_utf8(jso.resultado.usuario.nombre);
+        location.href="/citas?nombre="+nombreCodificado+"&apellidos="+apellidosCodificado;
     }
 	
 	function RegisterError() {
@@ -341,6 +343,9 @@
         $('#contraseña').val("");
         $('#RepetirContraseña').val("");
     }
+	function encode_utf8(s) {
+		  return unescape(encodeURIComponent(s));
+	}
 
     function comprobarNombre(texto){
       		document.getElementById("labelNombreMal").style.display = 'none';
