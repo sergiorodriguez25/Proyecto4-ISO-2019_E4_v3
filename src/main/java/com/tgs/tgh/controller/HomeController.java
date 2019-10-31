@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tgs.tgh.dao.DBBroker;
 import com.tgs.tgh.model.Usuario;
@@ -40,15 +41,25 @@ public class HomeController {
 	}
 	
 	@CrossOrigin(origins = "*", allowCredentials = "true")
-	@PostMapping(value = "/home", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Usuario login(@RequestBody Map<String, String> jso) throws Exception {
+	@PostMapping(value = "/home", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String login(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
 		String dni = jso.get("DNI");
 		System.out.println(dni);
 		String pwd = jso.get("password");
 		System.out.println(pwd);
-		Usuario usuario = Manager.get().login(dni, pwd);
-		return usuario;
+		JSONObject jsoRespuesta = Manager.get().login(dni, pwd);
+		System.out.println(jsoRespuesta);
+		JSONObject resultado=new JSONObject();
+		if(jsoRespuesta.get("usuario").equals("invalido")) {
+			resultado.put("type", "CredencialesMal");
+			return resultado.toString();
+		}
+		resultado.put("resultado", jsoRespuesta);
+		resultado.put("type", "OK");
+		System.out.println(resultado);
+		return resultado.toString();
 	}
 	
 	@RequestMapping(value = "/citas", method = RequestMethod.GET)
