@@ -111,19 +111,27 @@
 		});
 	};
 	
-	function loginOK() {
-        console.log("Credenciales correctas");
-        var forma = document.forms[0];
-        forma.action="/citas";
-        forma.submit(); 
+	function loginOK(respuesta) {
+		console.log(respuesta);	
+		console.log(jso);
+		var jso = JSON.parse(respuesta);
+		if(jso.type=="CredencialesMal"){
+			console.log("Credenciales incorrectas");
+	        $('#labelMalLogin').html("Credenciales inválidas. Por favor vuelva a introducir los datos");
+	        $('#labelMalLogin').css("color", "red");
+	        $('#inputDNI').val("");
+	        $('#inputPassword').val("");
+		}
+		else {
+			console.log("Credenciales correctas");
+			console.log(jso.resultado.usuario.nombre);
+	        location.href="/citas?nombre="+jso.resultado.usuario.nombre+"&apellidos="+jso.resultado.usuario.apellidos;
+		}
+        
     }
 	
 	function loginError() {
-        console.log("Credenciales incorrectas");
-        $('#labelMalLogin').html("Credenciales inválidas. Por favor vuelva a introducir los datos");
-        $('#labelMalLogin').css("color", "red");
-        $('#inputDNI').val("");
-        $('#inputPassword').val("");
+        
     }
     </script>
   </body>

@@ -16,13 +16,13 @@ public class Usuario {
 	private String fechaNac;
 	private String domicilio;
 	private String poblacion;
-	private int codigoPostal;
-	private long telefono;
+	private String codigoPostal;
+	private String telefono;
 	private String email;
 	
 	
 	public Usuario(String dNI, String password, String nombre, String apellidos, String fechaNac, String domicilio, String poblacion,
-			int codigoPostal, long telefono, String email) {
+			String codigoPostal, String telefono, String email) {
 		super();
 		DNI = dNI;
 		this.password = password;
@@ -72,19 +72,19 @@ public class Usuario {
 		this.poblacion = poblacion;
 	}
 
-	public int getCodigoPostal() {
+	public String getCodigoPostal() {
 		return codigoPostal;
 	}
 
-	public void setCodigoPostal(int codigoPostal) {
+	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
 
-	public long getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(long telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

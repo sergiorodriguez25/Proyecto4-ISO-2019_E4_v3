@@ -15,6 +15,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.tgs.tgh.model.Medico;
+import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
 
 public class DBBroker<T> {
@@ -45,22 +47,18 @@ public class DBBroker<T> {
 			BsonDocument bso=iterator.first();
 			System.out.println("bso: " + bso);
 			if(bso!=null) {
-				Usuario user = new Usuario(null, null, null, null, null, null, null, 0, 0, null);
-//			}
-//				long cp = bso.get("CP").asInt32().getValue();
-//				int codpost=(int) cp;
-//				Usuario user = new Usuario(
-//						bso.get("DNI").asString().getValue(), 
-//						bso.get("Password").asString().getValue(),
-//						bso.get("Nombre").asString().getValue(),
-//						bso.get("Apellidos").asString().getValue(),
-//						bso.get("FNac").asString().getValue(),
-//						bso.get("Domicilio").asString().getValue(),
-//						bso.get("Poblacion").asString().getValue(),
-//						codpost,
-//						bso.get("Telefono").asInt32().getValue(),
-//						bso.get("Email").asString().getValue()
-//				);
+				Usuario user = new Usuario(
+						bso.get("DNI").asString().getValue(), 
+						bso.get("Password").asString().getValue(),
+						bso.get("Nombre").asString().getValue(),
+						bso.get("Apellidos").asString().getValue(),
+						bso.get("FNac").asString().getValue(),
+						bso.get("Domicilio").asString().getValue(),
+						bso.get("Poblacion").asString().getValue(),
+						bso.get("CP").asString().getValue(),
+						bso.get("Telefono").asString().getValue(),
+						bso.get("Email").asString().getValue()
+				);
 				return user;
 				
 			}
@@ -73,22 +71,22 @@ public class DBBroker<T> {
 			if(!criterion.getString("DNI").getValue().equals("00000000Z"))
 	    		collection.insertOne(criterion);
 	    	
-//	    	long cp = (int) criterion.get("CP").asInt32().getValue();
-//	    	
-//	    	Usuario user = new Usuario(
-//	    			criterion.getString("DNI").getValue(),
-//	    			criterion.getString("Password").getValue(),
-//	    			criterion.getString("Nombre").getValue(),
-//	    			criterion.getString("Apellidos").getValue(),
-//	    			criterion.getString("FNac").getValue(),
-//	    			criterion.getString("Domicilio").getValue(),
-//	    			criterion.getString("Poblacion").getValue(),
-//	    			(int) cp,
-//	    			criterion.getString("Telefono").asInt32().getValue(),
-//	    			criterion.getString("Email").getValue()
-//	    	);
+	    	long cp = (int) criterion.get("CP").asInt32().getValue();
 	    	
-	    	return null;
+	    	Usuario user = new Usuario(
+	    			criterion.getString("DNI").getValue(),
+	    			criterion.getString("Password").getValue(),
+	    			criterion.getString("Nombre").getValue(),
+	    			criterion.getString("Apellidos").getValue(),
+	    			criterion.getString("FNac").getValue(),
+	    			criterion.getString("Domicilio").getValue(),
+	    			criterion.getString("Poblacion").getValue(),
+	    			criterion.getString("CP").getValue(),
+	    			criterion.getString("Telefono").getValue(),
+	    			criterion.getString("Email").getValue()
+	    	);
+	    	
+	    	return user;
 		}
 
 		public boolean comprobarDNIEnBD(BsonDocument criterion) {
@@ -99,5 +97,50 @@ public class DBBroker<T> {
 				return false;
 	    	
 			return true;
+		}
+
+		public Medico comprobarSiEsMedico(BsonDocument criterion) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
+			FindIterable<BsonDocument> iterator = collection.find(criterion);
+			BsonDocument bso=iterator.first();
+			if(bso==null) return null;
+			
+			Medico medico = new Medico (
+					criterion.getString("DNI").getValue(),
+	    			criterion.getString("Password").getValue(),
+	    			criterion.getString("Nombre").getValue(),
+	    			criterion.getString("Apellidos").getValue(),
+	    			criterion.getString("FNac").getValue(),
+	    			criterion.getString("Domicilio").getValue(),
+	    			criterion.getString("Poblacion").getValue(),
+	    			criterion.getString("CP").getValue(),
+	    			criterion.getString("Telefono").getValue(),
+	    			criterion.getString("Email").getValue(),
+	    			bso.get("CentroMedico").asString().getValue()
+	    	);
+	    			
+			return medico;
+		}
+
+		public Paciente devolverPaciente(BsonDocument criterion, Usuario usuario) {
+			MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
+			FindIterable<BsonDocument> iterator = collection.find(criterion);
+			BsonDocument bso = iterator.first();
+			if(bso==null) return null;
+			
+			Paciente paciente = new Paciente (
+					criterion.getString("DNI").getValue(),
+	    			criterion.getString("Password").getValue(),
+	    			criterion.getString("Nombre").getValue(),
+	    			criterion.getString("Apellidos").getValue(),
+	    			criterion.getString("FNac").getValue(),
+	    			criterion.getString("Domicilio").getValue(),
+	    			criterion.getString("Poblacion").getValue(),
+	    			criterion.getString("CP").getValue(),
+	    			criterion.getString("Telefono").getValue(),
+	    			criterion.getString("Email").getValue(),
+	    			bso.get("CentroMedico").asString().getValue()
+			);
+			return paciente;
 		}
 }
