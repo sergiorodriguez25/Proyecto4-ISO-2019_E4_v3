@@ -17,4 +17,4 @@ Feature: Comprobar que los datos estan protegidos
   Scenario: Al intentar acceder a la pagina de citas sin iniciar sesion no te deja entrar
     Given Se abre el navegador
     When Introducimos la url de la pagina de citas 
-    Then Sale un mensaje de error
+    Then Va a la pagina de error

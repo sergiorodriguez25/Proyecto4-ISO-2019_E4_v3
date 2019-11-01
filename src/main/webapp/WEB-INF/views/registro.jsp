@@ -272,12 +272,12 @@
     
     <script type="text/javascript">
     jQuery(document).ready(function($) {
-    	var referrer = document.referrer;
-    	if(referrer != 'http://localhost:8080/'){
-    		var forma = document.forms[0];
-            forma.action="/error";
-            forma.submit(); 
-    	}
+//     	var referrer = document.referrer;
+//     	if(referrer != 'http://localhost:8080/'){
+//     		var forma = document.forms[0];
+//             forma.action="/error";
+//             forma.submit(); 
+//     	}
     	$('#registrarUsuario').click(function(event) {
     		if(!(comprobarNombre(document.getElementById("nombre").value) + comprobarApellidos(document.getElementById("apellidos").value) + comprobarDNI(document.getElementById("dni").value) + comprobarFecha(document.getElementById("fecha_ini").value) + comprobarDomicilio(document.getElementById("domicilio").value) + comprobarPoblacion(document.getElementById("poblacion").value) + comprobarCp(document.getElementById("cp").value) + comprobarTelefono(document.getElementById("telefono").value) + comprobarEmail(document.getElementById("email").value) + comprobarContraseña(document.getElementById("contraseña").value) + comprobarRepetirContraseña(document.getElementById("RepetirContraseña").value) + coincidenContraseñas(document.getElementById("contraseña").value, document.getElementById("RepetirContraseña").value)) != 0){
     			event.preventDefault();

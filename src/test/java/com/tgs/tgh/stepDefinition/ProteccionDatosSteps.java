@@ -1,5 +1,7 @@
 package com.tgs.tgh.stepDefinition;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,14 +59,15 @@ public class ProteccionDatosSteps {
 
 	@When("^Introducimos la url de la pagina de citas$")
 	public void introducimos_la_url_de_la_pagina_de_citas() throws Throwable {
-		driver.get("https://the-good-health.herokuapp.com/citas");
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver = WebDriver.webDriver();
+		driver.get("http://localhost:8080/citas");
 	}
 
-	@Then("^Sale un mensaje de error$")
-	public void sale_un_mensaje_de_error() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+	@Then("^Va a la pagina de error$")
+	public void va_a_la_pagina_de_error() throws Throwable {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		assertEquals("Error", driver.getTitle());
+		driver.quit();
 	}
 
 }
