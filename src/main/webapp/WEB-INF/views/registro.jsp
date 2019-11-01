@@ -286,7 +286,10 @@
     	});
     });
 
-    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^";
+    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/<>*-+,;:^";
+  	var numeros="0123456789";
+  	var mayusculas="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+  	var simbolo="<>ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^";
     
 	function enviarDatos(){
 		var data = {
@@ -513,8 +516,49 @@
        	        $('#labelContraseñaMal').html("La contraseña es obligatoria.");
        	        $('#labelContraseñaMal').css("color", "red");
       			return 1;
+      		}
+      		if (comprobarSeguridadContraseña(texto) == false) {
+      			document.getElementById("labelContraseñaMal").style.display = 'inline';
+       	        $('#labelContraseñaMal').html("La contraseña debe tener 8 caracteres, una mayúscula, un número y un caracter especial");
+       	        $('#labelContraseñaMal').css("color", "red");
+      			return 1;
       		}	
       		return 0;
+      	}
+
+      	function comprobarSeguridadContraseña(texto){
+			if (texto.length < 8) {
+      			console.log("mal");
+      			return false;
+			}
+			hayNumero = false
+	       	for(i=0; i<texto.length; i++){
+	        	if (numeros.indexOf(texto.charAt(i))>=0){
+	        		hayNumero = true;
+	            }
+	        }
+			if (hayNumero == false){
+				return false;
+			}
+			hayMayuscula = false
+	       	for(i=0; i<texto.length; i++){
+	        	if (mayusculas.indexOf(texto.charAt(i))>=0){
+	        		hayMayuscula = true;
+	            }
+	        }
+			if (hayMayuscula == false){
+				return false;
+			}
+			haySimbolo = false
+	       	for(i=0; i<texto.length; i++){
+	        	if (simbolo.indexOf(texto.charAt(i))>=0){
+	        		haySimbolo = true;
+	            }
+	        }
+			if (haySimbolo == false){
+				return false;
+			}
+      		return true;
       	}
       	
       	function comprobarRepetirContraseña(texto){
@@ -545,6 +589,7 @@
 			}
       		return 0;
       	}
+      	
     </script>
   	<script>
 
