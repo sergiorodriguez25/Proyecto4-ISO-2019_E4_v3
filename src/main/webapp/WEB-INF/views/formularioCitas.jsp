@@ -1,4 +1,4 @@
-<!doctype html>
+<<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,11 +10,20 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-    <title>Citas</title>
+    <title>Registro</title>
 
     <!-- Bootstrap core CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  	 
+  	 <link rel="stylesheet" href="datePicker/css/bootstrap-datepicker.css">
+    <script src="datePicker/js/bootstrap-datepicker.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    
+    <script src="datePicker/locales/bootstrap-datepicker.es.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css">
+  	 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
@@ -30,6 +39,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script>
+        $( document ).ready(function() {
+            $('#fecha').datepicker();
+        });
+    </script>
   </head>
 
   <style>
@@ -60,11 +75,11 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Mis citas <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="/formularioCitas" tabindex="-1" aria-disabled="true">Pedir cita</a>
+        <a class="nav-link" href="/citas" tabindex="-1" aria-disabled="true">Mis citas</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Pedir cita <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -82,6 +97,8 @@
   </div>
 </nav>
 
+
+
 <main role="main" class="container">
 	<div class="span">
 	<div></div>
@@ -92,71 +109,111 @@
   			
 				<div class="card">
   				<div class="card-body">
-            		<h4>Mis Citas</h4>
-            		<p>Bienvenido/a a la página de "Mis citas" en la que aparecen todas las citas que tiene programadas. Si desea modificar o anular una cita, por favor pulse en el botón de abajo.</p>
+            		<h4>Citas</h4>
+            		<p>Bienvenido/a a la página de Citas. Por favor rellene todos los campos que encontrará a continuación para solicitar la cita deseada, después pulse en el botón de Enviar.</p>
          		</div>
 				</div>
+				
 			</div>
 			<div class="col-md-1"></div>
-			<div class="col-md-3">
-			<div class="card">
-  				<div class="card-body">
-  					<div class="text-center">
-            		 	<img src="https://cdn.pixabay.com/photo/2015/12/22/04/00/photo-1103596_1280.png" class="img-fluid rounded" width="50" height="50">   
-         			</div>
-         				<div><h5 class="text-center">Jorge Mena Muñoz</h5></div>
-         		</div>
-				</div>
-          	</div>
           </div>
      <br></br>
   </div>
-	 <div class="row d-flex justify-content-center">
-    	<div class="container">
+	 
+	  <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Especialidad     </label>
+            <select class="form-control form-control-lg">
+            <option>Pediatria</option>
+            <option>Traumatologia</option>
+            <option>Neurocirugia</option>
+            <option>Alergologo</option>
+            </select>
+          </div>
+        </div>
+        <br></br>
+        
+        <div class="mb-3">
+          <label for="fecha_ini">Día</label>
+           <br></br>
+          <input type="text" id="fecha_ini" class="form-control">
+          <div class="invalid-feedback">
+            Información necesaria.
+          </div>
+          <label id="labelFechaMal"></label>
+        </div>
+        <br></br>
+        
+        <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Hora</label>
+            <select class="form-control form-control-lg">
+           	<option>10:00</option>
+            <option>11:00</option>
+            <option>12:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            </select>
+          </div>
+        </div>
+        <br></br>
 
-		<table class="table table-hover table-ligth">
-    		<thead>
-        		<tr>
-            		<th>Consulta</th>
-            		<th>Nombre Médico</th>
-            		<th>Localización</th>
-            		<th>Fecha</th>
-        		</tr>
-    		</thead>
-    		<tbody>
-        		<tr>
-            		<td>Pediatría</td>
-            		<td>Dr. Antonio Fernández</td>
-            		<td>102</td>
-            		<td>22/01/2020</td>
-        		</tr>
-        		<tr>
-            		<td>Dermatología</td>
-            		<td>Dra. María Villa</td>
-            		<td>93</td>
-            		<td>29/07/2020</td>
-        		</tr>
-        		<tr>
-            		<td>Médico de Cabecera</td>
-            		<td>Dr. Miguel Sánchez</td>
-            		<td>22</td>
-            		<td>26/10/2021</td>
-        		</tr>
-    		</tbody>
-		</table>  
+        <hr class="mb-4">
+        <a id = "pedircita" class="btn btn-default" type="submit">Solicitar cita</a>
+        <a href = "/citas" class="btn btn-default" type="submit">Volver atras</a>
+      </form>
+    </div>
   </div>
+	 
   <br>
-  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>
   </div>
   </br>
 
 </main><!-- /.container -->
-  
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+
+      $('#fecha_ini').datepicker({
+          format: "dd/mm/yyyy",
+          startDate: "1/1/1900",
+          endDate: "13/10/2019",
+          todayBtn: "linked",
+          language: "es",
+          todayHighlight: true
+      });
+      
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $('#fecha').datepicker();
+        });
+    </script>
+    
+    <script> function comprobarFecha(texto){
+      		document.getElementById("labelFechaMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelFechaMal").style.display = 'inline';
+       	        $('#labelFechaMal').html("Tiene que escojer un día para su cita.");
+       	        $('#labelFechaMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+    </script>
+   
+    
+    
   </body>
 </html>

@@ -106,4 +106,10 @@ public class HomeController {
 		return "registro";
 	}
 	
+	@RequestMapping(value = "/formularioCitas", method = RequestMethod.GET)
+	public String formularioC(Locale locale, Model model) {
+		
+		return "formularioCitas";
+	}
+	
 }
