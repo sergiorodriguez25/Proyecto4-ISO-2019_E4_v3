@@ -8,15 +8,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import cucumber.api.PendingException;
+import com.tgs.tgh.model.Paciente;
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class LoginSteps {
-	
+
 	ChromeDriver driver;
-	
+
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
 		driver = WebDriver.webDriver();
@@ -27,43 +30,51 @@ public class LoginSteps {
 
 	@When("^Se introducen las credenciales invalidas$")
 	public void se_introducen_las_credenciales_invalidas() throws Throwable {
-	    WebElement elementDNI, elementPwd;
-	    elementDNI = driver.findElement(By.id("inputDNI"));
-	    elementDNI.sendKeys("00000000Z");
-	    elementPwd = driver.findElement(By.id("inputPassword"));
-	    elementPwd.sendKeys("xxxxxxxxx");
+		WebElement elementDNI, elementPwd;
+		elementDNI = driver.findElement(By.id("inputDNI"));
+		elementDNI.sendKeys("00000000Z");
+		elementPwd = driver.findElement(By.id("inputPassword"));
+		elementPwd.sendKeys("xxxxxxxxx");
 	}
 
 	@When("^Se pulsa el boton de iniciar sesion$")
 	public void se_pulsa_el_boton_de_iniciar_sesion() throws Throwable {
-	    driver.findElementById("logearseBtn").click();
-	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.findElementById("logearseBtn").click();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
 	@Then("^Los input se vacian$")
 	public void los_input_se_vacian() throws Throwable {
 		WebElement elementDNI, elementPwd;
-	    elementDNI = driver.findElement(By.id("inputDNI"));
-	    elementPwd = driver.findElement(By.id("inputPassword"));
-	    assertEquals("", elementDNI.getText());
-	    assertEquals("", elementPwd.getText());
-	    driver.quit();
+		elementDNI = driver.findElement(By.id("inputDNI"));
+		elementPwd = driver.findElement(By.id("inputPassword"));
+		assertEquals("", elementDNI.getText());
+		assertEquals("", elementPwd.getText());
+		driver.quit();
 	}
 
 	@When("^Se introducen las credenciales validas$")
 	public void se_introducen_las_credenciales_validas() throws Throwable {
+		Manager.get().registro("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba", "Ciudad Real",
+				"13003", "600000000", "prueba@prueba.com");
 		WebElement elementDNI, elementPwd;
-	    elementDNI = driver.findElement(By.id("inputDNI"));
-	    elementDNI.sendKeys("05720500D");
-	    elementPwd = driver.findElement(By.id("inputPassword"));
-	    elementPwd.sendKeys("Jorge");
+		elementDNI = driver.findElement(By.id("inputDNI"));
+		elementDNI.sendKeys("00000000Z");
+		elementPwd = driver.findElement(By.id("inputPassword"));
+		elementPwd.sendKeys("prueba");
 	}
 
 	@Then("^Se abre la pagina de citas$")
 	public void se_abre_la_pagina_de_citas() throws Throwable {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	    assertEquals("The Good Health", driver.getTitle());
-	    driver.quit();
+		assertEquals("The Good Health", driver.getTitle());
+		driver.quit();
+		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
+		Manager.get().eliminarUsuario(usuario);
+		Manager.get().eliminarPaciente(paciente);
 	}
 
 }

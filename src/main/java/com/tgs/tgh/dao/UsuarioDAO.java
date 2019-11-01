@@ -48,7 +48,7 @@ public class UsuarioDAO {
 		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
 		criterion.append("Email", new BsonString(usuario.getEmail()));
 		
-		boolean comprobar = DBBroker.get().eliminarUser(criterion);
+		boolean comprobar = DBBroker.get().eliminar("Usuarios", criterion);
 		if(!comprobar)
 			throw new Exception("Error al eliminar el usuario");
 	}

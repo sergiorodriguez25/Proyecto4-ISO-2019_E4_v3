@@ -8,13 +8,13 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class WebDriver {
 
 	public static ChromeDriver webDriver() throws MalformedURLException {
-		System.setProperty("webdriver.chrome.driver", "Recursos//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
 		final ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-extensions");
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
-		return new ChromeDriver();
+		return new ChromeDriver(options);
 	}
 
 }

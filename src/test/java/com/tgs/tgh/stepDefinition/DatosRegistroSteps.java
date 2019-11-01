@@ -8,6 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.tgs.tgh.model.Paciente;
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -74,6 +78,12 @@ public class DatosRegistroSteps {
 	public void no_se_muestran_labels_de_error() throws Throwable {
 		assertEquals("", driver.findElementById("labelNombreMal").getText());
 		driver.quit();
+		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
+		Manager.get().eliminarUsuario(usuario);
+		Manager.get().eliminarPaciente(paciente);
 	}
 
 	@When("^Se introducen los datos de registro con contrasenas incorrectas$")

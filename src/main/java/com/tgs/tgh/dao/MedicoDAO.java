@@ -4,6 +4,7 @@ import org.bson.BsonDocument;
 import org.bson.BsonString;
 
 import com.tgs.tgh.model.Medico;
+import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
 
 public class MedicoDAO {
@@ -25,6 +26,22 @@ public class MedicoDAO {
 		return medico;
 	}
 	
+	public static void registro(String dni, String especialidad, String centroMedico) {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("Especialidad", new BsonString(especialidad));
+		criterion.append("CentroMedico", new BsonString(centroMedico));
+		DBBroker.get().registrarMedico(criterion);
+	}
 	
+	public static void eliminar(Medico medico) throws Exception {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(medico.getDNI()));
+		criterion.append("Especialidad", new BsonString(medico.getEspecialidad()));
+		criterion.append("CentroMedico", new BsonString(medico.getCentroMedico()));
+		boolean comprobar = DBBroker.get().eliminar("Medicos", criterion);
+		if(!comprobar)
+			throw new Exception("Error al eliminar el medico");
+	}
 
 }

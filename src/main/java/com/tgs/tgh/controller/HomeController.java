@@ -2,7 +2,6 @@ package com.tgs.tgh.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tgs.tgh.dao.DBBroker;
-import com.tgs.tgh.model.Usuario;
 import com.tgs.tgh.web.Manager;
 
 /**

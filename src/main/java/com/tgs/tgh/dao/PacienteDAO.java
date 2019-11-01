@@ -25,4 +25,20 @@ public class PacienteDAO {
 		return paciente;
 	}
 
+	public static void registro(String dni, String centroMedico) {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("CentroMedico", new BsonString(centroMedico));
+		DBBroker.get().registrarPaciente(criterion);
+	}
+	
+	public static void eliminar(Paciente paciente) throws Exception {
+		BsonDocument criterion=new BsonDocument();
+		criterion.append("DNI", new BsonString(paciente.getDNI()));
+		criterion.append("CentroMedico", new BsonString(paciente.getCentroMedico()));
+		boolean comprobar = DBBroker.get().eliminar("Pacientes", criterion);
+		if(!comprobar)
+			throw new Exception("Error al eliminar el paciente");
+	}
+
 }
