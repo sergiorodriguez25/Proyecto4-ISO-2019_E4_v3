@@ -163,6 +163,16 @@
     
     <script type="text/javascript">
     jQuery(document).ready(function($) {
+    	/*
+    	* Control para que no acceda a través de la url a alguna página que no sea el home
+    	* Hay que ponerlo en todos los jsp que se hagan próximamente
+    	*/
+    	var referrer = document.referrer;
+    	if(referrer != 'http://localhost:8080/'){
+    		var forma = document.forms[0];
+            forma.action="/error";
+            forma.submit(); 
+    	}
     		getParametersURL();
     });
     
