@@ -1,4 +1,4 @@
-<!doctype html>
+<<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,11 +10,20 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-    <title>Citas</title>
+    <title>Registro</title>
 
     <!-- Bootstrap core CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  	 
+  	 <link rel="stylesheet" href="datePicker/css/bootstrap-datepicker.css">
+    <script src="datePicker/js/bootstrap-datepicker.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+    
+    <script src="datePicker/locales/bootstrap-datepicker.es.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css">
+  	 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
@@ -30,6 +39,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script>
+        $( document ).ready(function() {
+            $('#fecha').datepicker();
+        });
+    </script>
   </head>
 
   <style>
@@ -53,18 +68,18 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">THE GOOD HEALTH</a>
+  <a class="navbar-brand" href="#">Paciente</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Mis citas <span class="sr-only">(current)</span></a>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="/formularioCitas" tabindex="-1" aria-disabled="true">Pedir cita</a>
+        <a class="nav-link" href="/citas" tabindex="-1" aria-disabled="true">Mis citas</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Pedir cita <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -82,6 +97,8 @@
   </div>
 </nav>
 
+
+
 <main role="main" class="container">
 	<div class="span">
 	<div></div>
@@ -92,103 +109,111 @@
   			
 				<div class="card">
   				<div class="card-body">
-            		<h4>Mis Citas</h4>
-            		<p>Bienvenido/a a la página de "Mis citas" en la que aparecen todas las citas que tiene programadas. Si desea modificar o anular una cita, por favor pulse en el botón de abajo.</p>
+            		<h4>Citas</h4>
+            		<p>Bienvenido/a a la página de Citas. Por favor rellene todos los campos que encontrará a continuación para solicitar la cita deseada, después pulse en el botón de Enviar.</p>
          		</div>
 				</div>
+				
 			</div>
 			<div class="col-md-1"></div>
-			<div class="col-md-3">
-			<div class="card">
-  				<div class="card-body">
-  				<form action="getParametersURL"></form>
-  					<div class="text-center">
-            		 	<label id="nombreApellidos"></label>
-         			</div>
-         				
-         		</div>
-				</div>
-          	</div>
           </div>
      <br></br>
   </div>
-	 <div class="row d-flex justify-content-center">
-    	<div class="container">
+	 
+	  <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Especialidad     </label>
+            <select class="form-control form-control-lg">
+            <option>Pediatria</option>
+            <option>Traumatologia</option>
+            <option>Neurocirugia</option>
+            <option>Alergologo</option>
+            </select>
+          </div>
+        </div>
+        <br></br>
+        
+        <div class="mb-3">
+          <label for="fecha_ini">Día</label>
+           <br></br>
+          <input type="text" id="fecha_ini" class="form-control">
+          <div class="invalid-feedback">
+            Información necesaria.
+          </div>
+          <label id="labelFechaMal"></label>
+        </div>
+        <br></br>
+        
+        <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="col-md-8 order-md-1">
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="nombre">Hora</label>
+            <select class="form-control form-control-lg">
+           	<option>10:00</option>
+            <option>11:00</option>
+            <option>12:00</option>
+            <option>13:00</option>
+            <option>14:00</option>
+            </select>
+          </div>
+        </div>
+        <br></br>
 
-		  <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-			  <thead>
-			    <tr>
-			      <th class="th-sm">Hora
-			      </th>
-			      <th class="th-sm">Fecha
-			      </th>
-			      <th class="th-sm">Especialidad
-			      </th>
-			      <th class="th-sm">Nombre Médico
-			      </th>
-			      <th class="th-sm">Centro Sanitario
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td>17:15</td>
-			      <td>24/05/2019</td>
-			      <td>Alergología</td>
-			      <td>Rosa Zamora</td>
-			      <td>Hospital Universitario</td>
-			    </tr>
-			    <tr>
-			      <td>18:30</td>
-			      <td>28/06/2019</td>
-			      <td>Pediatría</td>
-			      <td>Jose Antonio Pérez</td>
-			      <td>Hospital Universitario</td>
-			    </tr>
-			  </tbody>
-		</table>  
+        <hr class="mb-4">
+        <a id = "pedircita" class="btn btn-default" type="submit">Solicitar cita</a>
+        <a href = "/citas" class="btn btn-default" type="submit">Volver atras</a>
+      </form>
+    </div>
   </div>
+	 
   <br>
-  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>    
   </div>
   </br>
 
 </main><!-- /.container -->
-  
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-    
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-    	/*
-    	* Control para que no acceda a través de la url a alguna página que no sea el home
-    	* Hay que ponerlo en todos los jsp que se hagan próximamente
-    	*/
-    	var referrer = document.referrer;
-    	if(referrer != 'http://localhost:8080/'){
-    		var forma = document.forms[0];
-            forma.action="/error";
-            forma.submit(); 
-    	}
-    		getParametersURL();
-    });
-    
-    function getParametersURL() {
-    	var name="nombre";
-    	var surname="apellidos";
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-        var regex2 = new RegExp("[\\?&]" + surname + "=([^&#]*)"),
-        results2 = regex2.exec(location.search);
-        console.log(results);
-        console.log(decodeURIComponent(results2[1].replace(/\+/g, " ")));
-        $('#nombreApellidos').html(decodeURIComponent(results[1].replace(/\+/g, " ")) + " " + decodeURIComponent(results2[1].replace(/\+/g, " ")));
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+
+      $('#fecha_ini').datepicker({
+          format: "dd/mm/yyyy",
+          startDate: "1/1/1900",
+          endDate: "13/10/2019",
+          todayBtn: "linked",
+          language: "es",
+          todayHighlight: true
+      });
+      
     </script>
+    <script>
+        $( document ).ready(function() {
+            $('#fecha').datepicker();
+        });
+    </script>
+    
+    <script> function comprobarFecha(texto){
+      		document.getElementById("labelFechaMal").style.display = 'none';
+      		if (texto == '') {
+      			document.getElementById("labelFechaMal").style.display = 'inline';
+       	        $('#labelFechaMal').html("Tiene que escojer un día para su cita.");
+       	        $('#labelFechaMal').css("color", "red");
+      			return 1;
+      		}	
+      		return 0;
+      	}
+    </script>
+   
+    
+    
   </body>
 </html>
