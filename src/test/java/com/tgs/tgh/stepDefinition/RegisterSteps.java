@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
 import com.tgs.tgh.web.Manager;
 
@@ -61,6 +62,8 @@ public class RegisterSteps {
 
 	@When("^Se introducen todos los datos existentes$")
 	public void se_introducen_todos_los_datos_existentes() throws Throwable {
+		Manager.get().registro("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba", "Ciudad Real",
+				"13003", "600000000", "prueba@prueba.com");
 		WebElement elementDNI, elementNombre, elementApellidos, elementFecha, elementDomicilio, elementPoblacion,
 				elementCP, elementTelefono, elementEmail, elementPwd, elementPwdRepe;
 
@@ -76,7 +79,7 @@ public class RegisterSteps {
 		elementPwd = driver.findElement(By.id("contraseña"));
 		elementPwdRepe = driver.findElement(By.id("RepetirContraseña"));
 
-		elementDNI.sendKeys("05720500D");
+		elementDNI.sendKeys("00000000Z");
 		elementNombre.sendKeys("Prueba");
 		elementApellidos.sendKeys("Prueba");
 		elementFecha.sendKeys("26/10/1998");
@@ -99,8 +102,12 @@ public class RegisterSteps {
 	public void se_abre_la_pagina_de_citas() throws Throwable {
 		assertEquals("Registro", driver.getTitle());
 		driver.quit();
-		Manager.get().eliminarUsuario(new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
-				"Ciudad Real", "13003", "600000000", "prueba@prueba.com"));
+		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
+		Manager.get().eliminarUsuario(usuario);
+		Manager.get().eliminarPaciente(paciente);
 	}
 
 	@Then("^Aparece un alert$")
@@ -111,6 +118,12 @@ public class RegisterSteps {
 		alert.getText();
 		assertEquals("El DNI que ha introducido ya está en uso.", alert.getText());
 		driver.quit();
+		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
+		Manager.get().eliminarUsuario(usuario);
+		Manager.get().eliminarPaciente(paciente);
 	}
 
 }

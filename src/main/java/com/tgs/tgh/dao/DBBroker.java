@@ -62,10 +62,7 @@ public class DBBroker<T> {
 
 	public Usuario regitrarUser(BsonDocument criterion) {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-		System.out.println(criterion.getString("DNI").getValue());
 		collection.insertOne(criterion);
-
-		long cp = (int) criterion.get("CP").asInt32().getValue();
 
 		Usuario user = new Usuario(criterion.getString("DNI").getValue(), criterion.getString("Password").getValue(),
 				criterion.getString("Nombre").getValue(), criterion.getString("Apellidos").getValue(),
@@ -74,6 +71,16 @@ public class DBBroker<T> {
 				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue());
 
 		return user;
+	}
+
+	public void registrarPaciente(BsonDocument criterion) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+	
+	public void registrarMedico(BsonDocument criterion) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
+		collection.insertOne(criterion);
 	}
 
 	public boolean comprobarDNIEnBD(BsonDocument criterion) {
@@ -98,7 +105,7 @@ public class DBBroker<T> {
 				criterion.getString("FNac").getValue(), criterion.getString("Domicilio").getValue(),
 				criterion.getString("Poblacion").getValue(), criterion.getString("CP").getValue(),
 				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue(),
-				bso.get("CentroMedico").asString().getValue());
+				criterion.getString("Especialidad").getValue(), bso.get("CentroMedico").asString().getValue());
 
 		return medico;
 	}
@@ -119,8 +126,8 @@ public class DBBroker<T> {
 		return paciente;
 	}
 
-	public boolean eliminarUser(BsonDocument criterion) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+	public boolean eliminar(String nombre, BsonDocument criterion) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection(nombre, BsonDocument.class);
 		try {
 			collection.deleteOne(criterion);
 		} catch (Exception e) {
@@ -128,4 +135,5 @@ public class DBBroker<T> {
 		}
 		return true;
 	}
+
 }
