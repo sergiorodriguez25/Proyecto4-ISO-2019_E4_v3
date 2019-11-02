@@ -236,6 +236,8 @@ public final class citas_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t      <th class=\"th-sm\">Nombre Médico\r\n");
       out.write("\t\t\t      </th>\r\n");
       out.write("\t\t\t      <th class=\"th-sm\">Centro Sanitario\r\n");
+      out.write("\t\t\t      </th>\r\n");
+      out.write("\t\t\t      <th class=\"th-sm\">Opciones\r\n");
       out.write("\t\t\t    </tr>\r\n");
       out.write("\t\t\t  </thead>\r\n");
       out.write("\t\t\t  <tbody>\r\n");
@@ -245,6 +247,9 @@ public final class citas_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t      <td>Alergología</td>\r\n");
       out.write("\t\t\t      <td>Rosa Zamora</td>\r\n");
       out.write("\t\t\t      <td>Hospital Universitario</td>\r\n");
+      out.write("\t\t\t      <td>\r\n");
+      out.write("\t\t\t      \t<a href = \"/\" class=\"btn btn-primary btn-large\" type=\"submit\"><img src=\"https://image.flaticon.com/icons/png/512/39/39220.png\" class=\"img-fluid rounded\" width=\"30\" height=\"30\"></a>\r\n");
+      out.write("\t\t\t      </td>\r\n");
       out.write("\t\t\t    </tr>\r\n");
       out.write("\t\t\t    <tr>\r\n");
       out.write("\t\t\t      <td>18:30</td>\r\n");
@@ -252,12 +257,15 @@ public final class citas_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t      <td>Pediatría</td>\r\n");
       out.write("\t\t\t      <td>Jose Antonio Pérez</td>\r\n");
       out.write("\t\t\t      <td>Hospital Universitario</td>\r\n");
+      out.write("\t\t\t      <td>\r\n");
+      out.write("\t\t\t      \t<a href = \"/\" class=\"btn btn-primary btn-large\" type=\"submit\"><img src=\"https://image.flaticon.com/icons/png/512/39/39220.png\" class=\"img-fluid rounded\" width=\"30\" height=\"30\"></a>\r\n");
+      out.write("\t\t\t      </td>\r\n");
       out.write("\t\t\t    </tr>\r\n");
       out.write("\t\t\t  </tbody>\r\n");
       out.write("\t\t</table>  \r\n");
       out.write("  </div>\r\n");
       out.write("  <br>\r\n");
-      out.write("  <div><p><a class=\"btn btn-primary btn-large\">Modificar Cita &raquo;</a></p></div>    \r\n");
+      out.write("  <div><p><a class=\"btn btn-primary btn-large\">Modificar Cita &raquo;</a></p></div>  \r\n");
       out.write("  </div>\r\n");
       out.write("  </br>\r\n");
       out.write("\r\n");
