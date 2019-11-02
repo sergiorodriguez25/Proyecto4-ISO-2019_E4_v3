@@ -40,11 +40,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <script>
-        $( document ).ready(function() {
-            $('#fecha').datepicker();
-        });
-    </script>
   </head>
 
   <style>
@@ -68,7 +63,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Paciente</a>
+  <a class="navbar-brand" href="#">THE GOOD HEALTH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -109,8 +104,8 @@
   			
 				<div class="card">
   				<div class="card-body">
-            		<h4>Citas</h4>
-            		<p>Bienvenido/a a la página de Citas. Por favor rellene todos los campos que encontrará a continuación para solicitar la cita deseada, después pulse en el botón de Enviar.</p>
+            		<h4>Formulario de Citas</h4>
+            		<p>Para pedir una cita, rellene todos los campos que encontrará a continuación para solicitar la cita deseada, después pulse en el botón de Enviar.</p>
          		</div>
 				</div>
 				
@@ -124,7 +119,7 @@
       <form class="needs-validation" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="nombre">Especialidad     </label>
+            <label for="nombre">Especialidad</label>
             <select class="form-control form-control-lg">
             <option>Pediatria</option>
             <option>Traumatologia</option>
@@ -183,6 +178,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    	/*
+    	* Control para que no acceda a través de la url a alguna página que no sea el home
+    	* Hay que ponerlo en todos los jsp que se hagan próximamente
+    	*/
+    	var referrer = document.referrer;
+    	if(referrer != 'http://localhost:8080/citas' && referrer != 'https://the-good-health.herokuapp.com/citas') {
+    		var forma = document.forms[0];
+            forma.action="/error";
+            forma.submit(); 
+    	}
+    });
+    </script>
+    
     <script>
 
       $('#fecha_ini').datepicker({
@@ -195,12 +206,7 @@
       });
       
     </script>
-    <script>
-        $( document ).ready(function() {
-            $('#fecha').datepicker();
-        });
-    </script>
-    
+
     <script> function comprobarFecha(texto){
       		document.getElementById("labelFechaMal").style.display = 'none';
       		if (texto == '') {

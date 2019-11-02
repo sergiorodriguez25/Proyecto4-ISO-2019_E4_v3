@@ -127,6 +127,7 @@
 		console.log(respuesta);	
 		console.log(jso);
 		var jso = JSON.parse(respuesta);
+		sessionStorage.usuario=JSON.stringify(jso);
 		if(jso.type=="CredencialesMal"){
 			console.log("Credenciales incorrectas");
 	        $('#labelMalLogin').html("Credenciales inválidas. Por favor vuelva a introducir los datos");
@@ -136,10 +137,7 @@
 		}
 		else {
 			console.log("Credenciales correctas");
-			console.log(jso.resultado.usuario.apellidos);
-			var apellidosCodificado = encode_utf8(jso.resultado.usuario.apellidos);
-			var nombreCodificado = encode_utf8(jso.resultado.usuario.nombre);
-	        location.href="/citas?nombre="+nombreCodificado+"&apellidos="+apellidosCodificado;
+	        location.href="/citas";
 		}
         
     }
