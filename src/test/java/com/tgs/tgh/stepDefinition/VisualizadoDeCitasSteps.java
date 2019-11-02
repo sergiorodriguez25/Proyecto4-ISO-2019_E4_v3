@@ -7,6 +7,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -33,12 +36,15 @@ public class VisualizadoDeCitasSteps {
 		elementDNI.sendKeys("00000000Z");
 		elementPwd = driver.findElement(By.id("inputPassword"));
 		elementPwd.sendKeys("prueba");
-		driver.findElementById("logearseBtn").click();
 	}
 
 	@When("^Entro en la vista de citas$")
 	public void entro_en_la_vista_de_citas() throws Throwable {
-		assertEquals("The Good Health", driver.getTitle());
+		driver.findElementById("logearseBtn").click();
+		WebDriverWait myWaitVar = new WebDriverWait(driver, 30);
+		myWaitVar.until(ExpectedConditions.visibilityOfElementLocated(By.id("nombreApellidos")));
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		assertEquals("Citas", driver.getTitle());
 	}
 
 	@Then("^Se muestran el nombre y apellidos del usuario que ha iniciado sesion$")

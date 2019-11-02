@@ -63,6 +63,7 @@ public class Manager {
 			return new JSONObject().put("usuario", jso);
 		} else {
 			Paciente paciente = PacienteDAO.esPaciente(usuario);
+			System.out.println(paciente.getCentroMedico());
 			jso.put("centro", paciente.getCentroMedico());
 			return new JSONObject().put("usuario", jso);
 

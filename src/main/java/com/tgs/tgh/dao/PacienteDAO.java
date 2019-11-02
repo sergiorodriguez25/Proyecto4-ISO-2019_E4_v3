@@ -21,7 +21,10 @@ public class PacienteDAO {
 		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
 		criterion.append("Email", new BsonString(usuario.getEmail()));
 		
-		Paciente paciente = DBBroker.get().devolverPaciente(criterion, usuario);
+		BsonDocument criterion2 = new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		
+		Paciente paciente = DBBroker.get().devolverPaciente(criterion, criterion2, usuario);
 		return paciente;
 	}
 
