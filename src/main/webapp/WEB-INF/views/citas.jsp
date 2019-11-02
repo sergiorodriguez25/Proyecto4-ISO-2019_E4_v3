@@ -93,7 +93,8 @@
 				<div class="card">
   				<div class="card-body">
             		<h4>Mis Citas</h4>
-            		<p>Bienvenido/a a la página de "Mis citas" en la que aparecen todas las citas que tiene programadas. Si desea modificar o anular una cita, por favor pulse en el botón de abajo.</p>
+            		<p>Bienvenido/a a la página de "Mis citas" en la que aparecen todas las citas que tiene programadas. Si desea modificar(<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">) o anular(<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">) una cita, pulse el botón de la acción que quiera realizar y que se encuentra a la derecha de la cita con la que quiera interactuar.</p>
+            		<p>Si desea solicitar una cita pulse el siguiente botón  <a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit">Pedir cita</a></p>
          		</div>
 				</div>
 			</div>
@@ -118,40 +119,40 @@
 		  <table id="dtDynamicVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
 			  <thead>
 			    <tr>
-			      <th class="th-sm">Hora
+			      <th class="th-sm text-center">Hora
 			      </th>
-			      <th class="th-sm">Fecha
+			      <th class="th-sm text-center">Fecha
 			      </th>
-			      <th class="th-sm">Especialidad
+			      <th class="th-sm text-center">Especialidad
 			      </th>
-			      <th class="th-sm">Nombre Médico
+			      <th class="th-sm text-center">Nombre Médico
 			      </th>
-			      <th class="th-sm">Centro Sanitario
+			      <th class="th-sm text-center">Centro Sanitario
 			      </th>
-			      <th class="th-sm">
+			      <th class="th-sm text-center" width="128">
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <td>17:15</td>
-			      <td>24/05/2019</td>
-			      <td>Alergología</td>
-			      <td>Rosa Zamora</td>
-			      <td>Hospital Universitario</td>
+			      <td class="text-center">17:15</td>
+			      <td class="text-center">24/05/2019</td>
+			      <td class="text-center">Alergología</td>
+			      <td class="text-center">Rosa Zamora</td>
+			      <td class="text-center">Hospital Universitario</td>
 			      <td>
-			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
 			      	<a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>18:30</td>
-			      <td>28/06/2019</td>
-			      <td>Pediatría</td>
-			      <td>Jose Antonio Pérez</td>
-			      <td>Hospital Universitario</td>
+			      <td class="text-center">18:30</td>
+			      <td class="text-center">28/06/2019</td>
+			      <td class="text-center">Pediatría</td>
+			      <td class="text-center">Jose Antonio Pérez</td>
+			      <td class="text-center">Hospital Universitario</td>
 			      <td>
-			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
 			      	<a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
 			      </td>
 			    </tr>
 			  </tbody>
