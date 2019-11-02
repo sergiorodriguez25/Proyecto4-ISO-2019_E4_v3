@@ -128,35 +128,36 @@
 			      </th>
 			      <th class="th-sm">Centro Sanitario
 			      </th>
-			      <th class="th-sm">Opciones
+			      <th class="th-sm">
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
 			      <td>17:15</td>
 			      <td>24/05/2019</td>
-			      <td>Alergologia</td>
+			      <td>Alergología</td>
 			      <td>Rosa Zamora</td>
 			      <td>Hospital Universitario</td>
 			      <td>
-			      	<a href = "/" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="30" height="30"></a>
 			      </td>
 			    </tr>
 			    <tr>
 			      <td>18:30</td>
 			      <td>28/06/2019</td>
-			      <td>Pediatria</td>
-			      <td>Jose Antonio Perez</td>
+			      <td>Pediatría</td>
+			      <td>Jose Antonio Pérez</td>
 			      <td>Hospital Universitario</td>
 			      <td>
-			      	<a href = "/" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="30" height="30"></a>
 			      </td>
 			    </tr>
 			  </tbody>
 		</table>  
   </div>
-  <br>
-  <div><p><a class="btn btn-primary btn-large">Modificar Cita &raquo;</a></p></div>  
+  <br>  
   </div>
   </br>
 
