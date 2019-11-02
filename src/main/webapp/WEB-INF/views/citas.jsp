@@ -178,27 +178,36 @@
     	*/
     	var referrer = document.referrer;
     	if(referrer != 'http://localhost:8080/' && referrer != 'https://the-good-health.herokuapp.com/' &&
-    			referrer != 'http://localhost:8080/registro' && referrer != 'https://the-good-health.herokuapp.com/registro') {
+    			referrer != 'http://localhost:8080/registro' && referrer != 'https://the-good-health.herokuapp.com/registro'
+    			&& referrer != 'http://localhost:8080/formularioCitas' && referrer != 'https://the-good-health.herokuapp.com/formularioCitas') {
     		var forma = document.forms[0];
             forma.action="/error";
             forma.submit(); 
     	}
-    		getParametersURL();
+//     		getParametersURL();
+		
+		ponerNombreApellidos();
     });
     
-    function getParametersURL() {
-    	var name="nombre";
-    	var surname="apellidos";
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-        var regex2 = new RegExp("[\\?&]" + surname + "=([^&#]*)"),
-        results2 = regex2.exec(location.search);
-        console.log(results);
-        console.log(decodeURIComponent(results2[1].replace(/\+/g, " ")));
-        $('#nombreApellidos').html(decodeURIComponent(results[1].replace(/\+/g, " ")) + " " + decodeURIComponent(results2[1].replace(/\+/g, " ")));
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    function ponerNombreApellidos() {
+    	var jsoUser = JSON.parse(sessionStorage.usuario);
+    	console.log(jsoUser.resultado.usuario.nombre);
+    	$('#nombreApellidos').html(jsoUser.resultado.usuario.nombre + " " + jsoUser.resultado.usuario.apellidos);
+    	
     }
+//     function getParametersURL() {
+//     	var name="nombre";
+//     	var surname="apellidos";
+//         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+//         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+//         results = regex.exec(location.search);
+//         var regex2 = new RegExp("[\\?&]" + surname + "=([^&#]*)"),
+//         results2 = regex2.exec(location.search);
+//         console.log(results);
+//         console.log(decodeURIComponent(results2[1].replace(/\+/g, " ")));
+//         $('#nombreApellidos').html(decodeURIComponent(results[1].replace(/\+/g, " ")) + " " + decodeURIComponent(results2[1].replace(/\+/g, " ")));
+//         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+//     }
     </script>
   </body>
 </html>
