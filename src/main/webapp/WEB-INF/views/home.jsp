@@ -85,7 +85,7 @@
     
 	function enviarDatos(){
 		var data = {
-			DNI : $('#inputDNI').val(),
+			DNI : convertirDNI($('#inputDNI').val()),
 			password : $('#inputPassword').val(),
 		};
 		var url = "/home";
@@ -110,6 +110,18 @@
 	        error : loginError
 		});
 	};
+	
+	function convertirDNI(dni){
+		if (dni.length == 0 || dni.length == 1)
+			return dni;
+		else {
+			if (/[A-Z]/.test(dni.charAt(dni.length-1)) || /[a-z]/.test(dni.charAt(dni.length-1))){
+				return dni.substring(0,dni.length-1)+dni.charAt(dni.length-1).toUpperCase();
+			}
+			else
+				return dni;
+		}
+	}
 	
 	function loginOK(respuesta) {
 		console.log(respuesta);	

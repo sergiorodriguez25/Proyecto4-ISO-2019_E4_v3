@@ -286,10 +286,10 @@
     	});
     });
 
-    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/<>*-+,;:^";
+    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/<>*-+,;:^'.`[]{}_";
   	var numeros="0123456789";
   	var mayusculas="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-  	var simbolo="<>ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^";
+  	var simbolo="<>ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^.'`[]{}_";
     
 	function enviarDatos(){
 		var data = {
