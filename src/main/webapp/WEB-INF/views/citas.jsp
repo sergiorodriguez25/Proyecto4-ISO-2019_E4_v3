@@ -168,7 +168,8 @@
     	* Hay que ponerlo en todos los jsp que se hagan próximamente
     	*/
     	var referrer = document.referrer;
-    	if(referrer != 'http://localhost:8080/'){
+    	if(referrer != 'http://localhost:8080/' && referrer != 'https://the-good-health.herokuapp.com/' &&
+    			referrer != 'http://localhost:8080/registro' && referrer != 'https://the-good-health.herokuapp.com/registro') {
     		var forma = document.forms[0];
             forma.action="/error";
             forma.submit(); 

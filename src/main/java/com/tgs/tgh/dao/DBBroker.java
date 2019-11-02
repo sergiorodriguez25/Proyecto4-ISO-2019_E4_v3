@@ -116,10 +116,11 @@ public class DBBroker<T> {
 		return medico;
 	}
 
-	public Paciente devolverPaciente(BsonDocument criterion, Usuario usuario) {
+	public Paciente devolverPaciente(BsonDocument criterion, BsonDocument criterion2, Usuario usuario) {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
-		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		FindIterable<BsonDocument> iterator = collection.find(criterion2);
 		BsonDocument bso = iterator.first();
+		System.out.println(bso);
 		if (bso == null)
 			return null;
 
@@ -129,6 +130,7 @@ public class DBBroker<T> {
 				criterion.getString("Domicilio").getValue(), criterion.getString("Poblacion").getValue(),
 				criterion.getString("CP").getValue(), criterion.getString("Telefono").getValue(),
 				criterion.getString("Email").getValue(), bso.get("CentroMedico").asString().getValue());
+		System.out.println(paciente.getCentroMedico());
 		return paciente;
 	}
 
