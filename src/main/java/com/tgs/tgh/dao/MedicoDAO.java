@@ -22,7 +22,9 @@ public class MedicoDAO {
 		criterion.append("CP", new BsonString(usuario.getCodigoPostal()));
 		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
 		criterion.append("Email", new BsonString(usuario.getEmail()));
-		Medico medico = DBBroker.get().comprobarSiEsMedico(criterion);
+		BsonDocument criterion2 = new BsonDocument();
+		criterion2.append("DNI", new BsonString(usuario.getDNI()));
+		Medico medico = DBBroker.get().comprobarSiEsMedico(criterion, criterion2);
 		return medico;
 	}
 	
