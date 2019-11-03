@@ -120,4 +120,19 @@ public class HomeController {
 		return "formularioCitas";
 	}
 	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioCitas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		String dni = jso.get("dniPaciente");
+		String especialidad = jso.get("especialidad");
+		String dia = jso.get("dia");
+		String hora = jso.get("hora");
+		
+		JSONObject jsorespuesta = Manager.get().introducirCita(dni, especialidad, dia, hora);
+		
+		return "";
+	}
+	
 }

@@ -11,6 +11,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
@@ -160,6 +161,17 @@ public class DBBroker<T> {
 			return false;
 		}
 		return true;
+	}
+
+	public void introducirCitaBD(Cita cita) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(cita.getDniPaciente()));
+		criterion.append("especialidad", new BsonString(cita.getEspecialidad()));
+		criterion.append("dia", new BsonString(cita.getDia()));
+		criterion.append("hora", new BsonString(cita.getHora()));
+		
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		collection.insertOne(criterion);
 	}
 
 }
