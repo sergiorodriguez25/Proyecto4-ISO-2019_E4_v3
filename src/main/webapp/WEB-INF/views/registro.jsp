@@ -331,10 +331,9 @@
 	function RegisterOK(respuesta) {
 		console.log(respuesta);
 		var jso = JSON.parse(respuesta);
+		sessionStorage.usuario=JSON.stringify(jso);
         console.log("Registro completado");
-        var apellidosCodificado = encode_utf8(jso.resultado.usuario.apellidos);
-		var nombreCodificado = encode_utf8(jso.resultado.usuario.nombre);
-        location.href="/citas?nombre="+nombreCodificado+"&apellidos="+apellidosCodificado;
+        location.href=location.href="/citas";
     }
 	
 	function RegisterError() {
