@@ -3,6 +3,7 @@ package com.tgs.tgh.dao;
 import java.text.ParseException;
 
 import org.bson.BsonDocument;
+import org.bson.BsonString;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.FindIterable;
@@ -34,15 +35,28 @@ public class DBBroker<T> {
 		return SingletonHolder.singleton;
 	}
 
-	public Usuario loginUser(BsonDocument criterion) throws ParseException {
+	public boolean comprobarDNIEnBD(String dni) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-		System.out.println("criterion: " + criterion);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
-		System.out.println("iterator: " + iterator);
+		BsonDocument bso = iterator.first();
+		if (bso == null)
+			return false;
+
+		return true;
+	}
+
+	public Usuario loginUser(String dni, String pwd) throws ParseException {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("Password", new BsonString(pwd));
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		if (iterator == null)
 			return null;
+
 		BsonDocument bso = iterator.first();
-		System.out.println("bso: " + bso);
 		if (bso != null) {
 			Usuario user = new Usuario(bso.get("DNI").asString().getValue(), bso.get("Password").asString().getValue(),
 					bso.get("Nombre").asString().getValue(), bso.get("Apellidos").asString().getValue(),
@@ -50,80 +64,95 @@ public class DBBroker<T> {
 					bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
 					bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
 			return user;
-
 		}
 		return null;
 	}
 
-	public Usuario regitrarUser(BsonDocument criterion) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
-		collection.insertOne(criterion);
-
-		Usuario user = new Usuario(criterion.getString("DNI").getValue(), criterion.getString("Password").getValue(),
-				criterion.getString("Nombre").getValue(), criterion.getString("Apellidos").getValue(),
-				criterion.getString("FNac").getValue(), criterion.getString("Domicilio").getValue(),
-				criterion.getString("Poblacion").getValue(), criterion.getString("CP").getValue(),
-				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue());
-
-		return user;
-	}
-
-	public void registrarPaciente(BsonDocument criterion) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
-		collection.insertOne(criterion);
-	}
-
-	public void registrarMedico(BsonDocument criterion) {
+	public Medico comprobarSiEsMedico(Usuario usuario) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
-		collection.insertOne(criterion);
-	}
-
-	public boolean comprobarDNIEnBD(BsonDocument criterion) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
-		BsonDocument bso = iterator.first();
-		if (bso == null)
-			return false;
-
-		return true;
-	}
-
-	public Medico comprobarSiEsMedico(BsonDocument criterion, BsonDocument criterion2) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
-		FindIterable<BsonDocument> iterator = collection.find(criterion2);
 		BsonDocument bso = iterator.first();
 		if (bso == null)
 			return null;
 
-		Medico medico = new Medico(criterion.getString("DNI").getValue(), criterion.getString("Password").getValue(),
-				criterion.getString("Nombre").getValue(), criterion.getString("Apellidos").getValue(),
-				criterion.getString("FNac").getValue(), criterion.getString("Domicilio").getValue(),
-				criterion.getString("Poblacion").getValue(), criterion.getString("CP").getValue(),
-				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue(),
-				bso.get("Especialidad").asString().getValue(), bso.get("CentroMedico").asString().getValue());
+		Medico medico = new Medico(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
+				usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(), usuario.getCodigoPostal(),
+				usuario.getTelefono(), usuario.getEmail(), bso.get("Especialidad").asString().getValue(),
+				bso.get("CentroMedico").asString().getValue());
 
 		return medico;
 	}
 
-	public Paciente devolverPaciente(BsonDocument criterion, BsonDocument criterion2, Usuario usuario) {
+	public Paciente comprobarSiEsPaciente(Usuario usuario) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
-		FindIterable<BsonDocument> iterator = collection.find(criterion2);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		System.out.println(bso);
 		if (bso == null)
 			return null;
 
-		Paciente paciente = new Paciente(criterion.getString("DNI").getValue(),
-				criterion.getString("Password").getValue(), criterion.getString("Nombre").getValue(),
-				criterion.getString("Apellidos").getValue(), criterion.getString("FNac").getValue(),
-				criterion.getString("Domicilio").getValue(), criterion.getString("Poblacion").getValue(),
-				criterion.getString("CP").getValue(), criterion.getString("Telefono").getValue(),
-				criterion.getString("Email").getValue(), bso.get("CentroMedico").asString().getValue());
-		System.out.println(paciente.getCentroMedico());
+		Paciente paciente = new Paciente(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(),
+				usuario.getApellidos(), usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(),
+				usuario.getCodigoPostal(), usuario.getTelefono(), usuario.getEmail(),
+				bso.get("CentroMedico").asString().getValue());
 		return paciente;
 	}
 
-	public boolean eliminar(String nombre, BsonDocument criterion) {
+	public Gestor comprobarSiEsGestor(Usuario usuario) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		BsonDocument bso = iterator.first();
+		if (bso == null)
+			return null;
+
+		Gestor gestor = new Gestor(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
+				usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(), usuario.getCodigoPostal(),
+				usuario.getTelefono(), usuario.getEmail(), bso.get("CentroMedico").asString().getValue());
+		return gestor;
+	}
+
+	public void regitrarUser(Usuario usuario) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		criterion.append("Password", new BsonString(usuario.getPassword()));
+		criterion.append("Nombre", new BsonString(usuario.getNombre()));
+		criterion.append("Apellidos", new BsonString(usuario.getApellidos()));
+		criterion.append("FNac", new BsonString(usuario.getFechaNac()));
+		criterion.append("Domicilio", new BsonString(usuario.getDomicilio()));
+		criterion.append("Poblacion", new BsonString(usuario.getPoblacion()));
+		criterion.append("CP", new BsonString(usuario.getCodigoPostal()));
+		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
+		criterion.append("Email", new BsonString(usuario.getEmail()));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+
+	public void registrarPaciente(String dni, String centroMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("CentroMedico", new BsonString(centroMedico));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+
+	public void registrarMedico(String dni, String especialidad, String centroMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
+		criterion.append("Especialidad", new BsonString(especialidad));
+		criterion.append("CentroMedico", new BsonString(centroMedico));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+
+	public boolean eliminar(String nombre, String dni) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dni));
 		MongoCollection<BsonDocument> collection = this.db.getCollection(nombre, BsonDocument.class);
 		try {
 			collection.deleteOne(criterion);
@@ -131,23 +160,6 @@ public class DBBroker<T> {
 			return false;
 		}
 		return true;
-	}
-
-	public Gestor comprobarSiEsGestor(BsonDocument criterion, BsonDocument criterion2) {
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
-		FindIterable<BsonDocument> iterator = collection.find(criterion2);
-		BsonDocument bso = iterator.first();
-		if (bso == null)
-			return null;
-
-		Gestor gestor = new Gestor(criterion.getString("DNI").getValue(), criterion.getString("Password").getValue(),
-				criterion.getString("Nombre").getValue(), criterion.getString("Apellidos").getValue(),
-				criterion.getString("FNac").getValue(), criterion.getString("Domicilio").getValue(),
-				criterion.getString("Poblacion").getValue(), criterion.getString("CP").getValue(),
-				criterion.getString("Telefono").getValue(), criterion.getString("Email").getValue(),
-				bso.get("CentroMedico").asString().getValue());
-
-		return gestor;
 	}
 
 }

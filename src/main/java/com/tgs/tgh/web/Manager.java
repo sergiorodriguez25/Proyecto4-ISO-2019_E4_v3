@@ -35,6 +35,11 @@ public class Manager {
 	public static Manager get() {
 		return ManagerHolder.singleton;
 	}
+	
+	public boolean comprobarSiExisteDNI(String dni) {
+		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
+		return comprobar;
+	}
 
 	public JSONObject login(String dni, String pwd) throws Exception {
 		Usuario usuario = UsuarioDAO.login(dni, pwd);
@@ -79,9 +84,9 @@ public class Manager {
 
 	public JSONObject registro(String dni, String pwd, String nombre, String apellidos, String nacimiento,
 			String domicilio, String poblacion, String cp, String telefono, String email) {
-		// Controlar que el dni no exista en la bd
-		Usuario usuario = UsuarioDAO.registro(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp,
-				telefono, email);
+		Usuario usuario = new Usuario(dni, pwd, nombre, apellidos, nacimiento, domicilio, poblacion, cp, telefono,
+				email);
+		UsuarioDAO.registro(usuario);
 		PacienteDAO.registro(dni, "Sin asignar");
 		JSONObject respuesta = new JSONObject();
 		JSONObject jsoUsu = new JSONObject();
@@ -115,11 +120,6 @@ public class Manager {
 
 	public void eliminarMedico(Medico medico) throws Exception {
 		MedicoDAO.eliminar(medico);
-	}
-
-	public boolean comprobarSiExisteDNI(String dni) {
-		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
-		return comprobar;
 	}
 
 }
