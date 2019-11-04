@@ -55,13 +55,13 @@ public class LoginSteps {
 
 	@When("^Se introducen las credenciales validas$")
 	public void se_introducen_las_credenciales_validas() throws Throwable {
-		Manager.get().registro("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba", "Ciudad Real",
+		Manager.get().registro("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba", "Ciudad Real",
 				"13003", "600000000", "prueba@prueba.com");
 		WebElement elementDNI, elementPwd;
 		elementDNI = driver.findElement(By.id("inputDNI"));
 		elementDNI.sendKeys("00000000Z");
 		elementPwd = driver.findElement(By.id("inputPassword"));
-		elementPwd.sendKeys("prueba");
+		elementPwd.sendKeys("Prueba-123");
 	}
 
 	@Then("^Se abre la pagina de citas$")
@@ -69,9 +69,9 @@ public class LoginSteps {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());
 		driver.quit();
-		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Usuario usuario = new Usuario("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
-		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Paciente paciente = new Paciente("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
 		Manager.get().eliminarUsuario(usuario);
 		Manager.get().eliminarPaciente(paciente);
