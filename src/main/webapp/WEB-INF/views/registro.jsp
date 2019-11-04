@@ -286,7 +286,7 @@
     	});
     });
 
-    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/<>*-+,;:^'.`[]{}_";
+    var caracterInvalido="0123456789ºª\!|@·#$%&¬/()=?¿¡/<>*+,;:^'.`[]{}_";
   	var numeros="0123456789";
   	var mayusculas="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
   	var simbolo="<>ºª\!|@·#$%&¬/()=?¿¡/*-+,;:^.'`[]{}_";
@@ -295,7 +295,7 @@
 		var data = {
 			nombre : $('#nombre').val(),
 			apellidos : $('#apellidos').val(),
-			DNI : $('#dni').val(),
+			DNI : convertirDNI($('#dni').val()),
 			nacimiento : $('#fecha_ini').val(),
 			domicilio : $('#domicilio').val(),
 			poblacion : $('#poblacion').val(),
@@ -305,7 +305,7 @@
 			password : $('#contraseña').val(),
 			
 		};
-		var url = "/registro";
+ 		var url = "/registro";
 		var type = "POST";
 		var success;
 		var xhrFields;
@@ -325,7 +325,7 @@
 	        },
 	        success : RegisterOK,
 	        error : RegisterError
-		});
+		}); 
 	};
 	
 	function RegisterOK(respuesta) {
@@ -355,6 +355,14 @@
 		  return unescape(encodeURIComponent(s));
 	}
 
+	function convertirDNI(dni){
+		if (/[A-Z]/.test(dni.charAt(dni.length-1)) || /[a-z]/.test(dni.charAt(dni.length-1))){
+			return dni.substring(0,dni.length-1)+dni.charAt(dni.length-1).toUpperCase();
+		}
+		else
+			return dni;
+	}
+	
     function comprobarNombre(texto){
       		document.getElementById("labelNombreMal").style.display = 'none';
       		
@@ -411,7 +419,7 @@
       		}
       		for(i=0; i<texto.length; i++){
       			if (i==8){
-      				if (/[A-Z]/.test(texto.charAt(i)) == false) {
+      				if (/[A-Z]/.test(texto.charAt(i)) == false && /[a-z]/.test(texto.charAt(i)) == false) {
       	       	    	document.getElementById("labelDNIMal").style.display = 'inline';
       	       	        $('#labelDNIMal').html("El DNI no es válido.");
       	       	        $('#labelDNIMal').css("color", "red");
