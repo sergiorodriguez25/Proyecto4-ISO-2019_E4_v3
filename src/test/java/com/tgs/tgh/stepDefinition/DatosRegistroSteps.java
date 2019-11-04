@@ -70,8 +70,8 @@ public class DatosRegistroSteps {
 		elementCP.sendKeys("13003");
 		elementTelefono.sendKeys("600000000");
 		elementEmail.sendKeys("prueba@prueba.com");
-		elementPwd.sendKeys("prueba");
-		elementPwdRepe.sendKeys("prueba");
+		elementPwd.sendKeys("Prueba-123");
+		elementPwdRepe.sendKeys("Prueba-123");
 	}
 
 	@Then("^No se muestran labels de error$")
@@ -112,8 +112,8 @@ public class DatosRegistroSteps {
 		elementCP.sendKeys("13003");
 		elementTelefono.sendKeys("600000000");
 		elementEmail.sendKeys("prueba@prueba.com");
-		elementPwd.sendKeys("prueba");
-		elementPwdRepe.sendKeys("mal");
+		elementPwd.sendKeys("Prueba-123");
+		elementPwdRepe.sendKeys("Prueba-1234");
 	}
 
 	@Then("^Se muestra labels de error de contrasena$")

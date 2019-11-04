@@ -56,8 +56,8 @@ public class RegisterSteps {
 		elementCP.sendKeys("13003");
 		elementTelefono.sendKeys("600000000");
 		elementEmail.sendKeys("prueba@prueba.com");
-		elementPwd.sendKeys("prueba");
-		elementPwdRepe.sendKeys("prueba");
+		elementPwd.sendKeys("Prueba-123");
+		elementPwdRepe.sendKeys("Prueba-123");
 	}
 
 	@When("^Se introducen todos los datos existentes$")
@@ -88,8 +88,8 @@ public class RegisterSteps {
 		elementCP.sendKeys("13003");
 		elementTelefono.sendKeys("600000000");
 		elementEmail.sendKeys("prueba@prueba.com");
-		elementPwd.sendKeys("prueba");
-		elementPwdRepe.sendKeys("prueba");
+		elementPwd.sendKeys("Prueba-123");
+		elementPwdRepe.sendKeys("Prueba-123");
 	}
 
 	@When("^Se pulsa el boton$")
@@ -102,9 +102,9 @@ public class RegisterSteps {
 	public void se_abre_la_pagina_de_citas() throws Throwable {
 		assertEquals("Registro", driver.getTitle());
 		driver.quit();
-		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Usuario usuario = new Usuario("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
-		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Paciente paciente = new Paciente("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
 		Manager.get().eliminarUsuario(usuario);
 		Manager.get().eliminarPaciente(paciente);
@@ -118,9 +118,9 @@ public class RegisterSteps {
 		alert.getText();
 		assertEquals("El DNI que ha introducido ya está en uso.", alert.getText());
 		driver.quit();
-		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Usuario usuario = new Usuario("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
-		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+		Paciente paciente = new Paciente("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
 		Manager.get().eliminarUsuario(usuario);
 		Manager.get().eliminarPaciente(paciente);
