@@ -36,11 +36,13 @@ public class ProteccionDatosSteps {
 
 	@Then("^Los datos estan encriptados$")
 	public void los_datos_estan_encriptados() throws Throwable {
-		assertNotEquals(respuesta.get("password"), usuario.getPassword());
+		assertNotEquals(respuesta.getJSONObject("resultado").getJSONObject("usuario").get("password"), usuario.getPassword());
 	}
 
 	@Given("^Tenemos un usuario existente$")
 	public void tenemos_un_usuario_existente() throws Throwable {
+		usuario = new Usuario("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
 	}
 
 	@When("^Solicitamos los datos$")
@@ -50,7 +52,7 @@ public class ProteccionDatosSteps {
 
 	@Then("^Los datos sensibles llegan desencriptados$")
 	public void los_datos_sensibles_llegan_desencriptados() throws Throwable {
-		assertEquals(respuesta.getJSONObject("respuesta").getJSONObject("usuario").get("password"), usuario.getDNI());
+		assertEquals(respuesta.getJSONObject("resultado").getJSONObject("usuario").get("dni"), usuario.getDNI());
 		Manager.get().eliminarUsuario(usuario);
 	}
 
