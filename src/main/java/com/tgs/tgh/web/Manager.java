@@ -124,10 +124,4 @@ public class Manager {
 		MedicoDAO.eliminar(medico);
 	}
 
-	public JSONObject introducirCita(String dni, String especialidad, String dia, String hora) {
-		Cita cita = new Cita(dni, especialidad, dia, hora);
-		CitaDAO.introducirCita(cita);
-		return null;
-	}
-
 }

@@ -12,7 +12,7 @@
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-<title>Registro</title>
+<title>Pedir Cita</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -108,11 +108,11 @@
 	<main role="main" class="container">
 		<div class="span">
 			<div></div>
+			<div class="container center">
 			<div class="hero-unit">
-				<br></br> </br> </br>
-				<div class="row">
+				<br></br>
+				<div class="row align-items-center">
 					<div class="col-md-8">
-
 						<div class="card">
 							<div class="card-body">
 								<h4>Formulario de Citas</h4>
@@ -127,64 +127,57 @@
 				</div>
 				<br></br>
 			</div>
-
-			<div class="col-md-8 order-md-1">
-				<form class="needs-validation" novalidate>
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="especialidad">Especialidad</label> <select
-								class="form-control form-control-lg" id="especialidad">
-								<option>Pediatria</option>
-								<option>Traumatologia</option>
-								<option>Neurocirugia</option>
-								<option>Alergologo</option>
-							</select>
-						</div>
+			</div>
+			<div class="container center">
+				<div class="jumbotron jumbotron-fluid">
+					<div class="col-md-6 mb-3">
+						<label for="especialidad">Especialidad</label> <select
+							class="form-control form-control-lg align:center" id="especialidad">
+							<option>Pediatria</option>
+							<option>Traumatologia</option>
+							<option>Neurocirugia</option>
+							<option>Alergologo</option>
+						</select>
 					</div>
 					<br></br>
 
-					<div class="mb-3">
-						<label for="fecha_ini">Día</label> <br></br> <input type="text"
+					<div class="col-md-6 mb-3">
+						<label for="fecha_ini">Día</label> <input type="text"
 							id="fecha_ini" class="form-control">
 						<div class="invalid-feedback">Información necesaria.</div>
 						<label id="fecha"></label>
 					</div>
 					<br></br>
 
-					<div class="col-md-8 order-md-1">
-						<form class="needs-validation" novalidate>
-							<div class="col-md-8 order-md-1">
-								<form class="needs-validation" novalidate>
-									<div class="row">
-										<div class="col-md-6 mb-3">
-											<label for="hora">Hora</label> <select
-												class="form-control form-control-lg" id = "hora">
-												<option>10:00</option>
-												<option>11:00</option>
-												<option>12:00</option>
-												<option>13:00</option>
-												<option>14:00</option>
-											</select>
-										</div>
-									</div>
-									<br></br>
-
-									<hr class="mb-4">
-									<a id="pedircita" class="btn btn-default" type="submit">Solicitar
-										cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
-										atras</a>
-								</form>
+					<div class="col-md-6 mb-3">
+									<label for="hora">Hora</label> <select
+										class="form-control form-control-lg align:center" id="hora">
+										<option>10:00</option>
+										<option>11:00</option>
+										<option>12:00</option>
+										<option>13:00</option>
+										<option>14:00</option>
+									</select>
+								</div>
 							</div>
-					</div>
+							<br></br>
 
-					<br>
+							<hr class="mb-4">
+							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
+								cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
+								atras</a>
+						</form>
+					</div>
+				</div>
 			</div>
-			</br>
+			</div>
+			<br></br>
 	</main>
 	<!-- /.container -->
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -200,104 +193,110 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-    jQuery(document).ready(function($) {
-    	/*
-    	* Control para que no acceda a través de la url a alguna página que no sea el home
-    	* Hay que ponerlo en todos los jsp que se hagan próximamente
-    	*/
-    	var referrer = document.referrer;
-    	if(referrer != 'http://localhost:8080/citas' && referrer != 'https://the-good-health.herokuapp.com/citas') {
-    		var forma = document.forms[0];
-            forma.action="/error";
-            forma.submit(); 
-    	}
-    	$('#pedircita').click(function(event) {
-    	      if(!(comprobarFecha(document.getElementById("fecha_ini").value) + comprobarHora(document.getElementById("hora").value)) != 0){
-    	       	  event.preventDefault();
-    	          enviarDatos();
-    	      }
-    	});
-    });
-    	
-	function enviarDatos(){
-		var jsoUser = JSON.parse(sessionStorage.usuario);
-		var data = {
-			dniPaciente : jsoUser.resultado.usuario.dni,
-			especialidad : $('#especialidad').val(),
-			dia : $('#fecha_ini').val(),
-    		hora : $('#hora').val(),    
-    	};
-    	var url = "/formularioCitas";
-    	var type = "POST";
-   		var success;
-   		var xhrFields;
-   		var headers = {
-    		'Content-Type' : 'application/json'
-    	};
-    		  
-	    data = JSON.stringify(data);
-	    console.log(data);
-	    $.ajax({
-	    	type: type,
-	    	url: url,
-	    	data: data,
-	    	headers : headers,
-	    	xhrFields: {
-	    		withCredentials: true
-	    	},
-	    	success : PedirCitaOK,
-	    	error : PedirCitaError
-	    });
-	}
-    		 
-    		 
-    function PedirCitaOK(respuesta) {
-    	console.log("Cita OK");
-    	swal({
-    		title: "Bien hecho",
-    		text: "Has añadido una cita",
-    		icon: "success",
-    	}).then(function(){
-    		window.location.href = "/citas";
-    	});
-	}
-    		 
-   	function PedirCitaError() {
-		$('#especialidad').val("");
-   		$('#fecha_ini').val("");
-   		$('#hora').val("");
-    }
-   	
-   	function comprobarHora(texto){
-        document.getElementById("hora").style.display = 'none';
-        if (texto == '') {
-         document.getElementById("hora").style.display = 'inline';
-                $('#hora').html("Tiene que escojer una hora para su cita.");
-                $('#hora').css("color", "red");
-         		return 1;
-        } 
-        return 0;
-       }
-   	
-   	function comprobarFecha(texto) {
-  		document.getElementById("fecha").style.display = 'none';
-  		if (texto == '') {
-  			document.getElementById("fecha").style.display = 'inline';
-   	        $('#fecha').html("Tiene que escojer un día para su cita.");
-   	        $('#fecha').css("color", "red");
-  			return 1;
-  		}	
-  		return 0;
-	}
-   	
-   	$('#fecha_ini').datepicker({
-        format: "dd/mm/yyyy",
-        startDate: "1/1/1900",
-        endDate: "13/10/2019",
-        todayBtn: "linked",
-        language: "es",
-        todayHighlight: true
-    });
-    </script>
+		jQuery(document)
+				.ready(
+						function($) {
+							/*
+							 * Control para que no acceda a través de la url a alguna página que no sea el home
+							 * Hay que ponerlo en todos los jsp que se hagan próximamente
+							 */
+							var referrer = document.referrer;
+							if (referrer != 'http://localhost:8080/citas'
+									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+								var forma = document.forms[0];
+								forma.action = "/error";
+								forma.submit();
+							}
+							$('#pedircita')
+									.click(
+											function(event) {
+												if (!(comprobarFecha(document
+														.getElementById("fecha_ini").value) + comprobarHora(document
+														.getElementById("hora").value)) != 0) {
+													event.preventDefault();
+													enviarDatos();
+												}
+											});
+						});
+
+		function enviarDatos() {
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var data = {
+				dniPaciente : jsoUser.resultado.usuario.dni,
+				especialidad : $('#especialidad').val(),
+				dia : $('#fecha_ini').val(),
+				hora : $('#hora').val(),
+			};
+			var url = "/formularioCitas";
+			var type = "POST";
+			var success;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : PedirCitaOK,
+				error : PedirCitaError
+			});
+		}
+
+		function PedirCitaOK(respuesta) {
+			console.log("Cita OK");
+			swal({
+				title : "Bien hecho",
+				text : "Has añadido una cita",
+				icon : "success",
+			}).then(function() {
+				window.location.href = "/citas";
+			});
+		}
+
+		function PedirCitaError() {
+			$('#especialidad').val("");
+			$('#fecha_ini').val("");
+			$('#hora').val("");
+		}
+
+		function comprobarHora(texto) {
+			document.getElementById("hora").style.display = 'none';
+			if (texto == '') {
+				document.getElementById("hora").style.display = 'inline';
+				$('#hora').html("Tiene que escojer una hora para su cita.");
+				$('#hora').css("color", "red");
+				return 1;
+			}
+			return 0;
+		}
+
+		function comprobarFecha(texto) {
+			document.getElementById("fecha").style.display = 'none';
+			if (texto == '') {
+				document.getElementById("fecha").style.display = 'inline';
+				$('#fecha').html("Tiene que escojer un día para su cita.");
+				$('#fecha').css("color", "red");
+				return 1;
+			}
+			return 0;
+		}
+
+		$('#fecha_ini').datepicker({
+			format : "dd/mm/yyyy",
+			startDate : "1/1/1900",
+			endDate : "13/10/2019",
+			todayBtn : "linked",
+			language : "es",
+			todayHighlight : true
+		});
+	</script>
 </body>
 </html>

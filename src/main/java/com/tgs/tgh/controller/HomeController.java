@@ -130,7 +130,7 @@ public class HomeController {
 		String dia = jso.get("dia");
 		String hora = jso.get("hora");
 		
-		JSONObject jsorespuesta = Manager.get().introducirCita(dni, especialidad, dia, hora);
+//		JSONObject jsorespuesta = Manager.get().introducirCita(dni, especialidad, dia, hora);
 		
 		return "";
 	}

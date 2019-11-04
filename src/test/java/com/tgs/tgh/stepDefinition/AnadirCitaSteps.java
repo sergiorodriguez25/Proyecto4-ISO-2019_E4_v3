@@ -1,10 +1,8 @@
 package com.tgs.tgh.stepDefinition;
 
-import static org.junit.Assert.assertEquals;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.tgs.tgh.model.Cita;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -14,11 +12,11 @@ import cucumber.api.java.en.When;
 public class AnadirCitaSteps {
 	
 	ChromeDriver driver;
+	Cita cita;
 	
 	@Given("^Tengo una cita nueva$")
 	public void tengo_una_cita_nueva() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+//	    cita = new Cita()
 	}
 
 	@When("^Anado la cita$")
