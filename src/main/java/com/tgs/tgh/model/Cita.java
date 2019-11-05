@@ -32,7 +32,7 @@ public class Cita {
 
 	public void setEspecialidad(String especialidad) {
 		this.especialidad = especialidad;
-	}
+	}	
 	
 	public String getDniMedico() {
 		return dniMedico;

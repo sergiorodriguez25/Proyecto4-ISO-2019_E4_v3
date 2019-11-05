@@ -1,6 +1,8 @@
 package com.tgs.tgh.dao;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bson.BsonDocument;
 import org.bson.BsonString;
@@ -169,9 +171,29 @@ public class DBBroker<T> {
 		criterion.append("especialidad", new BsonString(cita.getEspecialidad()));
 		criterion.append("dia", new BsonString(cita.getDia()));
 		criterion.append("hora", new BsonString(cita.getHora()));
-		
+
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
 		collection.insertOne(criterion);
+	}
+
+	public List<Cita> getCitaBD(String dni) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(dni));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		List<Cita> list = new ArrayList<Cita>();
+		for (BsonDocument bso : iterator) {
+			Cita cita = new Cita(bso.get("DNIPaciente").asString().getValue(),
+					bso.get("DNIMedico").asString().getValue(), bso.get("especialidad").asString().getValue(),
+					bso.get("dia").asString().getValue(), bso.get("hora").asString().getValue());
+			list.add(cita);
+		}
+		BsonDocument bso = iterator.first();
+		
+//		if(list.isEmpty()) {
+//			return null;
+//		}
+		return list;
 	}
 
 }

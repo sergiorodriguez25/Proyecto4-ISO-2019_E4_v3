@@ -130,6 +130,7 @@
 			</div>
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
+					<div align='center'>
 					<div class="col-md-6 mb-3">
 						<label for="especialidad">Especialidad</label> <select
 							class="form-control form-control-lg align:center" id="especialidad">
@@ -159,7 +160,7 @@
 										<option>14:00</option>
 									</select>
 								</div>
-							</div>
+							
 							<br></br>
 
 							<hr class="mb-4">
@@ -167,6 +168,7 @@
 								cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
 								atras</a>
 						</form>
+					</div>
 					</div>
 				</div>
 			</div>

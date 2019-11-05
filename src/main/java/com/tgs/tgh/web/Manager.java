@@ -1,7 +1,9 @@
 package com.tgs.tgh.web;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -122,6 +124,23 @@ public class Manager {
 
 	public void eliminarMedico(Medico medico) throws Exception {
 		MedicoDAO.eliminar(medico);
+	}
+
+	public JSONArray getCitas(String dni) {
+		List<Cita> citas = CitaDAO.getCitas(dni);
+		JSONArray arrayCitas = new JSONArray();
+		System.out.println(arrayCitas);
+		for(int i=0; i<citas.size(); i++) {
+			Cita cita = citas.get(i);
+			JSONObject jsoCita = new JSONObject();
+			jsoCita.put("dniPaciente", cita.getDniPaciente());
+			jsoCita.put("dniMedico", cita.getDniMedico());
+			jsoCita.put("especialidad", cita.getEspecialidad());
+			jsoCita.put("dia", cita.getDia());
+			jsoCita.put("hora", cita.getHora());
+			arrayCitas.put(i, jsoCita);
+		}
+		return arrayCitas;
 	}
 
 }
