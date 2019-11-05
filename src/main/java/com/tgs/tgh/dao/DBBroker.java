@@ -1,7 +1,5 @@
 package com.tgs.tgh.dao;
 
-import java.text.ParseException;
-
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 
@@ -11,10 +9,9 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.encriptar.Encriptador;
+import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
-import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -177,14 +174,12 @@ public class DBBroker<T> {
 		collection.insertOne(criterion);
 	}
 
-	public HorarioMedico getHorarioMedico(Medico medico) {
+	public FindIterable<BsonDocument> getHorarioMedico(Medico medico) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(medico.getDNI()));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(medico.getDNI())));
 		
-		MongoCollection<BsonDocument> collection = this.db.getCollection("HorarioMedico", BsonDocument.class);
-		FindIterable<BsonDocument> iterator = collection.find(criterion);
-		
-		return null;
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		return collection.find(criterion);
 	}
 
 }
