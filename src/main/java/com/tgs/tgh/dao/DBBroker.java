@@ -14,6 +14,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
@@ -50,19 +51,20 @@ public class DBBroker<T> {
 		return true;
 	}
 
-	public Usuario loginUser(String dni, String pwd) throws ParseException {
+	public Usuario loginUser(String dni, String pwd) throws Exception {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dni));
-		criterion.append("Password", new BsonString(pwd));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
+		criterion.append("Password", new BsonString(Encriptador.encriptar(pwd)));
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		if (iterator == null)
 			return null;
 
 		BsonDocument bso = iterator.first();
 		if (bso != null) {
-			Usuario user = new Usuario(bso.get("DNI").asString().getValue(), bso.get("Password").asString().getValue(),
-					bso.get("Nombre").asString().getValue(), bso.get("Apellidos").asString().getValue(),
+			Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
+					bso.get("Nombre").asString().getValue(),
+					Encriptador.desencriptar(bso.get("Apellidos").asString().getValue()),
 					bso.get("FNac").asString().getValue(), bso.get("Domicilio").asString().getValue(),
 					bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
 					bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
@@ -73,7 +75,7 @@ public class DBBroker<T> {
 
 	public Medico comprobarSiEsMedico(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -90,7 +92,7 @@ public class DBBroker<T> {
 
 	public Paciente comprobarSiEsPaciente(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -106,7 +108,7 @@ public class DBBroker<T> {
 
 	public Gestor comprobarSiEsGestor(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(usuario.getDNI()));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -121,16 +123,16 @@ public class DBBroker<T> {
 
 	public void regitrarUser(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(usuario.getDNI()));
-		criterion.append("Password", new BsonString(usuario.getPassword()));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
+		criterion.append("Password", new BsonString(Encriptador.encriptar(usuario.getPassword())));
 		criterion.append("Nombre", new BsonString(usuario.getNombre()));
-		criterion.append("Apellidos", new BsonString(usuario.getApellidos()));
-		criterion.append("FNac", new BsonString(usuario.getFechaNac()));
-		criterion.append("Domicilio", new BsonString(usuario.getDomicilio()));
+		criterion.append("Apellidos", new BsonString(Encriptador.encriptar(usuario.getApellidos())));
+		criterion.append("FNac", new BsonString(Encriptador.encriptar(usuario.getFechaNac())));
+		criterion.append("Domicilio", new BsonString(Encriptador.encriptar(usuario.getDomicilio())));
 		criterion.append("Poblacion", new BsonString(usuario.getPoblacion()));
 		criterion.append("CP", new BsonString(usuario.getCodigoPostal()));
-		criterion.append("Telefono", new BsonString(usuario.getTelefono()));
-		criterion.append("Email", new BsonString(usuario.getEmail()));
+		criterion.append("Telefono", new BsonString(Encriptador.encriptar(usuario.getTelefono())));
+		criterion.append("Email", new BsonString(Encriptador.encriptar(usuario.getEmail())));
 
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		collection.insertOne(criterion);
@@ -138,7 +140,7 @@ public class DBBroker<T> {
 
 	public void registrarPaciente(String dni, String centroMedico) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dni));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		criterion.append("CentroMedico", new BsonString(centroMedico));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
 		collection.insertOne(criterion);
@@ -146,7 +148,7 @@ public class DBBroker<T> {
 
 	public void registrarMedico(String dni, String especialidad, String centroMedico) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dni));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		criterion.append("Especialidad", new BsonString(especialidad));
 		criterion.append("CentroMedico", new BsonString(centroMedico));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
@@ -155,7 +157,7 @@ public class DBBroker<T> {
 
 	public boolean eliminar(String nombre, String dni) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dni));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection(nombre, BsonDocument.class);
 		try {
 			collection.deleteOne(criterion);
