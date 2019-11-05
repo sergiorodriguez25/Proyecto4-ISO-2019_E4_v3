@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.MedicoDAO;
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
+import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
