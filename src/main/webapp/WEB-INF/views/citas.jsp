@@ -149,9 +149,9 @@
     							<tr>
       								<td align="center" scope="col"><b>Hora</b></td>
 								    <td align="center" scope="col"><b>Fecha</b></td>
-								    <td align="center" scope="col"><b>DNI Paciente</b></td>
-								    <td align="center" scope="col"><b>DNI Medico</b></td>
 								    <td align="center" scope="col"><b>Especialidad</b></td>
+								    <td align="center" scope="col"><b>Médico</b></td>
+								    <td align="center" scope="col"><b>Centro</b></td>
     							</tr>
  							 </thead>
 						</table>
@@ -238,9 +238,9 @@
 					 $("#Table").append('<tr>' + 
 					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].hora + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].dia + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].dniPaciente + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].dniMedico + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].especialidad + '</td>'+'</tr>');
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].especialidad + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].centro + '</td>'+'</tr>');
 				}
 			}
 		}
