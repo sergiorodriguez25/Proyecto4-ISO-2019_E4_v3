@@ -11,7 +11,7 @@ Feature: Comprobar la correcta visualizacion de citas
   @Scenario2
   Scenario: Al acceder a esta pagina se tienen que mostrar todas las citas del usuario que ha iniciado sesion
   	Given Inicio sesion como paciente en la aplicacion
-  	When Entro en la vista citas
+  	When Entro en la vista de citas
   	Then Se muestran todas las citas del paciente
   	
   	
