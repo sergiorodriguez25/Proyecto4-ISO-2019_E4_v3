@@ -14,6 +14,7 @@ import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Gestor;
+import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -174,6 +175,16 @@ public class DBBroker<T> {
 		
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
 		collection.insertOne(criterion);
+	}
+
+	public HorarioMedico getHorarioMedico(Medico medico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(medico.getDNI()));
+		
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorarioMedico", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		
+		return null;
 	}
 
 }

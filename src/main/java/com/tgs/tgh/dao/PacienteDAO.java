@@ -13,11 +13,12 @@ public class PacienteDAO {
 	public static void registro(String dni, String centroMedico) {
 		DBBroker.get().registrarPaciente(dni, centroMedico);
 	}
-	
+
 	public static void eliminar(Paciente paciente) throws Exception {
 		boolean comprobar = DBBroker.get().eliminar("Pacientes", paciente.getDNI());
-		if(!comprobar)
+		if (!comprobar) {
 			throw new Exception("Error al eliminar el paciente");
+		}
 	}
 
 }

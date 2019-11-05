@@ -1,7 +1,5 @@
 package com.tgs.tgh.model;
 
-import java.util.Date;
-
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.tgs.tgh.dao.UsuarioDAO;
@@ -23,7 +21,6 @@ public class Usuario {
 	
 	public Usuario(String dNI, String password, String nombre, String apellidos, String fechaNac, String domicilio, String poblacion,
 			String codigoPostal, String telefono, String email) {
-		super();
 		DNI = dNI;
 		this.password = password;
 		this.nombre = nombre;
@@ -118,10 +115,6 @@ public class Usuario {
 
 	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
-	}
-	
-	public static Usuario identify(String userName, String pwd) throws Exception {
-		return UsuarioDAO.login(userName, pwd);
 	}
 
 }
