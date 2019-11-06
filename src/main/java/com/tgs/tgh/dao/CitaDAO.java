@@ -10,7 +10,8 @@ public class CitaDAO {
 		DBBroker.get().introducirCitaBD(cita);
 	}
 
-	public static List<Cita> getCitas(String dni) {
+	@SuppressWarnings("unchecked")
+	public static List<Cita> getCitas(String dni) throws Throwable {
 		List<Cita> citas = DBBroker.get().getCitaBD(dni);
 		return citas;
 		

@@ -40,7 +40,7 @@ public class DBBroker<T> {
 
 	public boolean comprobarDNIEnBD(String dni) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dni));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -60,6 +60,7 @@ public class DBBroker<T> {
 			return null;
 
 		BsonDocument bso = iterator.first();
+		System.out.println(bso.get("_id").asObjectId().getValue());
 		if (bso != null) {
 			Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
 					bso.get("Nombre").asString().getValue(),
@@ -74,7 +75,7 @@ public class DBBroker<T> {
 
 	public Medico comprobarSiEsMedico(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString((usuario.getDNI())));
+		criterion.append("DNI", new BsonString((Encriptador.encriptar(usuario.getDNI()))));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -168,7 +169,8 @@ public class DBBroker<T> {
 
 	public void introducirCitaBD(Cita cita) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(cita.getDniPaciente()));
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(cita.getDniPaciente())));
+		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(cita.getDniMedico())));
 		criterion.append("dia", new BsonString(cita.getDia()));
 		criterion.append("hora", new BsonString(cita.getHora()));
 
@@ -179,38 +181,36 @@ public class DBBroker<T> {
 	public FindIterable<BsonDocument> getHorarioMedico(Medico medico) {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNI", new BsonString(Encriptador.encriptar(medico.getDNI())));
-		
+
 		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
 		return collection.find(criterion);
 	}
 
-	public List<Cita> getCitaBD(String dni) {
+	public List<Cita> getCitaBD(String dni) throws Exception {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNIPaciente", new BsonString(dni));
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dni)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		List<Cita> list = new ArrayList<Cita>();
 		for (BsonDocument bso : iterator) {
-			Cita cita = new Cita(bso.get("DNIPaciente").asString().getValue(),
-					bso.get("DNIMedico").asString().getValue(), bso.get("dia").asString().getValue(),
-					bso.get("hora").asString().getValue());
+			Cita cita = new Cita(dni, Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()),
+					bso.get("dia").asString().getValue(), bso.get("hora").asString().getValue());
 			list.add(cita);
 		}
-		BsonDocument bso = iterator.first();
 
 		return list;
 	}
 
-	public Usuario getUsuarioMedico(String dniM) {
+	public Usuario getUsuarioMedico(String dni) throws Exception {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(dniM));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
 		System.out.println(bso);
-		Usuario user = new Usuario(dniM, bso.get("Password").asString().getValue(),
+		Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
 				bso.get("Nombre").asString().getValue(),
-				bso.get("Apellidos").asString().getValue(),
+				Encriptador.desencriptar(bso.get("Apellidos").asString().getValue()),
 				bso.get("FNac").asString().getValue(), bso.get("Domicilio").asString().getValue(),
 				bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
 				bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());

@@ -141,7 +141,7 @@ public class HomeController {
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/citas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public String citas(@RequestBody Map<String, String> jso) throws Exception {
+	public String citas(@RequestBody Map<String, String> jso) throws Throwable {
 		System.out.println(jso);
 		String dni = jso.get("DNI");
 		JSONArray jsorespuesta = Manager.get().getCitas(dni);

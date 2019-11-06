@@ -126,7 +126,7 @@ public class Manager {
 		MedicoDAO.eliminar(medico);
 	}
 
-	public JSONArray getCitas(String dni) {
+	public JSONArray getCitas(String dni) throws Throwable {
 		List<Cita> citas = CitaDAO.getCitas(dni);
 		JSONArray arrayCitas = new JSONArray();
 		System.out.println(arrayCitas);
