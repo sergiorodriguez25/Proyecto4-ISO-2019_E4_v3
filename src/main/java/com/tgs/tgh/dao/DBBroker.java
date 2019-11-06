@@ -1,10 +1,12 @@
 package com.tgs.tgh.dao;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import org.bson.BsonDocument;
 import org.bson.BsonString;
+import org.bson.BsonValue;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.FindIterable;
@@ -15,7 +17,6 @@ import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
-import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -37,6 +38,24 @@ public class DBBroker<T> {
 
 	public static DBBroker get() {
 		return SingletonHolder.singleton;
+	}
+
+	public BsonDocument getUsuario(BsonDocument criterion) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		return iterator.first();
+	}
+
+	public void insetUsuario(BsonDocument criterion) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+
+	public void deleteUsuario(String dni) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		collection.deleteOne(criterion);
 	}
 
 	public boolean comprobarDNIEnBD(String dni) {
@@ -217,7 +236,7 @@ public class DBBroker<T> {
 				bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
 		return user;
 	}
-	
+
 	public ArrayList<String> getGrupoMedico(String dniPaciente) {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
@@ -227,8 +246,7 @@ public class DBBroker<T> {
 		for (BsonDocument bso : iterator) {
 			grupo.add(bso.get("DNIMedico").asString().getValue());
 		}
-		
-		
+
 		return grupo;
 	}
 
