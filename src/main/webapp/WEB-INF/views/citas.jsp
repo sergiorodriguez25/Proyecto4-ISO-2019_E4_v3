@@ -141,7 +141,7 @@
 			      <td class="text-center">Hospital Universitario</td>
 			      <td>
 			      	<a href = "/formularioCitas" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="30" height="30"></a>
-			      	<a href = "#" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
+			      	<a id = "eliminarCitaBtn" class="btn btn-primary btn-large" type="submit"><img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="30" height="30"></a>
 			      </td>
 			    </tr>
 			    <tr>
@@ -188,6 +188,13 @@
 //     		getParametersURL();
 		
 		ponerNombreApellidos();
+		
+    	$('#eliminarCitaBtn').click(function(event) {
+    		//event.preventDefault();
+    		//enviarDatos();
+    		console.log("Pulsado");
+    		CitaDAO.get().eliminarCita(cita);
+    	});
     });
     
     function ponerNombreApellidos() {

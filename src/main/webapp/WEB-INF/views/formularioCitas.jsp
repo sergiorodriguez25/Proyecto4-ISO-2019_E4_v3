@@ -118,7 +118,7 @@
 								<h4>Formulario de Citas</h4>
 								<p>Para pedir una cita, rellene todos los campos que
 									encontrará a continuación para solicitar la cita deseada,
-									después pulse en el botón de Enviar.</p>
+									después pulse en el botón de Solicitar cita.</p>
 							</div>
 						</div>
 

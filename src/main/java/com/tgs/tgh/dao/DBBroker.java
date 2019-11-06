@@ -176,4 +176,21 @@ public class DBBroker<T> {
 		collection.insertOne(criterion);
 	}
 
+	
+	
+	//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee  criterion.append("hora", new BsonString(Encriptador.encriptar(hora)));
+	public boolean eliminarCita(String nombre, String DNIPaciente, String DNIMedico, String dia, String hora) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(DNIPaciente));
+		criterion.append("DNIMedico", new BsonString(DNIMedico));
+		criterion.append("dia", new BsonString(dia));
+		criterion.append("hora", new BsonString(hora));
+		MongoCollection<BsonDocument> collection = this.db.getCollection(nombre, BsonDocument.class);
+		try {
+			collection.deleteOne(criterion);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
 }
