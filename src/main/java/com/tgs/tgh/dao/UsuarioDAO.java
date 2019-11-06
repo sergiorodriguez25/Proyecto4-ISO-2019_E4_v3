@@ -23,7 +23,7 @@ public class UsuarioDAO {
 		return DBBroker.get().comprobarDNIEnBD(dni);
 	}
 
-	public static Usuario getUsuario(String dniM) {
+	public static Usuario getUsuario(String dniM) throws Exception {
 		return DBBroker.get().getUsuarioMedico(dniM);
 	}
 }
