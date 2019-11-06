@@ -14,7 +14,7 @@ public class Paciente extends Usuario {
 		super(dNI, password, nombre, apellidos, fechaNac, domicilio, poblacion, codigoPostal, telefono, email);
 		this.centroMedico = centroMedico;
 	}
-
+	
 	public String getCentroMedico() {
 		return centroMedico;
 	}
