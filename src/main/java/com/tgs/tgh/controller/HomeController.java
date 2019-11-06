@@ -144,7 +144,21 @@ public class HomeController {
 	public String citas(@RequestBody Map<String, String> jso) throws Throwable {
 		System.out.println(jso);
 		String dni = jso.get("DNI");
-		JSONArray jsorespuesta = Manager.get().getCitas(dni);
-		return jsorespuesta.toString();
+		if (jso.get("tipo").equals("mostrar")) {
+			JSONArray jsorespuesta = Manager.get().getCitas(dni);
+			return jsorespuesta.toString();
+		}
+		else if (jso.get("tipo").equals("modificar")){
+			System.out.println("Aquí se modifica");
+			String hora = jso.get("hora");
+			String dia = jso.get("dia");
+		}
+		else if(jso.get("tipo").equals("eliminar")) {
+			System.out.println("Aquí se elimina");
+			String hora = jso.get("hora");
+			String dia = jso.get("dia");
+		}
+		
+		return "";
 	}
 }

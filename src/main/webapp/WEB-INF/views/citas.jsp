@@ -203,7 +203,8 @@
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
-					DNI : jsoUser.resultado.usuario.dni
+					DNI : jsoUser.resultado.usuario.dni,
+					tipo : "mostrar"
 				};
 				var url = "/citas";
 				var type = "POST";
@@ -234,19 +235,86 @@
 			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas pendientes");
 			else{
 				for (i = 0; i < jsoCitas.length; i++){
-					 
+					var boton = document.createElement("modificarCita"+i);
+					boton.type = "button";
 					 $("#Table").append('<tr>' + 
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].hora + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].dia + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].especialidad + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].centro + '</td>'+'</tr>');
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].centro + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
+					 	'<td align="center" style="dislay: none;">' + '<button id=\'botonEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
 				}
 			}
 		}
 		function CitasError(respuesta) {
 			console.log(respuesta);
 			
+		}
+		
+		function funcionModificar(boton){
+			console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
+			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
+			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var dni = jsoUser.resultado.usuario.dni;
+			var data = {
+					DNI : dni,
+					hora : hora,
+					dia : dia,
+					tipo : "modificar"
+			};
+			console.log(data);
+			enviarModificarEliminarCita(data);
+		}
+		
+		function funcionEliminar(boton){
+			console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
+			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
+			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var dni = jsoUser.resultado.usuario.dni;
+			var data = {
+					DNI : dni,
+					hora : hora,
+					dia : dia,
+					tipo : "eliminar"
+			};
+			console.log(data);
+			enviarModificarEliminarCita(data);
+		}
+		
+		function enviarModificarEliminarCita(data) {
+			var url = "/citas";
+			var type = "POST";
+			var success;
+			var error;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+			
+			data = JSON.stringify(data);
+			$.ajax({
+				type: type,
+				url: url,
+				data: data,
+		        headers : headers,
+		        xhrFields: {
+		            withCredentials: true
+		        },
+		        success : ModifElimOK,
+		        error : ModifElimError
+			});
+		}
+		
+		function ModifElimOK(){
+			console.log("OK");
+		}
+		
+		function ModifElimError(){
+			console.log("Error");
 		}
 
 		function ponerNombreApellidos() {
