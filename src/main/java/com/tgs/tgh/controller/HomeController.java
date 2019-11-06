@@ -147,4 +147,16 @@ public class HomeController {
 		JSONArray jsorespuesta = Manager.get().getCitas(dni);
 		return jsorespuesta.toString();
 	}
+	
+	//ajnskfjnskdjnfkjasdnjkfasdjknfjasdnk
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/citassss", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String citas1(@RequestBody Map<String, String> jso) throws Exception {
+		//System.out.println(jso);
+		System.out.println("cara pan puto muerfa");
+		String dni = jso.get("DNI");
+		JSONArray jsorespuesta = Manager.get().getCitas(dni);
+		return jsorespuesta.toString();
+	}
 }

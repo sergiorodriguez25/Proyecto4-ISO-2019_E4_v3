@@ -158,6 +158,7 @@
 						<div align='center'>
 							<label id="noHayCitas"></label>
 						</div>
+						<a id="logearseBtn" type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesión</a>
 					</div>
 				</div>
 				<br>
@@ -181,25 +182,31 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
     		enviardni();
-							/*
-							 * Control para que no acceda a través de la url a alguna página que no sea el home
-							 * Hay que ponerlo en todos los jsp que se hagan próximamente
-							 */
-							var referrer = document.referrer;
-							if (referrer != 'http://localhost:8080/'
-									&& referrer != 'https://the-good-health.herokuapp.com/'
-									&& referrer != 'http://localhost:8080/registro'
-									&& referrer != 'https://the-good-health.herokuapp.com/registro'
-									&& referrer != 'http://localhost:8080/formularioCitas'
-									&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas') {
-								var forma = document.forms[0];
-								forma.action = "/error";
-								forma.submit();
-							}
-							//     		getParametersURL();
+			/*
+			 * Control para que no acceda a través de la url a alguna página que no sea el home
+			 * Hay que ponerlo en todos los jsp que se hagan próximamente
+			 */
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/'
+				&& referrer != 'https://the-good-health.herokuapp.com/'
+				&& referrer != 'http://localhost:8080/registro'
+				&& referrer != 'https://the-good-health.herokuapp.com/registro'
+				&& referrer != 'http://localhost:8080/formularioCitas'
+				&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas') {
+				var forma = document.forms[0];
+				forma.action = "/error";
+				forma.submit();
+			}
+			//     		getParametersURL();
 
-							ponerNombreApellidos();
-						});
+			ponerNombreApellidos();
+			
+	    	$('#logearseBtn').click(function(event) {
+	    		event.preventDefault();
+	    		enviarProbando();
+	    	});
+		});
+		
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
@@ -256,6 +263,45 @@
 					jsoUser.resultado.usuario.nombre + " "
 							+ jsoUser.resultado.usuario.apellidos);
 
+		}
+		
+		
+		//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+		function enviarProbando(){
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var data = {
+					DNI : jsoUser.resultado.usuario.dni
+				};
+				var url = "/citassss";   //funciona, pero tiene sentido???
+				var type = "POST";
+				var success;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+				
+				data = JSON.stringify(data);
+				$.ajax({
+					type: type,
+					url: url,
+					data: data,
+			        headers : headers,
+			        xhrFields: {
+			            withCredentials: true
+			        },
+			        success : PruebaOK,
+			        error : PruebaError
+				});
+		}
+		
+		function PruebaOK(respuesta) {
+			console.log(respuesta);
+			console.log("ok");
+		}
+		function PruebaError(respuesta) {
+			console.log(respuesta);
+			console.log("error");
+			
 		}
 		//     function getParametersURL() {
 		//     	var name="nombre";
