@@ -22,4 +22,8 @@ public class UsuarioDAO {
 	public static boolean comprobarDNI(String dni) {
 		return DBBroker.get().comprobarDNIEnBD(dni);
 	}
+
+	public static Usuario getUsuario(String dniM) {
+		return DBBroker.get().getUsuarioMedico(dniM);
+	}
 }

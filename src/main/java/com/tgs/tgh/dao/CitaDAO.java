@@ -1,5 +1,7 @@
 package com.tgs.tgh.dao;
 
+import java.util.List;
+
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Usuario;
 
@@ -16,4 +18,10 @@ public class CitaDAO {
 			throw new Exception("Error al eliminar la cita");
 	}
 	
+	public static List<Cita> getCitas(String dni) {
+		List<Cita> citas = DBBroker.get().getCitaBD(dni);
+		return citas;
+		
+	}
+
 }

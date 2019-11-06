@@ -1,7 +1,9 @@
 package com.tgs.tgh.stepDefinition;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -61,16 +63,11 @@ public class VisualizadoDeCitasSteps {
 		Manager.get().eliminarPaciente(paciente);
 	}
 
-	@When("^Entro en la vista citas$")
-	public void entro_en_la_vista_citas() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
-	}
-
 	@Then("^Se muestran todas las citas del paciente$")
 	public void se_muestran_todas_las_citas_del_paciente() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		WebElement elementTable;
+		elementTable = driver.findElementById("Table");
+		assertTrue(elementTable.isEnabled());
 	}
 
 	@Given("^Tengo un paciente$")

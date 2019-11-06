@@ -1,7 +1,8 @@
 package com.tgs.tgh.dao;
 
 import java.text.ParseException;
-
+import java.util.ArrayList;
+import java.util.List;
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 
@@ -11,8 +12,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.encriptar.Encriptador;
+import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
@@ -73,7 +74,7 @@ public class DBBroker<T> {
 
 	public Medico comprobarSiEsMedico(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
+		criterion.append("DNI", new BsonString((usuario.getDNI())));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -168,15 +169,12 @@ public class DBBroker<T> {
 	public void introducirCitaBD(Cita cita) {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNI", new BsonString(cita.getDniPaciente()));
-		criterion.append("especialidad", new BsonString(cita.getEspecialidad()));
 		criterion.append("dia", new BsonString(cita.getDia()));
 		criterion.append("hora", new BsonString(cita.getHora()));
-		
+
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
 		collection.insertOne(criterion);
 	}
-
-	
 	
 	//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee  criterion.append("hora", new BsonString(Encriptador.encriptar(hora)));
 	public boolean eliminarCita(String nombre, String DNIPaciente, String DNIMedico, String dia, String hora) {
@@ -193,4 +191,46 @@ public class DBBroker<T> {
 		}
 		return true;
 	}
+
+	public FindIterable<BsonDocument> getHorarioMedico(Medico medico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(medico.getDNI())));
+		
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		return collection.find(criterion);
+	}
+
+	public List<Cita> getCitaBD(String dni) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(dni));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		List<Cita> list = new ArrayList<Cita>();
+		for (BsonDocument bso : iterator) {
+			Cita cita = new Cita(bso.get("DNIPaciente").asString().getValue(),
+					bso.get("DNIMedico").asString().getValue(), bso.get("dia").asString().getValue(),
+					bso.get("hora").asString().getValue());
+			list.add(cita);
+		}
+		BsonDocument bso = iterator.first();
+
+		return list;
+	}
+
+	public Usuario getUsuarioMedico(String dniM) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(dniM));
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		BsonDocument bso = iterator.first();
+		System.out.println(bso);
+		Usuario user = new Usuario(dniM, bso.get("Password").asString().getValue(),
+				bso.get("Nombre").asString().getValue(),
+				bso.get("Apellidos").asString().getValue(),
+				bso.get("FNac").asString().getValue(), bso.get("Domicilio").asString().getValue(),
+				bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
+				bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
+		return user;
+	}
+
 }
