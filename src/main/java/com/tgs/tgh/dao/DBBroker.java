@@ -15,6 +15,7 @@ import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
+import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -215,6 +216,20 @@ public class DBBroker<T> {
 				bso.get("Poblacion").asString().getValue(), bso.get("CP").asString().getValue(),
 				bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
 		return user;
+	}
+	
+	public ArrayList<String> getGrupoMedico(String dniPaciente) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("GruposMedicos", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		ArrayList<String> grupo = new ArrayList<String>();
+		for (BsonDocument bso : iterator) {
+			grupo.add(bso.get("DNIMedico").asString().getValue());
+		}
+		
+		
+		return grupo;
 	}
 
 }

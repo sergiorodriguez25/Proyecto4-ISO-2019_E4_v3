@@ -1,5 +1,6 @@
 package com.tgs.tgh.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -11,11 +12,13 @@ import org.springframework.stereotype.Component;
 
 import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
+import com.tgs.tgh.dao.GrupoMedicoDAO;
 import com.tgs.tgh.dao.MedicoDAO;
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
+import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -145,6 +148,19 @@ public class Manager {
 			arrayCitas.put(i, jsoCita);
 		}
 		return arrayCitas;
+	}
+	
+	public GrupoMedico getGrupoMedico(String dniPaciente) throws Exception {
+		ArrayList<String> grupos = GrupoMedicoDAO.getGrupoMedico(dniPaciente);
+		GrupoMedico grupo = new GrupoMedico(dniPaciente,new ArrayList<Medico>());
+		for(String dniMedico: grupos) {
+			Usuario usuario = UsuarioDAO.getUsuario(dniMedico);
+			grupo.getListaMedicos().add(MedicoDAO.esMedico(usuario));
+		}
+
+		
+		return grupo;
+	
 	}
 
 }
