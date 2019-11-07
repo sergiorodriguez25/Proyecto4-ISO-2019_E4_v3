@@ -79,8 +79,8 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
-							class="dropdown-item" href="/">Cerrar sesión</a>
+							class="dropdown-item" href="#">Informaciï¿½n</a> <a
+							class="dropdown-item" href="/">Cerrar sesiï¿½n</a>
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -105,19 +105,19 @@
 							<div class="card-body">
 								<h4>Mis Citas</h4>
 								<p>
-									Bienvenido/a a la página de "Mis citas" en la que aparecen
+									Bienvenido/a a la pï¿½gina de "Mis citas" en la que aparecen
 									todas las citas que tiene programadas. Si desea modificar(<img
 										src="https://image.flaticon.com/icons/png/512/23/23187.png"
 										class="img-fluid rounded" width="25" height="25">) o
 									anular(<img
 										src="https://image.flaticon.com/icons/png/512/39/39220.png"
 										class="img-fluid rounded" width="25" height="25">) una
-									cita, pulse el botón de la acción que quiera realizar y que se
+									cita, pulse el botï¿½n de la acciï¿½n que quiera realizar y que se
 									encuentra a la derecha de la cita con la que quiera
 									interactuar.
 								</p>
 								<p>
-									Si desea solicitar una cita pulse el siguiente botón <a
+									Si desea solicitar una cita pulse el siguiente botï¿½n <a
 										href="/formularioCitas" class="btn btn-primary btn-large"
 										type="submit">Pedir cita</a>
 								</p>
@@ -142,7 +142,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Próximas Citas</h2>
+ 					<h2>Prï¿½ximas Citas</h2>
 				</div>
 						<table id="Table" class="table">
 							<thead>
@@ -150,7 +150,7 @@
       								<td align="center" scope="col"><b>Hora</b></td>
 								    <td align="center" scope="col"><b>Fecha</b></td>
 								    <td align="center" scope="col"><b>Especialidad</b></td>
-								    <td align="center" scope="col"><b>Médico</b></td>
+								    <td align="center" scope="col"><b>Mï¿½dico</b></td>
 								    <td align="center" scope="col"><b>Centro</b></td>
     							</tr>
  							 </thead>
@@ -158,7 +158,7 @@
 						<div align='center'>
 							<label id="noHayCitas"></label>
 						</div>
-						<a id="logearseBtn" type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesión</a>
+						<a id="logearseBtn" type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesiï¿½n</a>
 					</div>
 				</div>
 				<br>
@@ -178,26 +178,29 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
     		enviardni();
-			/*
-			 * Control para que no acceda a través de la url a alguna página que no sea el home
-			 * Hay que ponerlo en todos los jsp que se hagan próximamente
-			 */
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/'
-				&& referrer != 'https://the-good-health.herokuapp.com/'
-				&& referrer != 'http://localhost:8080/registro'
-				&& referrer != 'https://the-good-health.herokuapp.com/registro'
-				&& referrer != 'http://localhost:8080/formularioCitas'
-				&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas') {
-				var forma = document.forms[0];
-				forma.action = "/error";
-				forma.submit();
-			}
-			//     		getParametersURL();
+							/*
+							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
+							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
+							 */
+							var referrer = document.referrer;
+							if (referrer != 'http://localhost:8080/'
+									&& referrer != 'https://the-good-health.herokuapp.com/'
+									&& referrer != 'http://localhost:8080/registro'
+									&& referrer != 'https://the-good-health.herokuapp.com/registro'
+									&& referrer != 'http://localhost:8080/formularioCitas'
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
+									&& referrer != 'http://localhost:8080/citas'
+									&& referrer != 'https://the-good-health.herokuapp.com/citas'){
+								var forma = document.forms[0];
+								forma.action = "/error";
+								forma.submit();
+							}
+							//     		getParametersURL();
 
 			ponerNombreApellidos();
 			
@@ -291,7 +294,27 @@
 					tipo : "eliminar"
 			};
 			console.log(data);
-			enviarModificarEliminarCita(data);
+			swal({
+				  title: "ï¿½Quiere eliminar esta cita?",
+				  text: "Si pulsa el botï¿½n OK dejarï¿½ de tener asignada la cita",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				  buttons: ["Cancelar", "OK"]
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+					enviarModificarEliminarCita(data);
+				    swal("Cita eliminada correctamente", {
+				      icon: "success",
+				    }).then(function() {
+						window.location.href = "/citas";
+					});
+				  } else {
+				    swal("La cita NO se ha eliminado", {
+				    	icon: "info"});
+				}
+			});
 		}
 		
 		function enviarModificarEliminarCita(data) {
