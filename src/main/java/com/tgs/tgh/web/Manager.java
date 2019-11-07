@@ -86,6 +86,11 @@ public class Manager {
 			jsoGes.put("centro", gestor.getCentroMedico());
 			respuesta.put("gestor", jsoGes);
 		}
+		GrupoMedico grupo = getGrupoMedico(dni);
+		JSONObject jsoGrupo = new JSONObject();
+		jsoGrupo.put("listaMedicos", grupo.getListaMedicos());
+		respuesta.put("grupoMedico", jsoGrupo);
+		
 		return respuesta;
 	}
 

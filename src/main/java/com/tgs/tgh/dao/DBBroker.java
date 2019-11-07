@@ -232,14 +232,14 @@ public class DBBroker<T> {
 		return user;
 	}
 	
-	public ArrayList<String> getGrupoMedico(String dniPaciente) {
+	public ArrayList<String> getGrupoMedico(String dniPaciente) throws Exception {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("GruposMedicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		ArrayList<String> grupo = new ArrayList<String>();
 		for (BsonDocument bso : iterator) {
-			grupo.add(bso.get("DNIMedico").asString().getValue());
+			grupo.add(Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()));
 		}
 		
 		

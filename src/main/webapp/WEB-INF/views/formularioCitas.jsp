@@ -132,12 +132,9 @@
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'>
 					<div class="col-md-6 mb-3">
-						<label for="especialidad">Especialidad</label> <select
-							class="form-control form-control-lg align:center" id="especialidad">
-							<option>Pediatria</option>
-							<option>Traumatologia</option>
-							<option>Neurocirugia</option>
-							<option>Alergologo</option>
+						<label for="especialidad">Especialidad</label> 
+						<select class="form-control form-control-lg align:center" id="especialidad">
+							
 						</select>
 					</div>
 					<br></br>
@@ -195,9 +192,7 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document)
-				.ready(
-						function($) {
+		jQuery(document).ready(function($) {
 							/*
 							 * Control para que no acceda a través de la url a alguna página que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -209,6 +204,7 @@
 								forma.action = "/error";
 								forma.submit();
 							}
+							cargarDatosFormulario();
 							$('#pedircita')
 									.click(
 											function(event) {
@@ -219,7 +215,19 @@
 													enviarDatos();
 												}
 											});
-						});
+		});
+		
+		function cargarDatosFormulario() {
+			var select = document.getElementById("especialidad");
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			console.log(sessionStorage.usuario);
+			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
+			for(var i = 0; i <=numEspecialidades ; i++) {
+			  	var option = document.createElement('option');
+			  	option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+			   	select.add(option, 0);
+			}
+		}
 
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
