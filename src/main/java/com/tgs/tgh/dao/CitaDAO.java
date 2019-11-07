@@ -12,7 +12,9 @@ public class CitaDAO {
 	}
 
 	public static void eliminarCita(Cita cita) throws Exception {
-		boolean comprobar = DBBroker.get().eliminarCita("Citas", cita.getDniPaciente(), cita.getDniMedico(), cita.getDia(), cita.getHora());
+		//boolean comprobar = DBBroker.get().eliminarCita("Citas", cita.getDniPaciente(), cita.getDniMedico(), cita.getDia(), cita.getHora());
+		boolean comprobar = DBBroker.get().eliminarCita("Citas", cita.getDniPaciente(), cita.getDia(), cita.getHora());
+		System.out.println("elimina citaDao");
 		if (!comprobar)
 			throw new Exception("Error al eliminar la cita");
 	}

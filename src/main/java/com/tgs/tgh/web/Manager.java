@@ -150,6 +150,11 @@ public class Manager {
 		return arrayCitas;
 	}
 	
+	public void eliminarCita(Cita cita) throws Exception {
+		System.out.println("elimina manager");
+		CitaDAO.eliminarCita(cita);
+	}
+	
 	public GrupoMedico getGrupoMedico(String dniPaciente) throws Exception {
 		ArrayList<String> grupos = GrupoMedicoDAO.getGrupoMedico(dniPaciente);
 		GrupoMedico grupo = new GrupoMedico(dniPaciente,new ArrayList<Medico>());

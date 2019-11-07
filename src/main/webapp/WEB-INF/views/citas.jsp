@@ -201,9 +201,11 @@
 
 			ponerNombreApellidos();
 			
+			
+			//???????
 	    	$('#logearseBtn').click(function(event) {
 	    		event.preventDefault();
-	    		enviarProbando();
+	    		funcionEliminar();
 	    	});
 		});
 		
@@ -334,7 +336,31 @@
 		}
 		
 		
-		//eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+		
+		//qqqqqqqqqqqqqqwwwwwwwwwwwwwwwwww
+		//aqui es donde echo mi mierda
+		//wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+		
+		function funcionEliminar(){
+			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
+			//var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
+			//var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
+			//var jsoUser = JSON.parse(sessionStorage.usuario);
+			//var dni = jsoUser.resultado.usuario.dni;
+			var hora = "14:20";
+			var dia = "12/10/2019";
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var dni = jsoUser.resultado.usuario.dni;
+			var data = {
+					DNI : dni,
+					hora : hora,
+					dia : dia,
+					tipo : "eliminar"
+			};
+			console.log("hermano estoy aqui");
+			console.log(data);
+			enviarModificarEliminarCita(data);
+		}
 		function enviarProbando(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {

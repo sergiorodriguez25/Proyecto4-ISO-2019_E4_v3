@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.web.Manager;
 
 /**
@@ -154,23 +155,25 @@ public class HomeController {
 			String dia = jso.get("dia");
 		}
 		else if(jso.get("tipo").equals("eliminar")) {
-			System.out.println("Aquí se elimina");
+			System.out.println("Aquí se elimina homecontroller");
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
+			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
+			Manager.get().eliminarCita(cita);
 		}
 		
 		return "";
 	}
 	
 	//ajnskfjnskdjnfkjasdnjkfasdjknfjasdnk
-	@CrossOrigin(origins = "*", allowCredentials = "true")
-	@RequestMapping(value = "/citassss", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String citas1(@RequestBody Map<String, String> jso) throws Exception {
-		//System.out.println(jso);
-		System.out.println("cara pan puto muerfa");
-		String dni = jso.get("DNI");
-		JSONArray jsorespuesta = Manager.get().getCitas(dni);
-		return jsorespuesta.toString();
-	}
+//	@CrossOrigin(origins = "*", allowCredentials = "true")
+//	@RequestMapping(value = "/citassss", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//	@ResponseBody
+//	public String citas1(@RequestBody Map<String, String> jso) throws Exception {
+//		//System.out.println(jso);
+//		System.out.println("cara pan puto muerfa");
+//		String dni = jso.get("DNI");
+//		JSONArray jsorespuesta = Manager.get().getCitas(dni);
+//		return jsorespuesta.toString();
+//	}
 }
