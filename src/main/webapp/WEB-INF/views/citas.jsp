@@ -177,6 +177,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
@@ -191,7 +192,9 @@
 									&& referrer != 'http://localhost:8080/registro'
 									&& referrer != 'https://the-good-health.herokuapp.com/registro'
 									&& referrer != 'http://localhost:8080/formularioCitas'
-									&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas') {
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
+									&& referrer != 'http://localhost:8080/citas'
+									&& referrer != 'https://the-good-health.herokuapp.com/citas'){
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
@@ -282,7 +285,27 @@
 					tipo : "eliminar"
 			};
 			console.log(data);
-			enviarModificarEliminarCita(data);
+			swal({
+				  title: "¿Quiere eliminar esta cita?",
+				  text: "Si pulsa el botón OK dejará de tener asignada la cita",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				  buttons: ["Cancelar", "OK"]
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+					enviarModificarEliminarCita(data);
+				    swal("Cita eliminada correctamente", {
+				      icon: "success",
+				    }).then(function() {
+						window.location.href = "/citas";
+					});
+				  } else {
+				    swal("La cita NO se ha eliminado", {
+				    	icon: "info"});
+				}
+			});
 		}
 		
 		function enviarModificarEliminarCita(data) {
