@@ -151,7 +151,6 @@ public class Manager {
 	}
 	
 	public void eliminarCita(Cita cita) throws Exception {
-		System.out.println("elimina manager");
 		CitaDAO.eliminarCita(cita);
 	}
 	
@@ -162,7 +161,6 @@ public class Manager {
 			Usuario usuario = UsuarioDAO.getUsuario(dniMedico);
 			grupo.getListaMedicos().add(MedicoDAO.esMedico(usuario));
 		}
-
 		
 		return grupo;
 	

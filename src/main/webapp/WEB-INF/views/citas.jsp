@@ -79,8 +79,8 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Informaciï¿½n</a> <a
-							class="dropdown-item" href="/">Cerrar sesiï¿½n</a>
+							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -105,19 +105,19 @@
 							<div class="card-body">
 								<h4>Mis Citas</h4>
 								<p>
-									Bienvenido/a a la pï¿½gina de "Mis citas" en la que aparecen
+									Bienvenido/a a la página de "Mis citas" en la que aparecen
 									todas las citas que tiene programadas. Si desea modificar(<img
 										src="https://image.flaticon.com/icons/png/512/23/23187.png"
 										class="img-fluid rounded" width="25" height="25">) o
 									anular(<img
 										src="https://image.flaticon.com/icons/png/512/39/39220.png"
 										class="img-fluid rounded" width="25" height="25">) una
-									cita, pulse el botï¿½n de la acciï¿½n que quiera realizar y que se
+									cita, pulse el botón de la acción que quiera realizar y que se
 									encuentra a la derecha de la cita con la que quiera
 									interactuar.
 								</p>
 								<p>
-									Si desea solicitar una cita pulse el siguiente botï¿½n <a
+									Si desea solicitar una cita pulse el siguiente botón <a
 										href="/formularioCitas" class="btn btn-primary btn-large"
 										type="submit">Pedir cita</a>
 								</p>
@@ -142,7 +142,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Prï¿½ximas Citas</h2>
+ 					<h2>Próximas Citas</h2>
 				</div>
 						<table id="Table" class="table">
 							<thead>
@@ -150,7 +150,7 @@
       								<td align="center" scope="col"><b>Hora</b></td>
 								    <td align="center" scope="col"><b>Fecha</b></td>
 								    <td align="center" scope="col"><b>Especialidad</b></td>
-								    <td align="center" scope="col"><b>Mï¿½dico</b></td>
+								    <td align="center" scope="col"><b>Médico</b></td>
 								    <td align="center" scope="col"><b>Centro</b></td>
     							</tr>
  							 </thead>
@@ -158,7 +158,6 @@
 						<div align='center'>
 							<label id="noHayCitas"></label>
 						</div>
-						<a id="logearseBtn" type="submit" class="btn btn-lg btn-primary btn-block">Iniciar sesiï¿½n</a>
 					</div>
 				</div>
 				<br>
@@ -183,33 +182,27 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
     		enviardni();
-							/*
-							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
-							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
-							 */
-							var referrer = document.referrer;
-							if (referrer != 'http://localhost:8080/'
-									&& referrer != 'https://the-good-health.herokuapp.com/'
-									&& referrer != 'http://localhost:8080/registro'
-									&& referrer != 'https://the-good-health.herokuapp.com/registro'
-									&& referrer != 'http://localhost:8080/formularioCitas'
-									&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
-									&& referrer != 'http://localhost:8080/citas'
-									&& referrer != 'https://the-good-health.herokuapp.com/citas'){
-								var forma = document.forms[0];
-								forma.action = "/error";
-								forma.submit();
-							}
-							//     		getParametersURL();
+			/*
+			 * Control para que no acceda a travis de la url a alguna página que no sea el home
+			 * Hay que ponerlo en todos los jsp que se hagan próximamente
+			 */
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/'
+					&& referrer != 'https://the-good-health.herokuapp.com/'
+					&& referrer != 'http://localhost:8080/registro'
+					&& referrer != 'https://the-good-health.herokuapp.com/registro'
+					&& referrer != 'http://localhost:8080/formularioCitas'
+					&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
+					&& referrer != 'http://localhost:8080/citas'
+					&& referrer != 'https://the-good-health.herokuapp.com/citas'){
+				var forma = document.forms[0];
+				forma.action = "/error";
+				forma.submit();
+			}
+			//     		getParametersURL();
 
 			ponerNombreApellidos();
 			
-			
-			//???????
-	    	$('#logearseBtn').click(function(event) {
-	    		event.preventDefault();
-	    		funcionEliminar();
-	    	});
 		});
 		
 		function enviardni(){
@@ -239,6 +232,7 @@
 			        error : CitasError
 				});
 		}
+		
 		function CitasOK(respuesta) {
 			console.log(respuesta);
 			var jsoCitas = JSON.parse(respuesta);
@@ -260,9 +254,9 @@
 				}
 			}
 		}
+		
 		function CitasError(respuesta) {
-			console.log(respuesta);
-			
+			console.log(respuesta);	
 		}
 		
 		function funcionModificar(boton){
@@ -295,8 +289,8 @@
 			};
 			console.log(data);
 			swal({
-				  title: "ï¿½Quiere eliminar esta cita?",
-				  text: "Si pulsa el botï¿½n OK dejarï¿½ de tener asignada la cita",
+				  title: "¿Quiere eliminar esta cita?",
+				  text: "Si pulsa el botón OK dejará de tener asignada la cita",
 				  icon: "warning",
 				  buttons: true,
 				  dangerMode: true,
@@ -355,84 +349,8 @@
 			$('#nombreApellidos').html(
 					jsoUser.resultado.usuario.nombre + " "
 							+ jsoUser.resultado.usuario.apellidos);
+		}
 
-		}
-		
-		
-		
-		//qqqqqqqqqqqqqqwwwwwwwwwwwwwwwwww
-		//aqui es donde echo mi mierda
-		//wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-		
-		function funcionEliminar(){
-			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
-			//var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
-			//var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			//var jsoUser = JSON.parse(sessionStorage.usuario);
-			//var dni = jsoUser.resultado.usuario.dni;
-			var hora = "14:20";
-			var dia = "12/10/2019";
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var data = {
-					DNI : dni,
-					hora : hora,
-					dia : dia,
-					tipo : "eliminar"
-			};
-			console.log("hermano estoy aqui");
-			console.log(data);
-			enviarModificarEliminarCita(data);
-		}
-		function enviarProbando(){
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var data = {
-					DNI : jsoUser.resultado.usuario.dni
-				};
-				var url = "/citassss";   //funciona, pero tiene sentido???
-				var type = "POST";
-				var success;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
-				
-				data = JSON.stringify(data);
-				$.ajax({
-					type: type,
-					url: url,
-					data: data,
-			        headers : headers,
-			        xhrFields: {
-			            withCredentials: true
-			        },
-			        success : PruebaOK,
-			        error : PruebaError
-				});
-		}
-		
-		function PruebaOK(respuesta) {
-			console.log(respuesta);
-			console.log("ok");
-		}
-		function PruebaError(respuesta) {
-			console.log(respuesta);
-			console.log("error");
-			
-		}
-		//     function getParametersURL() {
-		//     	var name="nombre";
-		//     	var surname="apellidos";
-		//         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-		//         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-		//         results = regex.exec(location.search);
-		//         var regex2 = new RegExp("[\\?&]" + surname + "=([^&#]*)"),
-		//         results2 = regex2.exec(location.search);
-		//         console.log(results);
-		//         console.log(decodeURIComponent(results2[1].replace(/\+/g, " ")));
-		//         $('#nombreApellidos').html(decodeURIComponent(results[1].replace(/\+/g, " ")) + " " + decodeURIComponent(results2[1].replace(/\+/g, " ")));
-		//         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-		//     }
 	</script>
 </body>
 </html>

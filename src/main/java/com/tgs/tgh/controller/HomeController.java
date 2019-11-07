@@ -134,8 +134,6 @@ public class HomeController {
 		String dia = jso.get("dia");
 		String hora = jso.get("hora");
 
-//		JSONObject jsorespuesta = Manager.get().introducirCita(dni, especialidad, dia, hora);
-
 		return "";
 	}
 
@@ -150,12 +148,11 @@ public class HomeController {
 			return jsorespuesta.toString();
 		}
 		else if (jso.get("tipo").equals("modificar")){
-			System.out.println("Aquí se modifica");
+			//System.out.println("Aquí se modifica");
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 		}
 		else if(jso.get("tipo").equals("eliminar")) {
-			System.out.println("Aquí se elimina homecontroller");
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
@@ -165,15 +162,4 @@ public class HomeController {
 		return "";
 	}
 	
-	//ajnskfjnskdjnfkjasdnjkfasdjknfjasdnk
-//	@CrossOrigin(origins = "*", allowCredentials = "true")
-//	@RequestMapping(value = "/citassss", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public String citas1(@RequestBody Map<String, String> jso) throws Exception {
-//		//System.out.println(jso);
-//		System.out.println("cara pan puto muerfa");
-//		String dni = jso.get("DNI");
-//		JSONArray jsorespuesta = Manager.get().getCitas(dni);
-//		return jsorespuesta.toString();
-//	}
 }
