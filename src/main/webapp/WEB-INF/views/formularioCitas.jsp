@@ -132,7 +132,7 @@
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'>
 					<div class="col-md-6 mb-3">
-						<label for="especialidad">Especialidad</label> <select
+						<label for="especialidad"><b>Especialidad</b></label> <select
 							class="form-control form-control-lg align:center" id="especialidad">
 							<option>Pediatria</option>
 							<option>Traumatologia</option>
@@ -143,7 +143,7 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input type="text"
+						<label for="fecha_ini"><b>Día</b></label> <input type="text"
 							id="fecha_ini" class="form-control">
 						<div class="invalid-feedback">Información necesaria.</div>
 						<label id="fecha"></label>
@@ -151,7 +151,7 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select
+									<label for="hora"><b>Hora</b></label> <select
 										class="form-control form-control-lg align:center" id="hora">
 										<option>10:00</option>
 										<option>11:00</option>

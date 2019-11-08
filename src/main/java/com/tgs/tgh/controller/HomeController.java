@@ -136,6 +136,21 @@ public class HomeController {
 
 		return "";
 	}
+	
+	@RequestMapping(value = "/medico", method = RequestMethod.GET)
+	public String medico() {
+
+		return "medico";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/medico", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String medico(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+
+		return "";
+	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/citas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
