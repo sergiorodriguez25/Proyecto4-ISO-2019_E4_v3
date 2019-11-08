@@ -27,13 +27,6 @@ public class ProteccionDatosSteps {
 				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
 	}
 
-	@When("^Se registra el usuario$")
-	public void se_registra_el_usuario() throws Throwable {
-		respuesta = Manager.get().registro(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(),
-				usuario.getApellidos(), usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(),
-				usuario.getCodigoPostal(), usuario.getTelefono(), usuario.getEmail());
-	}
-
 	@Then("^Los datos estan encriptados$")
 	public void los_datos_estan_encriptados() throws Throwable {
 		assertNotEquals(respuesta.getJSONObject("resultado").getJSONObject("usuario").get("password"), usuario.getPassword());

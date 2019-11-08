@@ -1,4 +1,4 @@
-package com.tgs.tgh.stepDefinition;
+package prueba;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.springframework.beans.factory.annotation.Value;
+
+import com.tgs.tgh.stepDefinition.WebDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
