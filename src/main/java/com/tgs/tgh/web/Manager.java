@@ -42,7 +42,7 @@ public class Manager {
 	public static Manager get() {
 		return ManagerHolder.singleton;
 	}
-	
+
 	public boolean comprobarSiExisteDNI(String dni) {
 		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
 		return comprobar;
@@ -133,7 +133,7 @@ public class Manager {
 		List<Cita> citas = CitaDAO.getCitas(dni);
 		JSONArray arrayCitas = new JSONArray();
 		System.out.println(arrayCitas);
-		for(int i=0; i<citas.size(); i++) {
+		for (int i = 0; i < citas.size(); i++) {
 			String dniM = citas.get(i).getDniMedico();
 			Usuario usu = UsuarioDAO.getUsuario(dniM);
 			Medico medico = MedicoDAO.esMedico(usu);
@@ -149,21 +149,25 @@ public class Manager {
 		}
 		return arrayCitas;
 	}
-	
+
+	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
+		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));	
+	}
+
 	public void eliminarCita(Cita cita) throws Exception {
 		CitaDAO.eliminarCita(cita);
 	}
-	
+
 	public GrupoMedico getGrupoMedico(String dniPaciente) throws Exception {
 		ArrayList<String> grupos = GrupoMedicoDAO.getGrupoMedico(dniPaciente);
-		GrupoMedico grupo = new GrupoMedico(dniPaciente,new ArrayList<Medico>());
-		for(String dniMedico: grupos) {
+		GrupoMedico grupo = new GrupoMedico(dniPaciente, new ArrayList<Medico>());
+		for (String dniMedico : grupos) {
 			Usuario usuario = UsuarioDAO.getUsuario(dniMedico);
 			grupo.getListaMedicos().add(MedicoDAO.esMedico(usuario));
 		}
-		
+
 		return grupo;
-	
+
 	}
 
 }

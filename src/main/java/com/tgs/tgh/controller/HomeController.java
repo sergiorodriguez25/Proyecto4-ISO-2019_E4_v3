@@ -129,10 +129,11 @@ public class HomeController {
 	@ResponseBody
 	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		String dni = jso.get("dniPaciente");
-		String especialidad = jso.get("especialidad");
+		String dniPaciente = jso.get("dniPaciente");
+		String dniMedico = jso.get("dniMedico");
 		String dia = jso.get("dia");
 		String hora = jso.get("hora");
+		Manager.get().introducirCita(dniPaciente, dniMedico, dia, hora);
 
 		return "";
 	}
