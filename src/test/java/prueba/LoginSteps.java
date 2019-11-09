@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tgs.tgh.model.Usuario;
 import com.tgs.tgh.stepDefinition.Recursos;
@@ -21,13 +23,12 @@ import cucumber.api.java.en.When;
 
 public class LoginSteps {
 
-	ChromeDriver driver;
+	ChromeDriver driver = WebDriver.webDriver;
 	Usuario usuario;
 	JSONObject respuesta;
 
 	@Given("^Estamos en la pagina principal$")
 	public void estamos_en_la_pagina_principal() throws Throwable {
-		driver = WebDriver.webDriver();
 		driver.get("http://localhost:8080");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("The Good Health", driver.getTitle());
@@ -55,7 +56,6 @@ public class LoginSteps {
 		elementPwd = driver.findElement(By.id("inputPassword"));
 		assertEquals("", elementDNI.getText());
 		assertEquals("", elementPwd.getText());
-		driver.quit();
 	}
 
 	@Given("^Se registra el usuario$")
@@ -75,9 +75,9 @@ public class LoginSteps {
 
 	@Then("^Se abre la pagina de citas$")
 	public void se_abre_la_pagina_de_citas() throws Throwable {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		assertEquals("The Good Health", driver.getTitle());
-		driver.quit();
+		WebDriverWait wait = new WebDriverWait(driver, 2);
+		wait.until(ExpectedConditions.titleIs("Citas"));
+		assertEquals("Citas", driver.getTitle());
 	}
 	
 	@Then("^Se elimina el usuario$")

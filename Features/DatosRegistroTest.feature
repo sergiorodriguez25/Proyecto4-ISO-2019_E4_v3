@@ -14,6 +14,7 @@ Feature: Comprobar que los datos introducidos en el registro son correctos
     When Se introducen los datos de registro
     And Se pulsa el boton enviar
     Then No se muestran labels de error
+    And Se elimina el usuario
     
   @Scenario3
   Scenario: Se introducen los datos de registro sin coincidir las contrasenas
