@@ -164,9 +164,18 @@ public class HomeController {
 			return jsorespuesta.toString();
 		}
 		else if (jso.get("tipo").equals("modificar")){
-			//System.out.println("Aquí se modifica");
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
+			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
+			
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//habria que cambiar los strings de nuevo dia y nueva hora por los que se obtengan
+			//del formulario al modificar la cita
+			String nuevoDia = "23/03/2020"; 
+			String nuevaHora = "14:00";
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			
+			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
 		}
 		else if(jso.get("tipo").equals("eliminar")) {
 			String hora = jso.get("hora");

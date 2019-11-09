@@ -154,6 +154,10 @@ public class Manager {
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));	
 	}
 
+	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
+		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);		
+	}
+	
 	public void eliminarCita(Cita cita) throws Exception {
 		CitaDAO.eliminarCita(cita);
 	}

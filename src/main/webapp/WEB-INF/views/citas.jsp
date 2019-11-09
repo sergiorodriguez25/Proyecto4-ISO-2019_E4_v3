@@ -262,7 +262,7 @@
 		}
 		
 		function funcionModificar(boton){
-			console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
+			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
 			var jsoUser = JSON.parse(sessionStorage.usuario);
@@ -278,7 +278,7 @@
 		}
 		
 		function funcionEliminar(boton){
-			console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
+			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
 			var jsoUser = JSON.parse(sessionStorage.usuario);
