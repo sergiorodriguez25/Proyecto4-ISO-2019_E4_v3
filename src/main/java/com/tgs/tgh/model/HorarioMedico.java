@@ -1,13 +1,14 @@
 package com.tgs.tgh.model;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HorarioMedico {
 
 	String dni;
-	Map<String, String> horario;
+	ArrayList horario;
 
-	public HorarioMedico(String dni, Map<String, String> horario) {
+	public HorarioMedico(String dni, ArrayList horario) {
 		this.dni = dni;
 		this.horario = horario;
 	}
@@ -20,11 +21,11 @@ public class HorarioMedico {
 		this.dni = dni;
 	}
 
-	public Map<String, String> getHorario() {
+	public ArrayList getHorario() {
 		return horario;
 	}
 
-	public void setHorario(Map<String, String> horario) {
+	public void setHorario(ArrayList horario) {
 		this.horario = horario;
 	}
 

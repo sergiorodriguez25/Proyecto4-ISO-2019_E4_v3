@@ -61,7 +61,6 @@ public class DBBroker<T> {
 			return null;
 
 		BsonDocument bso = iterator.first();
-		System.out.println(bso.get("_id").asObjectId().getValue());
 		if (bso != null) {
 			Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
 					bso.get("Nombre").asString().getValue(),
@@ -193,9 +192,9 @@ public class DBBroker<T> {
 		return true;
 	}
 
-	public FindIterable<BsonDocument> getHorarioMedico(Medico medico) {
+	public FindIterable<BsonDocument> getHorarioMedico(String dniMedico) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(Encriptador.encriptar(medico.getDNI())));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
 
 		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
 		return collection.find(criterion);

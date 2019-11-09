@@ -140,7 +140,7 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input type="text"
+						<label for="fecha_ini">Día</label> <input disabled type="text"
 							id="fecha_ini" class="form-control">
 						<div class="invalid-feedback">Información necesaria.</div>
 						<label id="fecha"></label>
@@ -148,7 +148,7 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select
+									<label for="hora">Hora</label> <select disabled
 										class="form-control form-control-lg align:center" id="hora">
 										<option>10:00</option>
 										<option>11:00</option>
@@ -205,17 +205,82 @@
 								forma.submit();
 							}
 							cargarDatosFormulario();
-							$('#pedircita')
-									.click(
-											function(event) {
+							$('#pedircita').click(function(event) {
 												if (!(comprobarFecha(document
 														.getElementById("fecha_ini").value) + comprobarHora(document
 														.getElementById("hora").value)) != 0) {
 													event.preventDefault();
 													enviarDatos();
 												}
-											});
+							});
+							
 		});
+		
+		$(document).ready(function(){
+	        $("#especialidad").change(function(){
+// 	        	document.getElementById("hora").disabled=false;
+	        	
+	        	var numOptions = document.getElementById("especialidad").length;
+	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
+	        	getDNIMedico(especialidadSeleccionada);
+	        });
+		});
+		
+		function getDNIMedico(especialidadSeleccionada){
+			var jsoGrupo = JSON.parse(sessionStorage.usuario);
+			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
+			console.log(listaMedicos[1].especialidad);
+			for(var i=0; i<listaMedicos.length; i++){
+				if (listaMedicos[i].especialidad == especialidadSeleccionada){
+					var dniMedico = listaMedicos[i].DNI;
+				}
+			}
+			console.log(dniMedico);
+			solicitarHorarioMedico(dniMedico);
+		}
+		
+		function solicitarHorarioMedico(dniMedico) {
+			var data = {
+					dniMedico : dniMedico,
+					tipo : "solicitar"
+				};
+				var url = "/formularioCitas";
+				var type = "POST";
+				var success;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				console.log(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : solicitarOK,
+					error : solicitarError
+				});
+		}
+		
+		function solicitarOK(respuesta){
+			console.log(respuesta);
+			var jsoHorarioM = JSON.parse(respuesta);
+			console.log(jsoHorarioM);
+			console.log(jsoHorarioM.horarioMedico.horario);
+			var arrayHorario = jsoHorarioM.horarioMedico.horario;
+			document.getElementById("fecha_ini").disabled=false;
+			sessionStorage.horario=JSON.stringify(jsoHorarioM);			
+			rellenarHorario(arrayHorario);
+		}
+		
+		function solicitarError(error){
+			console.log(error);
+		}
 		
 		function cargarDatosFormulario() {
 			var select = document.getElementById("especialidad");
@@ -236,6 +301,7 @@
 				especialidad : $('#especialidad').val(),
 				dia : $('#fecha_ini').val(),
 				hora : $('#hora').val(),
+				tipo : "enviarCita"
 			};
 			var url = "/formularioCitas";
 			var type = "POST";
@@ -301,8 +367,8 @@
 
 		$('#fecha_ini').datepicker({
 			format : "dd/mm/yyyy",
-			startDate : "1/1/1900",
-			endDate : "13/10/2019",
+			startDate : 'd',
+			endDate : "31/12/2019",
 			todayBtn : "linked",
 			language : "es",
 			todayHighlight : true

@@ -13,12 +13,14 @@ import org.springframework.stereotype.Component;
 import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
+import com.tgs.tgh.dao.HorarioMedicoDAO;
 import com.tgs.tgh.dao.MedicoDAO;
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.GrupoMedico;
+import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -169,6 +171,16 @@ public class Manager {
 		
 		return grupo;
 	
+	}
+
+	public JSONObject getHorarioCitas(String dniMedico) {
+		HorarioMedico hm = HorarioMedicoDAO.getHorarioMedico(dniMedico);
+		JSONObject jsoHM = new JSONObject();
+		jsoHM.put("DNI", hm.getDni());
+		jsoHM.put("horario", hm.getHorario());
+		JSONObject resultado = new JSONObject();
+		resultado.put("horarioMedico", jsoHM);
+		return resultado;
 	}
 
 }

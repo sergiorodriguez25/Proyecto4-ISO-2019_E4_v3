@@ -129,11 +129,18 @@ public class HomeController {
 	@ResponseBody
 	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		String dni = jso.get("dniPaciente");
-		String especialidad = jso.get("especialidad");
-		String dia = jso.get("dia");
-		String hora = jso.get("hora");
-
+		if(jso.get("tipo").equals("solicitar")) {
+			System.out.println(jso.get("dniMedico"));
+			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
+			System.out.println(resultado);
+			return resultado.toString();
+		}
+		else {
+			String dni = jso.get("dniPaciente");
+			String especialidad = jso.get("especialidad");
+			String dia = jso.get("dia");
+			String hora = jso.get("hora");
+		}
 		return "";
 	}
 
