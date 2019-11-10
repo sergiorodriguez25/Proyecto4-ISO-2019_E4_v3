@@ -1,22 +1,21 @@
 package com.tgs.tgh.stepDefinition;
 
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.tgs.tgh.model.Cita;
-
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.chrome.ChromeDriver;
+import com.tgs.tgh.model.Cita;
 
 public class AnadirCitaSteps {
 	
 	ChromeDriver driver;
+	
 	Cita cita;
 	
 	@Given("^Tengo una cita nueva$")
 	public void tengo_una_cita_nueva() throws Throwable {
-//	    cita = new Cita()
+	//	    cita = new Cita()
 	}
 
 	@When("^Anado la cita$")

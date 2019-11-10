@@ -1,10 +1,11 @@
 package com.tgs.tgh.controller;
 
+import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.web.Manager;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -19,8 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tgs.tgh.model.Cita;
-import com.tgs.tgh.web.Manager;
+
 
 /**
  * Handles requests for the application home page.
@@ -92,9 +92,9 @@ public class HomeController {
 		String email = jso.get("email");
 
 		boolean existeDNI = Manager.get().comprobarSiExisteDNI(dni);
-		if (existeDNI)
+		if (existeDNI) {
 			throw new Exception("El DNI ya existe en la Base de Datos");
-		else {
+		} else {
 			JSONObject jsoRespuesta = Manager.get().registro(dni, pwd, nombre, apellidos, nacimiento, domicilio,
 					poblacion, cp, telefono, email);
 			JSONObject resultado = new JSONObject();
@@ -129,13 +129,12 @@ public class HomeController {
 	@ResponseBody
 	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		if(jso.get("tipo").equals("solicitar")) {
+		if (jso.get("tipo").equals("solicitar")) {
 			System.out.println(jso.get("dniMedico"));
 			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
 			System.out.println(resultado);
 			return resultado.toString();
-		}
-		else {
+		} else {
 			String dniPaciente = jso.get("dniPaciente");
 			String dniMedico = jso.get("dniMedico");
 			String dia = jso.get("dia");
@@ -168,8 +167,7 @@ public class HomeController {
 		if (jso.get("tipo").equals("mostrar")) {
 			JSONArray jsorespuesta = Manager.get().getCitas(dni);
 			return jsorespuesta.toString();
-		}
-		else if (jso.get("tipo").equals("modificar")){
+		} else if (jso.get("tipo").equals("modificar")) {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
@@ -182,8 +180,7 @@ public class HomeController {
 			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			
 			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
-		}
-		else if(jso.get("tipo").equals("eliminar")) {
+		} else if (jso.get("tipo").equals("eliminar")) {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);

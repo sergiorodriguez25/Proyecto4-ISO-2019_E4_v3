@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class GrupoMedico {
 
-	private String dniPaciente = new String();
+	private String dniPaciente;
+	
 	private ArrayList<Medico> ListaMedicos = new ArrayList<Medico>();
 
 	public GrupoMedico(String dniPaciente, ArrayList<Medico> ListaMedicos) {

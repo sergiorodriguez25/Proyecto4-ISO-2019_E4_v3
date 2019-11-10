@@ -1,7 +1,6 @@
 package com.tgs.tgh.stepDefinition;
 
 import java.net.MalformedURLException;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 

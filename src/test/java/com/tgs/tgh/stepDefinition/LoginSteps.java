@@ -1,20 +1,20 @@
 package com.tgs.tgh.stepDefinition;
 
+import com.tgs.tgh.model.Paciente;
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import static org.junit.Assert.assertEquals;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.tgs.tgh.model.Paciente;
-import com.tgs.tgh.model.Usuario;
-import com.tgs.tgh.web.Manager;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
+
 
 public class LoginSteps {
 
