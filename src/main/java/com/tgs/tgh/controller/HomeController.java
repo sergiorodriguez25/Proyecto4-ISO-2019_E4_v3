@@ -105,7 +105,7 @@ public class HomeController {
 		}
 
 	}
-
+	
 	@RequestMapping(value = "/registro", method = RequestMethod.GET)
 	public String registro() {
 
@@ -136,11 +136,26 @@ public class HomeController {
 			return resultado.toString();
 		}
 		else {
-			String dni = jso.get("dniPaciente");
-			String especialidad = jso.get("especialidad");
+			String dniPaciente = jso.get("dniPaciente");
+			String dniMedico = jso.get("dniMedico");
 			String dia = jso.get("dia");
 			String hora = jso.get("hora");
+			Manager.get().introducirCita(dniPaciente, dniMedico, dia, hora);
 		}
+		return "";
+	}
+	
+	@RequestMapping(value = "/medico", method = RequestMethod.GET)
+	public String medico() {
+
+		return "medico";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/medico", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String medico(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
 		return "";
 	}
 
@@ -155,9 +170,18 @@ public class HomeController {
 			return jsorespuesta.toString();
 		}
 		else if (jso.get("tipo").equals("modificar")){
-			//System.out.println("Aquí se modifica");
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
+			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
+			
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			//habria que cambiar los strings de nuevo dia y nueva hora por los que se obtengan
+			//del formulario al modificar la cita
+			String nuevoDia = "23/03/2020"; 
+			String nuevaHora = "14:00";
+			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			
+			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
 		}
 		else if(jso.get("tipo").equals("eliminar")) {
 			String hora = jso.get("hora");

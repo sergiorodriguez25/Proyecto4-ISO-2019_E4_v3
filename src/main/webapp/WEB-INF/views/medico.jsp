@@ -11,7 +11,7 @@
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-<title>Citas</title>
+<title>Medico</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -68,12 +68,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Mis
-						citas <span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="#">Citas pacientes<span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="/formularioCitas" tabindex="-1" aria-disabled="true">Pedir
-						cita</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -103,23 +99,15 @@
 
 						<div class="card">
 							<div class="card-body">
-								<h4>Mis Citas</h4>
+								<h4>Citas de pacientes</h4>
 								<p>
-									Bienvenido/a a la página de "Mis citas" en la que aparecen
-									todas las citas que tiene programadas. Si desea modificar(<img
-										src="https://image.flaticon.com/icons/png/512/23/23187.png"
-										class="img-fluid rounded" width="25" height="25">) o
-									anular(<img
-										src="https://image.flaticon.com/icons/png/512/39/39220.png"
-										class="img-fluid rounded" width="25" height="25">) una
-									cita, pulse el botón de la acción que quiera realizar y que se
-									encuentra a la derecha de la cita con la que quiera
-									interactuar.
+									Bienvenido/a a la página de "Citas de pacientes" en la que aparecen
+									todas las citas que tiene programadas ordenadas por días.
 								</p>
 								<p>
-									Si desea cambiar a vista de Medico pulse el botón <a
-										href="/medico" class="btn btn-primary btn-large"
-										type="submit">Medico</a>
+									Si desea cambiar a vista de Paciente pulse el botón <a
+									href="/citas" class="btn btn-primary btn-large"
+									type="submit">Citas</a>
 								</p>
 							</div>
 						</div>
@@ -142,16 +130,14 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Lista de Citas</h2>
+ 					<h2>Próximas Citas</h2>
 				</div>
 						<table id="Table" class="table">
 							<thead>
     							<tr class="table-primary">
       								<td align="center" scope="col"><b>Hora</b></td>
 								    <td align="center" scope="col"><b>Fecha</b></td>
-								    <td align="center" scope="col"><b>Especialidad</b></td>
-								    <td align="center" scope="col"><b>Médico</b></td>
-								    <td align="center" scope="col"><b>Centro</b></td>
+								    <td align="center" scope="col"><b>Nombre paciente</b></td>
     							</tr>
  							 </thead>
 						</table>
@@ -194,9 +180,7 @@
 					&& referrer != 'http://localhost:8080/formularioCitas'
 					&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
 					&& referrer != 'http://localhost:8080/citas'
-					&& referrer != 'https://the-good-health.herokuapp.com/citas'
-					&& referrer != 'http://localhost:8080/medico'
-					&& referrer != 'https://the-good-health.herokuapp.com/medico'){
+					&& referrer != 'https://the-good-health.herokuapp.com/citas'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();
@@ -213,7 +197,7 @@
 					DNI : jsoUser.resultado.usuario.dni,
 					tipo : "mostrar"
 				};
-				var url = "/citas";
+				var url = "/medico";
 				var type = "POST";
 				var success;
 				var xhrFields;
@@ -248,11 +232,7 @@
 					 $("#Table").append('<tr>' + 
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].especialidad + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].centro + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
-					 	'<td align="center" style="dislay: none;">' + '<button id=\'botonEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>');
 				}
 			}
 		}
@@ -260,91 +240,7 @@
 		function CitasError(respuesta) {
 			console.log(respuesta);	
 		}
-		
-		function funcionModificar(boton){
-			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
-			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
-			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var data = {
-					DNI : dni,
-					hora : hora,
-					dia : dia,
-					tipo : "modificar"
-			};
-			console.log(data);
-			enviarModificarEliminarCita(data);
-		}
-		
-		function funcionEliminar(boton){
-			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
-			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
-			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var data = {
-					DNI : dni,
-					hora : hora,
-					dia : dia,
-					tipo : "eliminar"
-			};
-			console.log(data);
-			swal({
-				  title: "¿Quiere eliminar esta cita?",
-				  text: "Si pulsa el botón OK dejará de tener asignada la cita",
-				  icon: "warning",
-				  buttons: true,
-				  dangerMode: true,
-				  buttons: ["Cancelar", "OK"]
-				})
-				.then((willDelete) => {
-				  if (willDelete) {
-					enviarModificarEliminarCita(data);
-				    swal("Cita eliminada correctamente", {
-				      icon: "success",
-				    }).then(function() {
-						window.location.href = "/citas";
-					});
-				  } else {
-				    swal("La cita NO se ha eliminado", {
-				    	icon: "info"});
-				}
-			});
-		}
-		
-		function enviarModificarEliminarCita(data) {
-			var url = "/citas";
-			var type = "POST";
-			var success;
-			var error;
-			var xhrFields;
-			var headers = {
-				'Content-Type' : 'application/json'
-			};
-			
-			data = JSON.stringify(data);
-			$.ajax({
-				type: type,
-				url: url,
-				data: data,
-		        headers : headers,
-		        xhrFields: {
-		            withCredentials: true
-		        },
-		        success : ModifElimOK,
-		        error : ModifElimError
-			});
-		}
-		
-		function ModifElimOK(){
-			console.log("OK");
-		}
-		
-		function ModifElimError(){
-			console.log("Error");
-		}
-
+				
 		function ponerNombreApellidos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			console.log(jsoUser.resultado.usuario.nombre);

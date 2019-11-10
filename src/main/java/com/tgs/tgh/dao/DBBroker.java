@@ -1,10 +1,11 @@
 package com.tgs.tgh.dao;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.bson.BsonDocument;
 import org.bson.BsonString;
+import org.bson.Document;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.FindIterable;
@@ -15,7 +16,6 @@ import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
-import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -191,6 +191,24 @@ public class DBBroker<T> {
 		}
 		return true;
 	}
+	
+
+	public boolean modificarCita(String DNIPaciente, String dia, String hora, String nuevoDia, String nuevaHora) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(DNIPaciente)));
+		criterion.append("dia", new BsonString(dia));
+		criterion.append("hora", new BsonString(hora));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		try {
+			collection.updateOne(criterion, new Document("$set", new Document("dia", nuevoDia)));
+			criterion.remove("dia");
+			criterion.append("dia", new BsonString(nuevoDia));
+			collection.updateOne(criterion, new Document("$set", new Document("hora", nuevaHora)));
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
 
 	public FindIterable<BsonDocument> getHorarioMedico(String dniMedico) {
 		BsonDocument criterion = new BsonDocument();
@@ -240,8 +258,6 @@ public class DBBroker<T> {
 		for (BsonDocument bso : iterator) {
 			grupo.add(Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()));
 		}
-		
-		
 		return grupo;
 	}
 

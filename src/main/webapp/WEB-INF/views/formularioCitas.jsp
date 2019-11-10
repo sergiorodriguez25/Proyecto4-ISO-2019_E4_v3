@@ -91,8 +91,8 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
-							class="dropdown-item" href="/">Cerrar sesión</a>
+							class="dropdown-item" href="#">Informaciï¿½n</a> <a
+							class="dropdown-item" href="/">Cerrar sesiï¿½n</a>
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -117,8 +117,8 @@
 							<div class="card-body">
 								<h4>Formulario de Citas</h4>
 								<p>Para pedir una cita, rellene todos los campos que
-									encontrará a continuación para solicitar la cita deseada,
-									después pulse en el botón de Solicitar cita.</p>
+									encontrarÃ¡ a continuaciÃ³n para solicitar la cita deseada,
+									despuÃ©s pulse en el botÃ³n de Solicitar cita.</p>
 							</div>
 						</div>
 
@@ -140,9 +140,10 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input disabled type="text"
+						<label for="fecha_ini">DÃ­a</label> <input disabled type="text"
+
 							id="fecha_ini" class="form-control">
-						<div class="invalid-feedback">Información necesaria.</div>
+						<div class="invalid-feedback">InformaciÃ³n necesaria.</div>
 						<label id="fecha"></label>
 					</div>
 					<br></br>
@@ -191,8 +192,8 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 							/*
-							 * Control para que no acceda a través de la url a alguna página que no sea el home
-							 * Hay que ponerlo en todos los jsp que se hagan próximamente
+							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
+							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
 							 */
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/citas'
@@ -254,7 +255,7 @@
 				else {
 					$('#hora').html("");
 					document.getElementById("hora").disabled=true;
-					$('#noHayHora').html("No hay horas disponibles para este día hora, seleccione otro.");
+					$('#noHayHora').html("No hay horas disponibles para este dï¿½a hora, seleccione otro.");
 					$('#noHayHora').css("color", "red");
 				}
 	        });
@@ -373,7 +374,7 @@
 			console.log("Cita OK");
 			swal({
 				title : "Bien hecho",
-				text : "Has añadido una cita",
+				text : "Has aï¿½adido una cita",
 				icon : "success",
 			}).then(function() {
 				window.location.href = "/citas";
@@ -401,7 +402,7 @@
 			document.getElementById("fecha").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("fecha").style.display = 'inline';
-				$('#fecha').html("Tiene que escoger un día para su cita.");
+				$('#fecha').html("Tiene que escoger un dï¿½a para su cita.");
 				$('#fecha').css("color", "red");
 				return 1;
 			}
