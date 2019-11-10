@@ -309,7 +309,7 @@
 				})
 				.then((willDelete) => {
 				  if (willDelete) {
-					enviarModificarEliminarCita(data);
+					enviarEliminarCita(data);
 				    swal("Cita eliminada correctamente", {
 				      icon: "success",
 				    }).then(function() {
@@ -322,7 +322,7 @@
 			});
 		}
 		
-		function enviarModificarEliminarCita(data) {
+		function enviarEliminarCita(data) {
 			var url = "/citas";
 			var type = "POST";
 			var success;

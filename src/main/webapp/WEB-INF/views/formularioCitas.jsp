@@ -90,8 +90,8 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Informaciï¿½n</a> <a
-							class="dropdown-item" href="/">Cerrar sesiï¿½n</a>
+							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -159,7 +159,7 @@
 
 							<hr class="mb-4">
 							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
-								cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
+								cita</a> <a href="/citas" class="btn btn-primary btn-large" type="submit">Volver
 								atrás</a>
 						</form>
 					</div>
