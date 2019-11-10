@@ -117,8 +117,8 @@
 							<div class="card-body">
 								<h4>Formulario de Citas</h4>
 								<p>Para pedir una cita, rellene todos los campos que
-									encontrarÃ¡ a continuaciÃ³n para solicitar la cita deseada,
-									despuÃ©s pulse en el botÃ³n de Solicitar cita.</p>
+									encontrará a continuación para solicitar la cita deseada,
+									después pulse en el botón de Solicitar cita.</p>
 							</div>
 						</div>
 
@@ -134,16 +134,16 @@
 					<div class="col-md-6 mb-3">
 						<label for="especialidad">Especialidad</label> 
 						<select class="form-control form-control-lg align:center" id="especialidad">
-							
+							<option selected="selected" disabled=true></option>
 						</select>
 					</div>
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">DÃ­a</label> <input disabled type="text"
+						<label for="fecha_ini">Día</label> <input disabled type="text"
 
 							id="fecha_ini" class="form-control">
-						<div class="invalid-feedback">InformaciÃ³n necesaria.</div>
+						<div class="invalid-feedback">Información necesaria.</div>
 						<label id="fecha"></label>
 					</div>
 					<br></br>
@@ -161,7 +161,7 @@
 							<hr class="mb-4">
 							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
 								cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
-								atras</a>
+								atrás</a>
 						</form>
 					</div>
 					</div>
@@ -203,19 +203,24 @@
 								forma.submit();
 							}
 							cargarDatosFormulario();
-							$('#pedircita').click(function(event) {
-												if (!(comprobarFecha(document
-														.getElementById("fecha_ini").value) + comprobarHora(document
-														.getElementById("hora").value)) != 0) {
-													event.preventDefault();
-													enviarDatos();
-												}
-							});
+							
 							
 		});
 		
 		$(document).ready(function(){
+			$('#pedircita').click(function(event) {
+				if (!(comprobarFecha(document
+						.getElementById("fecha_ini").value) + comprobarHora(document
+						.getElementById("hora").value)) != 0) {
+					event.preventDefault();
+					enviarDatos();
+				}
+			});
+		});
+		
+		$(document).ready(function(){
 	        $("#especialidad").change(function(){
+	        	$('#noHayHora').html("");
 	        	if($('#fecha_ini').val()!=null){
 	        		$('#fecha_ini').datepicker('setDate', null);
 	        	}
@@ -227,6 +232,7 @@
 		
 		$(document).ready(function(){
 	        $("#fecha_ini").change(function(){
+	        	$('#fecha').html("");
 	        	var jsoHorario = JSON.parse(sessionStorage.horario);
 				var horario = jsoHorario.horarioMedico.horario;
 				var numHoras=0;
@@ -255,13 +261,16 @@
 				else {
 					$('#hora').html("");
 					document.getElementById("hora").disabled=true;
-					$('#noHayHora').html("No hay horas disponibles para este dï¿½a hora, seleccione otro.");
-					$('#noHayHora').css("color", "red");
+					if($("#fecha_ini").datepicker("getDate") != null) {
+						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
+						$('#noHayHora').css("color", "red");
+					}
 				}
 	        });
 		});
 		
 		function rellenarHoras(){
+			$('#hora').empty()
 			var select = document.getElementById("hora");
 			var jsoHoras = JSON.parse(sessionStorage.horas);
 			for(var i = 0; i <jsoHoras.length ; i++) {
@@ -340,9 +349,10 @@
 
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var jsoHorario = JSON.parse(sessionStorage.horario);
 			var data = {
 				dniPaciente : jsoUser.resultado.usuario.dni,
-				especialidad : $('#especialidad').val(),
+				dniMedico : jsoHorario.horarioMedico.DNI,
 				dia : $('#fecha_ini').val(),
 				hora : $('#hora').val(),
 				tipo : "enviarCita"
@@ -374,7 +384,7 @@
 			console.log("Cita OK");
 			swal({
 				title : "Bien hecho",
-				text : "Has aï¿½adido una cita",
+				text : "Has añadido una cita",
 				icon : "success",
 			}).then(function() {
 				window.location.href = "/citas";
@@ -388,11 +398,11 @@
 		}
 
 		function comprobarHora(texto) {
-			document.getElementById("hora").style.display = 'none';
+			document.getElementById("noHayHora").style.display = 'none';
 			if (texto == '') {
-				document.getElementById("hora").style.display = 'inline';
-				$('#hora').html("Tiene que escoger una hora para su cita.");
-				$('#hora').css("color", "red");
+				document.getElementById("noHayHora").style.display = 'inline';
+				$('#noHayHora').html("Tiene que escoger una hora para su cita.");
+				$('#noHayHora').css("color", "red");
 				return 1;
 			}
 			return 0;
@@ -402,7 +412,7 @@
 			document.getElementById("fecha").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("fecha").style.display = 'inline';
-				$('#fecha').html("Tiene que escoger un dï¿½a para su cita.");
+				$('#fecha').html("Tiene que escoger un día para su cita.");
 				$('#fecha').css("color", "red");
 				return 1;
 			}
