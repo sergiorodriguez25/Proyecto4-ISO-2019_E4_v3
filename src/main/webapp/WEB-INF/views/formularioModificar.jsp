@@ -114,10 +114,10 @@
 					<div class="col-md-8">
 						<div class="card">
 							<div class="card-body">
-								<h4>Formulario de Citas</h4>
-								<p>Para pedir una cita, rellene todos los campos que
-									encontrará a continuación para solicitar la cita deseada,
-									después pulse en el botón de Solicitar cita.</p>
+								<h4>Formulario de Modificación</h4>
+								<p>Para modificar una cita, cambie los campos que
+									encontrará a continuación,
+									después pulse en el botón de Modificar cita.</p>
 							</div>
 						</div>
 
@@ -131,15 +131,14 @@
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'>
 					<div class="col-md-6 mb-3">
-						<label for="especialidad">Especialidad</label> 
-						<select class="form-control form-control-lg align:center" id="especialidad">
-							<option selected="selected" disabled=true></option>
-						</select>
+						<label id="tituloespecialidad"><b>Especialidad</b></label> 
+						<div>
+						<label id="especialidad"></label></div>
 					</div>
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input disabled type="text"
+						<label for="fecha_ini">Día</label> <input type="text"
 
 							id="fecha_ini" class="form-control">
 						<div class="invalid-feedback">Información necesaria.</div>
@@ -148,7 +147,7 @@
 					<br></br>
 
 					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select disabled
+									<label for="hora">Hora</label> <select
 										class="form-control form-control-lg align:center" id="hora">
 									
 									</select>
@@ -158,7 +157,7 @@
 							<br></br>
 
 							<hr class="mb-4">
-							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
+							<a id="modificarcita" class="btn btn-primary btn-large" type="submit">Modificar
 								cita</a> <a href="/citas" class="btn btn-default" type="submit">Volver
 								atrás</a>
 						</form>
@@ -189,7 +188,7 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+	jQuery(document).ready(function($) {
 							/*
 							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
@@ -201,13 +200,43 @@
 								forma.action = "/error";
 								forma.submit();
 							}
-							cargarDatosFormulario();
+							var jsoModif = JSON.parse(sessionStorage.modificar);
+							var espec = jsoModif.citaModificar[0].especialidad;
+							var diaAModificar = jsoModif.citaModificar[0].dia;
+							var horaAModificar = jsoModif.citaModificar[0].hora;
+							var dniMedico = jsoModif.citaModificar[0].dniMedico;
+							console.log(diaAModificar);
+							$('#especialidad').html(espec);
+							$('#fecha_ini').datepicker('setDate', diaAModificar);
+							$('#hora').html(horaAModificar);
+							solicitarHorarioMedico(dniMedico);
 							
+							var jsoHorario = JSON.parse(sessionStorage.horario);
+							var horario = jsoHorario.horarioMedico.horario;
+							var numHoras=0;
+							for(var j=0; j<horario.length; j++){
+								if( diaAModificar==horario[j][0]){
+									numHoras++;
+								}
+							}
+							console.log(numHoras);
+							var horasDisponibles = new Array(numHoras);
+							var k=0;
+							for(var i=0; i<horario.length; i++){
+								if(diaAModificar==horario[i][0]){
+									horasDisponibles[k]=horario[i][1];
+									console.log(horasDisponibles[k]);
+									k++;
+								}
+							}
+							sessionStorage.horas=JSON.stringify(horasDisponibles);
+							$('#noHayHora').html("");
+							rellenarHoras();
 							
 		});
 		
 		$(document).ready(function(){
-			$('#pedircita').click(function(event) {
+			$('#modificarcita').click(function(event) {
 				if (!(comprobarFecha(document
 						.getElementById("fecha_ini").value) + comprobarHora(document
 						.getElementById("hora").value)) != 0) {
@@ -215,18 +244,6 @@
 					enviarDatos();
 				}
 			});
-		});
-		
-		$(document).ready(function(){
-	        $("#especialidad").change(function(){
-	        	$('#noHayHora').html("");
-	        	if($('#fecha_ini').val()!=null){
-	        		$('#fecha_ini').datepicker('setDate', null);
-	        	}
-	        	var numOptions = document.getElementById("especialidad").length;
-	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
-	        	getDNIMedico(especialidadSeleccionada);
-	        });
 		});
 		
 		$(document).ready(function(){
@@ -269,27 +286,19 @@
 		});
 		
 		function rellenarHoras(){
-			$('#hora').empty()
-			var select = document.getElementById("hora");
+			$('#hora').empty();
+			var jsoModif = JSON.parse(sessionStorage.modificar);
+			var dniM = jsoModif.citaModificar[0].dniMedico;
+			solicitarHorarioMedico(dniM);
 			var jsoHoras = JSON.parse(sessionStorage.horas);
+			var select = document.getElementById("hora");
+			var horaM = jsoModif.citaModificar[0].hora;
 			for(var i = 0; i <jsoHoras.length ; i++) {
 			  	var option = document.createElement('option');
 			  	option.text = option.value = jsoHoras[i];
 			   	select.add(option, 0);
 			}
-		}
-		
-		function getDNIMedico(especialidadSeleccionada){
-			var jsoGrupo = JSON.parse(sessionStorage.usuario);
-			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
-			console.log(listaMedicos[1].especialidad);
-			for(var i=0; i<listaMedicos.length; i++){
-				if (listaMedicos[i].especialidad == especialidadSeleccionada){
-					var dniMedico = listaMedicos[i].DNI;
-				}
-			}
-			console.log(dniMedico);
-			solicitarHorarioMedico(dniMedico);
+			$("#hora").val(horaM);
 		}
 		
 		function solicitarHorarioMedico(dniMedico) {
@@ -301,6 +310,7 @@
 				var type = "POST";
 				var success;
 				var xhrFields;
+				var async= false;
 				var headers = {
 					'Content-Type' : 'application/json'
 				};
@@ -312,6 +322,7 @@
 					url : url,
 					data : data,
 					headers : headers,
+					async : async,
 					xhrFields : {
 						withCredentials : true
 					},
@@ -333,30 +344,22 @@
 		function solicitarError(error){
 			console.log(error);
 		}
-		
-		function cargarDatosFormulario() {
-			var select = document.getElementById("especialidad");
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			console.log(sessionStorage.usuario);
-			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
-			for(var i = 0; i <=numEspecialidades ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
-			   	select.add(option, 0);
-			}
-		}
 
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var jsoHorario = JSON.parse(sessionStorage.horario);
+			var jsoModif = JSON.parse(sessionStorage.modificar);
+			var dniMed = jsoModif.citaModificar[0].dniMedico;
+			var antDia = jsoModif.citaModificar[0].dia;
+			var antHora = jsoModif.citaModificar[0].hora;
 			var data = {
 				dniPaciente : jsoUser.resultado.usuario.dni,
-				dniMedico : jsoHorario.horarioMedico.DNI,
-				dia : $('#fecha_ini').val(),
-				hora : $('#hora').val(),
-				tipo : "enviarCita"
+				dniMedico : dniMed,
+				nuevoDia : $('#fecha_ini').val(),
+				nuevaHora : $('#hora').val(),
+				antiguoDia : antDia,
+				antiguaHora : antHora
 			};
-			var url = "/formularioCitas";
+			var url = "/formularioModificar";
 			var type = "POST";
 			var success;
 			var xhrFields;
@@ -374,26 +377,24 @@
 				xhrFields : {
 					withCredentials : true
 				},
-				success : PedirCitaOK,
-				error : PedirCitaError
+				success : ModificarCitaOK,
+				error : ModificarCitaError
 			});
 		}
 
-		function PedirCitaOK(respuesta) {
+		function ModificarCitaOK(respuesta) {
 			console.log("Cita OK");
 			swal({
 				title : "Bien hecho",
-				text : "Has añadido una cita",
+				text : "Has modificado una cita",
 				icon : "success",
 			}).then(function() {
 				window.location.href = "/citas";
 			});
 		}
 
-		function PedirCitaError() {
-			$('#especialidad').val("");
-			$('#fecha_ini').val("");
-			$('#hora').val("");
+		function ModificarCitaError(e) {
+			console.log(e);
 		}
 
 		function comprobarHora(texto) {

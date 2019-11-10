@@ -193,4 +193,18 @@ public class HomeController {
 		return "";
 	}
 	
+	@RequestMapping(value = "/formularioModificar", method = RequestMethod.GET)
+	public String formModif() {
+
+		return "formularioModificar";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioModificar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formModif(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		return "";
+	}
+	
 }

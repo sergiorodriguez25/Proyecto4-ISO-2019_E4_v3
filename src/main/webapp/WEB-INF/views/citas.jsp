@@ -196,12 +196,13 @@
 					&& referrer != 'http://localhost:8080/citas'
 					&& referrer != 'https://the-good-health.herokuapp.com/citas'
 					&& referrer != 'http://localhost:8080/medico'
-					&& referrer != 'https://the-good-health.herokuapp.com/medico'){
+					&& referrer != 'https://the-good-health.herokuapp.com/medico'
+					&& referrer != 'http://localhost:8080/formularioModificar'
+					&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();
 			}
-			//     		getParametersURL();
 
 			ponerNombreApellidos();
 			
@@ -266,15 +267,23 @@
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
 			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var data = {
-					DNI : dni,
-					hora : hora,
-					dia : dia,
-					tipo : "modificar"
+			var dniPaciente = jsoUser.resultado.usuario.dni;
+			console.log(boton.parentNode.parentNode.children[3].innerHTML);
+			for(var i=0; i<jsoUser.resultado.grupoMedico.listaMedicos.length; i++){
+				if(boton.parentNode.parentNode.children[3].innerHTML == (jsoUser.resultado.grupoMedico.listaMedicos[i].nombre + " " +jsoUser.resultado.grupoMedico.listaMedicos[i].apellidos)){
+						var dniMedico = jsoUser.resultado.grupoMedico.listaMedicos[i].DNI;
+						var especialidad = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+				}
+			}
+			var jsoModif={
+					"citaModificar":[
+						{"dniPaciente":dniPaciente,"dia":dia,"hora":hora,"dniMedico":dniMedico,"especialidad":especialidad}
+					]
 			};
-			console.log(data);
-			enviarModificarEliminarCita(data);
+			sessionStorage.modificar=JSON.stringify(jsoModif);
+			console.log(jsoModif);
+			location.href="/formularioModificar";
+			
 		}
 		
 		function funcionEliminar(boton){
