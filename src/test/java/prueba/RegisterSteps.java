@@ -2,26 +2,17 @@ package prueba;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
-import com.tgs.tgh.model.Paciente;
-import com.tgs.tgh.model.Usuario;
 import com.tgs.tgh.stepDefinition.Recursos;
 import com.tgs.tgh.stepDefinition.WebDriver;
-import com.tgs.tgh.web.Manager;
 
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class RegisterSteps {
 

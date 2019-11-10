@@ -1,8 +1,8 @@
 package com.tgs.tgh.dao;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.bson.BsonDocument;
 import org.bson.BsonString;
 
@@ -15,7 +15,6 @@ import com.mongodb.client.MongoDatabase;
 import com.tgs.tgh.encriptar.Encriptador;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
-import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -61,7 +60,6 @@ public class DBBroker<T> {
 			return null;
 
 		BsonDocument bso = iterator.first();
-		System.out.println(bso.get("_id").asObjectId().getValue());
 		if (bso != null) {
 			Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
 					bso.get("Nombre").asString().getValue(),

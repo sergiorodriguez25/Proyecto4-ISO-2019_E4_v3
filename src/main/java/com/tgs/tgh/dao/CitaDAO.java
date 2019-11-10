@@ -3,7 +3,6 @@ package com.tgs.tgh.dao;
 import java.util.List;
 
 import com.tgs.tgh.model.Cita;
-import com.tgs.tgh.model.Usuario;
 
 public class CitaDAO {
 
