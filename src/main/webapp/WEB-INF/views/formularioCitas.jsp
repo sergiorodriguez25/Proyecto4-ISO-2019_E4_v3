@@ -150,12 +150,9 @@
 					<div class="col-md-6 mb-3">
 									<label for="hora">Hora</label> <select disabled
 										class="form-control form-control-lg align:center" id="hora">
-										<option>10:00</option>
-										<option>11:00</option>
-										<option>12:00</option>
-										<option>13:00</option>
-										<option>14:00</option>
+									
 									</select>
+									<label id="noHayHora"></label>
 								</div>
 							
 							<br></br>
@@ -218,13 +215,58 @@
 		
 		$(document).ready(function(){
 	        $("#especialidad").change(function(){
-// 	        	document.getElementById("hora").disabled=false;
-	        	
+	        	$('#fecha_ini').datepicker('setDate', null);
 	        	var numOptions = document.getElementById("especialidad").length;
 	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
 	        	getDNIMedico(especialidadSeleccionada);
 	        });
 		});
+		
+		$(document).ready(function(){
+	        $("#fecha_ini").change(function(){
+	        	var jsoHorario = JSON.parse(sessionStorage.horario);
+				var horario = jsoHorario.horarioMedico.horario;
+				var numHoras=0;
+				console.log($('#fecha_ini').val());
+				for(var j=0; j<horario.length; j++){
+					if( $('#fecha_ini').val()==horario[j][0]){
+						numHoras++;
+					}
+				}
+				console.log(numHoras);
+				var horasDisponibles = new Array(numHoras);
+				var k=0;
+				for(var i=0; i<horario.length; i++){
+					if( $('#fecha_ini').val()==horario[i][0]){
+						horasDisponibles[k]=horario[i][1];
+						console.log(horasDisponibles[k]);
+						k++;
+					}
+				}
+				sessionStorage.horas=JSON.stringify(horasDisponibles);
+				if(horasDisponibles.length!=0){
+					document.getElementById("hora").disabled=false;
+					$('#noHayHora').html("");
+					rellenarHoras();
+				}
+				else {
+					$('#hora').html("");
+					document.getElementById("hora").disabled=true;
+					$('#noHayHora').html("No hay horas disponibles para este día hora, seleccione otro.");
+					$('#noHayHora').css("color", "red");
+				}
+	        });
+		});
+		
+		function rellenarHoras(){
+			var select = document.getElementById("hora");
+			var jsoHoras = JSON.parse(sessionStorage.horas);
+			for(var i = 0; i <jsoHoras.length ; i++) {
+			  	var option = document.createElement('option');
+			  	option.text = option.value = jsoHoras[i];
+			   	select.add(option, 0);
+			}
+		}
 		
 		function getDNIMedico(especialidadSeleccionada){
 			var jsoGrupo = JSON.parse(sessionStorage.usuario);
@@ -274,8 +316,7 @@
 			console.log(jsoHorarioM.horarioMedico.horario);
 			var arrayHorario = jsoHorarioM.horarioMedico.horario;
 			document.getElementById("fecha_ini").disabled=false;
-			sessionStorage.horario=JSON.stringify(jsoHorarioM);			
-			rellenarHorario(arrayHorario);
+			sessionStorage.horario=JSON.stringify(jsoHorarioM);
 		}
 		
 		function solicitarError(error){
@@ -347,7 +388,7 @@
 			document.getElementById("hora").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("hora").style.display = 'inline';
-				$('#hora').html("Tiene que escojer una hora para su cita.");
+				$('#hora').html("Tiene que escoger una hora para su cita.");
 				$('#hora').css("color", "red");
 				return 1;
 			}
@@ -358,7 +399,7 @@
 			document.getElementById("fecha").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("fecha").style.display = 'inline';
-				$('#fecha').html("Tiene que escojer un día para su cita.");
+				$('#fecha').html("Tiene que escoger un día para su cita.");
 				$('#fecha').css("color", "red");
 				return 1;
 			}
