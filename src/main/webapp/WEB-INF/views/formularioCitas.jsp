@@ -215,7 +215,9 @@
 		
 		$(document).ready(function(){
 	        $("#especialidad").change(function(){
-	        	$('#fecha_ini').datepicker('setDate', null);
+	        	if($('#fecha_ini').val()!=null){
+	        		$('#fecha_ini').datepicker('setDate', null);
+	        	}
 	        	var numOptions = document.getElementById("especialidad").length;
 	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
 	        	getDNIMedico(especialidadSeleccionada);
