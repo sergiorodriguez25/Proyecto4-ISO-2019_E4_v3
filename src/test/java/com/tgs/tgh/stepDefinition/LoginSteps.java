@@ -1,4 +1,4 @@
-package prueba;
+package com.tgs.tgh.stepDefinition;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -15,8 +15,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Usuario;
-import com.tgs.tgh.stepDefinition.Recursos;
-import com.tgs.tgh.stepDefinition.WebDriver;
 import com.tgs.tgh.web.Manager;
 
 import cucumber.api.java.en.Given;

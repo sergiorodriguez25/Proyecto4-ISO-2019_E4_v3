@@ -30,4 +30,6 @@ Feature: Comprobar la correcta visualizacion de citas
   	When Solicito las citas del paciente
   	Then Devuelve las citas del paciente
   	And Se elimina la cita
+  	And Se elimina el medico
+  	And Se elimina el usuario
  

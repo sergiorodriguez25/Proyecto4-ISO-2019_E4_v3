@@ -1,4 +1,4 @@
-package prueba;
+package com.tgs.tgh.stepDefinition;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Usuario;
-import com.tgs.tgh.stepDefinition.Recursos;
-import com.tgs.tgh.stepDefinition.WebDriver;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

@@ -3,7 +3,8 @@ Feature: Comprobar el correcto funcionamiento del registro de un usuario
 
   @Scenario1
   Scenario: Al introducir los datos y pulsar el boton de registrarse, entra en la pagina de citas con el usuario ya registrado
-    Given Estoy en la pagina de registro
+    Given Se elimina el usuario
+    And Estoy en la pagina de registro
     When Se introducen los datos de registro
     And Se pulsa el boton enviar
     Then Se abre la pagina de citas
