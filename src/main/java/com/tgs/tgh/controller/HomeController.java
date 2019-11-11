@@ -158,20 +158,6 @@ public class HomeController {
 		System.out.println(jso);
 		return "";
 	}
-	
-	@RequestMapping(value = "/gestor", method = RequestMethod.GET)
-	public String gestor() {
-
-		return "gestor";
-	}
-
-	@CrossOrigin(origins = "*", allowCredentials = "true")
-	@RequestMapping(value = "/gestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public String gestor(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
-		return "";
-	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/citas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -117,6 +117,10 @@
 									interactuar.
 								</p>
 								<p>
+									Si desea cambiar a vista de Medico pulse el botón <a
+										href="/medico" class="btn btn-primary btn-large"
+										type="submit">Medico</a>
+								</p>
 							</div>
 						</div>
 					</div>
