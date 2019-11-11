@@ -711,7 +711,7 @@ public final class registro_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("  \t\t$('#fecha_ini').datepicker({\r\n");
       out.write("        \tformat: \"dd/mm/yyyy\",\r\n");
       out.write("        \tstartDate: \"1/1/1900\",\r\n");
-      out.write("        \tendDate: \"13/10/2019\",\r\n");
+      out.write("        \tendDate: 'd',\r\n");
       out.write("        \ttodayBtn: \"linked\",\r\n");
       out.write("        \tlanguage: \"es\",\r\n");
       out.write("        \ttodayHighlight: true\r\n");

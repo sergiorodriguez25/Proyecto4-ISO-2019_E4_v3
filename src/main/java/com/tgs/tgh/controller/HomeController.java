@@ -129,26 +129,33 @@ public class HomeController {
 	@ResponseBody
 	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		String dni = jso.get("dniPaciente");
-		String especialidad = jso.get("especialidad");
-		String dia = jso.get("dia");
-		String hora = jso.get("hora");
-
+		if (jso.get("tipo").equals("solicitar")) {
+			System.out.println(jso.get("dniMedico"));
+			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
+			System.out.println(resultado);
+			return resultado.toString();
+		} else {
+			String dniPaciente = jso.get("dniPaciente");
+			String dniMedico = jso.get("dniMedico");
+			String dia = jso.get("dia");
+			String hora = jso.get("hora");
+			Manager.get().introducirCita(dniPaciente, dniMedico, dia, hora);
+			Manager.get().eliminarHoraMedico(dia, hora, dniMedico);
+		}
 		return "";
 	}
-	
+
 	@RequestMapping(value = "/medico", method = RequestMethod.GET)
 	public String medico() {
 
 		return "medico";
 	}
-	
+
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/medico", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String medico(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-
 		return "";
 	}
 
@@ -161,20 +168,41 @@ public class HomeController {
 		if (jso.get("tipo").equals("mostrar")) {
 			JSONArray jsorespuesta = Manager.get().getCitas(dni);
 			return jsorespuesta.toString();
-		}
-		else if (jso.get("tipo").equals("modificar")){
-			//System.out.println("Aquí se modifica");
+		} else if (jso.get("tipo").equals("eliminar")) {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
-		}
-		else if(jso.get("tipo").equals("eliminar")) {
-			String hora = jso.get("hora");
-			String dia = jso.get("dia");
-			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
+			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
+			Manager.get().anadirHoraMedico(dia, hora, jso.get("DNIMedico"));
 			Manager.get().eliminarCita(cita);
 		}
-		
+
 		return "";
 	}
-	
+
+	@RequestMapping(value = "/formularioModificar", method = RequestMethod.GET)
+	public String formModif() {
+
+		return "formularioModificar";
+	}
+
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioModificar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formModif(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		String hora = jso.get("antiguaHora");
+		String dia = jso.get("antiguoDia");
+		String dniMedico = jso.get("dniMedico");
+		Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
+		System.out.println(cita.getDia());
+		String nuevoDia = jso.get("nuevoDia");
+		String nuevaHora = jso.get("nuevaHora");
+
+		Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
+		Manager.get().eliminarHoraMedico(nuevoDia, nuevaHora, dniMedico);
+		Manager.get().anadirHoraMedico(dia, hora, dniMedico);
+
+		return "";
+	}
+
 }

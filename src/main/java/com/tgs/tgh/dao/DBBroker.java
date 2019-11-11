@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bson.BsonDocument;
 import org.bson.BsonString;
+import org.bson.Document;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.FindIterable;
@@ -190,10 +191,28 @@ public class DBBroker<T> {
 		}
 		return true;
 	}
+	
 
-	public FindIterable<BsonDocument> getHorarioMedico(Medico medico) {
+	public boolean modificarCita(String DNIPaciente, String dia, String hora, String nuevoDia, String nuevaHora) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(Encriptador.encriptar(medico.getDNI())));
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(DNIPaciente)));
+		criterion.append("dia", new BsonString(dia));
+		criterion.append("hora", new BsonString(hora));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		try {
+			collection.updateOne(criterion, new Document("$set", new Document("dia", nuevoDia)));
+			criterion.remove("dia");
+			criterion.append("dia", new BsonString(nuevoDia));
+			collection.updateOne(criterion, new Document("$set", new Document("hora", nuevaHora)));
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
+	public FindIterable<BsonDocument> getHorarioMedico(String dniMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
 
 		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
 		return collection.find(criterion);
@@ -230,18 +249,35 @@ public class DBBroker<T> {
 		return user;
 	}
 	
-	public ArrayList<String> getGrupoMedico(String dniPaciente) {
+	public ArrayList<String> getGrupoMedico(String dniPaciente) throws Exception {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("GruposMedicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		ArrayList<String> grupo = new ArrayList<String>();
 		for (BsonDocument bso : iterator) {
-			grupo.add(bso.get("DNIMedico").asString().getValue());
+			grupo.add(Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()));
 		}
-		
-		
 		return grupo;
+	}
+	
+	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
+		criterion.append("Dia", new BsonString(dia));
+		criterion.append("Hora", new BsonString(hora));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		collection.deleteOne(criterion);
+	}
+
+	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
+		criterion.append("Dia", new BsonString(dia));
+		criterion.append("Hora", new BsonString(hora));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		collection.insertOne(criterion);
 	}
 
 }

@@ -13,12 +13,14 @@ import org.springframework.stereotype.Component;
 import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
+import com.tgs.tgh.dao.HorarioMedicoDAO;
 import com.tgs.tgh.dao.MedicoDAO;
 import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.GrupoMedico;
+import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
@@ -42,7 +44,7 @@ public class Manager {
 	public static Manager get() {
 		return ManagerHolder.singleton;
 	}
-	
+
 	public boolean comprobarSiExisteDNI(String dni) {
 		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
 		return comprobar;
@@ -86,6 +88,11 @@ public class Manager {
 			jsoGes.put("centro", gestor.getCentroMedico());
 			respuesta.put("gestor", jsoGes);
 		}
+		GrupoMedico grupo = getGrupoMedico(dni);
+		JSONObject jsoGrupo = new JSONObject();
+		jsoGrupo.put("listaMedicos", grupo.getListaMedicos());
+		respuesta.put("grupoMedico", jsoGrupo);
+		
 		return respuesta;
 	}
 
@@ -133,7 +140,7 @@ public class Manager {
 		List<Cita> citas = CitaDAO.getCitas(dni);
 		JSONArray arrayCitas = new JSONArray();
 		System.out.println(arrayCitas);
-		for(int i=0; i<citas.size(); i++) {
+		for (int i = 0; i < citas.size(); i++) {
 			String dniM = citas.get(i).getDniMedico();
 			Usuario usu = UsuarioDAO.getUsuario(dniM);
 			Medico medico = MedicoDAO.esMedico(usu);
@@ -149,21 +156,47 @@ public class Manager {
 		}
 		return arrayCitas;
 	}
+
+	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
+		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
+	}
+
+	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
+		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);		
+	}
 	
 	public void eliminarCita(Cita cita) throws Exception {
 		CitaDAO.eliminarCita(cita);
 	}
-	
+
 	public GrupoMedico getGrupoMedico(String dniPaciente) throws Exception {
 		ArrayList<String> grupos = GrupoMedicoDAO.getGrupoMedico(dniPaciente);
-		GrupoMedico grupo = new GrupoMedico(dniPaciente,new ArrayList<Medico>());
-		for(String dniMedico: grupos) {
+		GrupoMedico grupo = new GrupoMedico(dniPaciente, new ArrayList<Medico>());
+		for (String dniMedico : grupos) {
 			Usuario usuario = UsuarioDAO.getUsuario(dniMedico);
 			grupo.getListaMedicos().add(MedicoDAO.esMedico(usuario));
 		}
-		
+
 		return grupo;
+
+	}
+
+	public JSONObject getHorarioCitas(String dniMedico) {
+		HorarioMedico hm = HorarioMedicoDAO.getHorarioMedico(dniMedico);
+		JSONObject jsoHM = new JSONObject();
+		jsoHM.put("DNI", hm.getDni());
+		jsoHM.put("horario", hm.getHorario());
+		JSONObject resultado = new JSONObject();
+		resultado.put("horarioMedico", jsoHM);
+		return resultado;
+	}
 	
+	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
+		HorarioMedicoDAO.eliminarHoraMedico(dia, hora, dniMedico);
+	}
+	
+	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
+		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
 	}
 
 }

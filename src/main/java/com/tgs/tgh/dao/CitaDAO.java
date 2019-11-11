@@ -16,6 +16,13 @@ public class CitaDAO {
 			throw new Exception("Error al eliminar la cita");
 	}
 	
+	public static void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
+		System.out.println(cita.getDia());
+		boolean comprobar = DBBroker.get().modificarCita(cita.getDniPaciente(), cita.getDia(), cita.getHora(), nuevoDia, nuevaHora);
+		if (!comprobar)
+			throw new Exception("Error al modificar la cita");
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static List<Cita> getCitas(String dni) throws Throwable {
 		List<Cita> citas = DBBroker.get().getCitaBD(dni);
