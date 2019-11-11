@@ -68,7 +68,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Citas pacientes<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="#">Citas
+						pacientes<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
@@ -91,23 +92,20 @@
 		<div class="span">
 			<div></div>
 			<div class="hero-unit">
-				<br></br>
-				</br>
-				</br>
+				<br></br> </br> </br>
 				<div class="row">
 					<div class="col-md-8">
 
 						<div class="card">
 							<div class="card-body">
 								<h4>Citas de pacientes</h4>
-								<p>
-									Bienvenido/a a la página de "Citas de pacientes" en la que aparecen
-									todas las citas que tiene programadas ordenadas por días.
-								</p>
+								<p>Bienvenido/a a la página de "Citas de pacientes" en la
+									que aparecen todas las citas que tiene programadas ordenadas
+									por días.</p>
 								<p>
 									Si desea cambiar a vista de Paciente pulse el botón <a
-									href="/citas" class="btn btn-primary btn-large"
-									type="submit">Citas</a>
+										href="/citas" class="btn btn-primary btn-large" type="submit">Mis
+										citas</a>
 								</p>
 							</div>
 						</div>
@@ -129,32 +127,68 @@
 			</div>
 			<div class="row d-flex justify-content-center">
 				<div class="container">
-				<div align='center'>
- 					<h2>Próximas Citas</h2>
-				</div>
-						<table id="Table" class="table">
-							<thead>
-    							<tr class="table-primary">
-      								<td align="center" scope="col"><b>Hora</b></td>
-								    <td align="center" scope="col"><b>Fecha</b></td>
-								    <td align="center" scope="col"><b>Nombre paciente</b></td>
-    							</tr>
- 							 </thead>
-						</table>
-						<div align='center'>
-							<label id="noHayCitas"></label>
-						</div>
+					<div align='center'>
+						<h2>Próximas Citas</h2>
 					</div>
+					<table id="Table" class="table table-bordered">
+						<thead>
+							<tr class="table-primary">
+								<td align="center" scope="col"><b>Hora</b></td>
+								<td align="center" scope="col"><b>Fecha</b></td>
+								<td align="center" scope="col"><b>Nombre paciente</b></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td align="center" scope="col"><b>11:00</b></td>
+								<td align="center" scope="col"><b>15/11/2019</b></td>
+								<td align="center" scope="col"><b>Ernesto Giménez López</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>12:00</b></td>
+								<td align="center" scope="col"><b>15/11/2019</b></td>
+								<td align="center" scope="col"><b>Rosa Navarro Zamora</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>12:30</b></td>
+								<td align="center" scope="col"><b>15/11/2019</b></td>
+								<td align="center" scope="col"><b>Andrés Sánchez Mena</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>11:00</b></td>
+								<td align="center" scope="col"><b>16/11/2019</b></td>
+								<td align="center" scope="col"><b>Esther Camacho
+										Camacho</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>11:00</b></td>
+								<td align="center" scope="col"><b>17/11/2019</b></td>
+								<td align="center" scope="col"><b>Alfonso García López</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>10:30</b></td>
+								<td align="center" scope="col"><b>18/11/2019</b></td>
+								<td align="center" scope="col"><b>María Sánchez López</b></td>
+							</tr>
+							<tr>
+								<td align="center" scope="col"><b>11:00</b></td>
+								<td align="center" scope="col"><b>18/11/2019</b></td>
+								<td align="center" scope="col"><b>Sara Camacho García</b></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<br>
 			</div>
-			</br>
+			<br>
+		</div>
+		</br>
 	</main>
 	<!-- /.container -->
 
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -166,81 +200,93 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-    		enviardni();
-			/*
-			 * Control para que no acceda a travis de la url a alguna página que no sea el home
-			 * Hay que ponerlo en todos los jsp que se hagan próximamente
-			 */
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/'
-					&& referrer != 'https://the-good-health.herokuapp.com/'
-					&& referrer != 'http://localhost:8080/registro'
-					&& referrer != 'https://the-good-health.herokuapp.com/registro'
-					&& referrer != 'http://localhost:8080/formularioCitas'
-					&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
-					&& referrer != 'http://localhost:8080/citas'
-					&& referrer != 'https://the-good-health.herokuapp.com/citas'){
-				var forma = document.forms[0];
-				forma.action = "/error";
-				forma.submit();
-			}
-			//     		getParametersURL();
+		jQuery(document)
+				.ready(
+						function($) {
+							enviardni();
+							/*
+							 * Control para que no acceda a travis de la url a alguna página que no sea el home
+							 * Hay que ponerlo en todos los jsp que se hagan próximamente
+							 */
+							var referrer = document.referrer;
+							if (referrer != 'http://localhost:8080/'
+									&& referrer != 'https://the-good-health.herokuapp.com/'
+									&& referrer != 'http://localhost:8080/registro'
+									&& referrer != 'https://the-good-health.herokuapp.com/registro'
+									&& referrer != 'http://localhost:8080/citas'
+									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+								var forma = document.forms[0];
+								forma.action = "/error";
+								forma.submit();
+							}
+							//     		getParametersURL();
 
-			ponerNombreApellidos();
-			
-		});
-		
-		function enviardni(){
+							ponerNombreApellidos();
+
+						});
+
+		function enviardni() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
-					DNI : jsoUser.resultado.usuario.dni,
-					tipo : "mostrar"
-				};
-				var url = "/medico";
-				var type = "POST";
-				var success;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
-				
-				data = JSON.stringify(data);
-				$.ajax({
-					type: type,
-					url: url,
-					data: data,
-			        headers : headers,
-			        xhrFields: {
-			            withCredentials: true
-			        },
-			        success : CitasOK,
-			        error : CitasError
-				});
+				DNI : jsoUser.resultado.usuario.dni,
+				tipo : "mostrar"
+			};
+			var url = "/medico";
+			var type = "POST";
+			var success;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+
+			data = JSON.stringify(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : CitasOK,
+				error : CitasError
+			});
 		}
-		
+
 		function CitasOK(respuesta) {
 			console.log(respuesta);
 			var jsoCitas = JSON.parse(respuesta);
 			console.log(jsoCitas);
-			
-			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas pendientes");
-			else{
-				for (i = 0; i < jsoCitas.length; i++){
-					var boton = document.createElement("modificarCita"+i);
+
+			if (jsoCitas.length == 0)
+				$('#noHayCitas').html("No tienes citas pendientes");
+			else {
+				for (i = 0; i < jsoCitas.length; i++) {
+					var boton = document.createElement("modificarCita" + i);
 					boton.type = "button";
-					 $("#Table").append('<tr>' + 
-					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>');
+					$("#Table")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<label id=\'label0'+i+'\'>'
+											+ jsoCitas[i].hora
+											+ '</label>'
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<label id=\'label1'+i+'\'>'
+											+ jsoCitas[i].dia
+											+ '</label>'
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoCitas[i].nombreApe + '</td>');
 				}
 			}
 		}
-		
+
 		function CitasError(respuesta) {
-			console.log(respuesta);	
+			console.log(respuesta);
 		}
-				
+
 		function ponerNombreApellidos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			console.log(jsoUser.resultado.usuario.nombre);
@@ -248,7 +294,6 @@
 					jsoUser.resultado.usuario.nombre + " "
 							+ jsoUser.resultado.usuario.apellidos);
 		}
-
 	</script>
 </body>
 </html>
