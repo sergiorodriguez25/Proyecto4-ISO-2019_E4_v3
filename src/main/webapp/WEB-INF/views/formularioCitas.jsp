@@ -220,7 +220,7 @@
 		$(document).ready(function(){
 	        $("#especialidad").change(function(){
 	        	$('#noHayHora').html("");
-	        	if($('#fecha_ini').val()!=null){
+	        	if($('#fecha_ini').datepicker('getDate')!=null){
 	        		$('#fecha_ini').datepicker('setDate', null);
 	        	}
 	        	var numOptions = document.getElementById("especialidad").length;
@@ -261,6 +261,7 @@
 					$('#hora').html("");
 					document.getElementById("hora").disabled=true;
 					if($("#fecha_ini").datepicker("getDate") != null) {
+						
 						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
 						$('#noHayHora').css("color", "red");
 					}
@@ -300,6 +301,7 @@
 				var url = "/formularioCitas";
 				var type = "POST";
 				var success;
+				var async= false;
 				var xhrFields;
 				var headers = {
 					'Content-Type' : 'application/json'
@@ -311,6 +313,7 @@
 					type : type,
 					url : url,
 					data : data,
+					async : async,
 					headers : headers,
 					xhrFields : {
 						withCredentials : true

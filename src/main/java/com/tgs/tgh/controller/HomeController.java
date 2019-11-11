@@ -140,6 +140,7 @@ public class HomeController {
 			String dia = jso.get("dia");
 			String hora = jso.get("hora");
 			Manager.get().introducirCita(dniPaciente, dniMedico, dia, hora);
+			Manager.get().eliminarHoraMedico(dia, hora, dniMedico);
 		}
 		return "";
 	}
@@ -170,7 +171,8 @@ public class HomeController {
 		} else if (jso.get("tipo").equals("eliminar")) {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
-			Cita cita = new Cita(jso.get("DNI"), "", dia, hora);
+			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
+			Manager.get().anadirHoraMedico(dia, hora, jso.get("DNIMedico"));
 			Manager.get().eliminarCita(cita);
 		}
 
@@ -197,6 +199,8 @@ public class HomeController {
 		String nuevaHora = jso.get("nuevaHora");
 
 		Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
+		Manager.get().eliminarHoraMedico(nuevoDia, nuevaHora, dniMedico);
+		Manager.get().anadirHoraMedico(dia, hora, dniMedico);
 
 		return "";
 	}

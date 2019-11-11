@@ -158,7 +158,7 @@ public class Manager {
 	}
 
 	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
-		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));	
+		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
 	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
@@ -189,6 +189,14 @@ public class Manager {
 		JSONObject resultado = new JSONObject();
 		resultado.put("horarioMedico", jsoHM);
 		return resultado;
+	}
+	
+	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
+		HorarioMedicoDAO.eliminarHoraMedico(dia, hora, dniMedico);
+	}
+	
+	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
+		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
 	}
 
 }

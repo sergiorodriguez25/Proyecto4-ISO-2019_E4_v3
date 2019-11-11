@@ -260,5 +260,24 @@ public class DBBroker<T> {
 		}
 		return grupo;
 	}
+	
+	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
+		criterion.append("Dia", new BsonString(dia));
+		criterion.append("Hora", new BsonString(hora));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		collection.deleteOne(criterion);
+	}
+
+	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
+		criterion.append("Dia", new BsonString(dia));
+		criterion.append("Hora", new BsonString(hora));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("HorariosMedicos", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
 
 }
