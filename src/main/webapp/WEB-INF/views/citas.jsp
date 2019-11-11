@@ -121,6 +121,11 @@
 										href="/medico" class="btn btn-primary btn-large"
 										type="submit">Medico</a>
 								</p>
+								<p>
+									(TEMPORAL)Si desea cambiar a vista de Gestor pulse el botón <a
+										href="/gestor" class="btn btn-primary btn-large"
+										type="submit">Gestor</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -198,7 +203,9 @@
 					&& referrer != 'http://localhost:8080/medico'
 					&& referrer != 'https://the-good-health.herokuapp.com/medico'
 					&& referrer != 'http://localhost:8080/formularioModificar'
-					&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'){
+					&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'
+					&& referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();
