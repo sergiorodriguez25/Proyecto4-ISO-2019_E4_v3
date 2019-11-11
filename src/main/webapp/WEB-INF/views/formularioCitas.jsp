@@ -201,6 +201,17 @@
 								forma.action = "/error";
 								forma.submit();
 							}
+							var jsoUser = JSON.parse(sessionStorage.usuario);
+							var centro = jsoUser.resultado.paciente.centro;
+							if(centro=="Sin asignar"){
+								swal({
+									title : "Lo sentimos",
+									text : "Aún no puede solicitar citas, el gestor tiene que asignarle un centro médico y el grupo de médicos que le atenderán en dicho centro. Disculpe las molestias",
+									icon : "error",
+								}).then(function() {
+									window.location.href = "/citas";
+								});
+							}
 							cargarDatosFormulario();
 							
 							
