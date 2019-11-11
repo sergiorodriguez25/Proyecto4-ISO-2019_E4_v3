@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.tgs.tgh.dao.PacienteDAO;
+import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Usuario;
 import com.tgs.tgh.stepDefinition.Recursos;
 import com.tgs.tgh.stepDefinition.WebDriver;
@@ -60,8 +62,8 @@ public class LoginSteps {
 
 	@Given("^Se registra el usuario$")
 	public void se_registra_el_usuario() {
-		Manager.get().registro("00000000Z", "Prueba-123", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
-				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		UsuarioDAO.registro(Recursos.getUsuario());
+		PacienteDAO.registro(Recursos.getPaciente().getDNI(), Recursos.getPaciente().getCentroMedico());
 	}
 
 	@When("^Se introducen las credenciales validas$")

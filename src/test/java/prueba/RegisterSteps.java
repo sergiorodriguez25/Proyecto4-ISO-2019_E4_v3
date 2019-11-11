@@ -25,6 +25,7 @@ public class RegisterSteps {
 		Alert alert = driver.switchTo().alert();
 		alert.getText();
 		assertEquals("El DNI que ha introducido ya está en uso.", alert.getText());
+		alert.accept();
 	}
 
 	@Then("^El usuario existe en la base de datos$")
