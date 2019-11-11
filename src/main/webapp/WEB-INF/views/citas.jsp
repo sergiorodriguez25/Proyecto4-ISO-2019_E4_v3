@@ -121,11 +121,6 @@
 										href="/medico" class="btn btn-primary btn-large"
 										type="submit">Medico</a>
 								</p>
-								<p>
-									(TEMPORAL)Si desea cambiar a vista de Gestor pulse el botón <a
-										href="/gestor" class="btn btn-primary btn-large"
-										type="submit">Gestor</a>
-								</p>
 							</div>
 						</div>
 					</div>
