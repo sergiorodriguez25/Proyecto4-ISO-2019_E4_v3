@@ -116,11 +116,6 @@
 									encuentra a la derecha de la cita con la que quiera
 									interactuar.
 								</p>
-								<p>
-									Si desea cambiar a vista de Medico pulse el botón <a
-										href="/medico" class="btn btn-primary btn-large"
-										type="submit">Medico</a>
-								</p>
 							</div>
 						</div>
 					</div>

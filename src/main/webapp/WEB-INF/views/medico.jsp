@@ -107,7 +107,7 @@
 								<p>
 									Si desea cambiar a vista de Paciente pulse el botón <a
 									href="/citas" class="btn btn-primary btn-large"
-									type="submit">Citas</a>
+									type="submit">Mis citas</a>
 								</p>
 							</div>
 						</div>
@@ -132,7 +132,7 @@
 				<div align='center'>
  					<h2>Próximas Citas</h2>
 				</div>
-						<table id="Table" class="table">
+						<table id="Table" class="table table-bordered">
 							<thead>
     							<tr class="table-primary">
       								<td align="center" scope="col"><b>Hora</b></td>
@@ -140,10 +140,44 @@
 								    <td align="center" scope="col"><b>Nombre paciente</b></td>
     							</tr>
  							 </thead>
+ 							 <tbody>
+ 							 	<tr>
+      								<td align="center" scope="col"><b>11:00</b></td>
+								    <td align="center" scope="col"><b>15/11/2019</b></td>
+								    <td align="center" scope="col"><b>Ernesto Giménez López</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>12:00</b></td>
+								    <td align="center" scope="col"><b>15/11/2019</b></td>
+								    <td align="center" scope="col"><b>Rosa Navarro Zamora</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>12:30</b></td>
+								    <td align="center" scope="col"><b>15/11/2019</b></td>
+								    <td align="center" scope="col"><b>Andrés Sánchez Mena</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>11:00</b></td>
+								    <td align="center" scope="col"><b>16/11/2019</b></td>
+								    <td align="center" scope="col"><b>Esther Camacho Camacho</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>11:00</b></td>
+								    <td align="center" scope="col"><b>17/11/2019</b></td>
+								    <td align="center" scope="col"><b>Alfonso García López</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>10:30</b></td>
+								    <td align="center" scope="col"><b>18/11/2019</b></td>
+								    <td align="center" scope="col"><b>María Sánchez López</b></td>
+    							</tr>
+    							<tr>
+      								<td align="center" scope="col"><b>11:00</b></td>
+								    <td align="center" scope="col"><b>18/11/2019</b></td>
+								    <td align="center" scope="col"><b>Sara Camacho García</b></td>
+    							</tr>
+ 							 </tbody>
 						</table>
-						<div align='center'>
-							<label id="noHayCitas"></label>
-						</div>
 					</div>
 				</div>
 				<br>
@@ -177,8 +211,6 @@
 					&& referrer != 'https://the-good-health.herokuapp.com/'
 					&& referrer != 'http://localhost:8080/registro'
 					&& referrer != 'https://the-good-health.herokuapp.com/registro'
-					&& referrer != 'http://localhost:8080/formularioCitas'
-					&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
 					&& referrer != 'http://localhost:8080/citas'
 					&& referrer != 'https://the-good-health.herokuapp.com/citas'){
 				var forma = document.forms[0];
