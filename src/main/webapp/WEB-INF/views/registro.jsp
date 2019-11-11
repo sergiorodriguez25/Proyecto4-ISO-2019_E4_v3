@@ -603,7 +603,7 @@
   		$('#fecha_ini').datepicker({
         	format: "dd/mm/yyyy",
         	startDate: "1/1/1900",
-        	endDate: "13/10/2019",
+        	endDate: 'd',
         	todayBtn: "linked",
         	language: "es",
         	todayHighlight: true
