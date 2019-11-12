@@ -1,5 +1,6 @@
 package com.tgs.tgh.dao;
 
+import java.util.List;
 import com.tgs.tgh.model.Cita;
 
 public class CitaDAO {
