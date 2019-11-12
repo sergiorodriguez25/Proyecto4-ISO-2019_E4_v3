@@ -2,15 +2,13 @@ package com.tgs.tgh.stepDefinition;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.tgs.tgh.web.Manager;
-
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class EliminarCitaSteps {
 

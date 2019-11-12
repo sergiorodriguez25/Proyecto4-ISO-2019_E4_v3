@@ -1,13 +1,11 @@
 package com.tgs.tgh.stepDefinition;
 
+import cucumber.api.java.en.Then;
 import static org.junit.Assert.assertEquals;
-
 import org.json.JSONArray;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.tgs.tgh.web.Manager;
 
-import cucumber.api.java.en.Then;
 
 public class AnadirCitaSteps {
 	

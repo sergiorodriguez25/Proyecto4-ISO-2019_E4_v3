@@ -3,11 +3,13 @@ package com.tgs.tgh.model;
 public class Cita {
 
 	private String dniPaciente;
+	
 	private String dniMedico;
+	
 	private String dia;
+	
 	private String hora;
 
-	
 	public Cita(String dniPaciente, String dniMedico, String dia, String hora) {
 		super();
 		this.dniPaciente = dniPaciente;

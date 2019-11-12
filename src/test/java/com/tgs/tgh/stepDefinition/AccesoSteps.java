@@ -1,14 +1,11 @@
 package com.tgs.tgh.stepDefinition;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.assertEquals;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AccesoSteps {
 
