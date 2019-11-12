@@ -1,70 +1,22 @@
 package com.tgs.tgh.stepDefinition;
 
+import static org.junit.Assert.assertEquals;
+
+import org.json.JSONArray;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.web.Manager;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class AnadirCitaSteps {
 	
-	ChromeDriver driver;
-	Cita cita;
-	
-	@Given("^Tengo una cita nueva$")
-	public void tengo_una_cita_nueva() throws Throwable {
-//	    cita = new Cita()
-	}
-
-	@When("^Anado la cita$")
-	public void anado_la_cita() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
+	ChromeDriver driver = WebDriver.webDriver;
 
 	@Then("^La cita existe en la base de datos$")
 	public void la_cita_existe_en_la_base_de_datos() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Given("^Tengo una cita que existe en la base de datos$")
-	public void tengo_una_cita_que_existe_en_la_base_de_datos() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Then("^Salta la excepcion$")
-	public void salta_la_excepcion() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@When("^Pulso el boton de anadir una cita$")
-	public void pulso_el_boton_de_anadir_una_cita() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@When("^Relleno el formulario$")
-	public void relleno_el_formulario() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@When("^Pulso el boton de aceptar la cita$")
-	public void pulso_el_boton_de_aceptar_la_cita() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Then("^La cita aparece en el cuadro de citas$")
-	public void la_cita_aparece_en_el_cuadro_de_citas() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		JSONArray citas = Manager.get().getCitas(Recursos.getPaciente().getDNI());
+		assertEquals(citas.getJSONObject(0).getString("nombreApe"), "Prueba Prueba");
 	}
 
 }

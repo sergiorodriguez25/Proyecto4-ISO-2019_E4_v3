@@ -3,15 +3,16 @@ Feature: Comprobar que los datos estan protegidos
 
   @Scenario1
   Scenario: Al registrarse un usuario se encriptan sus datos sensibles
-    Given Tenemos un nuevo usuario
+    Given Tenemos un usuario
     When Se registra el usuario
     Then Los datos estan encriptados
     
   @Scenario2
   Scenario: Al solicitar datos sensibles de la base de datos estos se desencriptan 
-    Given Tenemos un usuario existente
+    Given Tenemos un usuario
     When Solicitamos los datos
-    Then Los datos sensibles llegan desencriptados
+    Then Los datos llegan desencriptados
+    And Se elimina el usuario
     
   @Scenario3
   Scenario: Al intentar acceder a la pagina de citas sin iniciar sesion no te deja entrar
