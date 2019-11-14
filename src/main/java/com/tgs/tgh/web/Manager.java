@@ -1,5 +1,15 @@
 package com.tgs.tgh.web;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
@@ -14,13 +24,6 @@ import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 @Component
 public class Manager {
@@ -152,6 +155,8 @@ public class Manager {
 	}
 
 	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
+		Date date = new Date();
+		
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
@@ -177,6 +182,7 @@ public class Manager {
 
 	public JSONObject getHorarioCitas(String dniMedico) {
 		HorarioMedico hm = HorarioMedicoDAO.getHorarioMedico(dniMedico);
+		
 		JSONObject jsoHM = new JSONObject();
 		jsoHM.put("DNI", hm.getDni());
 		jsoHM.put("horario", hm.getHorario());
@@ -191,6 +197,14 @@ public class Manager {
 	
 	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
 		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
+	}
+
+	public JSONObject getCitasDiaMedico(String dniMedico, String fecha) {
+		ArrayList lista = new ArrayList();
+		lista = CitaDAO.getCitasDiaMedico(dniMedico, fecha);
+		JSONObject jsoHoras = new JSONObject();
+		jsoHoras.put("horas", lista);
+		return jsoHoras;
 	}
 
 }

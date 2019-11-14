@@ -246,9 +246,21 @@
 	        	var jsoHorario = JSON.parse(sessionStorage.horario);
 				var horario = jsoHorario.horarioMedico.horario;
 				var numHoras=0;
-				console.log($('#fecha_ini').val());
+				var weekday=new Array(7);
+				weekday[0]="Domingo";
+				weekday[1]="Lunes";
+				weekday[2]="Martes";
+				weekday[3]="Miércoles";
+				weekday[4]="Jueves";
+				weekday[5]="Viernes";
+				weekday[6]="Sábado";
+				var dateString = $('#fecha_ini').val();
+				var dateParts = dateString.split("/");
+				var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+				var diaSemana = weekday[dateObject.getDay()];
+				console.log(diaSemana);
 				for(var j=0; j<horario.length; j++){
-					if( $('#fecha_ini').val()==horario[j][0]){
+					if(diaSemana==horario[j][0]){
 						numHoras++;
 					}
 				}
@@ -256,13 +268,37 @@
 				var horasDisponibles = new Array(numHoras);
 				var k=0;
 				for(var i=0; i<horario.length; i++){
-					if( $('#fecha_ini').val()==horario[i][0]){
+					if(diaSemana==horario[i][0]){
 						horasDisponibles[k]=horario[i][1];
 						console.log(horasDisponibles[k]);
 						k++;
 					}
 				}
-				sessionStorage.horas=JSON.stringify(horasDisponibles);
+				//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
+				//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
+				//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
+				var dniMedico = jsoHorario.horarioMedico.DNI;
+				getHorasCitasDiaSeleccionado(dateString, dniMedico);
+				var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
+				var horasOcupadas = jsoHorasOcu.horas;
+				
+				if(horasOcupadas.length =! 0) {
+					numHoras = numHoras - horasOcupadas.length;
+					var horasDefinitivo = horasDisponibles.filter(function(e) {
+					    return horasOcupadas.indexOf(e) == -1
+					});
+					console.log(horasDisponibles);
+					//Horas ocupadas coge una hora de menos
+					console.log(horasOcupadas);
+					console.log(horasDefinitivo);
+// 					for(int h=0; h<numHoras; h++) {
+// 						horasDefinitivo[h]=
+// 					}
+					sessionStorage.horas=JSON.stringify(horasDefinitivo);
+				} else {
+					sessionStorage.horas=JSON.stringify(horasDisponibles);
+				}
+				
 				if(horasDisponibles.length!=0){
 					document.getElementById("hora").disabled=false;
 					$('#noHayHora').html("");
@@ -279,6 +315,47 @@
 				}
 	        });
 		});
+		
+		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
+			var data = {
+					dniMedico : dniMedico,
+					fecha : fecha,
+					tipo : "getCitasDiaMedico"
+				};
+				var url = "/formularioCitas";
+				var type = "POST";
+				var success;
+				var async= false;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				console.log(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					async : async,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : getCitasOK,
+					error : getCitasError
+				});
+		}
+		
+		function getCitasOK(respuesta) {
+			console.log(respuesta);
+			var jsoHorasOcu = JSON.parse(respuesta);
+			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
+		}
+		
+		function getCitasError(e){
+			console.log(e)
+		}
 		
 		function rellenarHoras(){
 			$('#hora').empty()

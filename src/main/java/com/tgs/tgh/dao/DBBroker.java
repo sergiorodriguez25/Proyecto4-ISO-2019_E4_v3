@@ -286,4 +286,13 @@ public class DBBroker<T> {
 		collection.insertOne(criterion);
 	}
 
+	public FindIterable<BsonDocument> getCitasDiaMedico(String dniMedico, String fecha) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(dniMedico)));
+		criterion.append("dia", new BsonString(fecha));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		return collection.find(criterion);
+	}
+
 }
