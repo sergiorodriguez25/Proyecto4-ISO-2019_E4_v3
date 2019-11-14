@@ -13,7 +13,7 @@ Feature: Comprobar el correcto funcionamiento de la visualizacion de citas de un
   	When Se abre la pagina de medico
   	Then Se muestran todas las citas del medico
   	
-  @Scenario3
+  @Scenario2
   Scenario: Al solicitar las citas de un medico recibo la informacion de las citas
   	Given Tenemos un medico
   	When Solicito las citas del medico
