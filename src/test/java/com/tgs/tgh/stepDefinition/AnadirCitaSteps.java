@@ -16,7 +16,7 @@ public class AnadirCitaSteps {
 	@Then("^La cita existe en la base de datos$")
 	public void la_cita_existe_en_la_base_de_datos() throws Throwable {
 		JSONArray citas = Manager.get().getCitas(Recursos.getPaciente().getDNI());
-		assertEquals(citas.getJSONObject(0).getString("nombreApe"), "Prueba Prueba");
+		assertEquals(citas.getJSONObject(0).getString("nombreApe"), "Medico Prueba");
 	}
 
 }
