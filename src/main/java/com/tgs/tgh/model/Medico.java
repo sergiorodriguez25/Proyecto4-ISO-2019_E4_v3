@@ -3,6 +3,7 @@ package com.tgs.tgh.model;
 public class Medico extends Usuario {
 	
 	private String especialidad;
+	
 	private String centroMedico;
 
 	public Medico() {

@@ -6,8 +6,7 @@ import com.tgs.tgh.model.Usuario;
 public class PacienteDAO {
 
 	public static Paciente esPaciente(Usuario usuario) {
-		Paciente paciente = DBBroker.get().comprobarSiEsPaciente(usuario);
-		return paciente;
+		return DBBroker.get().comprobarSiEsPaciente(usuario);
 	}
 
 	public static void registro(String dni, String centroMedico) {
