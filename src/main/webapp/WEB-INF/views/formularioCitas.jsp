@@ -282,18 +282,10 @@
 				var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
 				var horasOcupadas = jsoHorasOcu.horas;
 				
-				if(horasOcupadas.length =! 0) {
-					numHoras = numHoras - horasOcupadas.length;
+				if(horasOcupadas.length != 0) {
 					var horasDefinitivo = horasDisponibles.filter(function(e) {
 					    return horasOcupadas.indexOf(e) == -1
 					});
-					console.log(horasDisponibles);
-					//Horas ocupadas coge una hora de menos
-					console.log(horasOcupadas);
-					console.log(horasDefinitivo);
-// 					for(int h=0; h<numHoras; h++) {
-// 						horasDefinitivo[h]=
-// 					}
 					sessionStorage.horas=JSON.stringify(horasDefinitivo);
 				} else {
 					sessionStorage.horas=JSON.stringify(horasDisponibles);
