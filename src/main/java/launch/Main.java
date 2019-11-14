@@ -1,6 +1,7 @@
 package launch;
 
 import java.io.File;
+
 import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
@@ -28,10 +29,10 @@ public class Main {
 
 		// Declare an alternative location for your "WEB-INF/classes" dir
 		// Servlet 3.0 annotation will work
-		File addWebClass = new File("target/classes");
+		File additionWebInfClasses = new File("target/classes");
 		WebResourceRoot resources = new StandardRoot(ctx);
 		resources.addPreResources(
-				new DirResourceSet(resources, "/WEB-INF/classes", addWebClass.getAbsolutePath(), "/"));
+				new DirResourceSet(resources, "/WEB-INF/classes", additionWebInfClasses.getAbsolutePath(), "/"));
 		ctx.setResources(resources);
 
 		tomcat.start();

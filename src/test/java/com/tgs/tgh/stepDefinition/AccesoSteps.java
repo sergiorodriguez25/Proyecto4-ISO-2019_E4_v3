@@ -1,19 +1,25 @@
 package com.tgs.tgh.stepDefinition;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.beans.factory.annotation.Value;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import java.util.concurrent.TimeUnit;
-import static org.junit.Assert.assertEquals;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class AccesoSteps {
 
-	ChromeDriver driver = WebDriver.webDriver;
+	ChromeDriver driver;
 
 	// Scenario1
 	@Given("^Se abre el navegador$")
 	public void se_abre_el_navegador() throws Throwable {
+		driver = WebDriver.webDriver();
 	}
 
 	@When("^Se introduce la direccion web$")
@@ -25,6 +31,7 @@ public class AccesoSteps {
 	@Then("^Se muestra la pagina principal$")
 	public void se_muestra_la_pagina_principal() throws Throwable {
 		assertEquals("The Good Health", driver.getTitle());
+		driver.quit();
 	}
 
 }

@@ -1,11 +1,11 @@
 package com.tgs.tgh.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HorarioMedico {
 
 	String dni;
-	
 	ArrayList horario;
 
 	public HorarioMedico(String dni, ArrayList horario) {

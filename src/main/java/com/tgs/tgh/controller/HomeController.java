@@ -1,11 +1,10 @@
 package com.tgs.tgh.controller;
 
-import com.tgs.tgh.model.Cita;
-import com.tgs.tgh.web.Manager;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -20,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.web.Manager;
 
 /**
  * Handles requests for the application home page.
@@ -92,9 +92,9 @@ public class HomeController {
 		String email = jso.get("email");
 
 		boolean existeDNI = Manager.get().comprobarSiExisteDNI(dni);
-		if (existeDNI) {
+		if (existeDNI)
 			throw new Exception("El DNI ya existe en la Base de Datos");
-		} else {
+		else {
 			JSONObject jsoRespuesta = Manager.get().registro(dni, pwd, nombre, apellidos, nacimiento, domicilio,
 					poblacion, cp, telefono, email);
 			JSONObject resultado = new JSONObject();

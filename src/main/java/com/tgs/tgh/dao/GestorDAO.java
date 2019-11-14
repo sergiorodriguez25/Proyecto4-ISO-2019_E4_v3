@@ -6,6 +6,7 @@ import com.tgs.tgh.model.Usuario;
 public class GestorDAO {
 
 	public static Gestor esGestor(Usuario usuario) {
-		return DBBroker.get().comprobarSiEsGestor(usuario);
+		Gestor gestor = DBBroker.get().comprobarSiEsGestor(usuario);
+		return gestor;
 	}
 }

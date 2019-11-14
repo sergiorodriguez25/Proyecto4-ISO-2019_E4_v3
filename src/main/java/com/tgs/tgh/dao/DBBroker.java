@@ -1,5 +1,12 @@
 package com.tgs.tgh.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bson.BsonDocument;
+import org.bson.BsonString;
+import org.bson.Document;
+
 import com.mongodb.ConnectionString;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
@@ -12,18 +19,10 @@ import com.tgs.tgh.model.Gestor;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
-import java.util.ArrayList;
-import java.util.List;
-import org.bson.BsonDocument;
-import org.bson.BsonString;
-import org.bson.Document;
-
-
 
 public class DBBroker<T> {
 
 	private MongoClient client;
-	
 	private MongoDatabase db;
 
 	private DBBroker() {
@@ -46,9 +45,8 @@ public class DBBroker<T> {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		if (bso == null) {
+		if (bso == null)
 			return false;
-		}
 
 		return true;
 	}
@@ -59,9 +57,8 @@ public class DBBroker<T> {
 		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		criterion.append("Password", new BsonString(Encriptador.encriptar(pwd)));
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
-		if (iterator == null) {
+		if (iterator == null)
 			return null;
-		}
 
 		BsonDocument bso = iterator.first();
 		if (bso != null) {
@@ -78,13 +75,12 @@ public class DBBroker<T> {
 
 	public Medico comprobarSiEsMedico(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
+		criterion.append("DNI", new BsonString((Encriptador.encriptar(usuario.getDNI()))));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		if (bso == null) {
+		if (bso == null)
 			return null;
-		}
 
 		Medico medico = new Medico(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
 				usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(), usuario.getCodigoPostal(),
@@ -100,9 +96,8 @@ public class DBBroker<T> {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		if (bso == null) {
+		if (bso == null)
 			return null;
-		}
 
 		Paciente paciente = new Paciente(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(),
 				usuario.getApellidos(), usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(),
@@ -117,9 +112,8 @@ public class DBBroker<T> {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		if (bso == null) {
+		if (bso == null)
 			return null;
-		}
 
 		Gestor gestor = new Gestor(usuario.getDNI(), usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
 				usuario.getFechaNac(), usuario.getDomicilio(), usuario.getPoblacion(), usuario.getCodigoPostal(),

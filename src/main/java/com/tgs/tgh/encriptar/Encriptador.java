@@ -10,7 +10,6 @@ import org.apache.commons.codec.binary.Base64;
 public class Encriptador {
 
 	static String secretKey = "geometria";
-	
 	static String base64EncryptedString = "";
 
 	public static String encriptar(String texto) {

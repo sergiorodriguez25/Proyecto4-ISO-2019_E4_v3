@@ -1,37 +1,69 @@
 package com.tgs.tgh.stepDefinition;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.tgs.tgh.web.Manager;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class EliminarCitaSteps {
+	
+	ChromeDriver driver;
+	
+	@Given("^Tengo una cita de un paciente$")
+	public void tengo_una_cita_de_un_paciente() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 
-	ChromeDriver driver = WebDriver.webDriver;
+	@When("^Elimino la cita$")
+	public void elimino_la_cita() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 
 	@Then("^La cita no existe en la base de datos$")
 	public void la_cita_no_existe_en_la_base_de_datos() throws Throwable {
-		assertTrue(Manager.get().getCitas(Recursos.getPaciente().getDNI()).isEmpty());
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Given("^Tengo una cita que no existe en la bbdd$")
+	public void tengo_una_cita_que_no_existe_en_la_bbdd() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Then("^Salta la excepcion correspondiete$")
+	public void salta_la_excepcion_correspondiete() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
+
+	@Given("^Estoy en la pagina de citas$")
+	public void estoy_en_la_pagina_de_citas() throws Throwable {
+	    
 	}
 
 	@When("^Pulso el boton de eliminar de una cita$")
 	public void pulso_el_boton_de_eliminar_de_una_cita() throws Throwable {
-//		driver.findElementById("botonEliminar0").click();
-//		driver.findElementByXPath("/html/body/div/div/div[4]/div[2]/button").click();
-//		driver.findElementByXPath("/html/body/div/div/div[3]/div/button").click();
-//		WebDriverWait wait = new WebDriverWait(driver, 2);
-//		wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElementById("noHayCitas"), "No tienes citas pendientes"));
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
 
 	@Then("^La cita se borra del cuadro de citas$")
 	public void la_cita_se_borra_del_cuadro_de_citas() throws Throwable {
-//		assertEquals("No tienes citas pendientes", driver.findElementById("noHayCitas").getText());
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
+
+
 
 }

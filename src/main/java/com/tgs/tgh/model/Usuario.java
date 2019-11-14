@@ -7,7 +7,7 @@ import com.tgs.tgh.dao.UsuarioDAO;
 @Document (collection = "Usuarios")
 public class Usuario {
 
-	private String dni;
+	private String DNI;
 	private String password;
 	private String nombre;
 	private String apellidos;
@@ -21,7 +21,7 @@ public class Usuario {
 	
 	public Usuario(String dNI, String password, String nombre, String apellidos, String fechaNac, String domicilio, String poblacion,
 			String codigoPostal, String telefono, String email) {
-		dni = dNI;
+		DNI = dNI;
 		this.password = password;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -54,11 +54,11 @@ public class Usuario {
 	}
 
 	public String getDNI() {
-		return dni;
+		return DNI;
 	}
 
 	public void setDNI(String dNI) {
-		dni = dNI;
+		DNI = dNI;
 	}
 
 	public String getPoblacion() {

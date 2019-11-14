@@ -1,20 +1,28 @@
 package com.tgs.tgh.stepDefinition;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.tgs.tgh.model.Paciente;
+import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
 public class DatosRegistroSteps {
 
-	ChromeDriver driver = WebDriver.webDriver;
+	ChromeDriver driver;
 
 	@Given("^Estoy en la pagina de registro$")
 	public void estoy_en_la_pagina_de_registro() throws Throwable {
+		driver = WebDriver.webDriver();
 		driver.get("http://localhost:8080/registro");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		assertEquals("Registro", driver.getTitle());
@@ -33,6 +41,7 @@ public class DatosRegistroSteps {
 	@Then("^Se muestra un label de error$")
 	public void se_muestra_un_label_de_error() throws Throwable {
 		assertEquals("El nombre es obligatorio.", driver.findElementById("labelNombreMal").getText());
+		driver.quit();
 	}
 
 	@When("^Se introducen los datos de registro$")
@@ -68,6 +77,13 @@ public class DatosRegistroSteps {
 	@Then("^No se muestran labels de error$")
 	public void no_se_muestran_labels_de_error() throws Throwable {
 		assertEquals("", driver.findElementById("labelNombreMal").getText());
+		driver.quit();
+		Usuario usuario = new Usuario("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com");
+		Paciente paciente = new Paciente("00000000Z", "prueba", "Prueba", "Prueba", "26/10/1998", "Calle Prueba",
+				"Ciudad Real", "13003", "600000000", "prueba@prueba.com", "Sin asignar");
+		Manager.get().eliminarUsuario(usuario);
+		Manager.get().eliminarPaciente(paciente);
 	}
 
 	@When("^Se introducen los datos de registro con contrasenas incorrectas$")
@@ -102,7 +118,7 @@ public class DatosRegistroSteps {
 
 	@Then("^Se muestra labels de error de contrasena$")
 	public void se_muestra_labels_de_error_de_contrasena() throws Throwable {
-		assertEquals("Las contraseñas no coinciden, inténtalo de nuevo.",
-				driver.findElementById("labelRepetirContraseñaMal").getText());
+		assertEquals("Las contraseñas no coinciden, inténtalo de nuevo.", driver.findElementById("labelRepetirContraseñaMal").getText());
+		driver.quit();
 	}
 }

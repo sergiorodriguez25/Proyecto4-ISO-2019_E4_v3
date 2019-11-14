@@ -1,5 +1,15 @@
 package com.tgs.tgh.web;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 import com.tgs.tgh.dao.CitaDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
@@ -14,17 +24,13 @@ import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 
 @Component
 public class Manager {
 	private ConcurrentHashMap<String, Usuario> usuarios;
+
+	@Autowired
+	private UsuarioDAO usuDao;
 
 	private Manager() {
 		this.usuarios = new ConcurrentHashMap<String, Usuario>();
@@ -40,15 +46,16 @@ public class Manager {
 	}
 
 	public boolean comprobarSiExisteDNI(String dni) {
-		return UsuarioDAO.comprobarDNI(dni);
+		boolean comprobar = UsuarioDAO.comprobarDNI(dni);
+		return comprobar;
 	}
 
 	public JSONObject login(String dni, String pwd) throws Exception {
 		Usuario usuario = UsuarioDAO.login(dni, pwd);
-		if (usuario == null || dni.length() == 0 || pwd.length() == 0) {
+		if (usuario == null || dni.length() == 0 || pwd.length() == 0)
 			return new JSONObject().put("usuario", "invalido");
-		}
 		System.out.println(usuario.getDNI());
+		JSONObject respuesta = new JSONObject();
 		JSONObject jsoUsu = new JSONObject();
 		jsoUsu.put("dni", usuario.getDNI());
 		jsoUsu.put("apellidos", usuario.getApellidos());
@@ -60,7 +67,6 @@ public class Manager {
 		jsoUsu.put("telefono", usuario.getTelefono());
 		jsoUsu.put("password", usuario.getPassword());
 		jsoUsu.put("cp", usuario.getCodigoPostal());
-		JSONObject respuesta = new JSONObject();
 		respuesta.put("usuario", jsoUsu);
 
 		Paciente paciente = PacienteDAO.esPaciente(usuario);
@@ -96,6 +102,7 @@ public class Manager {
 				email);
 		UsuarioDAO.registro(usuario);
 		PacienteDAO.registro(dni, "Sin asignar");
+		JSONObject respuesta = new JSONObject();
 		JSONObject jsoUsu = new JSONObject();
 		jsoUsu.put("dni", usuario.getDNI());
 		jsoUsu.put("apellidos", usuario.getApellidos());
@@ -111,7 +118,6 @@ public class Manager {
 		JSONObject jsoPac = new JSONObject();
 		jsoPac.put("centro", "Sin asignar");
 
-		JSONObject respuesta = new JSONObject();
 		respuesta.put("usuario", jsoUsu);
 		respuesta.put("paciente", jsoPac);
 
@@ -155,7 +161,7 @@ public class Manager {
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
-	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception {
+	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
 		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);		
 	}
 	

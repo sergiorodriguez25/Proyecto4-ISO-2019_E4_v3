@@ -6,7 +6,8 @@ import com.tgs.tgh.model.Usuario;
 public class MedicoDAO {
 
 	public static Medico esMedico(Usuario usuario) {
-		return DBBroker.get().comprobarSiEsMedico(usuario);
+		Medico medico = DBBroker.get().comprobarSiEsMedico(usuario);
+		return medico;
 	}
 
 	public static void registro(String dni, String especialidad, String centroMedico) {
@@ -15,9 +16,8 @@ public class MedicoDAO {
 
 	public static void eliminar(Medico medico) throws Exception {
 		boolean comprobar = DBBroker.get().eliminar("Medicos", medico.getDNI());
-		if (!comprobar) {
+		if (!comprobar)
 			throw new Exception("Error al eliminar el medico");
-		}
 	}
 
 }
