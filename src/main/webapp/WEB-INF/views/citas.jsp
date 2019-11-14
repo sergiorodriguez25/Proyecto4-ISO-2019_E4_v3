@@ -116,6 +116,11 @@
 									encuentra a la derecha de la cita con la que quiera
 									interactuar.
 								</p>
+								<p>
+									Si desea pedir una cita pulse el botón <a
+									href="/formularioCitas" class="btn btn-primary btn-large"
+									type="submit">Pedir Cita</a>
+								</p>
 							</div>
 						</div>
 					</div>
