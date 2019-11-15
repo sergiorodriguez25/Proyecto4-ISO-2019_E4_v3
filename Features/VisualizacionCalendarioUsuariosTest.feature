@@ -1,8 +1,27 @@
 @featureTest
-Feature: Comprobar el correcto funcionamiento de la pagina de inicio
+Feature: Comprobar el correcto funcionamiento de la visualizacion del calendario de los usuarios
 
   @Scenario1
-  Scenario: Al acceder a la aplicacion se muestra la pagina principal
-    Given Se abre el navegador
-    When Se introduce la direccion web
-    Then Se muestra la pagina principal
+  Scenario: Al acceder a la vista de gestor se muestran todos los usuarios del sistema
+    Given Se registra un gestor
+    And Estamos en la pagina principal
+    And Se introducen las credenciales validas del gestor
+    And Se pulsa el boton de iniciar sesion
+    When Se abre la pagina de gestor
+    Then Se muestran todos los usuarios del sistema
+    
+  @Scenario2
+  Scenario: Al solicitar los usuarios nos devuelve todos los usuarios del sistema
+    When Solicitamos los usuarios
+    Then Se obtienen todos los usuarios
+    
+  @Scenario3
+  Scenario: Al seleccionar un paciente se muestra la vista del paciente
+    When Se selecciona un paciente
+    Then Se abre la pagina de citas
+    
+  @Scenario4
+  Scenario: Al seleccionar un medico se muestra la vista del medico
+    When Se selecciona un medico
+    Then Se abre la pagina de medico
+    And Se elimina el gestor
