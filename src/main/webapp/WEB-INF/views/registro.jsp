@@ -144,7 +144,7 @@
         
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="poblacion">Población</label>
+            <label for="poblacion">Provincia</label>
             <select class="custom-select d-block w-100" id="poblacion" required>
               <option value="">Elige...</option>
               <option>Álava</option>

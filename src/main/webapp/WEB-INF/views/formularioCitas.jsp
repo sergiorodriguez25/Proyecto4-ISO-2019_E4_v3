@@ -399,7 +399,7 @@
 		function PedirCitaOK(respuesta) {
 			console.log("Cita OK");
 			swal({
-				title : "Bien hecho",
+				title : "Solicitud recibida",
 				text : "Has añadido una cita",
 				icon : "success",
 			}).then(function() {
