@@ -209,6 +209,19 @@
 							var horaAModificar = jsoModif.citaModificar[0].hora;
 							var dniMedico = jsoModif.citaModificar[0].dniMedico;
 							console.log(diaAModificar);
+							
+							var weekday=new Array(7);
+							weekday[0]="Domingo";
+							weekday[1]="Lunes";
+							weekday[2]="Martes";
+							weekday[3]="Miércoles";
+							weekday[4]="Jueves";
+							weekday[5]="Viernes";
+							weekday[6]="Sábado";
+							var dateParts = diaAModificar.split("/");
+							var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+							var diaSemana = weekday[dateObject.getDay()];
+							
 							$('#especialidad').html(espec);
 							$('#fecha_ini').datepicker('setDate', diaAModificar);
 							$('#hora').html(horaAModificar);
@@ -218,7 +231,7 @@
 							var horario = jsoHorario.horarioMedico.horario;
 							var numHoras=0;
 							for(var j=0; j<horario.length; j++){
-								if( diaAModificar==horario[j][0]){
+								if( diaSemana==horario[j][0]){
 									numHoras++;
 								}
 							}
@@ -226,18 +239,93 @@
 							var horasDisponibles = new Array(numHoras);
 							var k=0;
 							for(var i=0; i<horario.length; i++){
-								if(diaAModificar==horario[i][0]){
+								if(diaSemana==horario[i][0]){
 									horasDisponibles[k]=horario[i][1];
 									console.log(horasDisponibles[k]);
 									k++;
 								}
 							}
-							sessionStorage.horas=JSON.stringify(horasDisponibles);
-							$('#noHayHora').html("");
-							rellenarHoras();
+							var dniMedico = jsoHorario.horarioMedico.DNI;
+							getHorasCitasDiaSeleccionado(diaAModificar, dniMedico);
+							var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
+							var horasOcupadas = jsoHorasOcu.horas;
+							
+							var horasOcupadasSinActual = new Array(horasOcupadas.length - 1);
+							var contador = 0;
+							for(var l=0; l<horasOcupadas.length; l++){
+								if (horasOcupadas[l]!=horaAModificar) {
+									horasOcupadasSinActual[contador]=horasOcupadas[l];
+									contador++;
+								}
+							}
+							
+							if(horasOcupadas.length != 0) {
+								var horasDefinitivo = horasDisponibles.filter(function(e) {
+								    return horasOcupadasSinActual.indexOf(e) == -1
+								});
+								sessionStorage.horas=JSON.stringify(horasDefinitivo);
+							} else {
+								sessionStorage.horas=JSON.stringify(horasDisponibles);
+							}
+							
+							if(horasDisponibles.length!=0){
+								document.getElementById("hora").disabled=false;
+								$('#noHayHora').html("");
+								rellenarHoras();
+							}
+							else {
+								$('#hora').html("");
+								document.getElementById("hora").disabled=true;
+								if($("#fecha_ini").datepicker("getDate") != null) {
+									
+									$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
+									$('#noHayHora').css("color", "red");
+								}
+							}
 							
 		});
+	
+		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
+			var data = {
+					dniMedico : dniMedico,
+					fecha : fecha,
+					tipo : "getCitasDiaMedico"
+				};
+				var url = "/formularioModificar";
+				var type = "POST";
+				var success;
+				var async= false;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+	
+				data = JSON.stringify(data);
+				console.log(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					async : async,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : getCitasOK,
+					error : getCitasError
+				});
+		}
 		
+		function getCitasOK(respuesta) {
+			console.log(respuesta);
+			var jsoHorasOcu = JSON.parse(respuesta);
+			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
+		}
+		
+		function getCitasError(e){
+			console.log(e)
+		}
+			
 		$(document).ready(function(){
 			$('#modificarcita').click(function(event) {
 				if (!(comprobarFecha(document
@@ -360,7 +448,8 @@
 				nuevoDia : $('#fecha_ini').val(),
 				nuevaHora : $('#hora').val(),
 				antiguoDia : antDia,
-				antiguaHora : antHora
+				antiguaHora : antHora,
+				tipo : "solicitar"
 			};
 			var url = "/formularioModificar";
 			var type = "POST";
@@ -425,7 +514,7 @@
 		$('#fecha_ini').datepicker({
 			format : "dd/mm/yyyy",
 			startDate : 'd',
-			endDate : "31/12/2019",
+			endDate : "31/12/2020",
 			todayBtn : "linked",
 			language : "es",
 			todayHighlight : true

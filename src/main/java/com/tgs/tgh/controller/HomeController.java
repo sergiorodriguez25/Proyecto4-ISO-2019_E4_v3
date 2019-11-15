@@ -134,13 +134,17 @@ public class HomeController {
 			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
 			System.out.println(resultado);
 			return resultado.toString();
+		}
+		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
+			System.out.println(resultado);
+			return resultado.toString();
 		} else {
 			String dniPaciente = jso.get("dniPaciente");
 			String dniMedico = jso.get("dniMedico");
 			String dia = jso.get("dia");
 			String hora = jso.get("hora");
 			Manager.get().introducirCita(dniPaciente, dniMedico, dia, hora);
-			Manager.get().eliminarHoraMedico(dia, hora, dniMedico);
 		}
 		return "";
 	}
@@ -186,7 +190,6 @@ public class HomeController {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
-			Manager.get().anadirHoraMedico(dia, hora, jso.get("DNIMedico"));
 			Manager.get().eliminarCita(cita);
 		}
 
@@ -204,18 +207,23 @@ public class HomeController {
 	@ResponseBody
 	public String formModif(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		String hora = jso.get("antiguaHora");
-		String dia = jso.get("antiguoDia");
-		String dniMedico = jso.get("dniMedico");
-		Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
-		System.out.println(cita.getDia());
-		String nuevoDia = jso.get("nuevoDia");
-		String nuevaHora = jso.get("nuevaHora");
+		if (jso.get("tipo").equals("solicitar")) {
+			String hora = jso.get("antiguaHora");
+			String dia = jso.get("antiguoDia");
+			String dniMedico = jso.get("dniMedico");
+			Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
+			System.out.println(cita.getDia());
+			String nuevoDia = jso.get("nuevoDia");
+			String nuevaHora = jso.get("nuevaHora");
 
-		Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
-		Manager.get().eliminarHoraMedico(nuevoDia, nuevaHora, dniMedico);
-		Manager.get().anadirHoraMedico(dia, hora, dniMedico);
-
+			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
+		}
+		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
+			System.out.println(resultado);
+			return resultado.toString();
+		}
+		
 		return "";
 	}
 
