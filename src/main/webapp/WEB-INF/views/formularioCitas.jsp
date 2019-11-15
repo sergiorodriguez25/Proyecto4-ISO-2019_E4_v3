@@ -504,7 +504,7 @@
 		$('#fecha_ini').datepicker({
 			format : "dd/mm/yyyy",
 			startDate : 'd',
-			endDate : "31/12/2019",
+			endDate : "31/12/2020",
 			todayBtn : "linked",
 			language : "es",
 			todayHighlight : true

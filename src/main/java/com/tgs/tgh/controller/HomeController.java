@@ -193,16 +193,23 @@ public class HomeController {
 	@ResponseBody
 	public String formModif(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		String hora = jso.get("antiguaHora");
-		String dia = jso.get("antiguoDia");
-		String dniMedico = jso.get("dniMedico");
-		Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
-		System.out.println(cita.getDia());
-		String nuevoDia = jso.get("nuevoDia");
-		String nuevaHora = jso.get("nuevaHora");
+		if (jso.get("tipo").equals("solicitar")) {
+			String hora = jso.get("antiguaHora");
+			String dia = jso.get("antiguoDia");
+			String dniMedico = jso.get("dniMedico");
+			Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
+			System.out.println(cita.getDia());
+			String nuevoDia = jso.get("nuevoDia");
+			String nuevaHora = jso.get("nuevaHora");
 
-		Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
-
+			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
+		}
+		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
+			System.out.println(resultado);
+			return resultado.toString();
+		}
+		
 		return "";
 	}
 
