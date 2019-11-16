@@ -140,6 +140,8 @@
 								    <td align="center" scope="col"><b>Nombre paciente</b></td>
     							</tr>
  							 </thead>
+ 							 
+ 						<!-- 	 
  							 <tbody>
  							 	<tr>
       								<td align="center" scope="col"><b>11:00</b></td>
@@ -177,6 +179,8 @@
 								    <td align="center" scope="col"><b>Sara Camacho García</b></td>
     							</tr>
  							 </tbody>
+ 						 !-->
+ 							 
 						</table>
 					</div>
 				</div>
@@ -227,7 +231,7 @@
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
 					DNI : jsoUser.resultado.usuario.dni,
-					tipo : "mostrar"
+					//tipo : "mostrar"
 				};
 				var url = "/medico";
 				var type = "POST";
@@ -246,21 +250,21 @@
 			        xhrFields: {
 			            withCredentials: true
 			        },
-			        success : CitasOK,
-			        error : CitasError
+			        success : CitasMedicoOK,
+			        error : CitasMedicoError
 				});
 		}
 		
-		function CitasOK(respuesta) {
+		function CitasMedicoOK(respuesta) {
 			console.log(respuesta);
 			var jsoCitas = JSON.parse(respuesta);
 			console.log(jsoCitas);
 			
-			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas pendientes");
+			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas por atender");
 			else{
 				for (i = 0; i < jsoCitas.length; i++){
-					var boton = document.createElement("modificarCita"+i);
-					boton.type = "button";
+					//var boton = document.createElement("modificarCita"+i);
+					//boton.type = "button";
 					 $("#Table").append('<tr>' + 
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
@@ -269,7 +273,7 @@
 			}
 		}
 		
-		function CitasError(respuesta) {
+		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	
 		}
 				
