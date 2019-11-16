@@ -31,5 +31,9 @@ public class Recursos {
 	public static Cita getCita() {
 		return new Cita("00000000Z", "00000000X", "15/12/2019", "12:00");
 	}
+	
+//	public static Especialidad getEspecialidad() {
+//		return new Especialidad("Podólogo", "15");
+//	}
 
 }
