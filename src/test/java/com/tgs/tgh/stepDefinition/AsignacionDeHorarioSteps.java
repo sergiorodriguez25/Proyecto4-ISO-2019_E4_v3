@@ -24,5 +24,11 @@ public class AsignacionDeHorarioSteps {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
 	}
+	
+	@Then("^Se elimina la especialidad$")
+	public void se_elimina_la_especialidad() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 
 }
