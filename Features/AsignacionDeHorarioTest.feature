@@ -7,3 +7,5 @@ Feature: Comprobar el correcto funcionamiento al asignar un horario a un trabaja
     And Se registra una especialidad
     When Se reciben los datos del horario
     Then Se le asigna el horario al medico
+    And Se elimina el medico
+    And Se elimina la especialidad
