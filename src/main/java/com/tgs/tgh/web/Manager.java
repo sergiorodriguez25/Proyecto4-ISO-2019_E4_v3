@@ -203,6 +203,21 @@ public class Manager {
 		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
 	}
 
+	public JSONArray getCitasMedico(String dni) throws Throwable {
+		List<Cita> citas = CitaDAO.getCitasMedicoDAO(dni);
+		JSONArray arrayCitas = new JSONArray();
+		for (int i = 0; i < citas.size(); i++) {
+			Cita cita = citas.get(i);
+			Usuario usuario = usuDao.getUsuario(cita.getDniPaciente());
+			JSONObject jsoCita = new JSONObject();
+			jsoCita.put("hora", cita.getHora());
+			jsoCita.put("dia", cita.getDia());
+			jsoCita.put("nombreApe", usuario.getNombre() + " " + usuario.getApellidos());
+			arrayCitas.put(i, jsoCita);
+		}
+		return arrayCitas;
+	}
+	
 	public JSONObject getCitasDiaMedico(String dniMedico, String fecha) {
 		ArrayList lista = new ArrayList();
 		lista = CitaDAO.getCitasDiaMedico(dniMedico, fecha);
