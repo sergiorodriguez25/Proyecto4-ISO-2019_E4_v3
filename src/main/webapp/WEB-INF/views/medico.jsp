@@ -231,7 +231,6 @@
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
 					DNI : jsoUser.resultado.usuario.dni,
-					//tipo : "mostrar"
 				};
 				var url = "/medico";
 				var type = "POST";
@@ -263,8 +262,6 @@
 			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas por atender");
 			else{
 				for (i = 0; i < jsoCitas.length; i++){
-					//var boton = document.createElement("modificarCita"+i);
-					//boton.type = "button";
 					 $("#Table").append('<tr>' + 
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+

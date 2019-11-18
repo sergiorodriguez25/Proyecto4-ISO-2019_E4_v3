@@ -24,6 +24,6 @@ public class UsuarioDAO {
 	}
 
 	public static Usuario getUsuario(String dniM) throws Exception {
-		return DBBroker.get().getUsuarioMedico(dniM);
+		return DBBroker.get().getUsuario(dniM);
 	}
 }

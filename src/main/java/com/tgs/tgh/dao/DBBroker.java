@@ -232,10 +232,26 @@ public class DBBroker<T> {
 
 		return list;
 	}
+	
+	public List<Cita> getCitasMedico(String dni) throws Exception {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(dni)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		List<Cita> list = new ArrayList<Cita>();
+		for (BsonDocument bso : iterator) {
+			Cita cita = new Cita(Encriptador.desencriptar(bso.get("DNIPaciente").asString().getValue()), dni,
+					bso.get("dia").asString().getValue(), bso.get("hora").asString().getValue());
+			list.add(cita);
+		}
 
-	public Usuario getUsuarioMedico(String dni) throws Exception {
+		return list;
+	}
+
+	public Usuario getUsuario(String dni) throws Exception {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		BsonDocument criterion = new BsonDocument();
+		System.out.println(dni);
 		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();

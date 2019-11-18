@@ -35,6 +35,11 @@ public class CitaDAO {
 		List<Cita> citas = DBBroker.get().getCitaBD(dni);
 		return citas;
 	}
+	
+	public static List<Cita> getCitasMedicoDAO(String dni) throws Throwable {
+		List<Cita> citas = DBBroker.get().getCitasMedico(dni);
+		return citas;
+	}
 
 	public static ArrayList getCitasDiaMedico(String dniMedico, String fecha) {
 		FindIterable<BsonDocument> docs = DBBroker.get().getCitasDiaMedico(dniMedico, fecha);
