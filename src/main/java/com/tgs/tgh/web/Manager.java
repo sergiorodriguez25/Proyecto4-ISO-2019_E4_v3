@@ -75,6 +75,7 @@ public class Manager {
 			JSONObject jsoPac = new JSONObject();
 			jsoPac.put("centro", paciente.getCentroMedico());
 			respuesta.put("paciente", jsoPac);
+			respuesta.put("tipoUsuario", "Paciente");
 		}
 		Medico medico = MedicoDAO.esMedico(usuario);
 		if (medico != null) {
@@ -82,12 +83,16 @@ public class Manager {
 			jsoMed.put("especialidad", medico.getEspecialidad());
 			jsoMed.put("centro", medico.getCentroMedico());
 			respuesta.put("medico", jsoMed);
+			respuesta.remove("tipoUsuario");
+			respuesta.put("tipoUsuario", "Medico");
 		}
 		Gestor gestor = GestorDAO.esGestor(usuario);
 		if (gestor != null) {
 			JSONObject jsoGes = new JSONObject();
 			jsoGes.put("centro", gestor.getCentroMedico());
 			respuesta.put("gestor", jsoGes);
+			respuesta.remove("tipoUsuario");
+			respuesta.put("tipoUsuario", "Gestor");
 		}
 		GrupoMedico grupo = getGrupoMedico(dni);
 		JSONObject jsoGrupo = new JSONObject();

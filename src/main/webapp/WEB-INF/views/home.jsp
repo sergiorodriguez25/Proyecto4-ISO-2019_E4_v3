@@ -137,7 +137,12 @@
 		}
 		else {
 			console.log("Credenciales correctas");
-	        location.href="/citas";
+			if(jso.resultado.tipoUsuario=="Paciente")
+				location.href="/citas";
+			else if(jso.resultado.tipoUsuario=="Medico")
+				location.href="/medico";
+			else if(jso.resultado.tipoUsuario=="Gestor")
+				location.href="/gestor"
 		}
         
     }
