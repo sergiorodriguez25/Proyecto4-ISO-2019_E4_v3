@@ -41,10 +41,10 @@ public class CitaDAO {
 		return citas;
 	}
 
-	public static ArrayList getCitasDiaMedico(String dniMedico, String fecha) {
+	public static ArrayList<String> getCitasDiaMedico(String dniMedico, String fecha) {
 		FindIterable<BsonDocument> docs = DBBroker.get().getCitasDiaMedico(dniMedico, fecha);
 		System.out.println(docs);
-		ArrayList lista = new ArrayList();
+		ArrayList<String> lista = new ArrayList<String>();
 		BsonDocument bso = docs.first();
 		System.out.println(bso);
 		for (BsonDocument doc : docs) { 

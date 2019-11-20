@@ -213,7 +213,7 @@ public class Manager {
 		JSONArray arrayCitas = new JSONArray();
 		for (int i = 0; i < citas.size(); i++) {
 			Cita cita = citas.get(i);
-			Usuario usuario = usuDao.getUsuario(cita.getDniPaciente());
+			Usuario usuario = UsuarioDAO.getUsuario(cita.getDniPaciente());
 			JSONObject jsoCita = new JSONObject();
 			jsoCita.put("hora", cita.getHora());
 			jsoCita.put("dia", cita.getDia());
@@ -224,7 +224,7 @@ public class Manager {
 	}
 	
 	public JSONObject getCitasDiaMedico(String dniMedico, String fecha) {
-		ArrayList lista = new ArrayList();
+		ArrayList<String> lista = new ArrayList<String>();
 		lista = CitaDAO.getCitasDiaMedico(dniMedico, fecha);
 		JSONObject jsoHoras = new JSONObject();
 		jsoHoras.put("horas", lista);

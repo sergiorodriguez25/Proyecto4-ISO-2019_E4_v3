@@ -5,10 +5,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class WebDriver {
 	
-	static ChromeDriver webDriver = webDriver();
+	public static ChromeDriver webDriver = webDriver();
 
 	public static ChromeDriver webDriver() {
-		System.setProperty("webdriver.chrome.driver", "Recursos//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "Recursos//chromedriver.exe");///usr/local/share/chromedriver
 		final ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-extensions");
 		options.addArguments("--headless");
