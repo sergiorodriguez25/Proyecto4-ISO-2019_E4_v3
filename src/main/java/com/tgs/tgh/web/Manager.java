@@ -231,4 +231,17 @@ public class Manager {
 		return jsoHoras;
 	}
 
+	public JSONObject getTodosUsuario() throws Exception {
+		ArrayList<Usuario> lista = GestorDAO.getTodosUsuarios();
+		ArrayList<Paciente> listaPac = new ArrayList<Paciente>();
+		JSONObject jsoallPac = new JSONObject();
+		for(int i=0; i<lista.size(); i++) {
+			Usuario usu = lista.get(i);
+			Paciente paciente = PacienteDAO.esPaciente(usu);
+			listaPac.add(paciente);
+		}
+		jsoallPac.put("Pacientes", listaPac);
+		return jsoallPac;
+	}
+
 }

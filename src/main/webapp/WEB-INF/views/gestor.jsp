@@ -151,77 +151,17 @@
 				<div class="col-md-6">
 					<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						<div class="card-body d-flex flex-column align-items-start">
-							<strong class="d-inline-block mb-2 text-primary center">Pacientes</strong>
+							<strong class="d-inline-block mb-2 text-primary center">Pacientes externos al Centro Médico</strong>
 							<div class="row d-flex justify-content-center">
 								<div class="container">
-									<table id="Table1" class="table table-bordered">
+									<table id="TablaUsuarios" class="table table-bordered">
 										<thead>
 											<tr class="table-primary">
 												<td align="center" scope="col"><b>DNI</b></td>
-												<td align="center" scope="col"><b>Nombre paciente</b></td>
-												<td align="center" scope="col"><b>Centro médico</b></td>
+												<td align="center" scope="col"><b>Nombre</b></td>
+												<td align="center" scope="col"><b>Centro Médico</b></td>
 											</tr>
 										</thead>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">01234568A</td>
-												<td align="center" scope="col">Pedro Pérez Sánchez</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">01852068A</td>
-												<td align="center" scope="col">Carlos Mena Sánchez</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">01789456A</td>
-												<td align="center" scope="col">Pedro Navarro García</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">45634568A</td>
-												<td align="center" scope="col">Ana Pérez Hipólito</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
 									</table>
 								</div>
 							</div>
@@ -232,77 +172,17 @@
 				<div class="col-md-6">
 					<div class="card flex-md-row mb-4 box-shadow h-md-250">
 						<div class="card-body d-flex flex-column align-items-start">
-							<strong class="d-inline-block mb-2 text-success">Médicos</strong>
+							<strong class="d-inline-block mb-2 text-success">Pacientes del Centro Médico</strong>
 							<div class="row d-flex justify-content-center">
 								<div class="container">
-									<table id="Table2" class="table table-bordered">
+									<table id="TablaUsuariosCentro" class="table table-bordered">
 										<thead>
 											<tr class="table-primary">
 												<td align="center" scope="col"><b>DNI</b></td>
-												<td align="center" scope="col"><b>Nombre médico</b></td>
-												<td align="center" scope="col"><b>Centro médico</b></td>
+												<td align="center" scope="col"><b>Nombre</b></td>
+												<td align="center" scope="col"><b>Centro Médico</b></td>
 											</tr>
 										</thead>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">34564568A</td>
-												<td align="center" scope="col">María López Sánchez</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">56782068A</td>
-												<td align="center" scope="col">Julían Zamora Mena</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">01789456A</td>
-												<td align="center" scope="col">Rosa Sánchez Sánchez</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
-										<tbody>
-											<tr class="table">
-												<td align="center" scope="col">45634568A</td>
-												<td align="center" scope="col">Carlos Navas López</td>
-												<td align="center" scope="col">Hospital General</td>
-												<td align="center" scope="col">
-													<button type="button" class="btn btn-primary"
-														data-toggle="modal" data-target="#exampleModalLong">
-														<img
-															src="https://image.flaticon.com/icons/png/512/23/23187.png"
-															class="img-fluid rounded" width="25" height="25">
-													</button>
-												</td>
-											</tr>
-										</tbody>
 									</table>
 								</div>
 							</div>
@@ -332,7 +212,7 @@
 		jQuery(document)
 				.ready(
 						function($) {
-							enviardni();
+							pedirTodosLosUsuarios();
 							/*
 							 * Control para que no acceda a travis de la url a alguna página que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -354,15 +234,14 @@
 
 						});
 
-		function enviardni() {
-			var jsoUser = JSON.parse(sessionStorage.usuario);
+		function pedirTodosLosUsuarios() {
 			var data = {
-				DNI : jsoUser.resultado.usuario.dni,
-				tipo : "mostrar"
+				tipo : "getAllUser"
 			};
-			var url = "/medico";
+			var url = "/gestor";
 			var type = "POST";
 			var success;
+			var async= false;
 			var xhrFields;
 			var headers = {
 				'Content-Type' : 'application/json'
@@ -373,47 +252,45 @@
 				type : type,
 				url : url,
 				data : data,
+				async : async,
 				headers : headers,
 				xhrFields : {
 					withCredentials : true
 				},
-				success : CitasOK,
-				error : CitasError
+				success : UsuariosOK,
+				error : UsuariosError
 			});
 		}
 
-		function CitasOK(respuesta) {
-			console.log(respuesta);
-			var jsoCitas = JSON.parse(respuesta);
-			console.log(jsoCitas);
-
-			if (jsoCitas.length == 0)
-				$('#noHayCitas').html("No tienes citas pendientes");
-			else {
-				for (i = 0; i < jsoCitas.length; i++) {
-					var boton = document.createElement("modificarCita" + i);
-					boton.type = "button";
-					$("#Table")
-							.append(
-									'<tr>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<label id=\'label0'+i+'\'>'
-											+ jsoCitas[i].hora
-											+ '</label>'
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<label id=\'label1'+i+'\'>'
-											+ jsoCitas[i].dia
-											+ '</label>'
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ jsoCitas[i].nombreApe + '</td>');
+		function UsuariosOK(respuesta) {
+			var jsoUsuarios = JSON.parse(respuesta);
+			console.log(jsoUsuarios);
+			console.log(jsoUsuarios.Pacientes.length);
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
+			
+			for (i = 0; i < jsoUsuarios.Pacientes.length; i++) {
+				console.log(jsoUsuarios.Pacientes[i].DNI);
+				if(jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
+					$("#TablaUsuarios").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
+					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
+					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'+'Asignar Centro'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td></tr>');
+				}
+				
+				if(jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
+					$("#TablaUsuariosCentro").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
+					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
+					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td></tr>');
 				}
 			}
 		}
 
-		function CitasError(respuesta) {
-			console.log(respuesta);
+		function UsuariosError(e) {
+			console.log(e);
 		}
 
 		function ponerNombreApellidos() {

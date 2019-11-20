@@ -176,6 +176,10 @@ public class HomeController {
 	@ResponseBody
 	public String gestor(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
+		if(jso.get("tipo").equals("getAllUser")) {
+			JSONObject jsorespuesta = Manager.get().getTodosUsuario();
+			return jsorespuesta.toString();
+		}
 		return "";
 	}
 
