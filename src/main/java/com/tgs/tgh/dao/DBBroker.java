@@ -305,4 +305,9 @@ public class DBBroker<T> {
 		return collection.find(criterion);
 	}
 
+	public FindIterable<BsonDocument> getTodosUsuarios() {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
+		return collection.find();
+	}
+
 }
