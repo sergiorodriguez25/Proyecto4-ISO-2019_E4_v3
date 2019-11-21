@@ -197,8 +197,8 @@
 							<br></br>
 
 							<hr class="mb-4">
-							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
-								cita</a> <a href="/citas" class="btn btn-primary btn-large" type="submit">Volver
+							<a id="confirmarMedico" class="btn btn-primary btn-large" type="submit">Confirmar</a> 
+							<a href="/gestor" class="btn btn-primary btn-large" type="submit">Volver
 								atrás</a>
 						</form>
 					</div>
@@ -244,7 +244,7 @@
 		});
 		
 		$(document).ready(function(){
-			$('#pedircita').click(function(event) {
+			$('#confirmarMedico').click(function(event) {
 				if (!(comprobarFecha(document
 						.getElementById("fecha_ini").value) + comprobarHora(document
 						.getElementById("hora").value)) != 0) {
