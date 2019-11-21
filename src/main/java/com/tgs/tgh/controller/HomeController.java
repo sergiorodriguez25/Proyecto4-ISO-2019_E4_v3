@@ -233,4 +233,10 @@ public class HomeController {
 		return "";
 	}
 	
+	@RequestMapping(value = "/formularioTrabajador", method = RequestMethod.GET)
+	public String formTrabaj() {
+
+		return "formularioTrabajador";
+	}
+	
 }

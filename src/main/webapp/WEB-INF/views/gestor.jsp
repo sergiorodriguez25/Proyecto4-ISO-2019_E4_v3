@@ -323,6 +323,10 @@
 				}
 			}
 		}
+		
+		function funcionConvertirTrabajador(boton) {
+			location.href="/formularioTrabajador";
+		}
 
 		function UsuariosError(e) {
 			console.log(e);
