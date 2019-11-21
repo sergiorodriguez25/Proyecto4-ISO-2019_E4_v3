@@ -147,24 +147,16 @@
 				<br></br>
 			</div>
 
-			<ul class="nav nav-tabs">
-   				<li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Home</a></li>
-			    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu1">Usuarios Externos</a></li>
+			<ul class="nav nav-tabs" id="pestanas">
+			    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu1">Usuarios Externos</a></li>
 			    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">Pacientes Del Centro</a></li>
 			    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">Médicos del Centro</a></li>
 			  </ul>
 			  
 			  <div class="tab-content">
-			    <div id="home" class="tab-pane fade in active">
-			      <h3>HOME</h3>
-			      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			    </div>
 			    <div id="menu1" class="tab-pane fade">
+			    <div><br></br></div>
 			      <h3>Gestión de Usuarios Externos</h3>
-			      <h5>Asigne el centro médico y convierta a trabajador cualquier usuario de la lista</h5>
-			      <div class="col-md-6">
-					<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						<div class="card-body d-flex flex-column align-items-start">
 							<strong class="d-inline-block mb-2 text-primary center">Pacientes externos al Centro Médico</strong>
 							<div class="row d-flex justify-content-center">
 								<div class="container">
@@ -179,16 +171,10 @@
 									</table>
 								</div>
 							</div>
-						</div>
-					</div>
-				</div>
 			    </div>
 			    <div id="menu2" class="tab-pane fade">
+			    <div><br></br></div>
 			       <h3>Gestión de Pacientes Del Centro Médico</h3>
-			      <h5>Puedes hacer....</h5>
-			      <div class="col-md-6">
-					<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						<div class="card-body d-flex flex-column align-items-start">
 							<strong class="d-inline-block mb-2 text-success">Pacientes del Centro Médico</strong>
 							<div class="row d-flex justify-content-center">
 								<div class="container">
@@ -201,19 +187,13 @@
 											</tr>
 										</thead>
 									</table>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			    </div>
 			    <div id="menu3" class="tab-pane fade">
+			    <div><br></br></div>
 			      <h3>Gestión de Médicos Del Centro</h3>
-			      <h5>Puedes hacer....</h5>
 			      <div class="row mb-2">
-				<div class="col-md-6">
-					<div class="card flex-md-row mb-4 box-shadow h-md-250">
-						<div class="card-body d-flex flex-column align-items-start">
 							<strong class="d-inline-block mb-2 text-primary center">Médicos del Centro</strong>
 							<div class="row d-flex justify-content-center">
 								<div class="container">
@@ -229,11 +209,8 @@
 										</thead>
 									</table>
 								</div>
-							</div>
-						</div>
+							</div>						
 					</div>
-				</div>
-			</div>
 			    </div>
 			  </div>
 		</div>
@@ -259,6 +236,7 @@
 				.ready(
 						function($) {
 							pedirTodosLosUsuarios();
+							$('#pestanas').tab('show');
 							/*
 							 * Control para que no acceda a travis de la url a alguna página que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -341,8 +319,7 @@
 							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].centroMedico + '</td>' 
 							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].especialidad + '</td>' 
 							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].telefono + '</td>' 
-							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonGestionarCitas'+j+'\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'+'Gestionar Citas'+'</button> ' + '</td>'
-							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendarioM'+j+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Eliminar Médico'+'</button> ' + '</td></tr>');
+							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonGestionarCitas'+j+'\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'+'Gestionar Citas'+'</button> ' + '</td></tr>');
 				}
 			}
 		}
