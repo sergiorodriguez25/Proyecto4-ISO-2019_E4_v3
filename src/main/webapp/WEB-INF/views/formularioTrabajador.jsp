@@ -129,7 +129,7 @@
 			</div>
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
-					<div align='center'>
+					<div align='center'> 
 					<div class="col-md-6 mb-3">
 						<label for="especialidad">Especialidad</label> 
 						<select class="form-control form-control-lg align:center" id="especialidad">
@@ -225,6 +225,9 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
+// 							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
+// 							var dni = jsoDNI.DNIMedico.DNI;
+// 							$('DNIMedico').html(dni);
 							/*
 							 * Control para que no acceda a trav�s de la url a alguna p�gina que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan pr�ximamente
