@@ -121,6 +121,11 @@
 									href="/formularioCitas" class="btn btn-primary btn-large"
 									type="submit">Pedir Cita</a>
 								</p>
+								<p id = "volverMedico">
+									Para volver a la interfaz de Médico pulse el botón <a
+									href="/medico" class="btn btn-primary btn-large"
+									type="submit">Médico</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -203,6 +208,18 @@
 			forma.submit();
 		}
 	});
+	
+		jQuery(document).ready(function($) {
+			
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
+			
+			if(tipoUsuario != "Medico"){
+				$('#volverMedico').hide();
+			}
+		});
+
+	
 		jQuery(document).ready(function($) {
     		enviardni();
 			ponerNombreApellidos();

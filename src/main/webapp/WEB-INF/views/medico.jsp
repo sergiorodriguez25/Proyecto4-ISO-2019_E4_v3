@@ -140,48 +140,10 @@
 								    <td align="center" scope="col"><b>Nombre paciente</b></td>
     							</tr>
  							 </thead>
- 							 
- 						<!-- 	 
- 							 <tbody>
- 							 	<tr>
-      								<td align="center" scope="col"><b>11:00</b></td>
-								    <td align="center" scope="col"><b>15/11/2019</b></td>
-								    <td align="center" scope="col"><b>Ernesto Giménez López</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>12:00</b></td>
-								    <td align="center" scope="col"><b>15/11/2019</b></td>
-								    <td align="center" scope="col"><b>Rosa Navarro Zamora</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>12:30</b></td>
-								    <td align="center" scope="col"><b>15/11/2019</b></td>
-								    <td align="center" scope="col"><b>Andrés Sánchez Mena</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>11:00</b></td>
-								    <td align="center" scope="col"><b>16/11/2019</b></td>
-								    <td align="center" scope="col"><b>Esther Camacho Camacho</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>11:00</b></td>
-								    <td align="center" scope="col"><b>17/11/2019</b></td>
-								    <td align="center" scope="col"><b>Alfonso García López</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>10:30</b></td>
-								    <td align="center" scope="col"><b>18/11/2019</b></td>
-								    <td align="center" scope="col"><b>María Sánchez López</b></td>
-    							</tr>
-    							<tr>
-      								<td align="center" scope="col"><b>11:00</b></td>
-								    <td align="center" scope="col"><b>18/11/2019</b></td>
-								    <td align="center" scope="col"><b>Sara Camacho García</b></td>
-    							</tr>
- 							 </tbody>
- 						 !-->
- 							 
-						</table>
+ 						</table>
+ 						<div align='center'>
+							<label id="noHayCitas"></label>
+						</div>
 					</div>
 				</div>
 				<br>
@@ -227,6 +189,24 @@
 			
 		});
 		
+		jQuery(document).ready(function($) {
+			
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+				$('#modificarMedico').hide();
+			}
+		});
+		
+		jQuery(document).ready(function($) {
+			
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+				$('#eliminarMedico').hide();
+			}
+		});
+		
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var data = {
@@ -258,17 +238,49 @@
 			console.log(respuesta);
 			var jsoCitas = JSON.parse(respuesta);
 			console.log(jsoCitas);
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
 			
 			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas por atender");
 			else{
-				for (i = 0; i < jsoCitas.length; i++){
-					 $("#Table").append('<tr>' + 
-					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
-					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>');
+				if(tipoUsuario == "Gestor"){
+					for (i = 0; i < jsoCitas.length; i++){
+						 $("#Table").append('<tr>' + 
+						 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
+						 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
+						 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
+						 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
+						 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
+					}
+				}
+				else{
+					for (i = 0; i < jsoCitas.length; i++){
+						 $("#Table").append('<tr>' + 
+						 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
+						 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
+						 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>');
+					}
 				}
 			}
 		}
+		
+		jQuery(document).ready(function($) {
+			
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+				$('#columnaModificar').hide();
+			}
+		});
+		
+		jQuery(document).ready(function($) {
+			
+			var referrer = document.referrer;
+			if (referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+				$('#columnaEliminar').hide();
+			}
+		});
 		
 		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	
