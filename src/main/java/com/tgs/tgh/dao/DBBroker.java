@@ -314,22 +314,5 @@ public class DBBroker<T> {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Especialidades", BsonDocument.class);
 		return collection.find();
 	}
-	
-	public boolean modificarCentroMedicoPaciente(String dniPaciente, String nuevoCentro) {
-		BsonDocument criterion = new BsonDocument();
-		criterion.append("dniPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
-		criterion.append("nuevoCentro", new BsonString(nuevoCentro));
-		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
-		
-		try {
-			collection.updateOne(criterion, new Document("$set", new Document("CentroMedico", nuevoCentro)));
-		} catch (Exception e) {
-			return false;
-		}
-		
-		return true;
-	}
-	
-	
 
 }
