@@ -177,7 +177,7 @@ public class DBBroker<T> {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
 		collection.insertOne(criterion);
 	}
-	
+
 	public boolean eliminarCita(String DNIPaciente, String dia, String hora) {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(DNIPaciente)));
@@ -191,7 +191,6 @@ public class DBBroker<T> {
 		}
 		return true;
 	}
-	
 
 	public boolean modificarCita(String DNIPaciente, String dia, String hora, String nuevoDia, String nuevaHora) {
 		BsonDocument criterion = new BsonDocument();
@@ -232,7 +231,7 @@ public class DBBroker<T> {
 
 		return list;
 	}
-	
+
 	public List<Cita> getCitasMedico(String dni) throws Exception {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(dni)));
@@ -264,7 +263,7 @@ public class DBBroker<T> {
 				bso.get("Telefono").asString().getValue(), bso.get("Email").asString().getValue());
 		return user;
 	}
-	
+
 	public ArrayList<String> getGrupoMedico(String dniPaciente) throws Exception {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
@@ -276,7 +275,7 @@ public class DBBroker<T> {
 		}
 		return grupo;
 	}
-	
+
 	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniMedico)));
@@ -320,6 +319,15 @@ public class DBBroker<T> {
 		BsonDocument criterion = new BsonDocument();
 		criterion.append("Especialidad", new BsonString(especialidad));
 		return collection.find(criterion);
+	}
+
+	public void modificarCentroMedicoPaciente(String dniPaciente, String nuevoCentro) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("dniPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
+		collection.deleteOne(criterion);
+		criterion.append("CentroMedico", new BsonString(nuevoCentro));
+		collection.insertOne(criterion);
 	}
 
 }

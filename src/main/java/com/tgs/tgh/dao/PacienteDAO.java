@@ -20,9 +20,13 @@ public class PacienteDAO {
 			throw new Exception("Error al eliminar el paciente");
 		}
 	}
-	
+
 	public static Usuario getPacienteDAO(String dni) throws Exception {
 		return DBBroker.get().getUsuario(dni);
+	}
+
+	public static void modificarCentro(String dni, String centroMedico) {
+		DBBroker.get().modificarCentroMedicoPaciente(dni, centroMedico);
 	}
 
 }
