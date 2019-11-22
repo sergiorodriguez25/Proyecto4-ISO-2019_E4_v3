@@ -11,7 +11,7 @@
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-<title>Asignar Centro Médcio</title>
+<title>Asignar Especialistas</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -81,7 +81,7 @@
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="/citas"
-					tabindex="-1" aria-disabled="true">Asignar Centro</a></li>
+					tabindex="-1" aria-disabled="true">Asignar Especialistas</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -105,66 +105,225 @@
 		<div class="span">
 			<div></div>
 			<div class="container center">
-			<div class="hero-unit">
-				<br></br>
-				<br></br>
-				<div></div>
-				<div></div>
-				<div class="row align-items-center">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-body">
-								<h4>Formulario de Asignación del Centro y Grupo Médico</h4>
-								<p>Asigne el grupo médico del paciente seleccionado.</p>
+				<div class="hero-unit">
+					<br></br> <br></br>
+					<div></div>
+					<div></div>
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<h4>Formulario de Asignación de Especialistas</h4>
+									<p>
+										Se encuentra en la página de gestión de especialistas, Asigne
+										el o los distintos especialistas del paciente seleccionado.
+										Para obtener información sobre el uso de las diferentes
+										funcionalidades de las que dispone presione el siguiente botón
+										<button type="button" class="btn btn-primary"
+											data-toggle="modal" data-target="#exampleModalLong">
+											Información</button>
+
+										<!-- Modal -->
+									<div class="modal fade" id="exampleModalLong" tabindex="-1"
+										role="dialog" aria-labelledby="exampleModalLongTitle"
+										aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">...</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<div class="card">
+								<div class="card-body">
+									<form action="getParametersURL"></form>
+									<div class="text-center">
+										<label id="nombreApellidos"></label>
+									</div>
 
-					</div>
-					<div class="col-md-1"></div>
-				</div>
-				<br></br>
-			</div>
-			</div>
-			<div class="container center">
-				<div class="jumbotron jumbotron-fluid">
-					<div align='center'>
-					<div class="col-md-6 mb-3">
-						<label id="titulocentromedico"><b>Centro Médico</b></label> 
-						<div>
-						<label id="centromédico"></label></div>
-					</div>
-					<br></br>
-
-					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input disabled type="text"
-
-							id="fecha_ini" class="form-control">
-						<div class="invalid-feedback">Información necesaria.</div>
-						<label id="fecha"></label>
-					</div>
-					<br></br>
-
-					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select disabled
-										class="form-control form-control-lg align:center" id="hora">
-									
-									</select>
-									<label id="noHayHora"></label>
 								</div>
-							
-							<br></br>
-
-							<hr class="mb-4">
-							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
-								cita</a> <a href="/citas" class="btn btn-primary btn-large" type="submit">Volver
-								atrás</a>
-						</form>
+							</div>
+						</div>
 					</div>
+					<br></br>
+				</div>
+				<h5>Seleccione el especialista que quiere asignar:</h5>
+				<br>
+				<p>
+					<a class="btn btn-primary" data-toggle="collapse" href="#podologo"
+						role="button" aria-expanded="false" aria-controls="podologo">Podólogo</a>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#cabecera"
+						aria-expanded="false" aria-controls="cabecera">Médico de
+						cabecera</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#traumatologo"
+						aria-expanded="false" aria-controls="traumatologo">Traumatólogo</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#alergologia"
+						aria-expanded="false" aria-controls="alergologia">Alergología</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#geriatria"
+						aria-expanded="false" aria-controls="geriatria">Geriatría</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#enfermeria"
+						aria-expanded="false" aria-controls="enfermeria">Enfermería</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#pediatria"
+						aria-expanded="false" aria-controls="pediatria">Pediatría</button>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#psiquiatria"
+						aria-expanded="false" aria-controls="psiquiatria">Psiquiatría</button>
+				</p>
+				<div class="row">
+					<div class="col">
+						<div class="collapse" id="podologo">
+							<table id="TablePodologo" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="cabecera">
+							<table id="TableCabecera" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="traumatologo">
+							<table id="TableTraumatologo" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="alergologia">
+							<table id="TableAlergologia" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="geriatria">
+							<table id="TableGeriatria" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="enfermeria">
+							<table id="TableEnfermeria" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="pediatria">
+							<table id="TablePediatria" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="collapse" id="psiquiatria">
+							<table id="TablePsiquiatria" class="table">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Teléfono</b></td>
+									</tr>
+								</thead>
+							</table>
+							<div align='center'>
+								<label id="noHayEspecialistas"></label>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			<br></br>
+
+		</div>
+		</div>
 	</main>
 	<!-- /.container -->
 
@@ -186,326 +345,298 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+		jQuery(document).ready(
+						function($) {
+							pedirTodosLosUsuarios();
 							/*
-							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
-							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
+							 * Control para que no acceda a travis de la url a alguna página que no sea el home
+							 * Hay que ponerlo en todos los jsp que se hagan próximamente
 							 */
 							var referrer = document.referrer;
-							if (referrer != 'http://localhost:8080/citas'
-									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+							if (referrer != 'http://localhost:8080/gestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/gestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
 							}
-							var jsoUser = JSON.parse(sessionStorage.usuario);
-							var centro = jsoUser.resultado.paciente.centro;
-							if(centro=="Sin asignar"){
-								swal({
-									title : "Lo sentimos",
-									text : "Aún no puede solicitar citas, el gestor tiene que asignarle un centro médico y el grupo de médicos que le atenderán en dicho centro. Disculpe las molestias",
-									icon : "error",
-								}).then(function() {
-									window.location.href = "/citas";
-								});
-							}
-							cargarDatosFormulario();
-							
-							
-		});
-		
-		$(document).ready(function(){
-			$('#pedircita').click(function(event) {
-				if (!(comprobarFecha(document
-						.getElementById("fecha_ini").value) + comprobarHora(document
-						.getElementById("hora").value)) != 0) {
-					event.preventDefault();
-					enviarDatos();
-				}
-			});
-		});
-		
-		$(document).ready(function(){
-	        $("#especialidad").change(function(){
-	        	$('#noHayHora').html("");
-	        	if($('#fecha_ini').datepicker('getDate')!=null){
-	        		$('#fecha_ini').datepicker('setDate', null);
-	        	}
-	        	var numOptions = document.getElementById("especialidad").length;
-	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
-	        	getDNIMedico(especialidadSeleccionada);
-	        });
-		});
-		
-		$(document).ready(function(){
-	        $("#fecha_ini").change(function(){
-	        	$('#fecha').html("");
-	        	var jsoHorario = JSON.parse(sessionStorage.horario);
-				var horario = jsoHorario.horarioMedico.horario;
-				var numHoras=0;
-				var weekday=new Array(7);
-				weekday[0]="Domingo";
-				weekday[1]="Lunes";
-				weekday[2]="Martes";
-				weekday[3]="Miércoles";
-				weekday[4]="Jueves";
-				weekday[5]="Viernes";
-				weekday[6]="Sábado";
-				var dateString = $('#fecha_ini').val();
-				var dateParts = dateString.split("/");
-				var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-				var diaSemana = weekday[dateObject.getDay()];
-				console.log(diaSemana);
-				for(var j=0; j<horario.length; j++){
-					if(diaSemana==horario[j][0]){
-						numHoras++;
-					}
-				}
-				console.log(numHoras);
-				var horasDisponibles = new Array(numHoras);
-				var k=0;
-				for(var i=0; i<horario.length; i++){
-					if(diaSemana==horario[i][0]){
-						horasDisponibles[k]=horario[i][1];
-						console.log(horasDisponibles[k]);
-						k++;
-					}
-				}
-				//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
-				//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
-				//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
-				var dniMedico = jsoHorario.horarioMedico.DNI;
-				getHorasCitasDiaSeleccionado(dateString, dniMedico);
-				var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
-				var horasOcupadas = jsoHorasOcu.horas;
-				
-				if(horasOcupadas.length != 0) {
-					var horasDefinitivo = horasDisponibles.filter(function(e) {
-					    return horasOcupadas.indexOf(e) == -1
-					});
-					sessionStorage.horas=JSON.stringify(horasDefinitivo);
-				} else {
-					sessionStorage.horas=JSON.stringify(horasDisponibles);
-				}
-				
-				if(horasDisponibles.length!=0){
-					document.getElementById("hora").disabled=false;
-					$('#noHayHora').html("");
-					rellenarHoras();
-				}
-				else {
-					$('#hora').html("");
-					document.getElementById("hora").disabled=true;
-					if($("#fecha_ini").datepicker("getDate") != null) {
-						
-						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
-						$('#noHayHora').css("color", "red");
-					}
-				}
-	        });
-		});
-		
-		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
-			var data = {
-					dniMedico : dniMedico,
-					fecha : fecha,
-					tipo : "getCitasDiaMedico"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+							//     		getParametersURL();
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : getCitasOK,
-					error : getCitasError
-				});
-		}
-		
-		function getCitasOK(respuesta) {
-			console.log(respuesta);
-			var jsoHorasOcu = JSON.parse(respuesta);
-			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
-		}
-		
-		function getCitasError(e){
-			console.log(e)
-		}
-		
-		function rellenarHoras(){
-			$('#hora').empty()
-			var select = document.getElementById("hora");
-			var jsoHoras = JSON.parse(sessionStorage.horas);
-			for(var i = 0; i <jsoHoras.length ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoHoras[i];
-			   	select.add(option, 0);
-			}
-		}
-		
-		function getDNIMedico(especialidadSeleccionada){
-			var jsoGrupo = JSON.parse(sessionStorage.usuario);
-			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
-			console.log(listaMedicos[1].especialidad);
-			for(var i=0; i<listaMedicos.length; i++){
-				if (listaMedicos[i].especialidad == especialidadSeleccionada){
-					var dniMedico = listaMedicos[i].DNI;
-				}
-			}
-			console.log(dniMedico);
-			solicitarHorarioMedico(dniMedico);
-		}
-		
-		function solicitarHorarioMedico(dniMedico) {
-			var data = {
-					dniMedico : dniMedico,
-					tipo : "solicitar"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+							ponerNombreApellidos();
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : solicitarOK,
-					error : solicitarError
-				});
-		}
-		
-		function solicitarOK(respuesta){
-			console.log(respuesta);
-			var jsoHorarioM = JSON.parse(respuesta);
-			console.log(jsoHorarioM);
-			console.log(jsoHorarioM.horarioMedico.horario);
-			var arrayHorario = jsoHorarioM.horarioMedico.horario;
-			document.getElementById("fecha_ini").disabled=false;
-			sessionStorage.horario=JSON.stringify(jsoHorarioM);
-		}
-		
-		function solicitarError(error){
-			console.log(error);
-		}
-		
-		function cargarDatosFormulario() {
-			var select = document.getElementById("especialidad");
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			console.log(sessionStorage.usuario);
-			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
-			for(var i = 0; i <=numEspecialidades ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
-			   	select.add(option, 0);
-			}
-		}
+						});
 
-		function enviarDatos() {
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var jsoHorario = JSON.parse(sessionStorage.horario);
+		function pedirTodosLosUsuarios() {
 			var data = {
-				dniPaciente : jsoUser.resultado.usuario.dni,
-				dniMedico : jsoHorario.horarioMedico.DNI,
-				dia : $('#fecha_ini').val(),
-				hora : $('#hora').val(),
-				tipo : "enviarCita"
+				tipo : "getAllUser"
 			};
-			var url = "/formularioCitas";
+			var url = "/formularioPaciente";
 			var type = "POST";
 			var success;
+			var async = false;
 			var xhrFields;
 			var headers = {
 				'Content-Type' : 'application/json'
 			};
 
 			data = JSON.stringify(data);
-			console.log(data);
 			$.ajax({
 				type : type,
 				url : url,
 				data : data,
+				async : async,
 				headers : headers,
 				xhrFields : {
 					withCredentials : true
 				},
-				success : PedirCitaOK,
-				error : PedirCitaError
+				success : UsuariosOK,
+				error : UsuariosError
 			});
 		}
 
-		function PedirCitaOK(respuesta) {
-			console.log("Cita OK");
-			swal({
-				title : "Solicitud recibida",
-				text : "Has añadido una cita",
-				icon : "success",
-			}).then(function() {
-				window.location.href = "/citas";
-			});
-		}
+		function UsuariosOK(respuesta) {
+			var jsoUsuarios = JSON.parse(respuesta);
+			console.log(jsoUsuarios);
+			console.log(jsoUsuarios.Pacientes.length);
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
 
-		function PedirCitaError() {
-			$('#especialidad').val("");
-			$('#fecha_ini').val("");
-			$('#hora').val("");
-		}
-
-		function comprobarHora(texto) {
-			document.getElementById("noHayHora").style.display = 'none';
-			if (texto == '') {
-				document.getElementById("noHayHora").style.display = 'inline';
-				$('#noHayHora').html("Tiene que escoger una hora para su cita.");
-				$('#noHayHora').css("color", "red");
-				return 1;
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (i = 0; i < jsoUsuarios.Medicos.length; i++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[i].DNI);
+					if (jsoUsuarios.Medicos[i].centroMedico == centroMedicoGestor) {
+						$("#TablePodologo").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[i].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[i].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[i].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[i].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ i
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}	
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (j = 0; j < jsoUsuarios.Medicos.length; j++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[j].DNI);
+					if (jsoUsuarios.Medicos[j].centroMedico == centroMedicoGestor) {
+						$("#TableCabecera").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[j].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[j].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[j].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[j].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ j
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
 			}
-			return 0;
-		}
-
-		function comprobarFecha(texto) {
-			document.getElementById("fecha").style.display = 'none';
-			if (texto == '') {
-				document.getElementById("fecha").style.display = 'inline';
-				$('#fecha').html("Tiene que escoger un día para su cita.");
-				$('#fecha').css("color", "red");
-				return 1;
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (k = 0; k < jsoUsuarios.Medicos.length; k++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[k].DNI);
+					if (jsoUsuarios.Medicos[k].centroMedico == centroMedicoGestor) {
+						$("#TableTraumatologo").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[k].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[k].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[k].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[k].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ k
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
 			}
-			return 0;
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (l = 0; l < jsoUsuarios.Medicos.length; l++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[l].DNI);
+					if (jsoUsuarios.Medicos[l].centroMedico == centroMedicoGestor) {
+						$("#TableAlergologia").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[l].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[l].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[l].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[l].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ l
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (m = 0; m < jsoUsuarios.Medicos.length; m++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[m].DNI);
+					if (jsoUsuarios.Medicos[m].centroMedico == centroMedicoGestor) {
+						$("#TableGeriatria").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[m].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[m].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[m].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[m].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ m
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (n = 0; n < jsoUsuarios.Medicos.length; n++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[n].DNI);
+					if (jsoUsuarios.Medicos[n].centroMedico == centroMedicoGestor) {
+						$("#TableEnfermeria").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[n].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[n].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[n].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[n].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ n
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (o = 0; o < jsoUsuarios.Medicos.length; o++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[o].DNI);
+					if (jsoUsuarios.Medicos[o].centroMedico == centroMedicoGestor) {
+						$("#TablePediatria").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[o].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[o].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[o].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[o].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ o
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}
+			
+			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
+			else{
+				for (p = 0; p < jsoUsuarios.Medicos.length; p++) {
+					console.log(jsoUsuarios.Medicos.length);
+					console.log(jsoUsuarios.Medicos[p].DNI);
+					if (jsoUsuarios.Medicos[p].centroMedico == centroMedicoGestor) {
+						$("#TablePsiquiatria").append(
+										'<tr><td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[p].DNI
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[p].nombre
+												+ " "
+												+ jsoUsuarios.Medicos[p].apellidos
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ jsoUsuarios.Medicos[p].telefono
+												+ '</td>'
+												+ '<td align="center" style="dislay: none;">'
+												+ '<button id=\'asignarEspecialista'
+												+ p
+												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+												+ 'Asignar' + '</button> '
+												+ '</td></tr>');
+					}
+				}
+			}
 		}
 
-		$('#fecha_ini').datepicker({
-			format : "dd/mm/yyyy",
-			startDate : 'd',
-			endDate : "31/12/2020",
-			todayBtn : "linked",
-			language : "es",
-			todayHighlight : true
-		});
+		function UsuariosError(e) {
+			console.log(e);
+		}
+
+		function ponerNombreApellidos() {
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			console.log(jsoUser.resultado.usuario.nombre);
+			$('#nombreApellidos').html(
+					jsoUser.resultado.usuario.nombre + " "
+							+ jsoUser.resultado.usuario.apellidos);
+		}
 	</script>
+
 </body>
 </html>

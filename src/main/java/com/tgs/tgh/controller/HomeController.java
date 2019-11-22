@@ -207,6 +207,12 @@ public class HomeController {
 
 		return "formularioModificar";
 	}
+	
+	@RequestMapping(value = "/formularioPaciente", method = RequestMethod.GET)
+	public String formularioPaciente() {
+
+		return "formularioPaciente";
+	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/formularioModificar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

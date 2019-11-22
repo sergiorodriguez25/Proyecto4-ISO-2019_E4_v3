@@ -128,6 +128,11 @@
 										</div>
 									</div>
 								</div>
+								<p>
+									Cambiar a vista de FormularioPaciente(temporal) pulse el botón <a
+									href="/formularioPaciente" class="btn btn-primary btn-large"
+									type="submit">Formulario</a>
+								</p>
 							</div>
 						</div>
 					</div>
