@@ -315,4 +315,11 @@ public class DBBroker<T> {
 		return collection.find();
 	}
 
+	public FindIterable<BsonDocument> getDuracionEspecialidad(String especialidad) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Especialidades", BsonDocument.class);
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("Especialidad", new BsonString(especialidad));
+		return collection.find(criterion);
+	}
+
 }

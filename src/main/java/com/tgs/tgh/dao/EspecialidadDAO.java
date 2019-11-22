@@ -24,5 +24,12 @@ public class EspecialidadDAO {
 		}
 		return lista;
 	}
+	
+	public static String getDuracion(String especialidad) {
+		FindIterable<BsonDocument> doc = DBBroker.get().getDuracionEspecialidad(especialidad);
+		BsonDocument bso = doc.first();
+		String duracion = bso.get("duracionCita").asString().getValue();
+		return duracion;
+	}
 
 }

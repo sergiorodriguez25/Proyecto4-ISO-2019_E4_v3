@@ -190,8 +190,8 @@
 					<label for="horas">Seleccione el horario laboral</label> 
 					<div class="col-md-6 mb-3">
 						<div class="input-group">
-				          <input name="horaIni" id="horaInicio" type="text" required class="form-control" placeholder="Hora de Inicio">
-				          <input name="horaFin" id="horaFin" type="text" required class="form-control" placeholder="Hora de Fin">
+				          <input name="horaIni" id="horaInicio" type="text" required class="form-control" placeholder="Hora de Inicio 00:00">
+				          <input name="horaFin" id="horaFin" type="text" required class="form-control" placeholder="Hora de Fin 00:00">
 				        </div>
 							
 							<br></br>
@@ -240,12 +240,12 @@
 // 							}
 							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
 							var dni = jsoDNI.DNIMedico.DNI;
-							pedirEspecialidades(dni);
+							pedirEspecialidades();
 							
 							
 		});
 		
-		function pedirEspecialidades(dni){
+		function pedirEspecialidades(){
 			var data = {
 					tipo : "solicitarEspecialidades"
 				};
@@ -297,227 +297,64 @@
 		
 		$(document).ready(function(){
 			$('#confirmarMedico').click(function(event) {
-				if (!(comprobarFecha(document
-						.getElementById("fecha_ini").value) + comprobarHora(document
-						.getElementById("hora").value)) != 0) {
-					event.preventDefault();
-					enviarDatos();
+				console.log(document.getElementById("especialidad").value);
+				var especialidadSelecc = (document.getElementById("especialidad").value);
+				var diasSelecc = new Array();
+				var i=0;
+				if( $('#lunes').is(':checked') ) {
+					diasSelecc[i]='Lunes';
+					i++;
 				}
+				if( $('#martes').is(':checked') ) {
+					diasSelecc[i]='Martes';
+					i++;
+				}
+				if( $('#miercoles').is(':checked') ) {
+					diasSelecc[i]='Miércoles';
+					i++;
+				}
+				if( $('#jueves').is(':checked') ) {
+					diasSelecc[i]='Jueves';
+					i++;
+				}
+				if( $('#viernes').is(':checked') ) {
+					diasSelecc[i]='Viernes';
+					i++;
+				}
+				if( $('#sabado').is(':checked') ) {
+					diasSelecc[i]='Sábado';
+					i++;
+				}
+				if( $('#domingo').is(':checked') ) {
+					diasSelecc[i]='Domingo';
+					i++;
+				}
+				console.log(diasSelecc);
+				
+				var horaInicio = (document.getElementById("horaInicio").value);
+				var horaFin = (document.getElementById("horaFin").value);
+				console.log(horaInicio);
+				console.log(horaFin);
+				
+				enviarDatos(especialidadSelecc, diasSelecc, horaInicio, horaFin);
 			});
 		});
-		
-		$(document).ready(function(){
-	        $("#especialidad").change(function(){
-	        	$('#noHayHora').html("");
-	        	if($('#fecha_ini').datepicker('getDate')!=null){
-	        		$('#fecha_ini').datepicker('setDate', null);
-	        	}
-	        	var numOptions = document.getElementById("especialidad").length;
-	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
-	        	getDNIMedico(especialidadSeleccionada);
-	        });
-		});
-		
-		$(document).ready(function(){
-	        $("#fecha_ini").change(function(){
-	        	$('#fecha').html("");
-	        	var jsoHorario = JSON.parse(sessionStorage.horario);
-				var horario = jsoHorario.horarioMedico.horario;
-				var numHoras=0;
-				var weekday=new Array(7);
-				weekday[0]="Domingo";
-				weekday[1]="Lunes";
-				weekday[2]="Martes";
-				weekday[3]="Miércoles";
-				weekday[4]="Jueves";
-				weekday[5]="Viernes";
-				weekday[6]="Sábado";
-				var dateString = $('#fecha_ini').val();
-				var dateParts = dateString.split("/");
-				var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-				var diaSemana = weekday[dateObject.getDay()];
-				console.log(diaSemana);
-				for(var j=0; j<horario.length; j++){
-					if(diaSemana==horario[j][0]){
-						numHoras++;
-					}
-				}
-				console.log(numHoras);
-				var horasDisponibles = new Array(numHoras);
-				var k=0;
-				for(var i=0; i<horario.length; i++){
-					if(diaSemana==horario[i][0]){
-						horasDisponibles[k]=horario[i][1];
-						console.log(horasDisponibles[k]);
-						k++;
-					}
-				}
-				//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
-				//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
-				//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
-				var dniMedico = jsoHorario.horarioMedico.DNI;
-				getHorasCitasDiaSeleccionado(dateString, dniMedico);
-				var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
-				var horasOcupadas = jsoHorasOcu.horas;
-				
-				if(horasOcupadas.length != 0) {
-					var horasDefinitivo = horasDisponibles.filter(function(e) {
-					    return horasOcupadas.indexOf(e) == -1
-					});
-					sessionStorage.horas=JSON.stringify(horasDefinitivo);
-				} else {
-					sessionStorage.horas=JSON.stringify(horasDisponibles);
-				}
-				
-				if(horasDisponibles.length!=0){
-					document.getElementById("hora").disabled=false;
-					$('#noHayHora').html("");
-					rellenarHoras();
-				}
-				else {
-					$('#hora').html("");
-					document.getElementById("hora").disabled=true;
-					if($("#fecha_ini").datepicker("getDate") != null) {
-						
-						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
-						$('#noHayHora').css("color", "red");
-					}
-				}
-	        });
-		});
-		
-		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
-			var data = {
-					dniMedico : dniMedico,
-					fecha : fecha,
-					tipo : "getCitasDiaMedico"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : getCitasOK,
-					error : getCitasError
-				});
-		}
-		
-		function getCitasOK(respuesta) {
-			console.log(respuesta);
-			var jsoHorasOcu = JSON.parse(respuesta);
-			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
-		}
-		
-		function getCitasError(e){
-			console.log(e)
-		}
-		
-		function rellenarHoras(){
-			$('#hora').empty()
-			var select = document.getElementById("hora");
-			var jsoHoras = JSON.parse(sessionStorage.horas);
-			for(var i = 0; i <jsoHoras.length ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoHoras[i];
-			   	select.add(option, 0);
-			}
-		}
-		
-		function getDNIMedico(especialidadSeleccionada){
-			var jsoGrupo = JSON.parse(sessionStorage.usuario);
-			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
-			console.log(listaMedicos[1].especialidad);
-			for(var i=0; i<listaMedicos.length; i++){
-				if (listaMedicos[i].especialidad == especialidadSeleccionada){
-					var dniMedico = listaMedicos[i].DNI;
-				}
-			}
-			console.log(dniMedico);
-			solicitarHorarioMedico(dniMedico);
-		}
-		
-		function solicitarHorarioMedico(dniMedico) {
+		function enviarDatos(especialidad, dias, horaI, horaF) {
+			var jsoMed = JSON.parse(sessionStorage.nuevoMedico);
+			var jsodias = JSON.stringify(dias);
+			var jsoGestor = JSON.parse(sessionStorage.usuario);
+			var centro = jsoGestor.resultado.gestor.centro;
 			var data = {
-					dniMedico : dniMedico,
-					tipo : "solicitar"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
-
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : solicitarOK,
-					error : solicitarError
-				});
-		}
-		
-		function solicitarOK(respuesta){
-			console.log(respuesta);
-			var jsoHorarioM = JSON.parse(respuesta);
-			console.log(jsoHorarioM);
-			console.log(jsoHorarioM.horarioMedico.horario);
-			var arrayHorario = jsoHorarioM.horarioMedico.horario;
-			document.getElementById("fecha_ini").disabled=false;
-			sessionStorage.horario=JSON.stringify(jsoHorarioM);
-		}
-		
-		function solicitarError(error){
-			console.log(error);
-		}
-		
-		function cargarDatosFormulario() {
-			var select = document.getElementById("especialidad");
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			console.log(sessionStorage.usuario);
-			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
-			for(var i = 0; i <=numEspecialidades ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
-			   	select.add(option, 0);
-			}
-		}
-
-		function enviarDatos() {
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var jsoHorario = JSON.parse(sessionStorage.horario);
-			var data = {
-				dniPaciente : jsoUser.resultado.usuario.dni,
-				dniMedico : jsoHorario.horarioMedico.DNI,
-				dia : $('#fecha_ini').val(),
-				hora : $('#hora').val(),
-				tipo : "enviarCita"
+				DNI : jsoMed.DNIMedico[0].DNI,
+				especialidad : especialidad,
+				dias : jsodias,
+				horaInicio : horaI,
+				horaFin : horaF,
+				centro : centro,
+				tipo : "enviarDatos"
 			};
-			var url = "/formularioCitas";
+			var url = "/formularioTrabajador";
 			var type = "POST";
 			var success;
 			var xhrFields;
@@ -535,26 +372,24 @@
 				xhrFields : {
 					withCredentials : true
 				},
-				success : PedirCitaOK,
-				error : PedirCitaError
+				success : MedicoInsertadoOK,
+				error : MedicoInsertadoError
 			});
 		}
 
-		function PedirCitaOK(respuesta) {
-			console.log("Cita OK");
-			swal({
-				title : "Solicitud recibida",
-				text : "Has añadido una cita",
-				icon : "success",
-			}).then(function() {
-				window.location.href = "/citas";
-			});
+		function MedicoInsertadoOK(respuesta) {
+			console.log("Médico insertado OK");
+// 			swal({
+// 				title : "Solicitud recibida",
+// 				text : "Has añadido una cita",
+// 				icon : "success",
+// 			}).then(function() {
+// 				window.location.href = "/citas";
+// 			});
 		}
 
-		function PedirCitaError() {
-			$('#especialidad').val("");
-			$('#fecha_ini').val("");
-			$('#hora').val("");
+		function MedicoInsertadoError(e) {
+			console.log(e);
 		}
 
 		function comprobarHora(texto) {

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mongodb.util.JSON;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.web.Manager;
 
@@ -247,6 +248,22 @@ public class HomeController {
 		JSONObject resultado = new JSONObject();
 		if(jso.get("tipo").equals("solicitarEspecialidades")) {
 			resultado = Manager.get().getEspecialidades();
+		}
+		else if(jso.get("tipo").equals("enviarDatos")) {
+			String dni = jso.get("DNI");
+			String especialidad = jso.get("especialidad");
+			String horaIni = jso.get("horaInicio");
+			String horaFin = jso.get("horaFin");
+			String dias = jso.get("dias");
+			dias = dias.replace("[", "");
+			dias = dias.replace("]", "");
+			dias = dias.replace("\"", "");
+			System.out.println(dias);
+			String[] diasElegidos = dias.split(",");
+			System.out.println(diasElegidos[0]);
+			String centro = jso.get("centro");
+			System.out.println(centro);
+			resultado = Manager.get().guardarNuevoMedico(dni, especialidad, horaIni, horaFin, diasElegidos, centro);
 		}
 		return resultado.toString();
 	}

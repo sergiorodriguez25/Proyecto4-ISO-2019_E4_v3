@@ -1,5 +1,7 @@
 package com.tgs.tgh.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -258,6 +260,21 @@ public class Manager {
 		ArrayList<String[]> lista = EspecialidadDAO.getEspecialidades();
 		JSONObject jsoEspecialidades = new JSONObject();
 		jsoEspecialidades.put("Especialidades", lista);
+		return jsoEspecialidades;
+	}
+
+	public static JSONObject guardarNuevoMedico(String dni, String especialidad, String horaIni, String horaFin,
+			String[] diasElegidos, String centroMedico) {
+		
+		MedicoDAO.registro(dni, especialidad, centroMedico);
+		String duracion = EspecialidadDAO.getDuracion(especialidad);
+		
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("HH:mm");
+		System.out.println(format.format(date));		
+		
+		JSONObject jsoEspecialidades = new JSONObject();
+		jsoEspecialidades.put("Insertar", "OK");
 		return jsoEspecialidades;
 	}
 
