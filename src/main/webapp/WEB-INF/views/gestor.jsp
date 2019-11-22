@@ -324,14 +324,8 @@
 			}
 		}
 		
-		function funcionConvertirTrabajador(boton) {
-			var dni = boton.parentNode.parentNode.children[0].innerHTML;
-			console.log(dni);
-			var data = {"dni" : dni};
-			var jsoDniMed={
-					"DNIMedico":[
-						{"DNI":dni}
-					]
+		function funcionConvertirTrabajador(i) {
+			jsoUsuarios.Pacientes[i].setCentroMedico()
 			};
 			sessionStorage.nuevoMedico=JSON.stringify(jsoDniMed);
 			location.href="/formularioTrabajador";
@@ -348,6 +342,10 @@
 					jsoUser.resultado.usuario.nombre + " "
 							+ jsoUser.resultado.usuario.apellidos);
 		}
+		
+		
+		
+		
 	</script>
 </body>
 </html>
