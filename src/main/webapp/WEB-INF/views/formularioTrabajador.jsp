@@ -225,8 +225,7 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
-// 							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
-// 							var dni = jsoDNI.DNIMedico.DNI;
+							
 // 							$('DNIMedico').html(dni);
 							/*
 							 * Control para que no acceda a trav�s de la url a alguna p�gina que no sea el home
@@ -239,12 +238,62 @@
 // 								forma.action = "/error";
 // 								forma.submit();
 // 							}
-							var jsoUser = JSON.parse(sessionStorage.usuario);
-							var centro = jsoUser.resultado.paciente.centro;
-							cargarDatosFormulario();
+							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
+							var dni = jsoDNI.DNIMedico.DNI;
+							pedirEspecialidades(dni);
 							
 							
 		});
+		
+		function pedirEspecialidades(dni){
+			var data = {
+					tipo : "solicitarEspecialidades"
+				};
+				var url = "/formularioTrabajador";
+				var type = "POST";
+				var success;
+				var async= false;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				console.log(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					async : async,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : getEspecialidadesOK,
+					error : getEspecialidadesError
+				});
+		}
+		
+		function getEspecialidadesOK(respuesta){
+			console.log(respuesta);
+			var jsoespecialidades = JSON.parse(respuesta);
+			console.log(jsoespecialidades);
+			cargarEspecialidades(jsoespecialidades);
+		}
+		
+		function getEspecialidadesError(e){
+			console.log(e);
+		}
+		
+		function cargarEspecialidades(jsoEspecialidades) {
+			var select = document.getElementById("especialidad");
+			numEspecialidades = jsoEspecialidades.Especialidades.length;
+			for(var i = 0; i <=numEspecialidades ; i++) {
+			  	var option = document.createElement('option');
+			  	option.text = option.value = jsoEspecialidades.Especialidades[i][0];
+			   	select.add(option, 0);
+			}
+		}
 		
 		$(document).ready(function(){
 			$('#confirmarMedico').click(function(event) {

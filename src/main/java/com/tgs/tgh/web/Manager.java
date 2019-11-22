@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.tgs.tgh.dao.CitaDAO;
+import com.tgs.tgh.dao.EspecialidadDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
 import com.tgs.tgh.dao.HorarioMedicoDAO;
@@ -251,6 +252,13 @@ public class Manager {
 		jsoresultado.put("Pacientes", listaPac);
 		jsoresultado.put("Medicos", listaMed);
 		return jsoresultado;
+	}
+
+	public static JSONObject getEspecialidades() {
+		ArrayList<String[]> lista = EspecialidadDAO.getEspecialidades();
+		JSONObject jsoEspecialidades = new JSONObject();
+		jsoEspecialidades.put("Especialidades", lista);
+		return jsoEspecialidades;
 	}
 
 }

@@ -239,4 +239,16 @@ public class HomeController {
 		return "formularioTrabajador";
 	}
 	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioTrabajador", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formTrabaj(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		JSONObject resultado = new JSONObject();
+		if(jso.get("tipo").equals("solicitarEspecialidades")) {
+			resultado = Manager.get().getEspecialidades();
+		}
+		return resultado.toString();
+	}
+	
 }

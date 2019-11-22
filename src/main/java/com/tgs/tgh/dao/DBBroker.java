@@ -310,4 +310,9 @@ public class DBBroker<T> {
 		return collection.find();
 	}
 
+	public FindIterable<BsonDocument> getEspecialidades() {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Especialidades", BsonDocument.class);
+		return collection.find();
+	}
+
 }
