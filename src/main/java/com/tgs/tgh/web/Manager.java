@@ -1,9 +1,12 @@
 package com.tgs.tgh.web;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -101,7 +104,7 @@ public class Manager {
 		JSONObject jsoGrupo = new JSONObject();
 		jsoGrupo.put("listaMedicos", grupo.getListaMedicos());
 		respuesta.put("grupoMedico", jsoGrupo);
-		
+
 		return respuesta;
 	}
 
@@ -168,14 +171,14 @@ public class Manager {
 
 	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
 		Date date = new Date();
-		
+
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
-	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
-		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);		
+	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception {
+		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);
 	}
-	
+
 	public void eliminarCita(Cita cita) throws Exception {
 		CitaDAO.eliminarCita(cita);
 	}
@@ -194,7 +197,7 @@ public class Manager {
 
 	public JSONObject getHorarioCitas(String dniMedico) {
 		HorarioMedico hm = HorarioMedicoDAO.getHorarioMedico(dniMedico);
-		
+
 		JSONObject jsoHM = new JSONObject();
 		jsoHM.put("DNI", hm.getDni());
 		jsoHM.put("horario", hm.getHorario());
@@ -202,11 +205,11 @@ public class Manager {
 		resultado.put("horarioMedico", jsoHM);
 		return resultado;
 	}
-	
+
 	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
 		HorarioMedicoDAO.eliminarHoraMedico(dia, hora, dniMedico);
 	}
-	
+
 	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
 		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
 	}
@@ -225,7 +228,7 @@ public class Manager {
 		}
 		return arrayCitas;
 	}
-	
+
 	public JSONObject getCitasDiaMedico(String dniMedico, String fecha) {
 		ArrayList<String> lista = new ArrayList<String>();
 		lista = CitaDAO.getCitasDiaMedico(dniMedico, fecha);
@@ -241,12 +244,12 @@ public class Manager {
 		JSONObject jsoallPac = new JSONObject();
 		JSONObject jsoallMed = new JSONObject();
 		JSONObject jsoresultado = new JSONObject();
-		for(int i=0; i<lista.size(); i++) {
+		for (int i = 0; i < lista.size(); i++) {
 			Usuario usu = lista.get(i);
 			Paciente paciente = PacienteDAO.esPaciente(usu);
 			listaPac.add(paciente);
 			Medico medico = MedicoDAO.esMedico(usu);
-			if(medico!=null)
+			if (medico != null)
 				listaMed.add(medico);
 		}
 		jsoallPac.put("Pacientes", listaPac);
@@ -265,17 +268,79 @@ public class Manager {
 
 	public static JSONObject guardarNuevoMedico(String dni, String especialidad, String horaIni, String horaFin,
 			String[] diasElegidos, String centroMedico) {
-		
+
 		MedicoDAO.registro(dni, especialidad, centroMedico);
 		String duracion = EspecialidadDAO.getDuracion(especialidad);
-		
-		Date date = new Date();
-		DateFormat format = new SimpleDateFormat("HH:mm");
-		System.out.println(format.format(date));		
-		
+		int duracionInt = Integer.parseInt(duracion);
+
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		Date dateIni = new Date();
+		Date dateFin = new Date();
+		try {
+			dateIni = format.parse(horaIni);
+			System.out.println(dateIni);
+			dateFin = format.parse(horaFin);
+			System.out.println(dateFin);
+
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Calendar calendarFin = GregorianCalendar.getInstance();
+		calendarFin.setTime(dateFin);
+		int hourFin = calendarFin.get(Calendar.HOUR_OF_DAY);
+		int minFin = calendarFin.get(Calendar.MINUTE);
+		System.out.println(hourFin + " " + minFin);
+		Calendar calendarPonerPrimeraHora = GregorianCalendar.getInstance();
+		calendarPonerPrimeraHora.setTime(dateIni);
+		int hourFirst = calendarPonerPrimeraHora.get(Calendar.HOUR_OF_DAY);
+		int minFirst = calendarPonerPrimeraHora.get(Calendar.MINUTE);
+		String primeraHora = montarHoras(hourFirst, minFirst);
+		System.out.println(primeraHora);
+		for(int i=0; i<diasElegidos.length; i++)
+			HorarioMedicoDAO.anadirHoraMedico(diasElegidos[i], primeraHora, dni);
+		int hour = 0;
+		int min = 0;
+		while (hour < hourFin || min < minFin) {
+
+			Calendar calendar = GregorianCalendar.getInstance();
+			calendar.setTime(dateIni);
+			calendar.add(Calendar.MINUTE, duracionInt);
+			Date fechaSalida = calendar.getTime();
+			calendar.setTime(fechaSalida);
+			hour = calendar.get(Calendar.HOUR_OF_DAY);
+			min = calendar.get(Calendar.MINUTE);
+			String nuevaHora = montarHoras(hour, min);
+			System.out.println(nuevaHora);
+			try {
+				dateIni = format.parse(nuevaHora);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			for(int j=0; j<diasElegidos.length; j++)
+				HorarioMedicoDAO.anadirHoraMedico(diasElegidos[j], nuevaHora, dni);
+		}
+
 		JSONObject jsoEspecialidades = new JSONObject();
 		jsoEspecialidades.put("Insertar", "OK");
 		return jsoEspecialidades;
+	}
+	
+	public static String montarHoras(int hour, int min) {
+		StringBuilder sb = new StringBuilder();
+		if (hour < 10) {
+			sb.append(0).append(hour);
+		} else {
+			sb.append(hour);
+		}
+		sb.append(":");
+		if (min < 10) {
+			sb.append(0).append(min);
+		} else {
+			sb.append(min);
+		}
+		return sb.toString(); 
 	}
 
 }
