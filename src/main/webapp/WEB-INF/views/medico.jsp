@@ -104,10 +104,15 @@
 									Bienvenido/a a la página de "Citas de pacientes" en la que aparecen
 									todas las citas que tiene programadas ordenadas por días.
 								</p>
-								<p>
+								<p id = "cambiarPaciente">
 									Si desea cambiar a vista de Paciente pulse el botón <a
 									href="/citas" class="btn btn-primary btn-large"
 									type="submit">Mis citas</a>
+								</p>
+								<p id = "volverGestor">
+									Para volver a la página principal de Gestor pulse el botón <a
+									href="gestor" class="btn btn-primary btn-large"
+									type="submit">Gestor</a>
 								</p>
 							</div>
 						</div>
@@ -178,7 +183,9 @@
 					&& referrer != 'http://localhost:8080/registro'
 					&& referrer != 'https://the-good-health.herokuapp.com/registro'
 					&& referrer != 'http://localhost:8080/citas'
-					&& referrer != 'https://the-good-health.herokuapp.com/citas'){
+					&& referrer != 'https://the-good-health.herokuapp.com/citas'
+					&& referrer != 'http://localhost:8080/gestor'
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();
@@ -188,7 +195,8 @@
 			ponerNombreApellidos();
 			
 		});
-		
+
+		<!--
 		jQuery(document).ready(function($) {
 			
 			var referrer = document.referrer;
@@ -206,6 +214,7 @@
 				$('#eliminarMedico').hide();
 			}
 		});
+		-->
 		
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
@@ -266,6 +275,27 @@
 		
 		jQuery(document).ready(function($) {
 			
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
+			
+			if(tipoUsuario != "Medico"){
+				$('#cambiarPaciente').hide();
+			}
+		});
+		
+		jQuery(document).ready(function($) {
+			
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
+			
+			if(tipoUsuario != "Gestor"){
+				$('#volverGestor').hide();
+			}
+		});
+		
+		<!-- 
+		jQuery(document).ready(function($) {
+			
 			var referrer = document.referrer;
 			if (referrer != 'http://localhost:8080/gestor'
 					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
@@ -281,6 +311,7 @@
 				$('#columnaEliminar').hide();
 			}
 		});
+		-->
 		
 		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	
