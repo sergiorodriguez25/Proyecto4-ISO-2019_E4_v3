@@ -248,6 +248,8 @@
 									&& referrer != 'https://the-good-health.herokuapp.com/registro'
 									&& referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
+									&& referrer != 'http://localhost:8080/medico'
+									&& referrer != 'https://the-good-health.herokuapp.com/medico'
 									&& referrer != 'http://localhost:8080/formularioTrabajador'
 									&& referrer != 'https://the-good-health.herokuapp.com/formularioTrabajador') {
 								var forma = document.forms[0];
