@@ -115,10 +115,10 @@
 								<div class="card-body">
 									<h4>Formulario de Asignación de Especialistas</h4>
 									<p>
-										Se encuentra en la página de gestión de especialistas, Asigne
+										Se encuentra en la página de gestión de especialistas, asigne
 										el o los distintos especialistas del paciente seleccionado.
 										Para obtener información sobre el uso de las diferentes
-										funcionalidades de las que dispone presione el siguiente botón
+										funcionalidades de las que dispone presione el siguiente botón: </br></br>
 										<button type="button" class="btn btn-primary"
 											data-toggle="modal" data-target="#exampleModalLong">
 											Información</button>
@@ -155,7 +155,6 @@
 									<div class="text-center">
 										<label id="nombreApellidos"></label>
 									</div>
-
 								</div>
 							</div>
 						</div>
@@ -164,174 +163,177 @@
 				</div>
 				<div align='center'>
 					<div class="col-md-6 mb-3">
-						<label id="tituloCentroMedico"><b>Cento Médico</b></label>
+						<label id="tituloCentroMedico"><b>Centro Médico</b></label>
 						<div>
 							<label id="centroMedico"></label>
 						</div>
 					</div>
 				</div>
-				<br></br>
-				<h5>Seleccione el especialista que quiere asignar:</h5>
-				<br>
 				<p>
-					<a class="btn btn-primary" data-toggle="collapse" href="#podologo"
-						role="button" aria-expanded="false" aria-controls="podologo">Podólogo</a>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#cabecera"
-						aria-expanded="false" aria-controls="cabecera">Médico de
-						cabecera</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#traumatologo"
-						aria-expanded="false" aria-controls="traumatologo">Traumatólogo</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#alergologia"
-						aria-expanded="false" aria-controls="alergologia">Alergología</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#geriatria"
-						aria-expanded="false" aria-controls="geriatria">Geriatría</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#enfermeria"
-						aria-expanded="false" aria-controls="enfermeria">Enfermería</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#pediatria"
-						aria-expanded="false" aria-controls="pediatria">Pediatría</button>
-					<button class="btn btn-primary" type="button"
-						data-toggle="collapse" data-target="#psiquiatria"
-						aria-expanded="false" aria-controls="psiquiatria">Psiquiatría</button>
+					<b>Seleccione el especialista que quiere asignar, una vez haya terminado pulse el botón</b> <a
+					href="/gestor" class="btn btn-success btn-large"
+					type="submit">Aceptar</a>
 				</p>
-				<div class="row">
-					<div class="col">
-						<div class="collapse" id="podologo">
-							<table id="TablePodologo" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+				<br>
+				<div class="container" id="myGroup">
+					<p>
+						<a class="btn btn-primary" data-toggle="collapse" href="#podologo"
+							role="button" aria-expanded="false" aria-controls="podologo">Podólogo</a>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#cabecera"
+							aria-expanded="false" aria-controls="cabecera">Médico de
+							cabecera</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#traumatologo"
+							aria-expanded="false" aria-controls="traumatologo">Traumatólogo</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#alergologia"
+							aria-expanded="false" aria-controls="alergologia">Alergología</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#geriatria"
+							aria-expanded="false" aria-controls="geriatria">Geriatría</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#enfermeria"
+							aria-expanded="false" aria-controls="enfermeria">Enfermería</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#pediatria"
+							aria-expanded="false" aria-controls="pediatria">Pediatría</button>
+						<button class="btn btn-primary" type="button"
+							data-toggle="collapse" data-target="#psiquiatria"
+							aria-expanded="false" aria-controls="psiquiatria">Psiquiatría</button>
+					</p>
+					<div class="row d-flex justify-content-center">
+						<div class="container">
+							<div class="collapse" id="podologo" data-parent="#myGroup">
+								<table id="TablePodologo" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="cabecera">
-							<table id="TableCabecera" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="cabecera" data-parent="#myGroup">
+								<table id="TableCabecera" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="traumatologo">
-							<table id="TableTraumatologo" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="traumatologo" data-parent="#myGroup">
+								<table id="TableTraumatologo" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="alergologia">
-							<table id="TableAlergologia" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="alergologia" data-parent="#myGroup">
+								<table id="TableAlergologia" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="geriatria">
-							<table id="TableGeriatria" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="geriatria" data-parent="#myGroup">
+								<table id="TableGeriatria" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="enfermeria">
-							<table id="TableEnfermeria" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="enfermeria" data-parent="#myGroup">
+								<table id="TableEnfermeria" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="pediatria">
-							<table id="TablePediatria" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="pediatria" data-parent="#myGroup">
+								<table id="TablePediatria" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col">
-						<div class="collapse" id="psiquiatria">
-							<table id="TablePsiquiatria" class="table">
-								<thead>
-									<tr class="table-primary">
-										<td align="center" scope="col"><b>DNI</b></td>
-										<td align="center" scope="col"><b>Nombre</b></td>
-										<td align="center" scope="col"><b>Teléfono</b></td>
-									</tr>
-								</thead>
-							</table>
-							<div align='center'>
-								<label id="noHayEspecialistas"></label>
+						<div class="container">
+							<div class="collapse" id="psiquiatria" data-parent="#myGroup">
+								<table id="TablePsiquiatria" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+								<div align='center'>
+									<label id="noHayEspecialistas"></label>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-		</div>
 		</div>
 	</main>
 	<!-- /.container -->
@@ -444,7 +446,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary disabled \' onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
