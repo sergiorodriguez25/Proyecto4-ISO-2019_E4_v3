@@ -446,7 +446,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary disabled \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -485,7 +485,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -524,7 +524,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -563,7 +563,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -602,7 +602,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -641,7 +641,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -680,7 +680,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
@@ -719,7 +719,7 @@
 											+ '<td align="center" style="dislay: none;">'
 											+ '<button id=\'eliminarEspecialista'
 											+ i
-											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
 											+ '-'
 											+ '</button> '
 											+ '</td>'
