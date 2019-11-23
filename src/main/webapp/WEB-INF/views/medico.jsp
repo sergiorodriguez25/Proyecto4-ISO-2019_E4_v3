@@ -110,7 +110,7 @@
 									type="submit">Mis citas</a>
 								</p>
 								<p id = "volverGestor">
-									Para volver a la página principal de Gestor pulse el botón <a
+									Para volver a la página de Gestor pulse el botón <a
 									href="gestor" class="btn btn-primary btn-large"
 									type="submit">Gestor</a>
 								</p>
