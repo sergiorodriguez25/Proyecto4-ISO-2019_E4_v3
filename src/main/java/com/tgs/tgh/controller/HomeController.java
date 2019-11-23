@@ -285,4 +285,10 @@ public class HomeController {
 		return "OK";
 	}
 	
+	@RequestMapping(value = "/calendarioGlobal", method = RequestMethod.GET)
+	public String calendario() {
+
+		return "calendarioGlobal";
+	}
+	
 }
