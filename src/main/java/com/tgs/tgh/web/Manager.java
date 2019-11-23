@@ -170,8 +170,6 @@ public class Manager {
 	}
 
 	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
-		Date date = new Date();
-
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
@@ -266,7 +264,7 @@ public class Manager {
 		return jsoEspecialidades;
 	}
 
-	public static JSONObject guardarNuevoMedico(String dni, String especialidad, String horaIni, String horaFin,
+	public JSONObject guardarNuevoMedico(String dni, String especialidad, String horaIni, String horaFin,
 			String[] diasElegidos, String centroMedico) {
 
 		MedicoDAO.registro(dni, especialidad, centroMedico);

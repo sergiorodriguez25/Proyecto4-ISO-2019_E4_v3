@@ -15,7 +15,7 @@ public class HorarioMedicoDAO {
 	@SuppressWarnings("unchecked")
 	public static HorarioMedico getHorarioMedico(String dniMedico) {
 		FindIterable<BsonDocument> docs = DBBroker.get().getHorarioMedico(dniMedico);
-		ArrayList lista = new ArrayList();
+		ArrayList<String[]> lista = new ArrayList<String[]>();
 		HorarioMedico hm = new HorarioMedico(dniMedico, lista);
 		for (BsonDocument doc : docs) {
 			String dupla[] = new String[2];
