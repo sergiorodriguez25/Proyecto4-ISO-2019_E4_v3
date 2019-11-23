@@ -109,6 +109,11 @@
 									href="/citas" class="btn btn-primary btn-large"
 									type="submit">Mis citas</a>
 								</p>
+								<p id = "volverGestor">
+									Para volver a la página principal de Gestor pulse el botón <a
+									href="gestor" class="btn btn-primary btn-large"
+									type="submit">Gestor</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -191,6 +196,18 @@
 		
 		jQuery(document).ready(function($) {
 			
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
+			
+			if(tipoUsuario != "Gestor"){
+				$('#volverGestor').hide();
+			}
+		});
+		
+		<!--
+		
+		jQuery(document).ready(function($) {
+			
 			var referrer = document.referrer;
 			if (referrer != 'http://localhost:8080/gestor'
 					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
@@ -206,6 +223,7 @@
 				$('#eliminarMedico').hide();
 			}
 		});
+		-->
 		
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
@@ -263,7 +281,7 @@
 				}
 			}
 		}
-		
+		<!--	
 		jQuery(document).ready(function($) {
 			
 			var referrer = document.referrer;
@@ -281,6 +299,7 @@
 				$('#columnaEliminar').hide();
 			}
 		});
+		-->
 		
 		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	

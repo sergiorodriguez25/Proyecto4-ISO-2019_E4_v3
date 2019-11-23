@@ -247,7 +247,9 @@
 									&& referrer != 'http://localhost:8080/registro'
 									&& referrer != 'https://the-good-health.herokuapp.com/registro'
 									&& referrer != 'http://localhost:8080/citas'
-									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+									&& referrer != 'https://the-good-health.herokuapp.com/citas'
+									&& referrer != 'http://localhost:8080/medico'
+									&& referrer != 'https://the-good-health.herokuapp.com/medico') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
