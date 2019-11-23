@@ -11,7 +11,7 @@
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/3.4/examples/signin/">
 
-<title>Horario Médico</title>
+<title>Nuevo Gestor</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -80,8 +80,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/citas"
-					tabindex="-1" aria-disabled="true">Asignar Horario</a></li>
+				<li class="nav-item"><a class="nav-link"
+					tabindex="-1" aria-disabled="true">Nuevo Gestor</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -114,10 +114,9 @@
 					<div class="col-md-8">
 						<div class="card">
 							<div class="card-body">
-								<h4>Formulario de Asignación de Horario Médico</h4>
-								<p>Para asignar el horario del médico seleccione
-								la especialidad del médico, los días que va a trabajar
-								y la hora inicio y hora fin de su jornada laboral.</p>
+								<h4>Formulario de Creación del nuevo Gestor</h4>
+								<p>Para crear el nuevo Gestor selecciona el centro médico
+								del que va a ser gestor.</p>
 							</div>
 						</div>
 
@@ -130,77 +129,22 @@
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'> 
-					<div class="col-md-6 mb-3">
-						<label for="especialidad">Especialidad</label> 
-						<select class="form-control form-control-lg align:center" id="especialidad">
-							<option selected="selected" disabled=true></option>
-						</select>
-					</div>
-					<br></br>
 					
-					<label for="diasSemana">Seleccione los días que va a trabajar</label> 
-					<div class="container center">
-					<div class="col-md-6 mb-3 text-left">
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="lunes">
-						  <label class="form-check-label" for="lunesLabel">
-						    Lunes
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="martes">
-						  <label class="form-check-label" for="martesLabel">
-						    Martes
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="miercoles">
-						  <label class="form-check-label" for="miercolesLabel">
-						    Miércoles
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="jueves">
-						  <label class="form-check-label" for="juevesLabel">
-						    Jueves
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="viernes">
-						  <label class="form-check-label" for="viernesLabel">
-						    Viernes
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="sabado">
-						  <label class="form-check-label" for="sabadoLabel">
-						    Sábado
-						  </label>
-						</div>
-						<div class="form-check">
-						  <input class="form-check-input" type="checkbox" value="" id="domingo">
-						  <label class="form-check-label" for="domingoLabel">
-						    Domingo
-						  </label>
-						</div>
-					</div>
-					</div>
+					<label for="DNI" id="DNI">DNI</label> 
+					<div>
 					<br></br>
-
-					<label for="horas">Seleccione el horario laboral</label> 
+					</div>
+					
+					<label for="cen">Seleccione el centro médico en el que trabajará el Gestor</label> 
 					<div class="col-md-6 mb-3">
-						<div class="input-group">
-				          <input name="horaIni" id="horaInicio" type="text" required class="form-control" placeholder="Hora de Inicio 00:00">
-				          <input name="horaFin" id="horaFin" type="text" required class="form-control" placeholder="Hora de Fin 00:00">
-				        </div>
+				          <input name="centro" id="centroMedico" type="text" required class="form-control" placeholder="Centro Médico">			  
 							
 							<br></br>
 
 							<hr class="mb-4">
-							<a id="confirmarMedico" class="btn btn-primary btn-large" type="submit">Confirmar</a> 
+							<a id="confirmarGestor" class="btn btn-primary btn-large" type="submit">Confirmar</a> 
 							<a href="/gestor" class="btn btn-primary btn-large" type="submit">Volver
 								atrás</a>
-						</form>
 					</div>
 					</div>
 				</div>
@@ -238,123 +182,30 @@
 // 								forma.action = "/error";
 // 								forma.submit();
 // 							}
-							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
-							var dni = jsoDNI.DNIMedico.DNI;
-							pedirEspecialidades();
+							var jsoDNI = JSON.parse(sessionStorage.nuevoGestor);
+							console.log(jsoDNI);
+							var dni = jsoDNI.DNIGestor[0].DNI;
+							console.log(dni);
+							document.getElementById('DNI').innerHTML= dni;
 							
 							
 		});
 		
-		function pedirEspecialidades(){
-			var data = {
-					tipo : "solicitarEspecialidades"
-				};
-				var url = "/formularioTrabajador";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
-
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : getEspecialidadesOK,
-					error : getEspecialidadesError
-				});
-		}
-		
-		function getEspecialidadesOK(respuesta){
-			console.log(respuesta);
-			var jsoespecialidades = JSON.parse(respuesta);
-			console.log(jsoespecialidades);
-			cargarEspecialidades(jsoespecialidades);
-		}
-		
-		function getEspecialidadesError(e){
-			console.log(e);
-		}
-		
-		function cargarEspecialidades(jsoEspecialidades) {
-			var select = document.getElementById("especialidad");
-			numEspecialidades = jsoEspecialidades.Especialidades.length;
-			for(var i = 0; i <=numEspecialidades ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoEspecialidades.Especialidades[i][0];
-			   	select.add(option, 0);
-			}
-		}
-		
 		$(document).ready(function(){
-			$('#confirmarMedico').click(function(event) {
-				console.log(document.getElementById("especialidad").value);
-				var especialidadSelecc = (document.getElementById("especialidad").value);
-				var diasSelecc = new Array();
-				var i=0;
-				if( $('#lunes').is(':checked') ) {
-					diasSelecc[i]='Lunes';
-					i++;
-				}
-				if( $('#martes').is(':checked') ) {
-					diasSelecc[i]='Martes';
-					i++;
-				}
-				if( $('#miercoles').is(':checked') ) {
-					diasSelecc[i]='Miércoles';
-					i++;
-				}
-				if( $('#jueves').is(':checked') ) {
-					diasSelecc[i]='Jueves';
-					i++;
-				}
-				if( $('#viernes').is(':checked') ) {
-					diasSelecc[i]='Viernes';
-					i++;
-				}
-				if( $('#sabado').is(':checked') ) {
-					diasSelecc[i]='Sábado';
-					i++;
-				}
-				if( $('#domingo').is(':checked') ) {
-					diasSelecc[i]='Domingo';
-					i++;
-				}
-				console.log(diasSelecc);
-				
-				var horaInicio = (document.getElementById("horaInicio").value);
-				var horaFin = (document.getElementById("horaFin").value);
-				console.log(horaInicio);
-				console.log(horaFin);
-				
-				enviarDatos(especialidadSelecc, diasSelecc, horaInicio, horaFin);
+			$('#confirmarGestor').click(function(event) {
+				var centro = (document.getElementById("centroMedico").value);				
+				enviarDatos(centro);
 			});
 		});
 
-		function enviarDatos(especialidad, dias, horaI, horaF) {
-			var jsoMed = JSON.parse(sessionStorage.nuevoMedico);
-			var jsodias = JSON.stringify(dias);
-			var jsoGestor = JSON.parse(sessionStorage.usuario);
-			var centro = jsoGestor.resultado.gestor.centro;
+		function enviarDatos(centro) {
+			var jsoGestor = JSON.parse(sessionStorage.nuevoGestor);
 			var data = {
-				DNI : jsoMed.DNIMedico[0].DNI,
-				especialidad : especialidad,
-				dias : jsodias,
-				horaInicio : horaI,
-				horaFin : horaF,
+				DNI : jsoGestor.DNIGestor[0].DNI,
 				centro : centro,
 				tipo : "enviarDatos"
 			};
-			var url = "/formularioTrabajador";
+			var url = "/formularioGestor";
 			var type = "POST";
 			var success;
 			var xhrFields;
@@ -372,22 +223,22 @@
 				xhrFields : {
 					withCredentials : true
 				},
-				success : MedicoInsertadoOK,
-				error : MedicoInsertadoError
+				success : GestorInsertadoOK,
+				error : GestorInsertadoError
 			});
 		}
 
-		function MedicoInsertadoOK(respuesta) {
-			console.log("Médico insertado OK");
+		function GestorInsertadoOK(respuesta) {
+			console.log("Gestor insertado OK");
 			swal({
-				title : "Médico Insertado",
+				title : "Gestor Insertado",
 				icon : "success",
 			}).then(function() {
 				window.location.href = "/gestor";
 			});
 		}
 
-		function MedicoInsertadoError(e) {
+		function GestorInsertadoError(e) {
 			console.log(e);
 		}
 

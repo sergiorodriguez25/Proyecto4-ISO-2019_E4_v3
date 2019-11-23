@@ -48,5 +48,10 @@ public class GestorDAO {
 		}
 		return lista;
 	}
+
+	public static void insertar(String dniNuevoGestor, String centro) {
+		DBBroker.get().insertarGestor(dniNuevoGestor, centro);
+		
+	}
 	
 }
