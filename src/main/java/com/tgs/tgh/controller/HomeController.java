@@ -134,8 +134,7 @@ public class HomeController {
 			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
 			System.out.println(resultado);
 			return resultado.toString();
-		}
-		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+		} else if (jso.get("tipo").equals("getCitasDiaMedico")) {
 			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
 			System.out.println(resultado);
 			return resultado.toString();
@@ -153,18 +152,18 @@ public class HomeController {
 	public String medico() {
 
 		return "medico";
-	}	
-	
+	}
+
 	@CrossOrigin(origins = "*", allowCredentials = "true")
 	@RequestMapping(value = "/medico", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String medico(@RequestBody Map<String, String> jso) throws Throwable {
 		System.out.println(jso);
-		String dni = jso.get("DNI");	
+		String dni = jso.get("DNI");
 		JSONArray jsorespuesta = Manager.get().getCitasMedico(dni);
 		return jsorespuesta.toString();
 	}
-	
+
 	@RequestMapping(value = "/gestor", method = RequestMethod.GET)
 	public String gestor() {
 
@@ -176,7 +175,7 @@ public class HomeController {
 	@ResponseBody
 	public String gestor(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
-		if(jso.get("tipo").equals("getAllUser")) {
+		if (jso.get("tipo").equals("getAllUser")) {
 			JSONObject jsorespuesta = Manager.get().getTodosUsuario();
 			return jsorespuesta.toString();
 		}
@@ -207,11 +206,22 @@ public class HomeController {
 
 		return "formularioModificar";
 	}
-	
+
 	@RequestMapping(value = "/formularioPaciente", method = RequestMethod.GET)
 	public String formularioPaciente() {
 
 		return "formularioPaciente";
+	}
+
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioPaciente", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formularioPaciente(@RequestBody Map<String, String> jso) throws Exception {
+		if (jso.get("tipo").equals("getMedicosCentro")) {
+			JSONObject jsorespuesta = Manager.get().getMedicosCentro(jso.get("centroMedico"));
+			return jsorespuesta.toString();
+		}
+		return "";
 	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
@@ -229,14 +239,13 @@ public class HomeController {
 			String nuevaHora = jso.get("nuevaHora");
 
 			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
-		}
-		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+		} else if (jso.get("tipo").equals("getCitasDiaMedico")) {
 			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
 			System.out.println(resultado);
 			return resultado.toString();
 		}
-		
+
 		return "";
 	}
-	
+
 }

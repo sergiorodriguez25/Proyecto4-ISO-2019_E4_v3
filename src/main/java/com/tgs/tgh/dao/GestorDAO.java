@@ -26,12 +26,10 @@ public class GestorDAO {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public static ArrayList<Usuario> getTodosUsuarios() throws Exception {
 		FindIterable<BsonDocument> docs = DBBroker.get().getTodosUsuarios();
-		System.out.println(docs);
 		ArrayList<Usuario> lista = new ArrayList<Usuario>();
-		BsonDocument bso = docs.first();
-		System.out.println(bso);
 		for (BsonDocument doc : docs) {
 			Usuario usuario = new Usuario(Encriptador.desencriptar(doc.get("DNI").asString().getValue()),
 					Encriptador.desencriptar(doc.get("Password").asString().getValue()),
@@ -47,6 +45,19 @@ public class GestorDAO {
 			lista.add(usuario);
 		}
 		return lista;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static ArrayList<String[]> getMedicosCentro(String centroMedico) throws Exception{
+		ArrayList<String[]> medicos = new ArrayList<String[]>();
+		FindIterable<BsonDocument> docs = DBBroker.get().getMedicosCentro(centroMedico);
+		for (BsonDocument doc : docs) {
+			String[] medico = new String[2];
+			medico[0] = Encriptador.desencriptar(doc.get("DNI").asString().getValue());
+			medico[1] = doc.get("Especialidad").asString().getValue();
+			medicos.add(medico);
+		}
+		return medicos;
 	}
 	
 }

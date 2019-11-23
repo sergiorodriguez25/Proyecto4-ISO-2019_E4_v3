@@ -162,6 +162,15 @@
 					</div>
 					<br></br>
 				</div>
+				<div align='center'>
+					<div class="col-md-6 mb-3">
+						<label id="tituloCentroMedico"><b>Cento Médico</b></label>
+						<div>
+							<label id="centroMedico"></label>
+						</div>
+					</div>
+				</div>
+				<br></br>
 				<h5>Seleccione el especialista que quiere asignar:</h5>
 				<br>
 				<p>
@@ -345,9 +354,14 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(
+		jQuery(document)
+				.ready(
 						function($) {
-							pedirTodosLosUsuarios();
+							var jsoUser = JSON.parse(sessionStorage.usuario);
+							var centroMedicoGestor = jsoUser.resultado.gestor.centro;
+							$('#centroMedico').html(centroMedicoGestor);
+
+							pedirMedicosDelCentro(centroMedicoGestor);
 							/*
 							 * Control para que no acceda a travis de la url a alguna página que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -365,9 +379,10 @@
 
 						});
 
-		function pedirTodosLosUsuarios() {
+		function pedirMedicosDelCentro(centroMedico) {
 			var data = {
-				tipo : "getAllUser"
+				tipo : "getMedicosCentro",
+				centroMedico : centroMedico
 			};
 			var url = "/formularioPaciente";
 			var type = "POST";
@@ -388,241 +403,345 @@
 				xhrFields : {
 					withCredentials : true
 				},
-				success : UsuariosOK,
+				success : MedicosOK,
 				error : UsuariosError
 			});
 		}
 
-		function UsuariosOK(respuesta) {
-			var jsoUsuarios = JSON.parse(respuesta);
-			console.log(jsoUsuarios);
-			console.log(jsoUsuarios.Pacientes.length);
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
+		function MedicosOK(respuesta) {
+			var jsoMedicos = JSON.parse(respuesta);
 
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (i = 0; i < jsoUsuarios.Medicos.length; i++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[i].DNI);
-					if (jsoUsuarios.Medicos[i].centroMedico == centroMedicoGestor) {
-						$("#TablePodologo").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[i].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[i].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[i].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[i].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ i
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
-				}
-			}	
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (j = 0; j < jsoUsuarios.Medicos.length; j++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[j].DNI);
-					if (jsoUsuarios.Medicos[j].centroMedico == centroMedicoGestor) {
-						$("#TableCabecera").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[j].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[j].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[j].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[j].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ j
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+			console.log(jsoMedicos.Medicos);
+
+			var podologos = medicosEspecialidad(jsoMedicos.Medicos, "Podólogo");
+			if (podologos.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < podologos.length; i++) {
+					$("#TablePodologo")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ podologos[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ podologos[i].nombre
+											+ " "
+											+ podologos[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ podologos[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (k = 0; k < jsoUsuarios.Medicos.length; k++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[k].DNI);
-					if (jsoUsuarios.Medicos[k].centroMedico == centroMedicoGestor) {
-						$("#TableTraumatologo").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[k].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[k].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[k].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[k].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ k
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var cabecera = medicosEspecialidad(jsoMedicos.Medicos, "Médico de Cabecera");
+			if (cabecera.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < cabecera.length; i++) {
+					$("#TableCabecera")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ cabecera[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ cabecera[i].nombre
+											+ " "
+											+ cabecera[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ cabecera[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (l = 0; l < jsoUsuarios.Medicos.length; l++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[l].DNI);
-					if (jsoUsuarios.Medicos[l].centroMedico == centroMedicoGestor) {
-						$("#TableAlergologia").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[l].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[l].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[l].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[l].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ l
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var traumatologos = medicosEspecialidad(jsoMedicos.Medicos, "Traumatólogo");
+			if (traumatologos.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < traumatologos.length; i++) {
+					$("#TableTraumatologo")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ traumatologos[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ traumatologos[i].nombre
+											+ " "
+											+ traumatologos[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ traumatologos[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (m = 0; m < jsoUsuarios.Medicos.length; m++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[m].DNI);
-					if (jsoUsuarios.Medicos[m].centroMedico == centroMedicoGestor) {
-						$("#TableGeriatria").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[m].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[m].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[m].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[m].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ m
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var alergologos = medicosEspecialidad(jsoMedicos.Medicos, "Alergología");
+			if (alergologos.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < alergologos.length; i++) {
+					$("#TableAlergologia")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ alergologos[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ alergologos[i].nombre
+											+ " "
+											+ alergologos[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ alergologos[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (n = 0; n < jsoUsuarios.Medicos.length; n++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[n].DNI);
-					if (jsoUsuarios.Medicos[n].centroMedico == centroMedicoGestor) {
-						$("#TableEnfermeria").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[n].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[n].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[n].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[n].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ n
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var geriatrias = medicosEspecialidad(jsoMedicos.Medicos, "Geriatría");
+			if (geriatrias.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < geriatrias.length; i++) {
+					$("#TableGeriatria")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ geriatrias[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ geriatrias[i].nombre
+											+ " "
+											+ geriatrias[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ geriatrias[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (o = 0; o < jsoUsuarios.Medicos.length; o++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[o].DNI);
-					if (jsoUsuarios.Medicos[o].centroMedico == centroMedicoGestor) {
-						$("#TablePediatria").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[o].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[o].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[o].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[o].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ o
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var enfermeros = medicosEspecialidad(jsoMedicos.Medicos, "Enfermería");
+			if (enfermeros.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < enfermeros.length; i++) {
+					$("#TableEnfermeria")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ enfermeros[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ enfermeros[i].nombre
+											+ " "
+											+ enfermeros[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ enfermeros[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
-			
-			if(jsoUsuarios.Medicos.length==0) $('#noHayEspecialistas').html("No hay especialistas de este tipo en el centro médico");
-			else{
-				for (p = 0; p < jsoUsuarios.Medicos.length; p++) {
-					console.log(jsoUsuarios.Medicos.length);
-					console.log(jsoUsuarios.Medicos[p].DNI);
-					if (jsoUsuarios.Medicos[p].centroMedico == centroMedicoGestor) {
-						$("#TablePsiquiatria").append(
-										'<tr><td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[p].DNI
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[p].nombre
-												+ " "
-												+ jsoUsuarios.Medicos[p].apellidos
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ jsoUsuarios.Medicos[p].telefono
-												+ '</td>'
-												+ '<td align="center" style="dislay: none;">'
-												+ '<button id=\'asignarEspecialista'
-												+ p
-												+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-												+ 'Asignar' + '</button> '
-												+ '</td></tr>');
-					}
+
+			var pediatras = medicosEspecialidad(jsoMedicos.Medicos, "Pediatría");
+			if (pediatras.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < pediatras.length; i++) {
+					$("#TablePediatria")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ pediatras[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ pediatras[i].nombre
+											+ " "
+											+ pediatras[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ pediatras[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
 				}
 			}
+
+			var psiquiatras = medicosEspecialidad(jsoMedicos.Medicos, "Psiquiatría");
+			if (psiquiatras.length == 0)
+				$('#noHayEspecialistas')
+						.html(
+								"No hay especialistas de este tipo en el centro médico");
+			else {
+				for (var i = 0; i < psiquiatras.length; i++) {
+					$("#TablePsiquiatria")
+							.append(
+									'<tr>'
+											+ '<td align="center" style="dislay: none;">'
+											+ psiquiatras[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ psiquiatras[i].nombre
+											+ " "
+											+ psiquiatras[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ psiquiatras[i].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'asignarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
+											+ '+'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'eliminarEspecialista'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+											+ '-'
+											+ '</button> '
+											+ '</td>'
+											+ '</td>+</tr>');
+				}
+			}
+		}
+
+		function medicosEspecialidad(medicos, especialidad) {
+			var medicosEsp = [];
+			for (i = 0; i < medicos.length; i++) {
+				if (medicos[i].especialidad == especialidad) {
+					medicosEsp.push(medicos[i]);
+				}
+			}
+			return medicosEsp;
+		}
+		
+		function funcionAsignarEspecialista(boton) {
+			
+		}
+		
+		function funcioneliminarEspecialista(boton) {
+			
 		}
 
 		function UsuariosError(e) {

@@ -98,7 +98,7 @@ public class Manager {
 		JSONObject jsoGrupo = new JSONObject();
 		jsoGrupo.put("listaMedicos", grupo.getListaMedicos());
 		respuesta.put("grupoMedico", jsoGrupo);
-		
+
 		return respuesta;
 	}
 
@@ -164,15 +164,13 @@ public class Manager {
 	}
 
 	public void introducirCita(String dniPaciente, String dniMedico, String dia, String hora) {
-		Date date = new Date();
-		
 		CitaDAO.introducirCita(new Cita(dniPaciente, dniMedico, dia, hora));
 	}
 
-	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
-		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);		
+	public void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception {
+		CitaDAO.modificarCita(cita, nuevoDia, nuevaHora);
 	}
-	
+
 	public void eliminarCita(Cita cita) throws Exception {
 		CitaDAO.eliminarCita(cita);
 	}
@@ -191,7 +189,7 @@ public class Manager {
 
 	public JSONObject getHorarioCitas(String dniMedico) {
 		HorarioMedico hm = HorarioMedicoDAO.getHorarioMedico(dniMedico);
-		
+
 		JSONObject jsoHM = new JSONObject();
 		jsoHM.put("DNI", hm.getDni());
 		jsoHM.put("horario", hm.getHorario());
@@ -199,11 +197,11 @@ public class Manager {
 		resultado.put("horarioMedico", jsoHM);
 		return resultado;
 	}
-	
+
 	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
 		HorarioMedicoDAO.eliminarHoraMedico(dia, hora, dniMedico);
 	}
-	
+
 	public void anadirHoraMedico(String dia, String hora, String dniMedico) {
 		HorarioMedicoDAO.anadirHoraMedico(dia, hora, dniMedico);
 	}
@@ -222,7 +220,7 @@ public class Manager {
 		}
 		return arrayCitas;
 	}
-	
+
 	public JSONObject getCitasDiaMedico(String dniMedico, String fecha) {
 		ArrayList<String> lista = new ArrayList<String>();
 		lista = CitaDAO.getCitasDiaMedico(dniMedico, fecha);
@@ -231,19 +229,19 @@ public class Manager {
 		return jsoHoras;
 	}
 
-	public static JSONObject getTodosUsuario() throws Exception {
+	public JSONObject getTodosUsuario() throws Exception {
 		ArrayList<Usuario> lista = GestorDAO.getTodosUsuarios();
 		ArrayList<Paciente> listaPac = new ArrayList<Paciente>();
 		ArrayList<Medico> listaMed = new ArrayList<Medico>();
 		JSONObject jsoallPac = new JSONObject();
 		JSONObject jsoallMed = new JSONObject();
 		JSONObject jsoresultado = new JSONObject();
-		for(int i=0; i<lista.size(); i++) {
+		for (int i = 0; i < lista.size(); i++) {
 			Usuario usu = lista.get(i);
 			Paciente paciente = PacienteDAO.esPaciente(usu);
 			listaPac.add(paciente);
 			Medico medico = MedicoDAO.esMedico(usu);
-			if(medico!=null)
+			if (medico != null)
 				listaMed.add(medico);
 		}
 		jsoallPac.put("Pacientes", listaPac);
@@ -251,6 +249,24 @@ public class Manager {
 		jsoresultado.put("Pacientes", listaPac);
 		jsoresultado.put("Medicos", listaMed);
 		return jsoresultado;
+	}
+
+	public JSONObject getMedicosCentro(String centroMedico) throws Exception {
+		ArrayList<String[]> dniMedicos = GestorDAO.getMedicosCentro(centroMedico);
+		JSONObject respuesta = new JSONObject();
+		ArrayList<Medico> listaMed = new ArrayList<Medico>();
+		Usuario usuarioMedico;
+		Medico medico;
+		for (int i = 0; i < dniMedicos.size(); i++) {
+			usuarioMedico = UsuarioDAO.getUsuario(dniMedicos.get(i)[0]);
+			medico = new Medico(usuarioMedico.getDNI(), usuarioMedico.getPassword(), usuarioMedico.getNombre(),
+					usuarioMedico.getApellidos(), usuarioMedico.getFechaNac(), usuarioMedico.getDomicilio(),
+					usuarioMedico.getPoblacion(), usuarioMedico.getCodigoPostal(), usuarioMedico.getTelefono(),
+					usuarioMedico.getEmail(), dniMedicos.get(i)[1], centroMedico);
+			listaMed.add(medico);
+		}
+		respuesta.put("Medicos", listaMed);
+		return respuesta;
 	}
 
 }
