@@ -126,6 +126,11 @@
 									href="/medico" class="btn btn-primary btn-large"
 									type="submit">Médico</a>
 								</p>
+								<p id = "volverGestor">
+									Para volver a la página principal de Gestor pulse el botón <a
+									href="gestor" class="btn btn-primary btn-large"
+									type="submit">Gestor</a>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -216,6 +221,16 @@
 			
 			if(tipoUsuario != "Medico"){
 				$('#volverMedico').hide();
+			}
+		});
+		
+		jQuery(document).ready(function($) {
+			
+			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var tipoUsuario = jsoUser.resultado.tipoUsuario;
+			
+			if(tipoUsuario != "Gestor"){
+				$('#volverGestor').hide();
 			}
 		});
 
