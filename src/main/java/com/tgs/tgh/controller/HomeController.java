@@ -268,4 +268,21 @@ public class HomeController {
 		return resultado.toString();
 	}
 	
+	@RequestMapping(value = "/formularioGestor", method = RequestMethod.GET)
+	public String formGestor() {
+
+		return "formularioGestor";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formGestor(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		String dniNuevoGestor = jso.get("DNI");
+		String centro = jso.get("centro");
+		Manager.get().guardarNuevoGestor(dniNuevoGestor, centro);
+		return "OK";
+	}
+	
 }

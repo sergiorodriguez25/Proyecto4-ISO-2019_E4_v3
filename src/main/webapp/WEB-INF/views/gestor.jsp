@@ -251,7 +251,9 @@
 									&& referrer != 'http://localhost:8080/medico'
 									&& referrer != 'https://the-good-health.herokuapp.com/medico'
 									&& referrer != 'http://localhost:8080/formularioTrabajador'
-									&& referrer != 'https://the-good-health.herokuapp.com/formularioTrabajador') {
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioTrabajador'
+									&& referrer != 'http://localhost:8080/formularioGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioGestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
@@ -303,15 +305,17 @@
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
 					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificarCentro'+i+'\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'+'Asignar Centro'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td></tr>');
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
 				}
 				
 				if(jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
 					$("#TablaUsuariosCentro").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajadorCM'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendario'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td></tr>');
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajadorCM'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendario'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
 				}
 			}
 			for (j=0; j<jsoUsuarios.Medicos.length; j++) {
@@ -328,7 +332,7 @@
 			}
 		}
 		
-		function funcionConvertirTrabajador(boton) {
+		function funcionConvertirMedico(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			console.log(dni);
 			var data = {"dni" : dni};
@@ -339,6 +343,18 @@
 			};
 			sessionStorage.nuevoMedico=JSON.stringify(jsoDniMed);
 			location.href="/formularioTrabajador";
+		}
+		
+		function funcionConvertirMedico(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			console.log(dni);
+			var jsoDniGes={
+					"DNIGestor":[
+						{"DNI":dni}
+					]
+			};
+			sessionStorage.nuevoGestor=JSON.stringify(jsoDniGes);
+			location.href="/formularioGestor";
 		}
 
 		function UsuariosError(e) {

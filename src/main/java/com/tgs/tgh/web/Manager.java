@@ -343,4 +343,9 @@ public class Manager {
 		return sb.toString(); 
 	}
 
+	public static void guardarNuevoGestor(String dniNuevoGestor, String centro) {
+		GestorDAO.insertar(dniNuevoGestor, centro);
+		
+	}
+
 }

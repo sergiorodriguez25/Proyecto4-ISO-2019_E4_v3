@@ -330,4 +330,14 @@ public class DBBroker<T> {
 		collection.insertOne(criterion);
 	}
 
+	public void insertarGestor(String dniNuevoGestor, String centro) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniNuevoGestor)));
+		criterion.append("CentroMedico", new BsonString(centro));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
+		collection.insertOne(criterion);
+		
+	}
+
 }
