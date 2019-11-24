@@ -57,15 +57,34 @@
 	<br></br>
 </div>
 <div class="container center">
-<div class="hero-unit">
-<div class="wrapper">
-	<div id="calendarContainer"></div>
-</div>
-</div>
+
+
+<div class="row">
+					
+					<div class="col-md-6">
+						<div class="wrapper">
+							<div id="calendarContainer"></div>
+						</div>
+						
+					</div>
+					
+					<div class="col-md-6">
+								<div>
+									<ul id="listaCitas" class="list-group">
+									 
+									</ul>
+									</div>
+
+					</div>
+					<div class="col-md-7"></div>
+				</div>
+
+
 </div>
 
 
 <script>
+
 	var calendar = new Calendar("calendarContainer",   
 	"small",
 	[ "Lunes", 3 ],
@@ -160,10 +179,60 @@
 		console.log(diaSemana);
 		
 		pedirCitas(fechaMontada);
+		
+		
 	});
 	
 	function pedirCitas(fecha) {
 		console.log(fecha);
+		var data = {
+				fecha : fecha,
+				tipo : "getCitas"
+			};
+			var url = "/calendarioGlobal";
+			var type = "POST";
+			var success;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+			
+			data = JSON.stringify(data);
+			$.ajax({
+				type: type,
+				url: url,
+				data: data,
+		        headers : headers,
+		        xhrFields: {
+		            withCredentials: true
+		        },
+		        success : CitasOK,
+		        error : CitasError
+			});
+	}
+	
+	function CitasOK(respuesta) {
+		console.log(respuesta);
+		var jsoCitas = JSON.parse(respuesta);
+		console.log(jsoCitas);
+		console.log(jsoCitas.Citas.length);
+		if(document.getElementById("filas")!= null)
+			$('#listaCitas').empty();
+		for(var i=0; i<jsoCitas.Citas.length; i++){
+			var fecha = jsoCitas.Citas[i].dia;
+			var hora = jsoCitas.Citas[i].hora;
+			var nombreMedico = jsoCitas.Citas[i].nombreMedico;
+			var nombrePaciente = jsoCitas.Citas[i].nombrePaciente;
+			var apellidosMedico = jsoCitas.Citas[i].apellidosMedico;
+			var apellidosPaciente = jsoCitas.Citas[i].apellidosPaciente;
+			
+			
+			$('#listaCitas').append("<a id=filas class=list-group-item list-group-item-action flex-column align-items-start active><div class=d-flex w-100 justify-content-between><h5 class=mb-1>Día: "+fecha+", Hora: "+hora+"</h5></div><p class=mb-1>Dr. "+nombreMedico+" "+apellidosMedico+" tiene una cita con el/la paciente "+nombrePaciente+" "+apellidosPaciente+".</p></a>");
+		}	
+	}
+	
+	function CitasError(respuesta) {
+		console.log(respuesta);	
 	}
 
 

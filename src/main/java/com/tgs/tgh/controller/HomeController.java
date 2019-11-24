@@ -291,4 +291,18 @@ public class HomeController {
 		return "calendarioGlobal";
 	}
 	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/calendarioGlobal", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String calendario(@RequestBody Map<String, String> jso) throws Exception {
+		JSONObject resultado = new JSONObject();
+		if(jso.get("tipo").equals("getCitas")) {
+			String fecha = jso.get("fecha");
+			System.out.println(fecha);
+			resultado = Manager.getCitasPorFecha(fecha);
+			
+		}
+		
+		return resultado.toString();
+	}
 }

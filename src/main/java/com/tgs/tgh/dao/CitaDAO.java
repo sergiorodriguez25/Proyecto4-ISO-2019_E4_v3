@@ -55,4 +55,9 @@ public class CitaDAO {
 		return lista;
 	}
 
+	public static ArrayList<Cita> getCitasPorFecha(String fecha) {
+		ArrayList<Cita> citas = DBBroker.get().getCitaPorFecha(fecha);
+		return citas;
+	}
+
 }

@@ -32,6 +32,8 @@ import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
 
+import gherkin.deps.com.google.gson.JsonObject;
+
 @Component
 public class Manager {
 	private ConcurrentHashMap<String, Usuario> usuarios;
@@ -346,6 +348,41 @@ public class Manager {
 	public static void guardarNuevoGestor(String dniNuevoGestor, String centro) {
 		GestorDAO.insertar(dniNuevoGestor, centro);
 		
+	}
+
+	public static JSONObject getCitasPorFecha(String fecha) {
+		ArrayList<Cita> lista = CitaDAO.getCitasPorFecha(fecha);
+		JSONObject jsoResultado = new JSONObject();
+		ArrayList<JSONObject> list = new ArrayList<JSONObject>();
+		for(int i=0; i<lista.size(); i++) {
+			Cita cita = lista.get(i);
+			String dniMedico = cita.getDniMedico();
+			String dniPaciente = cita.getDniPaciente();
+			Usuario usuMed = new Usuario();
+			Usuario usuPac = new Usuario();
+			try {
+				usuMed = UsuarioDAO.getUsuario(dniMedico);
+				usuPac = UsuarioDAO.getUsuario(dniPaciente);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			JSONObject jsoCita = new JSONObject();
+			jsoCita.put("dia", lista.get(i).getDia());
+			jsoCita.put("hora", lista.get(i).getHora());
+			jsoCita.put("dniMedico", usuMed.getDNI());
+			jsoCita.put("nombreMedico", usuMed.getNombre());
+			jsoCita.put("apellidosMedico", usuMed.getApellidos());
+			jsoCita.put("dniPaciente", usuPac.getDNI());
+			jsoCita.put("nombrePaciente", usuPac.getNombre());
+			jsoCita.put("apellidosPaciente", usuPac.getApellidos());
+			list.add(jsoCita);
+		}
+		JSONObject jso = new JSONObject();
+		jso.put("Citas", list);
+		
+		return jso;
 	}
 
 }
