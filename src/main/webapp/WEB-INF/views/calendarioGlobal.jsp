@@ -218,17 +218,22 @@
 		console.log(jsoCitas.Citas.length);
 		if(document.getElementById("filas")!= null)
 			$('#listaCitas').empty();
-		for(var i=0; i<jsoCitas.Citas.length; i++){
-			var fecha = jsoCitas.Citas[i].dia;
-			var hora = jsoCitas.Citas[i].hora;
-			var nombreMedico = jsoCitas.Citas[i].nombreMedico;
-			var nombrePaciente = jsoCitas.Citas[i].nombrePaciente;
-			var apellidosMedico = jsoCitas.Citas[i].apellidosMedico;
-			var apellidosPaciente = jsoCitas.Citas[i].apellidosPaciente;
-			
-			
-			$('#listaCitas').append("<a id=filas class=list-group-item list-group-item-action flex-column align-items-start active><div class=d-flex w-100 justify-content-between><h5 class=mb-1>Día: "+fecha+", Hora: "+hora+"</h5></div><p class=mb-1>Dr. "+nombreMedico+" "+apellidosMedico+" tiene una cita con el/la paciente "+nombrePaciente+" "+apellidosPaciente+".</p></a>");
-		}	
+		
+		if(jsoCitas.Citas.length == 0)
+			$('#listaCitas').append("<a id=filas class=list-group-item list-group-item-action flex-column align-items-start active><div class=d-flex w-100 justify-content-between></div><p class=mb-1><b>No hay citas pendientes para este día.</b></p></a>");
+		else {
+			for(var i=0; i<jsoCitas.Citas.length; i++){
+				var fecha = jsoCitas.Citas[i].dia;
+				var hora = jsoCitas.Citas[i].hora;
+				var nombreMedico = jsoCitas.Citas[i].nombreMedico;
+				var nombrePaciente = jsoCitas.Citas[i].nombrePaciente;
+				var apellidosMedico = jsoCitas.Citas[i].apellidosMedico;
+				var apellidosPaciente = jsoCitas.Citas[i].apellidosPaciente;
+				
+				
+				$('#listaCitas').append("<a id=filas class=list-group-item list-group-item-action flex-column align-items-start active><div class=d-flex w-100 justify-content-between><h5 class=mb-1>Día: "+fecha+", Hora: "+hora+"</h5></div><p class=mb-1>Dr. "+nombreMedico+" "+apellidosMedico+" tiene una cita con el/la paciente "+nombrePaciente+" "+apellidosPaciente+".</p></a>");
+			}
+		}
 	}
 	
 	function CitasError(respuesta) {
