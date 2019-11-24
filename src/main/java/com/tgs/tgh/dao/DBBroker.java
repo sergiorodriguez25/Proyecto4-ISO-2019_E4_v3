@@ -340,4 +340,24 @@ public class DBBroker<T> {
 		
 	}
 
+	public ArrayList<Cita> getCitaPorFecha(String fecha) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("dia", new BsonString(fecha));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		ArrayList<Cita> list = new ArrayList<Cita>();
+		for (BsonDocument bso : iterator) {
+			Cita cita;
+			try {
+				cita = new Cita(Encriptador.desencriptar(bso.get("DNIPaciente").asString().getValue()), Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()),
+						fecha, bso.get("hora").asString().getValue());
+				list.add(cita);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		return list;
+	}
+
 }
