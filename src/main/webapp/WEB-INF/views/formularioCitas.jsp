@@ -174,6 +174,10 @@
 	</main>
 	<!-- /.container -->
 
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -216,6 +220,10 @@
 								});
 							}
 							cargarDatosFormulario();
+						   /*     console.log("jejejejej");
+						        console.log(JSON.parse(sessionStorage.horario));
+						        System.out.println("jajajaja");
+						        System.out.println(JSON.parse(sessionStorage.horario)); */
 							
 							
 		});
@@ -241,7 +249,7 @@
 	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
 	        	getDNIMedico(especialidadSeleccionada);
 	        });
-		});
+	    });
 		
 		$(document).ready(function(){
 	        $("#fecha_ini").change(function(){
@@ -267,6 +275,7 @@
 						numHoras++;
 					}
 				}
+				console.log("mirar");
 				console.log(numHoras);
 				var horasDisponibles = new Array(numHoras);
 				var k=0;
@@ -277,6 +286,7 @@
 						k++;
 					}
 				}
+				console.log("fin mirar");
 				//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
 				//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
 				//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
@@ -308,6 +318,8 @@
 						$('#noHayHora').css("color", "red");
 					}
 				}
+
+
 	        });
 		});
 		
@@ -406,19 +418,30 @@
 				});
 		}
 		
+		
+		//cuando elgies especialidad se actualiza aqui
 		function solicitarOK(respuesta){
+			console.log("k pasa amigo");
 			console.log(respuesta);
 			var jsoHorarioM = JSON.parse(respuesta);
 			console.log(jsoHorarioM);
 			console.log(jsoHorarioM.horarioMedico.horario);
+			//console.log(jsoHorarioM.horarioMedico.horario[0][0]);
+			console.log("longitud "+jsoHorarioM.horarioMedico.horario.length);
 			var arrayHorario = jsoHorarioM.horarioMedico.horario;
+			console.log("longitud "+arrayHorario.length);
 			document.getElementById("fecha_ini").disabled=false;
 			sessionStorage.horario=JSON.stringify(jsoHorarioM);
+			diasDesactivados('3');
+			console.log("fin k pasa amigo");
 		}
 		
 		function solicitarError(error){
 			console.log(error);
 		}
+		
+	
+	
 		
 		function cargarDatosFormulario() {
 			var select = document.getElementById("especialidad");
@@ -504,14 +527,113 @@
 			return 0;
 		}
 
-		$('#fecha_ini').datepicker({
+		
+		
+		//cambiar los calendarios de todas las vistas, no solo esta
+		
+		
+		
+		//var disabledDates = ['28/11/2019','02/12/2019'];
+		
+		//sessionStorage.horario
+		
+		//disabledDays = '23';
+		
+		
+		function disabledDays() {
+			console.log("holi");
+			console.log(sessionStorage.horario);
+			//console.log(sessionStorage.horario[0][0]);
+			return '13456';
+		}
+		
+		function diasDesactivados(numero){
+			console.log("actualizar");
+			console.log("numero "+ numero);
+			
+			var diasDesact = '2';
+			if (numero == '3'){	
+				console.log('dentro if');
+				diasDesact = '4';
+				console.log(diasDesact);
+			}
+			console.log("dias " +diasDesact);
+			
+  			$('#fecha_ini').datepicker({
+				format : "dd/mm/yyyy",
+				startDate : 'd',
+				endDate : "31/12/2022",
+				todayBtn : "linked",
+				language : "es",
+				todayHighlight : true,
+				weekStart : '1',
+				daysOfWeekDisabled : '25',
+				daysOfWeekHighlighted : '6',
+  			});
+/* 			}).then(function() {
+				window.location.href = "/citas";
+			});
+  			 */
+  			location.reload(true);
+  			
+
+			
+			console.log("fin actualizarrrrrrr");
+			
+			return diasDesact;
+		}
+		
+		
+		
+		
+ 		$('#fecha_ini').datepicker({
 			format : "dd/mm/yyyy",
 			startDate : 'd',
-			endDate : "31/12/2020",
+			endDate : "31/12/2022",
 			todayBtn : "linked",
 			language : "es",
-			todayHighlight : true
+			todayHighlight : true,
+			weekStart : '1',
+			
+			//daysOfWeekHighlighted : '2',
+			
+			//daysOfWeekDisabled : disabledDays(),
+			//daysOfWeekDisabled : diasDesactivados('2'),
+			
+			daysOfWeekHighlighted : '3',
+			
+			//datesDisabled: disabledDates
 		});
+		 
+		
+		
+		
+		
+		
+		
+/*         var today               = new Date();
+        var today_formatted     = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+('0'+today.getDate()).slice(-2);
+        var user_busy_days      = ['2017-12-09','2017-12-16','2017-12-19'];
+
+
+
+        $('#fecha_ini').datepicker({
+            inline: true,
+            sideBySide: true,
+            beforeShowDay: function (date) {
+
+                calender_date = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+('0'+date.getDate()).slice(-2);
+
+                var search_index = $.inArray(calender_date, user_busy_days);
+
+                if (search_index > -1) {
+                    return {classes: 'non-highlighted-cal-dates', tooltip: 'User available on this day.'};
+                }else{
+                    return {classes: 'highlighted-cal-dates', tooltip: 'User not available on this day.'};
+                }
+
+            }
+        }); */
 	</script>
 </body>
 </html>
