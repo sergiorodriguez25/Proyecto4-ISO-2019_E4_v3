@@ -276,6 +276,22 @@ public class DBBroker<T> {
 		}
 		return grupo;
 	}
+	
+	public void insertGrupoMedico(String paciente, String medico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(paciente)));
+		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(medico)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("GruposMedicos", BsonDocument.class);
+		collection.insertOne(criterion);
+	}
+	
+	public void deleteGrupoMedico(String paciente, String medico) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNIPaciente", new BsonString(Encriptador.encriptar(paciente)));
+		criterion.append("DNIMedico", new BsonString(Encriptador.encriptar(medico)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("GruposMedicos", BsonDocument.class);
+		collection.deleteOne(criterion);
+	}
 
 	public void eliminarHoraMedico(String dia, String hora, String dniMedico) {
 		BsonDocument criterion = new BsonDocument();
