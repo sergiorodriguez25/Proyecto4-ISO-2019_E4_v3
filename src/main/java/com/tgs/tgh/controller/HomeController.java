@@ -305,4 +305,16 @@ public class HomeController {
 		
 		return resultado.toString();
 	}
+	
+	@RequestMapping(value = "/medicoGestor", method = RequestMethod.GET)
+	public String medicoGestor() {
+
+		return "medicoGestor";
+	}
+	
+	@RequestMapping(value = "/citasGestor", method = RequestMethod.GET)
+	public String citasGestor() {
+
+		return "citasGestor";
+	}
 }
