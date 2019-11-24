@@ -237,7 +237,7 @@ public class Manager {
 		return jsoHoras;
 	}
 
-	public static JSONObject getTodosUsuario() throws Exception {
+	public JSONObject getTodosUsuario() throws Exception {
 		ArrayList<Usuario> lista = GestorDAO.getTodosUsuarios();
 		ArrayList<Paciente> listaPac = new ArrayList<Paciente>();
 		ArrayList<Medico> listaMed = new ArrayList<Medico>();
