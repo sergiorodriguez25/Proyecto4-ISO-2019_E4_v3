@@ -198,7 +198,9 @@
 							 */
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/citas'
-									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+									&& referrer != 'https://the-good-health.herokuapp.com/citas'
+										&& referrer != 'http://localhost:8080/citasGestor'
+										&& referrer != 'https://the-good-health.herokuapp.com/citasGestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
@@ -481,7 +483,11 @@
 				text : "Has modificado la cita",
 				icon : "success",
 			}).then(function() {
-				window.location.href = "/citas";
+				var referrer = document.referrer;
+				if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor")
+					window.location.href = "/citasGestor";
+				else
+					window.location.href = "/citas";
 			});
 		}
 

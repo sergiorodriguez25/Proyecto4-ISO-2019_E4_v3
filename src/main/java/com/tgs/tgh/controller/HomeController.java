@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mongodb.util.JSON;
 import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.web.Manager;
 
 /**
@@ -177,11 +178,17 @@ public class HomeController {
 	@ResponseBody
 	public String gestor(@RequestBody Map<String, String> jso) throws Exception {
 		System.out.println(jso);
+		JSONObject jsorespuesta = new JSONObject();
 		if(jso.get("tipo").equals("getAllUser")) {
-			JSONObject jsorespuesta = Manager.get().getTodosUsuario();
-			return jsorespuesta.toString();
+			jsorespuesta = Manager.get().getTodosUsuario();
 		}
-		return "";
+		else if(jso.get("tipo").equals("getGrupoMedico")) {
+			String dni = jso.get("dni");
+			GrupoMedico grupoM = Manager.get().getGrupoMedico(dni);
+			jsorespuesta.put("DNI", grupoM.getDniPaciente());
+			jsorespuesta.put("Grupo", grupoM.getListaMedicos());
+		}
+		return jsorespuesta.toString();
 	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
@@ -316,5 +323,26 @@ public class HomeController {
 	public String citasGestor() {
 
 		return "citasGestor";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/citasGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String citasGestor(@RequestBody Map<String, String> jso) throws Throwable {
+		String dni = jso.get("DNI");
+		JSONArray jsorespuesta = new JSONArray();
+		if (jso.get("tipo").equals("mostrar")) {
+			jsorespuesta = Manager.get().getCitas(dni);
+			
+		}else if (jso.get("tipo").equals("eliminar")) {
+			String hora = jso.get("hora");
+			String dia = jso.get("dia");
+			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
+			System.out.println("OOOOOOOOOOO");
+			System.out.println(cita.getDia() + cita.getDniMedico() + cita.getDniPaciente() + cita.getHora());
+			Manager.get().eliminarCita(cita);
+			return "";
+		}
+		return jsorespuesta.toString();
 	}
 }
