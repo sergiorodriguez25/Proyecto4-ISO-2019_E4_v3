@@ -1,7 +1,9 @@
 package com.tgs.tgh.stepDefinition;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +15,7 @@ import com.tgs.tgh.dao.PacienteDAO;
 import com.tgs.tgh.dao.UsuarioDAO;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
+import com.tgs.tgh.web.Manager;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -22,6 +25,7 @@ import cucumber.api.java.en.When;
 public class VisualizacionCalendarioUsuariosSteps {
 
 	ChromeDriver driver = WebDriver.webDriver;
+	JSONObject usuarios;
 
 	@Given("^Se registra un gestor$")
 	public void se_registra_un_gestor() throws Throwable {
@@ -55,14 +59,12 @@ public class VisualizacionCalendarioUsuariosSteps {
 
 	@When("^Solicitamos los usuarios$")
 	public void solicitamos_los_usuarios() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		usuarios = Manager.get().getTodosUsuario();
 	}
 
 	@Then("^Se obtienen todos los usuarios$")
 	public void se_obtienen_todos_los_usuarios() throws Throwable {
-		// Write code here that turns the phrase above into concrete actions
-		throw new PendingException();
+		assertNotNull(usuarios.get("Pacientes"));
 	}
 
 	@When("^Se selecciona un paciente$")

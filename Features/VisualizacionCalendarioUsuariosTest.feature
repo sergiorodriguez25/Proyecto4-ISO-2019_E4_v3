@@ -17,11 +17,15 @@ Feature: Comprobar el correcto funcionamiento de la visualizacion del calendario
     
   @Scenario3
   Scenario: Al seleccionar un paciente se muestra la vista del paciente
+  	Given Se registra el usuario
     When Se selecciona un paciente
     Then Se abre la pagina de citas
+    And Se elimina el usuario
     
   @Scenario4
   Scenario: Al seleccionar un medico se muestra la vista del medico
+  	Given Se registra un medico
     When Se selecciona un medico
     Then Se abre la pagina de medico
     And Se elimina el gestor
+    And Se elimina el medico
