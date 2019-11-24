@@ -127,7 +127,7 @@
 				<br></br>
 			</div>
 			</div>
-			<div class="container center">
+				<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'> 
 					<div class="col-md-6 mb-3">
@@ -136,6 +136,7 @@
 							<option selected="selected" disabled=true></option>
 						</select>
 					</div>
+					<label id="labelEspecialidadMal"></label>
 					<br></br>
 					
 					<label for="diasSemana">Seleccione los días que va a trabajar</label> 
@@ -184,16 +185,18 @@
 						  </label>
 						</div>
 					</div>
+					<label id="labelDiaMal"></label>
 					</div>
+					
 					<br></br>
 
 					<label for="horas">Seleccione el horario laboral</label> 
 					<div class="col-md-6 mb-3">
-						<div class="input-group">
+						<div class="input-group">	
 				          <input name="horaIni" id="horaInicio" type="text" required class="form-control" placeholder="Hora de Inicio 00:00">
 				          <input name="horaFin" id="horaFin" type="text" required class="form-control" placeholder="Hora de Fin 00:00">
 				        </div>
-							
+				        <label id="labelHoraMal"></label>
 							<br></br>
 
 							<hr class="mb-4">
@@ -295,48 +298,158 @@
 			}
 		}
 		
+		function comprobarValidezDatos() {
+			var cuenta = 0;
+			document.getElementById("labelEspecialidadMal").style.display = 'none';
+			document.getElementById("labelDiaMal").style.display = 'none';
+			document.getElementById("labelHoraMal").style.display = 'none';
+			cuenta = comprobarEspecialidad();
+			cuenta = comprobarDia() + cuenta;
+			cuenta = comprobarValidezHora(document.getElementById("horaInicio").value) + cuenta;
+			cuenta = comprobarValidezHora(document.getElementById("horaFin").value) + cuenta;
+			console.log(cuenta);
+			return cuenta;
+		}
+		
+		function comprobarEspecialidad() {
+			if (document.getElementById("especialidad").value == ""){
+  	       	    document.getElementById("labelEspecialidadMal").style.display = 'inline';
+	       	    $('#labelEspecialidadMal').html("Debe seleccionar una especialidad");
+	       	    $('#labelEspecialidadMal').css("color", "red");
+	       	    return 1;
+			}
+			return 0;
+		}
+		
+		function comprobarDia() {
+			if( $('#lunes').is(':checked') == false && $('#martes').is(':checked') == false && $('#miercoles').is(':checked') == false && 
+					$('#jueves').is(':checked') == false && $('#viernes').is(':checked') == false && $('#sabado').is(':checked') == false &&
+					$('#domingo').is(':checked') == false) {
+  	       	    document.getElementById("labelDiaMal").style.display = 'inline';
+	       	    $('#labelDiaMal').html("Debe seleccionar al menos un dia");
+	       	    $('#labelDiaMal').css("color", "red");
+	       	    return 1;
+			}
+			return 0;
+		}
+		
+		function comprobarValidezHora(hora) {
+      		
+			if (hora == '') {
+  	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+	       	    $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+	       	    $('#labelHoraMal').css("color", "red");
+	       	    return 1;
+      		}
+      		
+      		if (hora.length != 5) {
+      			console.log("hora mala");
+  	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+	       	    $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+	       	    $('#labelHoraMal').css("color", "red");
+	       	    return 1;
+      		}
+      		
+       		for(i=0; i<hora.length; i++){
+       	      switch ( i ) {
+       	      case 0:
+    				if (hora.charAt(i) != "0" && hora.charAt(i) != "1" && hora.charAt(i) != "2" ) {
+      					console.log("hora mala se pasa del dos");
+          	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+      	       	        $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+      	       	        $('#labelHoraMal').css("color", "red");
+      	       	        return 1;
+      				}
+       	           break;
+       	      case 1:
+    				if (hora.charAt(i) != "0" && hora.charAt(i) != "1" && hora.charAt(i) != "2" && hora.charAt(i) != "3" && hora.charAt(i) != "4" && 
+      						hora.charAt(i) != "5" && hora.charAt(i) != "6" && hora.charAt(i) != "7" && hora.charAt(i) != "8" && hora.charAt(i) != "9") {
+      					console.log("hora mala 1 se pasa del dos");
+          	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+      	       	        $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+      	       	        $('#labelHoraMal').css("color", "red");
+      	       	        return 1;
+      				}
+      	           break;
+       	      case 2:
+    				if (hora.charAt(i) != ":") {
+      					console.log("hora mala no hay dos puntso");
+          	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+      	       	        $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+      	       	        $('#labelHoraMal').css("color", "red");
+      	       	        return 1;
+      				}
+      	           break;
+       	      case 3:
+  				if (hora.charAt(i) != "0" && hora.charAt(i) != "1" && hora.charAt(i) != "2" && hora.charAt(i) != "3" && hora.charAt(i) != "4" && hora.charAt(i) != "5") {
+  					console.log("hora mala 3 se pasa del dos");
+      	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+  	       	        $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+  	       	        $('#labelHoraMal').css("color", "red");
+  	       	        return 1;
+  				}
+  	           break;
+       	      case 4:
+  				if (hora.charAt(i) != "0" && hora.charAt(i) != "1" && hora.charAt(i) != "2" && hora.charAt(i) != "3" && hora.charAt(i) != "4" && 
+  						hora.charAt(i) != "5" && hora.charAt(i) != "6" && hora.charAt(i) != "7" && hora.charAt(i) != "8" && hora.charAt(i) != "9") {
+  					console.log("hora mala 4 se pasa del dos");
+      	       	    document.getElementById("labelHoraMal").style.display = 'inline';
+  	       	        $('#labelHoraMal').html("La hora no es válida, debe estar en formato 00:00");
+  	       	        $('#labelHoraMal').css("color", "red");
+  	       	        return 1;
+  				}
+  	           break;
+       	      }
+
+      		}
+      		return 0;
+ 
+		}
+		
 		$(document).ready(function(){
 			$('#confirmarMedico').click(function(event) {
-				console.log(document.getElementById("especialidad").value);
-				var especialidadSelecc = (document.getElementById("especialidad").value);
-				var diasSelecc = new Array();
-				var i=0;
-				if( $('#lunes').is(':checked') ) {
-					diasSelecc[i]='Lunes';
-					i++;
-				}
-				if( $('#martes').is(':checked') ) {
-					diasSelecc[i]='Martes';
-					i++;
-				}
-				if( $('#miercoles').is(':checked') ) {
-					diasSelecc[i]='Miércoles';
-					i++;
-				}
-				if( $('#jueves').is(':checked') ) {
-					diasSelecc[i]='Jueves';
-					i++;
-				}
-				if( $('#viernes').is(':checked') ) {
-					diasSelecc[i]='Viernes';
-					i++;
-				}
-				if( $('#sabado').is(':checked') ) {
-					diasSelecc[i]='Sábado';
-					i++;
-				}
-				if( $('#domingo').is(':checked') ) {
-					diasSelecc[i]='Domingo';
-					i++;
-				}
-				console.log(diasSelecc);
+				if (comprobarValidezDatos() == 0){
+					console.log(document.getElementById("especialidad").value);
+					var especialidadSelecc = (document.getElementById("especialidad").value);
+					var diasSelecc = new Array();
+					var i=0;
+					if( $('#lunes').is(':checked') ) {
+						diasSelecc[i]='Lunes';
+						i++;
+					}
+					if( $('#martes').is(':checked') ) {
+						diasSelecc[i]='Martes';
+						i++;
+					}
+					if( $('#miercoles').is(':checked') ) {
+						diasSelecc[i]='Miércoles';
+						i++;
+					}
+					if( $('#jueves').is(':checked') ) {
+						diasSelecc[i]='Jueves';
+						i++;
+					}
+					if( $('#viernes').is(':checked') ) {
+						diasSelecc[i]='Viernes';
+						i++;
+					}	
+					if( $('#sabado').is(':checked') ) {
+						diasSelecc[i]='Sábado';
+						i++;
+					}
+					if( $('#domingo').is(':checked') ) {
+						diasSelecc[i]='Domingo';
+						i++;
+					}
+					console.log(diasSelecc);
 				
-				var horaInicio = (document.getElementById("horaInicio").value);
-				var horaFin = (document.getElementById("horaFin").value);
-				console.log(horaInicio);
-				console.log(horaFin);
+					var horaInicio = (document.getElementById("horaInicio").value);
+					var horaFin = (document.getElementById("horaFin").value);
+					console.log(horaInicio);
+					console.log(horaFin);
 				
-				enviarDatos(especialidadSelecc, diasSelecc, horaInicio, horaFin);
+					enviarDatos(especialidadSelecc, diasSelecc, horaInicio, horaFin);
+				}
 			});
 		});
 
