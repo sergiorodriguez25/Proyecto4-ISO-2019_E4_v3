@@ -221,7 +221,14 @@ public class HomeController {
 			JSONObject jsorespuesta = Manager.get().getMedicosCentro(jso.get("centroMedico"));
 			return jsorespuesta.toString();
 		} else if (jso.get("tipo").equals("modificarCentro")) {
-			System.out.println(jso);
+			String dniPaciente = jso.get("dni");
+			String centro = jso.get("centro");
+			String grupo = jso.get("grupo");
+			grupo = grupo.replace("[", "");
+			grupo = grupo.replace("]", "");
+			grupo = grupo.replace("\"", "");
+			String[] grupoMedico = grupo.split(",");
+			Manager.get().anadirCentroYGrupoMedico(dniPaciente, centro, grupoMedico);
 		}
 		return "";
 	}

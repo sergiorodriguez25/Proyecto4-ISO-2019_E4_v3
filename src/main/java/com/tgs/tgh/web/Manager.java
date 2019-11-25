@@ -1,7 +1,6 @@
 package com.tgs.tgh.web;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -267,6 +266,10 @@ public class Manager {
 		}
 		respuesta.put("Medicos", listaMed);
 		return respuesta;
+	}
+
+	public void anadirCentroYGrupoMedico(String dniPaciente, String centro, String[] grupoMedico) {
+		
 	}
 
 }
