@@ -55,7 +55,7 @@ public class VisualizacionCalendarioUsuariosSteps {
 
 	@Then("^Se muestran todos los usuarios del sistema$")
 	public void se_muestran_todos_los_usuarios_del_sistema() throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.textToBePresentInElement(driver.findElementById("nombreApellidos"),
 				"Gestor Prueba"));
 		driver.findElementByXPath("//*[@id=\"pestanas\"]/li[2]/a").click();

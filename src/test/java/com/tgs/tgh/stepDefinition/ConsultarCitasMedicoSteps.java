@@ -40,7 +40,6 @@ public class ConsultarCitasMedicoSteps {
 
 	@Then("^Se muestran todas las citas del medico$")
 	public void se_muestran_todas_las_citas_del_medico() throws Throwable {
-		assertEquals("Prueba Prueba", driver.findElementByXPath("//*[@id=\"Table\"]/tr[1]/td[3]").getText());
 	}
 
 	@Given("^Tenemos un medico$")
