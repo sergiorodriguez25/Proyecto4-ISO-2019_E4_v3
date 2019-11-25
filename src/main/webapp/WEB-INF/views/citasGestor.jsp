@@ -58,7 +58,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="#">THE GOOD HEALTH</a>
+		<a class="navbar-brand" href="/gestor">THE GOOD HEALTH</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExampleDefault"
 			aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -71,8 +71,6 @@
 				<li class="nav-item active"><a class="nav-link" href="#">Citas
 						Paciente <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#" tabindex="-1"
-					aria-disabled="true">Paciente</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
