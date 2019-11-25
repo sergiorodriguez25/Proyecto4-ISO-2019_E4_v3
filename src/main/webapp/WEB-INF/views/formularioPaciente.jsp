@@ -118,7 +118,8 @@
 										Se encuentra en la página de gestión de especialistas, asigne
 										el o los distintos especialistas del paciente seleccionado.
 										Para obtener información sobre el uso de las diferentes
-										funcionalidades de las que dispone presione el siguiente botón: </br></br>
+										funcionalidades de las que dispone presione el siguiente
+										botón: </br> </br>
 										<button type="button" class="btn btn-primary"
 											data-toggle="modal" data-target="#exampleModalLong">
 											Información</button>
@@ -169,10 +170,9 @@
 						</div>
 					</div>
 				</div>
-				<p>
-					<b>Seleccione el especialista que quiere asignar, una vez haya terminado pulse el botón</b> <a
-					href="/gestor" class="btn btn-success btn-large"
-					type="submit">Aceptar</a>
+				<p align="center">
+					<b>Seleccione el especialista que quiere asignar, una vez haya
+						terminado pulse el botón</b>
 				</p>
 				<br>
 				<div class="container" id="myGroup">
@@ -332,6 +332,27 @@
 							</div>
 						</div>
 					</div>
+					<p align='center'>
+						<b>Especialistas Elegidos</b>
+					</p>
+					<div>
+						<table id="TablaElegidos" class="table table">
+							<thead>
+								<tr class="table-primary">
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div align='center'>
+						<div class="col-md-6 mb-3">
+							<label id="noHaySeleccionados">No hay especialistas
+								seleccionados.</label>
+						</div>
+					</div>
+					<div align="center">
+						<a href="/gestor" class="btn btn-success btn-large" type="submit">Aceptar</a>
+					</div>
+					<br></br>
 				</div>
 			</div>
 		</div>
@@ -356,6 +377,8 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
+		var elegidos = [];
+
 		jQuery(document)
 				.ready(
 						function($) {
@@ -375,7 +398,6 @@
 								forma.action = "/error";
 								forma.submit();
 							}
-							//     		getParametersURL();
 
 							ponerNombreApellidos();
 
@@ -412,8 +434,7 @@
 
 		function MedicosOK(respuesta) {
 			var jsoMedicos = JSON.parse(respuesta);
-
-			console.log(jsoMedicos.Medicos);
+			sessionStorage.listaMedicosEsp = JSON.stringify(jsoMedicos);
 
 			var podologos = medicosEspecialidad(jsoMedicos.Medicos, "Podólogo");
 			if (podologos.length == 0)
@@ -440,21 +461,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var cabecera = medicosEspecialidad(jsoMedicos.Medicos, "Médico de Cabecera");
+			var cabecera = medicosEspecialidad(jsoMedicos.Medicos,
+					"Médico de Cabecera");
 			if (cabecera.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -479,21 +492,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var traumatologos = medicosEspecialidad(jsoMedicos.Medicos, "Traumatólogo");
+			var traumatologos = medicosEspecialidad(jsoMedicos.Medicos,
+					"Traumatólogo");
 			if (traumatologos.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -518,21 +523,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var alergologos = medicosEspecialidad(jsoMedicos.Medicos, "Alergología");
+			var alergologos = medicosEspecialidad(jsoMedicos.Medicos,
+					"Alergología");
 			if (alergologos.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -557,21 +554,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var geriatrias = medicosEspecialidad(jsoMedicos.Medicos, "Geriatría");
+			var geriatrias = medicosEspecialidad(jsoMedicos.Medicos,
+					"Geriatría");
 			if (geriatrias.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -596,21 +585,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var enfermeros = medicosEspecialidad(jsoMedicos.Medicos, "Enfermería");
+			var enfermeros = medicosEspecialidad(jsoMedicos.Medicos,
+					"Enfermería");
 			if (enfermeros.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -635,16 +616,7 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
@@ -674,21 +646,13 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
 
-			var psiquiatras = medicosEspecialidad(jsoMedicos.Medicos, "Psiquiatría");
+			var psiquiatras = medicosEspecialidad(jsoMedicos.Medicos,
+					"Psiquiatría");
 			if (psiquiatras.length == 0)
 				$('#noHayEspecialistas')
 						.html(
@@ -713,16 +677,7 @@
 											+ '<button id=\'asignarEspecialista'
 											+ i
 											+ '\' class=\'btn btn-primary \' onClick="funcionAsignarEspecialista(this)">'
-											+ '+'
-											+ '</button> '
-											+ '</td>'
-											+ '<td align="center" style="dislay: none;">'
-											+ '<button id=\'eliminarEspecialista'
-											+ i
-											+ '\' class=\'btn btn-primary \' disabled onClick="funcioneliminarEspecialista(this)">'
-											+ '-'
-											+ '</button> '
-											+ '</td>'
+											+ '+' + '</button> ' + '</td>'
 											+ '</td>+</tr>');
 				}
 			}
@@ -737,13 +692,45 @@
 			}
 			return medicosEsp;
 		}
-		
+
 		function funcionAsignarEspecialista(boton) {
-			
+			var hijos = boton.parentNode.parentNode.parentNode.children;
+			for (var i = 1; i < hijos.length; i++) {
+				hijos[i].children[3].firstElementChild.disabled = true;
+			}
+			document.getElementById('noHaySeleccionados').innerHTML = "";
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			elegidos.push(dni);
+			var jsoLista = JSON.parse(sessionStorage.listaMedicosEsp);
+			for (var i = 0; i < jsoLista.Medicos.length; i++) {
+				if (dni == jsoLista.Medicos[i].DNI) {
+					var especialidad = jsoLista.Medicos[i].especialidad;
+				}
+			}
+
+			$("#TablaElegidos")
+					.append(
+							'<tr>'
+									+ '<td align="center" style="dislay: none;">'
+									+ '<label id=\'label0\'>'
+									+ dni
+									+ '</label>'
+									+ '</td>'
+									+ '<td align="center" style="dislay: none;">'
+									+ especialidad
+									+ '</td>'
+									+ '<td align="center" style="dislay: none;">'
+									+ '<button id=\'eliminarEspecialista\' class=\'btn btn-primary \' onClick="funcioneliminarEspecialista(this)">'
+									+ '-' + '</button> ' + '</td></tr>');
 		}
-		
+
 		function funcioneliminarEspecialista(boton) {
-			
+			console.log(boton.parentNode.parentNode.parentNode.children.length);
+			if(boton.parentNode.parentNode.parentNode.children.length == 2){
+				document.getElementById('noHaySeleccionados').innerHTML = "No hay especialistas seleccionados.";
+			}
+			var fila = boton.parentNode.parentNode.rowIndex;
+			document.getElementById('TablaElegidos').deleteRow(fila);
 		}
 
 		function UsuariosError(e) {
@@ -752,7 +739,6 @@
 
 		function ponerNombreApellidos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
-			console.log(jsoUser.resultado.usuario.nombre);
 			$('#nombreApellidos').html(
 					jsoUser.resultado.usuario.nombre + " "
 							+ jsoUser.resultado.usuario.apellidos);
