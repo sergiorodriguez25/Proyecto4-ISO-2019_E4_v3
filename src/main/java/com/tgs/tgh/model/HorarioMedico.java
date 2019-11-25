@@ -6,9 +6,9 @@ import java.util.List;
 public class HorarioMedico {
 
 	String dni;
-	ArrayList horario;
+	ArrayList<String[]> horario;
 
-	public HorarioMedico(String dni, ArrayList horario) {
+	public HorarioMedico(String dni, ArrayList<String[]> horario) {
 		this.dni = dni;
 		this.horario = horario;
 	}
@@ -21,11 +21,11 @@ public class HorarioMedico {
 		this.dni = dni;
 	}
 
-	public ArrayList getHorario() {
+	public ArrayList<String[]> getHorario() {
 		return horario;
 	}
 
-	public void setHorario(ArrayList horario) {
+	public void setHorario(ArrayList<String[]> horario) {
 		this.horario = horario;
 	}
 

@@ -46,6 +46,11 @@ public class GestorDAO {
 		}
 		return lista;
 	}
+
+	public static void insertar(String dniNuevoGestor, String centro) {
+		DBBroker.get().insertarGestor(dniNuevoGestor, centro);
+		
+	}
 	
 	@SuppressWarnings("unchecked")
 	public static ArrayList<String[]> getMedicosCentro(String centroMedico) throws Exception{

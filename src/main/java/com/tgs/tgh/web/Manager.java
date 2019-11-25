@@ -1,6 +1,12 @@
 package com.tgs.tgh.web;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -11,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import com.tgs.tgh.dao.CitaDAO;
+import com.tgs.tgh.dao.EspecialidadDAO;
 import com.tgs.tgh.dao.GestorDAO;
 import com.tgs.tgh.dao.GrupoMedicoDAO;
 import com.tgs.tgh.dao.HorarioMedicoDAO;
@@ -24,6 +31,8 @@ import com.tgs.tgh.model.HorarioMedico;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.model.Paciente;
 import com.tgs.tgh.model.Usuario;
+
+import gherkin.deps.com.google.gson.JsonObject;
 
 @Component
 public class Manager {
@@ -269,7 +278,128 @@ public class Manager {
 	}
 
 	public void anadirCentroYGrupoMedico(String dniPaciente, String centro, String[] grupoMedico) {
+
+	}
+
+	public static JSONObject getEspecialidades() {
+		ArrayList<String[]> lista = EspecialidadDAO.getEspecialidades();
+		JSONObject jsoEspecialidades = new JSONObject();
+		jsoEspecialidades.put("Especialidades", lista);
+		return jsoEspecialidades;
+	}
+
+	public JSONObject guardarNuevoMedico(String dni, String especialidad, String horaIni, String horaFin,
+			String[] diasElegidos, String centroMedico) {
+
+		MedicoDAO.registro(dni, especialidad, centroMedico);
+		String duracion = EspecialidadDAO.getDuracion(especialidad);
+		int duracionInt = Integer.parseInt(duracion);
+
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		Date dateIni = new Date();
+		Date dateFin = new Date();
+		try {
+			dateIni = format.parse(horaIni);
+			System.out.println(dateIni);
+			dateFin = format.parse(horaFin);
+			System.out.println(dateFin);
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar calendarFin = GregorianCalendar.getInstance();
+		calendarFin.setTime(dateFin);
+		int hourFin = calendarFin.get(Calendar.HOUR_OF_DAY);
+		int minFin = calendarFin.get(Calendar.MINUTE);
+		System.out.println(hourFin + " " + minFin);
+		Calendar calendarPonerPrimeraHora = GregorianCalendar.getInstance();
+		calendarPonerPrimeraHora.setTime(dateIni);
+		int hourFirst = calendarPonerPrimeraHora.get(Calendar.HOUR_OF_DAY);
+		int minFirst = calendarPonerPrimeraHora.get(Calendar.MINUTE);
+		String primeraHora = montarHoras(hourFirst, minFirst);
+		System.out.println(primeraHora);
+		for (int i = 0; i < diasElegidos.length; i++)
+			HorarioMedicoDAO.anadirHoraMedico(diasElegidos[i], primeraHora, dni);
+		int hour = 0;
+		int min = 0;
+		while (hour < hourFin || min < minFin) {
+
+			Calendar calendar = GregorianCalendar.getInstance();
+			calendar.setTime(dateIni);
+			calendar.add(Calendar.MINUTE, duracionInt);
+			Date fechaSalida = calendar.getTime();
+			calendar.setTime(fechaSalida);
+			hour = calendar.get(Calendar.HOUR_OF_DAY);
+			min = calendar.get(Calendar.MINUTE);
+			String nuevaHora = montarHoras(hour, min);
+			System.out.println(nuevaHora);
+			try {
+				dateIni = format.parse(nuevaHora);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			for (int j = 0; j < diasElegidos.length; j++)
+				HorarioMedicoDAO.anadirHoraMedico(diasElegidos[j], nuevaHora, dni);
+		}
+
+		JSONObject jsoEspecialidades = new JSONObject();
+		jsoEspecialidades.put("Insertar", "OK");
+		return jsoEspecialidades;
+	}
+
+	public static String montarHoras(int hour, int min) {
+		StringBuilder sb = new StringBuilder();
+		if (hour < 10) {
+			sb.append(0).append(hour);
+		} else {
+			sb.append(hour);
+		}
+		sb.append(":");
+		if (min < 10) {
+			sb.append(0).append(min);
+		} else {
+			sb.append(min);
+		}
+		return sb.toString();
+	}
+
+	public static void guardarNuevoGestor(String dniNuevoGestor, String centro) {
+		GestorDAO.insertar(dniNuevoGestor, centro);
+
+	}
+
+	public static JSONObject getCitasPorFecha(String fecha) {
+		ArrayList<Cita> lista = CitaDAO.getCitasPorFecha(fecha);
+		JSONObject jsoResultado = new JSONObject();
+		ArrayList<JSONObject> list = new ArrayList<JSONObject>();
+		for(int i=0; i<lista.size(); i++) {
+			Cita cita = lista.get(i);
+			String dniMedico = cita.getDniMedico();
+			String dniPaciente = cita.getDniPaciente();
+			Usuario usuMed = new Usuario();
+			Usuario usuPac = new Usuario();
+			try {
+				usuMed = UsuarioDAO.getUsuario(dniMedico);
+				usuPac = UsuarioDAO.getUsuario(dniPaciente);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			JSONObject jsoCita = new JSONObject();
+			jsoCita.put("dia", lista.get(i).getDia());
+			jsoCita.put("hora", lista.get(i).getHora());
+			jsoCita.put("dniMedico", usuMed.getDNI());
+			jsoCita.put("nombreMedico", usuMed.getNombre());
+			jsoCita.put("apellidosMedico", usuMed.getApellidos());
+			jsoCita.put("dniPaciente", usuPac.getDNI());
+			jsoCita.put("nombrePaciente", usuPac.getNombre());
+			jsoCita.put("apellidosPaciente", usuPac.getApellidos());
+			list.add(jsoCita);
+		}
+		JSONObject jso = new JSONObject();
+		jso.put("Citas", list);
 		
+		return jso;
 	}
 
 }

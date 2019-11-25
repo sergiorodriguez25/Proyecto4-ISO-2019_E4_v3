@@ -72,8 +72,7 @@
 						citas <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="/formularioCitas" tabindex="-1" aria-disabled="true">Pedir
-						cita</a></li>
+					href="#" tabindex="-1" aria-disabled="true">Paciente</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -105,28 +104,9 @@
 							<div class="card-body">
 								<h4>Mis Citas</h4>
 								<p>
-									Bienvenido/a a la página de "Mis citas" en la que aparecen
-									todas las citas que tiene programadas. Si desea modificar(<img
-										src="https://image.flaticon.com/icons/png/512/23/23187.png"
-										class="img-fluid rounded" width="25" height="25">) o
-									anular(<img
-										src="https://image.flaticon.com/icons/png/512/39/39220.png"
-										class="img-fluid rounded" width="25" height="25">) una
-									cita, pulse el botón de la acción que quiera realizar y que se
-									encuentra a la derecha de la cita con la que quiera
-									interactuar.
+									Ahora mismo se encuentra en la página de citas del paciente seleccionado.
 								</p>
 								<p>
-									Si desea pedir una cita pulse el botón <a
-									href="/formularioCitas" class="btn btn-primary btn-large"
-									type="submit">Pedir Cita</a>
-								</p>
-								<p id = "volverMedico">
-									Para volver a la interfaz de Médico pulse el botón <a
-									href="/medico" class="btn btn-primary btn-large"
-									type="submit">Médico</a>
-								</p>
-								<p id = "volverGestor">
 									Para volver a la página principal de Gestor pulse el botón <a
 									href="gestor" class="btn btn-primary btn-large"
 									type="submit">Gestor</a>
@@ -152,7 +132,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Lista de Citas</h2>
+ 					<h2 id="misCitas">Lista de Citas</h2>
 				</div>
 						<table id="Table" class="table">
 							<thead>
@@ -191,6 +171,9 @@
 
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {
+		var jsoPaciente = JSON.parse(sessionStorage.PacienteEdit);
+		var nombre = jsoPaciente.Paciente[0].nombre;
+		document.getElementById("misCitas").innerHTML = "Lista de Citas de "+nombre;
 		/*
 		 * Control para que no acceda a travis de la url a alguna página que no sea el home
 		 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -198,44 +181,17 @@
 		var referrer = document.referrer;
 		if (referrer != 'http://localhost:8080/'
 				&& referrer != 'https://the-good-health.herokuapp.com/'
-				&& referrer != 'http://localhost:8080/registro'
-				&& referrer != 'https://the-good-health.herokuapp.com/registro'
-				&& referrer != 'http://localhost:8080/formularioCitas'
-				&& referrer != 'https://the-good-health.herokuapp.com/formularioCitas'
-				&& referrer != 'http://localhost:8080/citas'
-				&& referrer != 'https://the-good-health.herokuapp.com/citas'
-				&& referrer != 'http://localhost:8080/medico'
-				&& referrer != 'https://the-good-health.herokuapp.com/medico'
 				&& referrer != 'http://localhost:8080/gestor'
 				&& referrer != 'https://the-good-health.herokuapp.com/gestor'
-				&& referrer != 'http://localhost:8080/formularioModificar'
-				&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'){
+					&& referrer != 'http://localhost:8080/formularioModificar'
+						&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'
+							&& referrer != 'http://localhost:8080/citasGestor'
+								&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'){
 			var forma = document.forms[0];
 			forma.action = "/error";
 			forma.submit();
 		}
 	});
-	
-		jQuery(document).ready(function($) {
-			
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var tipoUsuario = jsoUser.resultado.tipoUsuario;
-			
-			if(tipoUsuario != "Medico"){
-				$('#volverMedico').hide();
-			}
-		});
-		
-		jQuery(document).ready(function($) {
-			
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var tipoUsuario = jsoUser.resultado.tipoUsuario;
-			
-			if(tipoUsuario != "Gestor"){
-				$('#volverGestor').hide();
-			}
-		});
-
 	
 		jQuery(document).ready(function($) {
     		enviardni();
@@ -244,12 +200,12 @@
 		});
 		
 		function enviardni(){
-			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var jsoPaciente = JSON.parse(sessionStorage.PacienteEdit);
 			var data = {
-					DNI : jsoUser.resultado.usuario.dni,
+					DNI : jsoPaciente.Paciente[0].DNI,
 					tipo : "mostrar"
 				};
-				var url = "/citas";
+				var url = "/citasGestor";
 				var type = "POST";
 				var success;
 				var xhrFields;
@@ -276,7 +232,7 @@
 			var jsoCitas = JSON.parse(respuesta);
 			console.log(jsoCitas);
 			
-			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas pendientes");
+			if(jsoCitas.length==0) $('#noHayCitas').html("El paciente no tiene citas pendientes");
 			else{
 				for (i = 0; i < jsoCitas.length; i++){
 					var boton = document.createElement("modificarCita"+i);
@@ -298,16 +254,20 @@
 		}
 		
 		function funcionModificar(boton){
+			//Falta esto, igual que el eliminar hay que hacer
+			
 			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dniPaciente = jsoUser.resultado.usuario.dni;
+			var jsoUser = JSON.parse(sessionStorage.PacienteEdit);
+			var dniPaciente = jsoUser.Paciente[0].DNI;
+			var jsoGrupo = JSON.parse(sessionStorage.grupoMedPaciente);
+			var listaM = jsoGrupo.Grupo;
 			console.log(boton.parentNode.parentNode.children[3].innerHTML);
-			for(var i=0; i<jsoUser.resultado.grupoMedico.listaMedicos.length; i++){
-				if(boton.parentNode.parentNode.children[3].innerHTML == (jsoUser.resultado.grupoMedico.listaMedicos[i].nombre + " " +jsoUser.resultado.grupoMedico.listaMedicos[i].apellidos)){
-						var dniMedico = jsoUser.resultado.grupoMedico.listaMedicos[i].DNI;
-						var especialidad = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+			for(var i=0; i<listaM.length; i++){
+				if(boton.parentNode.parentNode.children[3].innerHTML == (listaM[i].nombre + " " +listaM[i].apellidos)){
+						var dniMedico = listaM[i].DNI;
+						var especialidad = listaM[i].especialidad;
 				}
 			}
 			var jsoModif={
@@ -315,6 +275,7 @@
 						{"dniPaciente":dniPaciente,"dia":dia,"hora":hora,"dniMedico":dniMedico,"especialidad":especialidad}
 					]
 			};
+			console.log(jsoModif);
 			sessionStorage.modificar=JSON.stringify(jsoModif);
 			console.log(jsoModif);
 			location.href="/formularioModificar";
@@ -327,9 +288,10 @@
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
 			var especialidad = boton.parentNode.parentNode.children[2].innerHTML;
 			console.log(especialidad);
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var listaMed = jsoUser.resultado.grupoMedico.listaMedicos;
+			var jsoUser = JSON.parse(sessionStorage.PacienteEdit);
+			var dni = jsoUser.Paciente[0].DNI;
+			var jsoGrupoM = JSON.parse(sessionStorage.grupoMedPaciente);
+			var listaMed = jsoGrupoM.Grupo;
 			for(var i=0; i<listaMed.length;i++){
 				if(listaMed[i].especialidad == especialidad){
 					var dniMedico = listaMed[i].DNI;
@@ -358,7 +320,7 @@
 				    swal("Cita eliminada correctamente", {
 				      icon: "success",
 				    }).then(function() {
-						window.location.href = "/citas";
+						window.location.href = "/citasGestor";
 					});
 				  } else {
 				    swal("La cita NO se ha eliminado", {
@@ -368,7 +330,7 @@
 		}
 		
 		function enviarEliminarCita(data) {
-			var url = "/citas";
+			var url = "/citasGestor";
 			var type = "POST";
 			var success;
 			var error;

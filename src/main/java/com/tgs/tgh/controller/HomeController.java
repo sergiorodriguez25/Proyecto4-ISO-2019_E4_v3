@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mongodb.util.JSON;
 import com.tgs.tgh.model.Cita;
+import com.tgs.tgh.model.GrupoMedico;
 import com.tgs.tgh.web.Manager;
 
 /**
@@ -174,12 +176,17 @@ public class HomeController {
 	@RequestMapping(value = "/gestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String gestor(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
-		if (jso.get("tipo").equals("getAllUser")) {
-			JSONObject jsorespuesta = Manager.get().getTodosUsuario();
-			return jsorespuesta.toString();
+		JSONObject jsorespuesta = new JSONObject();
+		if(jso.get("tipo").equals("getAllUser")) {
+			jsorespuesta = Manager.get().getTodosUsuario();
 		}
-		return "";
+		else if(jso.get("tipo").equals("getGrupoMedico")) {
+			String dni = jso.get("dni");
+			GrupoMedico grupoM = Manager.get().getGrupoMedico(dni);
+			jsorespuesta.put("DNI", grupoM.getDniPaciente());
+			jsorespuesta.put("Grupo", grupoM.getListaMedicos());
+		}
+		return jsorespuesta.toString();
 	}
 
 	@CrossOrigin(origins = "*", allowCredentials = "true")
@@ -256,5 +263,109 @@ public class HomeController {
 
 		return "";
 	}
+	
+	@RequestMapping(value = "/formularioTrabajador", method = RequestMethod.GET)
+	public String formTrabaj() {
 
+		return "formularioTrabajador";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioTrabajador", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formTrabaj(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		JSONObject resultado = new JSONObject();
+		if(jso.get("tipo").equals("solicitarEspecialidades")) {
+			resultado = Manager.get().getEspecialidades();
+		}
+		else if(jso.get("tipo").equals("enviarDatos")) {
+			String dni = jso.get("DNI");
+			String especialidad = jso.get("especialidad");
+			String horaIni = jso.get("horaInicio");
+			String horaFin = jso.get("horaFin");
+			String dias = jso.get("dias");
+			dias = dias.replace("[", "");
+			dias = dias.replace("]", "");
+			dias = dias.replace("\"", "");
+			System.out.println(dias);
+			String[] diasElegidos = dias.split(",");
+			System.out.println(diasElegidos[0]);
+			String centro = jso.get("centro");
+			System.out.println(centro);
+			resultado = Manager.get().guardarNuevoMedico(dni, especialidad, horaIni, horaFin, diasElegidos, centro);
+		}
+		return resultado.toString();
+	}
+	
+	@RequestMapping(value = "/formularioGestor", method = RequestMethod.GET)
+	public String formGestor() {
+
+		return "formularioGestor";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/formularioGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String formGestor(@RequestBody Map<String, String> jso) throws Exception {
+		System.out.println(jso);
+		String dniNuevoGestor = jso.get("DNI");
+		String centro = jso.get("centro");
+		Manager.get().guardarNuevoGestor(dniNuevoGestor, centro);
+		return "OK";
+	}
+	
+	@RequestMapping(value = "/calendarioGlobal", method = RequestMethod.GET)
+	public String calendario() {
+
+		return "calendarioGlobal";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/calendarioGlobal", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String calendario(@RequestBody Map<String, String> jso) throws Exception {
+		JSONObject resultado = new JSONObject();
+		if(jso.get("tipo").equals("getCitas")) {
+			String fecha = jso.get("fecha");
+			System.out.println(fecha);
+			resultado = Manager.getCitasPorFecha(fecha);
+			
+		}
+		
+		return resultado.toString();
+	}
+	
+	@RequestMapping(value = "/medicoGestor", method = RequestMethod.GET)
+	public String medicoGestor() {
+
+		return "medicoGestor";
+	}
+	
+	@RequestMapping(value = "/citasGestor", method = RequestMethod.GET)
+	public String citasGestor() {
+
+		return "citasGestor";
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/citasGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String citasGestor(@RequestBody Map<String, String> jso) throws Throwable {
+		String dni = jso.get("DNI");
+		JSONArray jsorespuesta = new JSONArray();
+		if (jso.get("tipo").equals("mostrar")) {
+			jsorespuesta = Manager.get().getCitas(dni);
+			
+		}else if (jso.get("tipo").equals("eliminar")) {
+			String hora = jso.get("hora");
+			String dia = jso.get("dia");
+			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
+			System.out.println("OOOOOOOOOOO");
+			System.out.println(cita.getDia() + cita.getDniMedico() + cita.getDniPaciente() + cita.getHora());
+			Manager.get().eliminarCita(cita);
+			return "";
+		}
+		return jsorespuesta.toString();
+	}
 }

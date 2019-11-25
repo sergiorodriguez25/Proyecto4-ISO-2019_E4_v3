@@ -71,6 +71,8 @@
 				<li class="nav-item active"><a class="nav-link" href="#">Funcionalidades<span
 						class="sr-only">(current)</span>
 				</a></li>
+				<li class="nav-item"><a class="nav-link" href="/calendarioGlobal" tabindex="-1" aria-disabled="true">Calendario
+				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -136,6 +138,7 @@
 							</div>
 						</div>
 					</div>
+					
 					<div class="col-md-1"></div>
 					<div class="col-md-3">
 						<div class="card">
@@ -254,7 +257,15 @@
 									&& referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
 									&& referrer != 'http://localhost:8080/formularioPaciente'
-									&& referrer != 'https://the-good-health.herokuapp.com/formularioPaciente') {
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioPaciente'
+									&& referrer != 'http://localhost:8080/citasGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'http://localhost:8080/medicoGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'http://localhost:8080/formularioTrabajador'
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioTrabajador'
+									&& referrer != 'http://localhost:8080/formularioGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/formularioGestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
@@ -306,15 +317,17 @@
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
 					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificarCentro'+i+'\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'+'Asignar Centro'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td></tr>');
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
 				}
 				
 				if(jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
 					$("#TablaUsuariosCentro").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajadorCM'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirTrabajador(this)">'+'Convertir en Trabajador'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendario'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td></tr>');
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajadorCM'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendario'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td>'
+					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
 				}
 			}
 			for (j=0; j<jsoUsuarios.Medicos.length; j++) {
@@ -329,6 +342,105 @@
 							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonGestionarCitas'+j+'\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'+'Gestionar Citas'+'</button> ' + '</td></tr>');
 				}
 			}
+		}
+		
+		function funcionGestionarCitas(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
+			console.log(dni);
+			console.log(nombreAp);
+			var jsoMedico={
+					"Medico":[
+						{"DNI":dni,
+							"nombre" : nombreAp}
+					]
+			};
+			sessionStorage.MedicoEdit = JSON.stringify(jsoMedico);
+			location.href="/medicoGestor";
+		}
+		
+		function funcionCalendario(boton){
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
+			var jsoPaciente={
+					"Paciente":[
+						{"DNI":dni,
+							"nombre" : nombreAp}
+					]
+			};
+			sessionStorage.PacienteEdit = JSON.stringify(jsoPaciente);
+			getGrupoMedico(dni);
+			location.href="/citasGestor";
+		}
+		
+		function getGrupoMedico(dni){
+			var data = {
+					dni : dni,
+					tipo : "getGrupoMedico"
+				};
+				var url = "/gestor";
+				var type = "POST";
+				var success;
+				var async= false;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					async : async,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : GrupoMedicoOK,
+					error : GrupoMedicoError
+				});
+		}
+		
+		function GrupoMedicoOK(resultado) {
+			console.log(resultado);
+			var jsoRes = JSON.parse(resultado);
+			console.log(jsoRes);
+			sessionStorage.grupoMedPaciente = JSON.stringify(jsoRes);
+		}
+		
+		function GrupoMedicoError(e) {
+			console.log(e);
+		}
+		
+		function funcionGestionarCitas(boton){
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			location.href="/medicoGestor";
+		}
+		
+		function funcionConvertirMedico(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			console.log(dni);
+			var data = {"dni" : dni};
+			var jsoDniMed={
+					"DNIMedico":[
+						{"DNI":dni}
+					]
+			};
+			sessionStorage.nuevoMedico=JSON.stringify(jsoDniMed);
+			location.href="/formularioTrabajador";
+		}
+		
+		function funcionConvertirGestor(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			console.log(dni);
+			var jsoDniGes={
+					"DNIGestor":[
+						{"DNI":dni}
+					]
+			};
+			sessionStorage.nuevoGestor=JSON.stringify(jsoDniGes);
+			location.href="/formularioGestor";
 		}
 
 		function UsuariosError(e) {

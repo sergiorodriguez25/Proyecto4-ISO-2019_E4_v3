@@ -333,4 +333,54 @@ public class DBBroker<T> {
 		return collection.find(criterion);
 	}
 
+	public FindIterable<BsonDocument> getEspecialidades() {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Especialidades", BsonDocument.class);
+		return collection.find();
+	}
+
+	public FindIterable<BsonDocument> getDuracionEspecialidad(String especialidad) {
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Especialidades", BsonDocument.class);
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("Especialidad", new BsonString(especialidad));
+		return collection.find(criterion);
+	}
+
+	public void modificarCentroMedicoPaciente(String dniPaciente, String nuevoCentro) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("dniPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
+		collection.deleteOne(criterion);
+		criterion.append("CentroMedico", new BsonString(nuevoCentro));
+		collection.insertOne(criterion);
+	}
+
+	public void insertarGestor(String dniNuevoGestor, String centro) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniNuevoGestor)));
+		criterion.append("CentroMedico", new BsonString(centro));
+
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Gestores", BsonDocument.class);
+		collection.insertOne(criterion);
+		
+	}
+
+	public ArrayList<Cita> getCitaPorFecha(String fecha) {
+		BsonDocument criterion = new BsonDocument();
+		criterion.append("dia", new BsonString(fecha));
+		MongoCollection<BsonDocument> collection = this.db.getCollection("Citas", BsonDocument.class);
+		FindIterable<BsonDocument> iterator = collection.find(criterion);
+		ArrayList<Cita> list = new ArrayList<Cita>();
+		for (BsonDocument bso : iterator) {
+			Cita cita;
+			try {
+				cita = new Cita(Encriptador.desencriptar(bso.get("DNIPaciente").asString().getValue()), Encriptador.desencriptar(bso.get("DNIMedico").asString().getValue()),
+						fecha, bso.get("hora").asString().getValue());
+				list.add(cita);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}
+		return list;
+	}
+
 }

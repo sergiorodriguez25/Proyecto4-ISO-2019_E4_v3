@@ -3,13 +3,10 @@ package com.tgs.tgh.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tgs.tgh.model.Cita;
-import com.tgs.tgh.model.Usuario;
 import org.bson.BsonDocument;
 
 import com.mongodb.client.FindIterable;
 import com.tgs.tgh.model.Cita;
-import com.tgs.tgh.model.HorarioMedico;
 
 public class CitaDAO {
 
@@ -36,11 +33,13 @@ public class CitaDAO {
 		return citas;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<Cita> getCitasMedicoDAO(String dni) throws Throwable {
 		List<Cita> citas = DBBroker.get().getCitasMedico(dni);
 		return citas;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static ArrayList<String> getCitasDiaMedico(String dniMedico, String fecha) {
 		FindIterable<BsonDocument> docs = DBBroker.get().getCitasDiaMedico(dniMedico, fecha);
 		System.out.println(docs);
@@ -53,6 +52,12 @@ public class CitaDAO {
 			lista.add(hora);
 		}
 		return lista;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static ArrayList<Cita> getCitasPorFecha(String fecha) {
+		ArrayList<Cita> citas = DBBroker.get().getCitaPorFecha(fecha);
+		return citas;
 	}
 
 }

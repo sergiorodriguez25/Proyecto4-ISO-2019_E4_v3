@@ -104,12 +104,7 @@
 									Bienvenido/a a la página de "Citas de pacientes" en la que aparecen
 									todas las citas que tiene programadas ordenadas por días.
 								</p>
-								<p id = "cambiarPaciente">
-									Si desea cambiar a vista de Paciente pulse el botón <a
-									href="/citas" class="btn btn-primary btn-large"
-									type="submit">Mis citas</a>
-								</p>
-								<p id = "volverGestor">
+								<p>
 									Para volver a la página principal de Gestor pulse el botón <a
 									href="gestor" class="btn btn-primary btn-large"
 									type="submit">Gestor</a>
@@ -180,10 +175,6 @@
 			var referrer = document.referrer;
 			if (referrer != 'http://localhost:8080/'
 					&& referrer != 'https://the-good-health.herokuapp.com/'
-					&& referrer != 'http://localhost:8080/registro'
-					&& referrer != 'https://the-good-health.herokuapp.com/registro'
-					&& referrer != 'http://localhost:8080/citas'
-					&& referrer != 'https://the-good-health.herokuapp.com/citas'
 					&& referrer != 'http://localhost:8080/gestor'
 					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
 				var forma = document.forms[0];
@@ -195,26 +186,6 @@
 			ponerNombreApellidos();
 			
 		});
-		
-		<!--
-		jQuery(document).ready(function($) {
-			
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
-				$('#modificarMedico').hide();
-			}
-		});
-		
-		jQuery(document).ready(function($) {
-			
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
-				$('#eliminarMedico').hide();
-			}
-		});
-		-->
 		
 		function enviardni(){
 			var jsoUser = JSON.parse(sessionStorage.usuario);
@@ -250,68 +221,18 @@
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var tipoUsuario = jsoUser.resultado.tipoUsuario;
 			
-			if(jsoCitas.length==0) $('#noHayCitas').html("No tienes citas por atender");
+			if(jsoCitas.length==0) $('#noHayCitas').html("El especialista no tiene citas para atender");
 			else{
-				if(tipoUsuario == "Gestor"){
-					for (i = 0; i < jsoCitas.length; i++){
-						 $("#Table").append('<tr>' + 
-						 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
-						 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
-						 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
-						 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
-						 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
-					}
-				}
-				else{
-					for (i = 0; i < jsoCitas.length; i++){
-						 $("#Table").append('<tr>' + 
-						 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
-						 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
-						 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>');
-					}
+				for (i = 0; i < jsoCitas.length; i++){
+					 $("#Table").append('<tr>' + 
+					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
+					 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
 				}
 			}
 		}
-		
-		jQuery(document).ready(function($) {
-			
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var tipoUsuario = jsoUser.resultado.tipoUsuario;
-			
-			if(tipoUsuario != "Medico"){
-				$('#cambiarPaciente').hide();
-			}
-		});
-		
-		jQuery(document).ready(function($) {
-			
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var tipoUsuario = jsoUser.resultado.tipoUsuario;
-			
-			if(tipoUsuario != "Gestor"){
-				$('#volverGestor').hide();
-			}
-		});
-		
-		<!--
-		jQuery(document).ready(function($) {
-			
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
-				$('#columnaModificar').hide();
-			}
-		});
-		
-		jQuery(document).ready(function($) {
-			
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
-				$('#columnaEliminar').hide();
-			}
-		});
-		-->
 		
 		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	

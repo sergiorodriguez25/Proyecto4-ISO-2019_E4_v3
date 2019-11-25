@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.tgs.tgh.model.Medico;
 import com.tgs.tgh.web.Manager;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
