@@ -130,7 +130,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Próximas Citas</h2>
+ 					<h2>Lista de Citas</h2>
 				</div>
 						<table id="Table" class="table table-bordered">
 							<thead>
@@ -138,6 +138,7 @@
       								<td align="center" scope="col"><b>Hora</b></td>
 								    <td align="center" scope="col"><b>Fecha</b></td>
 								    <td align="center" scope="col"><b>Nombre paciente</b></td>
+								    <td align="center" scope="col"><b>DNI paciente</b></td>
     							</tr>
  							 </thead>
  						</table>
@@ -176,7 +177,11 @@
 			if (referrer != 'http://localhost:8080/'
 					&& referrer != 'https://the-good-health.herokuapp.com/'
 					&& referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'
+						&& referrer != 'http://localhost:8080/formularioModificar'
+							&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'
+								&& referrer != 'http://localhost:8080/medicoGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();
@@ -188,11 +193,12 @@
 		});
 		
 		function enviardni(){
-			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var jsoUser = JSON.parse(sessionStorage.MedicoEdit);
 			var data = {
-					DNI : jsoUser.resultado.usuario.dni,
+					DNI : jsoUser.Medico[0].DNI,
+					tipo : "getCitas"
 				};
-				var url = "/medico";
+				var url = "/medicoGestor";
 				var type = "POST";
 				var success;
 				var xhrFields;
@@ -218,8 +224,6 @@
 			console.log(respuesta);
 			var jsoCitas = JSON.parse(respuesta);
 			console.log(jsoCitas);
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var tipoUsuario = jsoUser.resultado.tipoUsuario;
 			
 			if(jsoCitas.length==0) $('#noHayCitas').html("El especialista no tiene citas para atender");
 			else{
@@ -228,14 +232,101 @@
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label0'+i+'\'>'+ jsoCitas[i].hora +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + '<label id=\'label1'+i+'\'>'+ jsoCitas[i].dia +'</label>' + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].nombreApe + '</td>'+
+					 	'<td align="center" style="dislay: none;">' + jsoCitas[i].DNIPaciente + '</td>'+
 					 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoModificar'+i+'\' class=\'btn btn-primary \' onClick="funcionModificar(this)">'+ '<img src="https://image.flaticon.com/icons/png/512/23/23187.png" class="img-fluid rounded" width="25" height="25">'+'Modificar'+'</button> ' + '</td>'+ 
 					 	'<td align="center" style="dislay: none;">' + '<button id=\'medicoEliminar'+i+'\' class=\'btn btn-primary \' onClick="funcionEliminar(this)">'+'<img src="https://image.flaticon.com/icons/png/512/39/39220.png" class="img-fluid rounded" width="25" height="25">'+'Eliminar</button>' + '</td>'+'</tr>');
 				}
 			}
 		}
 		
+		function funcionEliminar(boton) {
+			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
+			var fecha = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
+			var dniPaciente = boton.parentNode.parentNode.children[3].innerHTML;
+			var jsoMedi = JSON.parse(sessionStorage.MedicoEdit);
+			var dniMedico = jsoMedi.Medico[0].DNI;
+
+			swal({
+				  title: "¿Quiere eliminar esta cita?",
+				  text: "Si pulsa el botón OK dejará de tener asignada la cita",
+				  icon: "warning",
+				  buttons: true,
+				  dangerMode: true,
+				  buttons: ["Cancelar", "OK"]
+				})
+				.then((willDelete) => {
+				  if (willDelete) {
+					enviarCitaEliminar(hora, fecha, dniPaciente, dniMedico);
+				    swal("Cita eliminada correctamente", {
+				      icon: "success",
+				    }).then(function() {
+						window.location.href = "/medicoGestor";
+					});
+				  } else {
+				    swal("La cita NO se ha eliminado", {
+				    	icon: "info"});
+				}
+			});
+			
+			
+		}
+		
+		function enviarCitaEliminar(hora, fecha, dniPaciente, dniMedico){
+			var data = {
+					DNIMedico : dniMedico,
+					DNIPaciente : dniPaciente,
+					hora : hora,
+					fecha : fecha,
+					tipo : "eliminarCita"
+				};
+				var url = "/medicoGestor";
+				var type = "POST";
+				var success;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+				
+				data = JSON.stringify(data);
+				$.ajax({
+					type: type,
+					url: url,
+					data: data,
+			        headers : headers,
+			        xhrFields: {
+			            withCredentials: true
+			        },
+			        success : EliminarOK,
+			        error : EliminarError
+				});
+		}
+		
+		function EliminarOK(respuesta) {
+			console.log(respuesta);
+		}
+		
+		function EliminarError(e){
+			console.log(e);
+		}
+		
 		function CitasMedicoError(respuesta) {
 			console.log(respuesta);	
+		}
+		
+		function funcionModificar(boton) {
+			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
+			var fecha = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
+			var dniPaciente = boton.parentNode.parentNode.children[3].innerHTML;
+			var jsoMedi = JSON.parse(sessionStorage.MedicoEdit);
+			var dniMedico = jsoMedi.Medico[0].DNI;
+			
+			var jsoModif={
+					"citaModificar":[
+						{"dniPaciente":dniPaciente,"dia":fecha,"hora":hora,"dniMedico":dniMedico,"especialidad":" "}
+					]
+			};
+			sessionStorage.modificar=JSON.stringify(jsoModif);
+			location.href="/formularioModificar";
 		}
 				
 		function ponerNombreApellidos() {

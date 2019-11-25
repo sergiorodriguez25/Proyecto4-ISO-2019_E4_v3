@@ -338,10 +338,29 @@ public class HomeController {
 			String hora = jso.get("hora");
 			String dia = jso.get("dia");
 			Cita cita = new Cita(jso.get("DNI"), jso.get("DNIMedico"), dia, hora);
-			System.out.println("OOOOOOOOOOO");
-			System.out.println(cita.getDia() + cita.getDniMedico() + cita.getDniPaciente() + cita.getHora());
 			Manager.get().eliminarCita(cita);
 			return "";
+		}
+		return jsorespuesta.toString();
+	}
+	
+	@CrossOrigin(origins = "*", allowCredentials = "true")
+	@RequestMapping(value = "/medicoGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public String medicoGestor(@RequestBody Map<String, String> jso) throws Throwable {
+		System.out.println(jso);
+		JSONArray jsorespuesta = new JSONArray();
+		if(jso.get("tipo").equals("getCitas")) {
+			String dni = jso.get("DNI");	
+			jsorespuesta = Manager.get().getCitasMedico(dni);
+		}
+		else if(jso.get("tipo").equals("eliminarCita")) {
+			String hora = jso.get("hora");
+			String dia = jso.get("fecha");
+			String dniP = jso.get("DNIPaciente");
+			String dniM = jso.get("DNIMedico");
+			Cita cita = new Cita(dniP, dniM, dia, hora);
+			Manager.get().eliminarCita(cita);
 		}
 		return jsorespuesta.toString();
 	}
