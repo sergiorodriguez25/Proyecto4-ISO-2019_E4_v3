@@ -3,8 +3,11 @@ package com.tgs.tgh.stepDefinition;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.List;
+
 import org.json.JSONObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -56,7 +59,16 @@ public class VisualizacionCalendarioUsuariosSteps {
 		wait.until(ExpectedConditions.textToBePresentInElement(driver.findElementById("nombreApellidos"),
 				"Gestor Prueba"));
 		driver.findElementByXPath("//*[@id=\"pestanas\"]/li[2]/a").click();
-		assertEquals(driver.findElementByXPath("//*[@id=\"TablaUsuariosCentro\"]/tr/td[2]").getText(), "Gestor Prueba");
+		WebElement table = driver.findElementById("TablaUsuariosCentro");
+		List<WebElement> allRows = table.findElements(By.tagName("tr"));
+		for (WebElement row : allRows) {
+			List<WebElement> cells = row.findElements(By.tagName("td"));
+			for (WebElement cell : cells) {
+				if (cell.getText().equals("Gestor Prueba")) {
+					assertEquals(cell.getText(), "Gestor Prueba");
+				}
+			}
+		}
 	}
 
 	@When("^Solicitamos los usuarios$")
@@ -67,33 +79,6 @@ public class VisualizacionCalendarioUsuariosSteps {
 	@Then("^Se obtienen todos los usuarios$")
 	public void se_obtienen_todos_los_usuarios() throws Throwable {
 		assertNotNull(usuarios.get("Pacientes"));
-	}
-
-	@When("^Se selecciona un paciente$")
-	public void se_selecciona_un_paciente() throws Throwable {
-		driver.findElementByXPath("//*[@id=\"pestanas\"]/li[2]/a").click();
-		driver.findElementByXPath("//*[@id=\"botonCalendario5\"]").click();
-	}
-
-	@Then("^Se abre la pagina de citas gestor$")
-	public void se_abre_la_pagina_de_citas_gestor() throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 2);
-		wait.until(ExpectedConditions.titleIs("Citas"));
-		assertEquals("Citas", driver.getTitle());
-		driver.findElementByXPath("/html/body/main/div/div[2]/div/div[1]/div/div/p[2]/a").click();
-	}
-
-	@When("^Se selecciona un medico$")
-	public void se_selecciona_un_medico() throws Throwable {
-		driver.findElementByXPath("//*[@id=\"pestanas\"]/li[3]/a").click();
-		driver.findElementByXPath("//*[@id=\"botonGestionarCitas1\"]").click();
-	}
-
-	@Then("^Se abre la pagina de medico gestor$")
-	public void se_abre_la_pagina_de_medico_gestor() throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 2);
-		wait.until(ExpectedConditions.titleIs("Medico"));
-		assertEquals("Medico", driver.getTitle());
 	}
 
 	@Then("^Se elimina el gestor$")
