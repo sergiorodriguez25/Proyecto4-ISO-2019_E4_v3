@@ -9,3 +9,4 @@ Feature: Comprobar el correcto funcionamiento al registrar a un trabajador
     And Se registra el horario del medico
     And Se elimina el medico paciente
     And Se elimina el horario del nuevo medico
+    And Se elimina el nuevo medico

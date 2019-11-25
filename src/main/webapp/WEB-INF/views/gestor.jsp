@@ -327,7 +327,7 @@
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
 			
-			for (i = 0; i < jsoUsuarios.Pacientes.length; i++) {
+			for (var i = 0; i < jsoUsuarios.Pacientes.length; i++) {
 				if(jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
 					$("#TablaUsuarios").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
 					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
@@ -346,7 +346,7 @@
 					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
 				}
 			}
-			for (j=0; j<jsoUsuarios.Medicos.length; j++) {
+			for (var j=0; j<jsoUsuarios.Medicos.length; j++) {
 				console.log(jsoUsuarios.Medicos.length);
 				console.log(jsoUsuarios.Medicos[j].DNI);
 				if(jsoUsuarios.Medicos[j].centroMedico ==centroMedicoGestor) {

@@ -11,16 +11,13 @@ import com.tgs.tgh.model.Usuario;
 
 public class GestorDAO {
 
-	public static void registro(Gestor gestor) {
-	}
-
 	public static Gestor esGestor(Usuario usuario) {
 		Gestor gestor = DBBroker.get().comprobarSiEsGestor(usuario);
 		return gestor;
 	}
 	
 	public static void eliminar(Gestor gestor) throws Exception {
-		boolean comprobar = DBBroker.get().eliminar("Gestor", gestor.getDNI());
+		boolean comprobar = DBBroker.get().eliminar("Gestores", gestor.getDNI());
 		if (!comprobar) {
 			throw new Exception("Error al eliminar el gestor");
 		}
@@ -49,7 +46,6 @@ public class GestorDAO {
 
 	public static void insertar(String dniNuevoGestor, String centro) {
 		DBBroker.get().insertarGestor(dniNuevoGestor, centro);
-		
 	}
 	
 	@SuppressWarnings("unchecked")
