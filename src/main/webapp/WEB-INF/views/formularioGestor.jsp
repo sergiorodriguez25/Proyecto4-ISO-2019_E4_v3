@@ -80,22 +80,18 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link"
-					tabindex="-1" aria-disabled="true">Nuevo Gestor</a></li>
+				<li class="nav-item"><a class="nav-link" tabindex="-1"
+					aria-disabled="true">Nuevo Gestor</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -105,52 +101,77 @@
 		<div class="span">
 			<div></div>
 			<div class="container center">
-			<div class="hero-unit">
-				<br></br>
-				<br></br>
-				<div></div>
-				<div></div>
-				<div class="row align-items-center">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-body">
-								<h4>Formulario de Creación del nuevo Gestor</h4>
-								<p>Para crear el nuevo Gestor selecciona el centro médico
-								del que va a ser gestor.</p>
+				<div class="hero-unit">
+					<br></br> <br></br>
+					<div></div>
+					<div></div>
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<h4>Formulario de Creación del nuevo Gestor</h4>
+									<p>Para crear el nuevo Gestor selecciona el centro médico
+										del que va a ser gestor.</p>
+									<div class="modal fade" id="informacion" tabindex="-1"
+										role="dialog" aria-labelledby="exampleModalLongTitle"
+										aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+													<button type="button" class="close" data-dismiss="modal"
+														aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body">
+													En esta vista usted puede:
+													<h5></h5>
+													<h5>Crear nuevo gestor</h5>
+													Para ello usted debe seleccionar el centro médico al que
+													pertenecerá el gestor y presionar el botón de confirmar.
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
 
+						</div>
+						<div class="col-md-1"></div>
 					</div>
-					<div class="col-md-1"></div>
+					<br></br>
 				</div>
-				<br></br>
-			</div>
 			</div>
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
-					<div align='center'> 
-					
-					<label for="DNI" id="DNI">DNI</label> 
-					<div>
-					<br></br>
-					</div>
-					
-					<label for="cen">Seleccione el centro médico en el que trabajará el Gestor</label> 
-					<div class="col-md-6 mb-3">
-				          <input name="centro" id="centroMedico" type="text" required class="form-control" placeholder="Centro Médico">			  
-							
+					<div align='center'>
+
+						<label for="DNI" id="DNI">DNI</label>
+						<div>
 							<br></br>
+						</div>
+
+						<label for="cen">Seleccione el centro médico en el que
+							trabajará el Gestor</label>
+						<div class="col-md-6 mb-3">
+							<input name="centro" id="centroMedico" type="text" required
+								class="form-control" placeholder="Centro Médico"> <br></br>
 
 							<hr class="mb-4">
-							<a id="confirmarGestor" class="btn btn-primary btn-large" type="submit">Confirmar</a> 
-							<a href="/gestor" class="btn btn-primary btn-large" type="submit">Volver
-								atrás</a>
-					</div>
+							<a id="confirmarGestor" class="btn btn-primary btn-large"
+								type="submit">Confirmar</a> <a href="/gestor"
+								class="btn btn-primary btn-large" type="submit">Volver atrás</a>
+						</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			<br></br>
+		</div>
+		<br></br>
 	</main>
 	<!-- /.container -->
 
@@ -169,6 +190,7 @@
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
+
 							
 							var jsoDNI = JSON.parse(sessionStorage.nuevoGestor);
 							console.log(jsoDNI);
@@ -177,11 +199,32 @@
 							document.getElementById('DNI').innerHTML= dni;
 							
 							
+
+
+			// 							$('DNIMedico').html(dni);
+			/*
+			 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
+			 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
+			 */
+			// 							var referrer = document.referrer;
+			// 							if (referrer != 'http://localhost:8080/citas'
+			// 									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
+			// 								var forma = document.forms[0];
+			// 								forma.action = "/error";
+			// 								forma.submit();
+			// 							}
+			var jsoDNI = JSON.parse(sessionStorage.nuevoGestor);
+			console.log(jsoDNI);
+			var dni = jsoDNI.DNIGestor[0].DNI;
+			console.log(dni);
+			document.getElementById('DNI').innerHTML = dni;
+
+
 		});
-		
-		$(document).ready(function(){
+
+		$(document).ready(function() {
 			$('#confirmarGestor').click(function(event) {
-				var centro = (document.getElementById("centroMedico").value);				
+				var centro = (document.getElementById("centroMedico").value);
 				enviarDatos(centro);
 			});
 		});
@@ -234,7 +277,8 @@
 			document.getElementById("noHayHora").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("noHayHora").style.display = 'inline';
-				$('#noHayHora').html("Tiene que escoger una hora para su cita.");
+				$('#noHayHora')
+						.html("Tiene que escoger una hora para su cita.");
 				$('#noHayHora').css("color", "red");
 				return 1;
 			}

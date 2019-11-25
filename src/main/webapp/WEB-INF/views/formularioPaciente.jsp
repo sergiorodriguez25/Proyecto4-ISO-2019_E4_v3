@@ -70,7 +70,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="/citas">THE GOOD HEALTH</a>
+		<a class="navbar-brand" href="/gestor">THE GOOD HEALTH</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExampleDefault"
 			aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -80,22 +80,18 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/citas"
+				<li class="nav-item"><a class="nav-link" href="#"
 					tabindex="-1" aria-disabled="true">Asignar Especialistas</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -116,16 +112,9 @@
 									<h4>Formulario de Asignación de Especialistas</h4>
 									<p>
 										Se encuentra en la página de gestión de especialistas, asigne
-										el o los distintos especialistas del paciente seleccionado.
-										Para obtener información sobre el uso de las diferentes
-										funcionalidades de las que dispone presione el siguiente
-										botón: </br> </br>
-										<button type="button" class="btn btn-primary"
-											data-toggle="modal" data-target="#exampleModalLong">
-											Información</button>
-
-										<!-- Modal -->
-									<div class="modal fade" id="exampleModalLong" tabindex="-1"
+										el o los distintos especialistas del paciente seleccionado.</p>
+			
+									<div class="modal fade" id="informacion" tabindex="-1"
 										role="dialog" aria-labelledby="exampleModalLongTitle"
 										aria-hidden="true">
 										<div class="modal-dialog" role="document">
@@ -137,7 +126,15 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<div class="modal-body">...</div>
+												<div class="modal-body">
+													En esta vista usted puede:
+													<h5></h5>
+													<h5>Seleccionar los especialistas del paciente</h5>
+													Usted se encuentra en la página de gestión de
+													especialistas, asigne el o los distintos especialistas del
+													paciente seleccionado. Para ello pulse el botón "+" para
+													añadir un especialista y el botón "-" para eliminarlo.
+												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary"
 														data-dismiss="modal">Close</button>
@@ -231,7 +228,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas1"></label>
 								</div>
 							</div>
 						</div>
@@ -247,7 +244,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas2"></label>
 								</div>
 							</div>
 						</div>
@@ -263,7 +260,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas3"></label>
 								</div>
 							</div>
 						</div>
@@ -279,7 +276,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas4"></label>
 								</div>
 							</div>
 						</div>
@@ -295,7 +292,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas5"></label>
 								</div>
 							</div>
 						</div>
@@ -311,7 +308,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas6"></label>
 								</div>
 							</div>
 						</div>
@@ -327,7 +324,7 @@
 									</thead>
 								</table>
 								<div align='center'>
-									<label id="noHayEspecialistas"></label>
+									<label id="noHayEspecialistas7"></label>
 								</div>
 							</div>
 						</div>
@@ -414,40 +411,41 @@
 												if (elegidos.length > 0) {
 													enviarDatos();
 												} else {
-													document.getElementById("noHaySeleccionados").style.color = "red";
+													document
+															.getElementById("noHaySeleccionados").style.color = "red";
 												}
 											});
 						});
 
 		function enviarDatos() {
 			var data = {
-					tipo : "modificarCentro",
-					dni : sessionStorage.dniModificarCentro,
-					centro : document.getElementById("centroMedico").textContent,
-					grupo : JSON.stringify(elegidos)
-				};
-				var url = "/formularioPaciente";
-				var type = "POST";
-				var success;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+				tipo : "modificarCentro",
+				dni : sessionStorage.dniModificarCentro,
+				centro : document.getElementById("centroMedico").textContent,
+				grupo : JSON.stringify(elegidos)
+			};
+			var url = "/formularioPaciente";
+			var type = "POST";
+			var success;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : asignarCentroOK
-				});
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : asignarCentroOK
+			});
 		}
-		
+
 		function asignarCentroOK(respuesta) {
 			console.log("Centro OK");
 			swal({
@@ -525,7 +523,7 @@
 			var cabecera = medicosEspecialidad(jsoMedicos.Medicos,
 					"Médico de Cabecera");
 			if (cabecera.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas1')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -556,7 +554,7 @@
 			var traumatologos = medicosEspecialidad(jsoMedicos.Medicos,
 					"Traumatólogo");
 			if (traumatologos.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas2')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -587,7 +585,7 @@
 			var alergologos = medicosEspecialidad(jsoMedicos.Medicos,
 					"Alergología");
 			if (alergologos.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas3')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -618,7 +616,7 @@
 			var geriatrias = medicosEspecialidad(jsoMedicos.Medicos,
 					"Geriatría");
 			if (geriatrias.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas4')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -649,7 +647,7 @@
 			var enfermeros = medicosEspecialidad(jsoMedicos.Medicos,
 					"Enfermería");
 			if (enfermeros.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas5')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -679,7 +677,7 @@
 
 			var pediatras = medicosEspecialidad(jsoMedicos.Medicos, "Pediatría");
 			if (pediatras.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas6')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {
@@ -710,7 +708,7 @@
 			var psiquiatras = medicosEspecialidad(jsoMedicos.Medicos,
 					"Psiquiatría");
 			if (psiquiatras.length == 0)
-				$('#noHayEspecialistas')
+				$('#noHayEspecialistas7')
 						.html(
 								"No hay especialistas de este tipo en el centro médico");
 			else {

@@ -90,15 +90,11 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -108,69 +104,93 @@
 		<div class="span">
 			<div></div>
 			<div class="container center">
-			<div class="hero-unit">
-				<br></br>
-				<br></br>
-				<div></div>
-				<div></div>
-				<div class="row align-items-center">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-body">
-								<h4>Formulario de Citas</h4>
-								<p>Para pedir una cita, rellene todos los campos que
-									encontrará a continuación para solicitar la cita deseada,
-									después pulse en el botón de Solicitar cita.</p>
+				<div class="hero-unit">
+					<br></br> <br></br>
+					<div></div>
+					<div></div>
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<h4>Formulario de Citas</h4>
+									<p>Para pedir una cita, rellene todos los campos que
+										encontrará a continuación; una vez hecho esto, para solicitar
+										la cita deseada, pulse en el botón de Solicitar cita.</p>
+								</div>
+								<div class="modal fade" id="informacion" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLongTitle"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												En esta vista usted puede:
+												<h5></h5>
+												<h5>Solicitar cita</h5>
+												A través de este botón usted podrá solicitar la cita con los
+												datos que previamente haya rellenado.
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
 
+						</div>
+						<div class="col-md-1"></div>
 					</div>
-					<div class="col-md-1"></div>
+					<br></br>
 				</div>
-				<br></br>
-			</div>
 			</div>
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'>
-					<div class="col-md-6 mb-3">
-						<label for="especialidad">Especialidad</label> 
-						<select class="form-control form-control-lg align:center" id="especialidad">
-							<option selected="selected" disabled=true></option>
-						</select>
-					</div>
-					<br></br>
+						<div class="col-md-6 mb-3">
+							<label for="especialidad">Especialidad</label> <select
+								class="form-control form-control-lg align:center"
+								id="especialidad">
+								<option selected="selected" disabled=true></option>
+							</select>
+						</div>
+						<br></br>
 
-					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input disabled type="text"
+						<div class="col-md-6 mb-3">
+							<label for="fecha_ini">Día</label> <input disabled type="text"
+								id="fecha_ini" class="form-control">
+							<div class="invalid-feedback">Información necesaria.</div>
+							<label id="fecha"></label>
+						</div>
+						<br></br>
 
-							id="fecha_ini" class="form-control">
-						<div class="invalid-feedback">Información necesaria.</div>
-						<label id="fecha"></label>
-					</div>
-					<br></br>
+						<div class="col-md-6 mb-3">
+							<label for="hora">Hora</label> <select disabled
+								class="form-control form-control-lg align:center" id="hora">
 
-					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select disabled
-										class="form-control form-control-lg align:center" id="hora">
-									
-									</select>
-									<label id="noHayHora"></label>
-								</div>
-							
-							<br></br>
+							</select> <label id="noHayHora"></label>
+						</div>
 
-							<hr class="mb-4">
-							<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
-								cita</a> <a href="/citas" class="btn btn-primary btn-large" type="submit">Volver
-								atrás</a>
+						<br></br>
+
+						<hr class="mb-4">
+						<a id="pedircita" class="btn btn-primary btn-large" type="submit">Solicitar
+							cita</a> <a href="/citas" class="btn btn-primary btn-large"
+							type="submit">Volver atrás</a>
 						</form>
-					</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			<br></br>
+		</div>
+		</div>
+		<br></br>
 	</main>
 	<!-- /.container -->
 
@@ -192,7 +212,9 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
+		jQuery(document)
+				.ready(
+						function($) {
 							/*
 							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
@@ -208,229 +230,266 @@
 							}
 							var jsoUser = JSON.parse(sessionStorage.usuario);
 							var centro = jsoUser.resultado.paciente.centro;
-							if(centro=="Sin asignar"){
-								swal({
-									title : "Lo sentimos",
-									text : "Aún no puede solicitar citas, el gestor tiene que asignarle un centro médico y el grupo de médicos que le atenderán en dicho centro. Disculpe las molestias",
-									icon : "error",
-								}).then(function() {
+							if (centro == "Sin asignar") {
+								swal(
+										{
+											title : "Lo sentimos",
+											text : "Aún no puede solicitar citas, el gestor tiene que asignarle un centro médico y el grupo de médicos que le atenderán en dicho centro. Disculpe las molestias",
+											icon : "error",
+										}).then(function() {
 									window.location.href = "/citas";
 								});
 							}
 							cargarDatosFormulario();
-							
-							
-		});
-		
-		$(document).ready(function(){
-			$('#pedircita').click(function(event) {
-				if (!(comprobarFecha(document
-						.getElementById("fecha_ini").value) + comprobarHora(document
-						.getElementById("hora").value)) != 0) {
-					event.preventDefault();
-					enviarDatos();
-				}
-			});
-		});
-		
-		$(document).ready(function(){
-	        $("#especialidad").change(function(){
-	        	$('#noHayHora').html("");
-	        	if($('#fecha_ini').datepicker('getDate')!=null){
-	        		$('#fecha_ini').datepicker('setDate', null);
-	        	}
-	        	var numOptions = document.getElementById("especialidad").length;
-	        	var especialidadSeleccionada = document.getElementById("especialidad").value;
-	        	getDNIMedico(especialidadSeleccionada);
-	        });
-		});
-		
-		$(document).ready(function(){
-	        $("#fecha_ini").change(function(){
-	        	$('#fecha').html("");
-	        	var jsoHorario = JSON.parse(sessionStorage.horario);
-				var horario = jsoHorario.horarioMedico.horario;
-				var numHoras=0;
-				var weekday=new Array(7);
-				weekday[0]="Domingo";
-				weekday[1]="Lunes";
-				weekday[2]="Martes";
-				weekday[3]="Miércoles";
-				weekday[4]="Jueves";
-				weekday[5]="Viernes";
-				weekday[6]="Sábado";
-				var dateString = $('#fecha_ini').val();
-				var dateParts = dateString.split("/");
-				var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-				var diaSemana = weekday[dateObject.getDay()];
-				console.log(diaSemana);
-				for(var j=0; j<horario.length; j++){
-					if(diaSemana==horario[j][0]){
-						numHoras++;
-					}
-				}
-				console.log(numHoras);
-				var horasDisponibles = new Array(numHoras);
-				var k=0;
-				for(var i=0; i<horario.length; i++){
-					if(diaSemana==horario[i][0]){
-						horasDisponibles[k]=horario[i][1];
-						console.log(horasDisponibles[k]);
-						k++;
-					}
-				}
-				//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
-				//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
-				//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
-				var dniMedico = jsoHorario.horarioMedico.DNI;
-				getHorasCitasDiaSeleccionado(dateString, dniMedico);
-				var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
-				var horasOcupadas = jsoHorasOcu.horas;
-				
-				if(horasOcupadas.length != 0) {
-					var horasDefinitivo = horasDisponibles.filter(function(e) {
-					    return horasOcupadas.indexOf(e) == -1
-					});
-					sessionStorage.horas=JSON.stringify(horasDefinitivo);
-				} else {
-					sessionStorage.horas=JSON.stringify(horasDisponibles);
-				}
-				
-				if(horasDisponibles.length!=0){
-					document.getElementById("hora").disabled=false;
-					$('#noHayHora').html("");
-					rellenarHoras();
-				}
-				else {
-					$('#hora').html("");
-					document.getElementById("hora").disabled=true;
-					if($("#fecha_ini").datepicker("getDate") != null) {
-						
-						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
-						$('#noHayHora').css("color", "red");
-					}
-				}
-	        });
-		});
-		
+
+						});
+
+		$(document)
+				.ready(
+						function() {
+							$('#pedircita')
+									.click(
+											function(event) {
+												if (!(comprobarFecha(document
+														.getElementById("fecha_ini").value) + comprobarHora(document
+														.getElementById("hora").value)) != 0) {
+													event.preventDefault();
+													enviarDatos();
+												}
+											});
+						});
+
+		$(document)
+				.ready(
+						function() {
+							$("#especialidad")
+									.change(
+											function() {
+												$('#noHayHora').html("");
+												if ($('#fecha_ini').datepicker(
+														'getDate') != null) {
+													$('#fecha_ini').datepicker(
+															'setDate', null);
+												}
+												var numOptions = document
+														.getElementById("especialidad").length;
+												var especialidadSeleccionada = document
+														.getElementById("especialidad").value;
+												getDNIMedico(especialidadSeleccionada);
+											});
+						});
+
+		$(document)
+				.ready(
+						function() {
+							$("#fecha_ini")
+									.change(
+											function() {
+												$('#fecha').html("");
+												var jsoHorario = JSON
+														.parse(sessionStorage.horario);
+												var horario = jsoHorario.horarioMedico.horario;
+												var numHoras = 0;
+												var weekday = new Array(7);
+												weekday[0] = "Domingo";
+												weekday[1] = "Lunes";
+												weekday[2] = "Martes";
+												weekday[3] = "Miércoles";
+												weekday[4] = "Jueves";
+												weekday[5] = "Viernes";
+												weekday[6] = "Sábado";
+												var dateString = $('#fecha_ini')
+														.val();
+												var dateParts = dateString
+														.split("/");
+												var dateObject = new Date(
+														+dateParts[2],
+														dateParts[1] - 1,
+														+dateParts[0]);
+												var diaSemana = weekday[dateObject
+														.getDay()];
+												console.log(diaSemana);
+												for (var j = 0; j < horario.length; j++) {
+													if (diaSemana == horario[j][0]) {
+														numHoras++;
+													}
+												}
+												console.log(numHoras);
+												var horasDisponibles = new Array(
+														numHoras);
+												var k = 0;
+												for (var i = 0; i < horario.length; i++) {
+													if (diaSemana == horario[i][0]) {
+														horasDisponibles[k] = horario[i][1];
+														console
+																.log(horasDisponibles[k]);
+														k++;
+													}
+												}
+												//Filtrar aquí haciendo una petición que me devuelva las citas que haya ese día de ese médico
+												//Buscar en la BD por dniMedico y por día. Conseguir las horas y las que coincidan con horas disponibles
+												//Se eliminan del vector y ya se guarda el sessionStorage con las horas buenas
+												var dniMedico = jsoHorario.horarioMedico.DNI;
+												getHorasCitasDiaSeleccionado(
+														dateString, dniMedico);
+												var jsoHorasOcu = JSON
+														.parse(sessionStorage.horasOcupadas);
+												var horasOcupadas = jsoHorasOcu.horas;
+
+												if (horasOcupadas.length != 0) {
+													var horasDefinitivo = horasDisponibles
+															.filter(function(e) {
+																return horasOcupadas
+																		.indexOf(e) == -1
+															});
+													sessionStorage.horas = JSON
+															.stringify(horasDefinitivo);
+												} else {
+													sessionStorage.horas = JSON
+															.stringify(horasDisponibles);
+												}
+
+												if (horasDisponibles.length != 0) {
+													document
+															.getElementById("hora").disabled = false;
+													$('#noHayHora').html("");
+													rellenarHoras();
+												} else {
+													$('#hora').html("");
+													document
+															.getElementById("hora").disabled = true;
+													if ($("#fecha_ini")
+															.datepicker(
+																	"getDate") != null) {
+
+														$('#noHayHora')
+																.html(
+																		"No hay horas disponibles para este día, seleccione otro.");
+														$('#noHayHora').css(
+																"color", "red");
+													}
+												}
+											});
+						});
+
 		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
 			var data = {
-					dniMedico : dniMedico,
-					fecha : fecha,
-					tipo : "getCitasDiaMedico"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+				dniMedico : dniMedico,
+				fecha : fecha,
+				tipo : "getCitasDiaMedico"
+			};
+			var url = "/formularioCitas";
+			var type = "POST";
+			var success;
+			var async = false;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : getCitasOK,
-					error : getCitasError
-				});
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				async : async,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : getCitasOK,
+				error : getCitasError
+			});
 		}
-		
+
 		function getCitasOK(respuesta) {
 			console.log(respuesta);
 			var jsoHorasOcu = JSON.parse(respuesta);
 			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
 		}
-		
-		function getCitasError(e){
+
+		function getCitasError(e) {
 			console.log(e)
 		}
-		
-		function rellenarHoras(){
+
+		function rellenarHoras() {
 			$('#hora').empty()
 			var select = document.getElementById("hora");
 			var jsoHoras = JSON.parse(sessionStorage.horas);
-			for(var i = 0; i <jsoHoras.length ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoHoras[i];
-			   	select.add(option, 0);
+			for (var i = 0; i < jsoHoras.length; i++) {
+				var option = document.createElement('option');
+				option.text = option.value = jsoHoras[i];
+				select.add(option, 0);
 			}
 		}
-		
-		function getDNIMedico(especialidadSeleccionada){
+
+		function getDNIMedico(especialidadSeleccionada) {
 			var jsoGrupo = JSON.parse(sessionStorage.usuario);
 			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
 			console.log(listaMedicos[1].especialidad);
-			for(var i=0; i<listaMedicos.length; i++){
-				if (listaMedicos[i].especialidad == especialidadSeleccionada){
+			for (var i = 0; i < listaMedicos.length; i++) {
+				if (listaMedicos[i].especialidad == especialidadSeleccionada) {
 					var dniMedico = listaMedicos[i].DNI;
 				}
 			}
 			console.log(dniMedico);
 			solicitarHorarioMedico(dniMedico);
 		}
-		
+
 		function solicitarHorarioMedico(dniMedico) {
 			var data = {
-					dniMedico : dniMedico,
-					tipo : "solicitar"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+				dniMedico : dniMedico,
+				tipo : "solicitar"
+			};
+			var url = "/formularioCitas";
+			var type = "POST";
+			var success;
+			var async = false;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : solicitarOK,
-					error : solicitarError
-				});
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				async : async,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : solicitarOK,
+				error : solicitarError
+			});
 		}
-		
-		function solicitarOK(respuesta){
+
+		function solicitarOK(respuesta) {
 			console.log(respuesta);
 			var jsoHorarioM = JSON.parse(respuesta);
 			console.log(jsoHorarioM);
 			console.log(jsoHorarioM.horarioMedico.horario);
 			var arrayHorario = jsoHorarioM.horarioMedico.horario;
-			document.getElementById("fecha_ini").disabled=false;
-			sessionStorage.horario=JSON.stringify(jsoHorarioM);
+			document.getElementById("fecha_ini").disabled = false;
+			sessionStorage.horario = JSON.stringify(jsoHorarioM);
 		}
-		
-		function solicitarError(error){
+
+		function solicitarError(error) {
 			console.log(error);
 		}
-		
+
 		function cargarDatosFormulario() {
 			var select = document.getElementById("especialidad");
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			console.log(sessionStorage.usuario);
 			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
-			for(var i = 0; i <=numEspecialidades ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
-			   	select.add(option, 0);
+			for (var i = 0; i <= numEspecialidades; i++) {
+				var option = document.createElement('option');
+				option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+				select.add(option, 0);
 			}
 		}
 
@@ -488,7 +547,8 @@
 			document.getElementById("noHayHora").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("noHayHora").style.display = 'inline';
-				$('#noHayHora').html("Tiene que escoger una hora para su cita.");
+				$('#noHayHora')
+						.html("Tiene que escoger una hora para su cita.");
 				$('#noHayHora').css("color", "red");
 				return 1;
 			}

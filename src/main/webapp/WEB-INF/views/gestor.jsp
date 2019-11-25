@@ -71,22 +71,19 @@
 				<li class="nav-item active"><a class="nav-link" href="#">Funcionalidades<span
 						class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="/calendarioGlobal" tabindex="-1" aria-disabled="true">Calendario
+				<li class="nav-item"><a class="nav-link"
+					href="/calendarioGlobal" tabindex="-1" aria-disabled="true">Calendario
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -106,11 +103,9 @@
 									información sobre el uso de las diferentes funcionalidades de
 									las que dispone presione el siguiente botón
 									<button type="button" class="btn btn-primary"
-										data-toggle="modal" data-target="#exampleModalLong">
+										data-toggle="modal" data-target="#informacion">
 										Información</button>
-
-									<!-- Modal -->
-								<div class="modal fade" id="exampleModalLong" tabindex="-1"
+								<div class="modal fade" id="informacion" tabindex="-1"
 									role="dialog" aria-labelledby="exampleModalLongTitle"
 									aria-hidden="true">
 									<div class="modal-dialog" role="document">
@@ -122,7 +117,27 @@
 													<span aria-hidden="true">&times;</span>
 												</button>
 											</div>
-											<div class="modal-body">...</div>
+											<div class="modal-body">
+												En esta vista usted cuenta con tres tablas:
+												<h5></h5>
+												<h5>Usuarios externos</h5>
+												En esta tabla usted podrá asignar su centro médico,
+												convertir en médico y/o en gestor de su centro médico al
+												usuario seleccionado a través de los diferentes botones que
+												puede observar en la tabla mencionada.
+												<h5></h5>
+												<h5>Pacientes del centro</h5>
+												En esta tabla usted podrá convertir en médico y/o en gestor
+												de su centro médico al usuario seleccionado, también podrá
+												ver su calendario a través de los diferentes botones que
+												puede observar en la tabla mencionada.
+												<h5></h5>
+												<h5>Médicos del centro</h5>
+												En esta tabla usted podrá gestionar las citas(modificar o
+												eliminar) del médico de su centro médico, a través de los
+												diferentes botones que puede observar en la tabla
+												mencionada.
+											</div>
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Close</button>
@@ -130,15 +145,10 @@
 										</div>
 									</div>
 								</div>
-								<p>
-									Cambiar a vista de FormularioPaciente(temporal) pulse el botón <a
-									href="/formularioPaciente" class="btn btn-primary btn-large"
-									type="submit">Formulario</a>
-								</p>
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="col-md-1"></div>
 					<div class="col-md-3">
 						<div class="card">
@@ -156,71 +166,83 @@
 			</div>
 
 			<ul class="nav nav-tabs" id="pestanas">
-			    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu1">Usuarios Externos</a></li>
-			    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu2">Pacientes Del Centro</a></li>
-			    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#menu3">Médicos del Centro</a></li>
-			  </ul>
-			  
-			  <div class="tab-content">
-			    <div id="menu1" class="tab-pane fade">
-			    <div><br></br></div>
-			      <h3>Gestión de Usuarios Externos</h3>
-							<strong class="d-inline-block mb-2 text-primary center">Pacientes externos al Centro Médico</strong>
-							<div class="row d-flex justify-content-center">
-								<div class="container">
-									<table id="TablaUsuarios" class="table table-bordered">
-										<thead>
-											<tr class="table-primary">
-												<td align="center" scope="col"><b>DNI</b></td>
-												<td align="center" scope="col"><b>Nombre</b></td>
-												<td align="center" scope="col"><b>Centro Médico</b></td>
-											</tr>
-										</thead>
-									</table>
-								</div>
-							</div>
-			    </div>
-			    <div id="menu2" class="tab-pane fade">
-			    <div><br></br></div>
-			       <h3>Gestión de Pacientes Del Centro Médico</h3>
-							<strong class="d-inline-block mb-2 text-success">Pacientes del Centro Médico</strong>
-							<div class="row d-flex justify-content-center">
-								<div class="container">
-									<table id="TablaUsuariosCentro" class="table table-bordered">
-										<thead>
-											<tr class="table-primary">
-												<td align="center" scope="col"><b>DNI</b></td>
-												<td align="center" scope="col"><b>Nombre</b></td>
-												<td align="center" scope="col"><b>Centro Médico</b></td>
-											</tr>
-										</thead>
-									</table>
+				<li class="nav-item"><a class="nav-link active"
+					data-toggle="tab" href="#menu1">Usuarios Externos</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+					href="#menu2">Pacientes Del Centro</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="tab"
+					href="#menu3">Médicos del Centro</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div id="menu1" class="tab-pane fade">
+					<div>
+						<br></br>
+					</div>
+					<h3>Gestión de Usuarios Externos</h3>
+					<strong class="d-inline-block mb-2 text-primary center">Pacientes
+						externos al Centro Médico</strong>
+					<div class="row d-flex justify-content-center">
+						<div class="container">
+							<table id="TablaUsuarios" class="table table-bordered">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Centro Médico</b></td>
+									</tr>
+								</thead>
+							</table>
+						</div>
 					</div>
 				</div>
-			    </div>
-			    <div id="menu3" class="tab-pane fade">
-			    <div><br></br></div>
-			      <h3>Gestión de Médicos Del Centro</h3>
-			      <div class="row mb-2">
-							<strong class="d-inline-block mb-2 text-primary center">Médicos del Centro</strong>
-							<div class="row d-flex justify-content-center">
-								<div class="container">
-									<table id="TablaMedicosCentro" class="table table-bordered">
-										<thead>
-											<tr class="table-primary">
-												<td align="center" scope="col"><b>DNI</b></td>
-												<td align="center" scope="col"><b>Nombre</b></td>
-												<td align="center" scope="col"><b>Centro Médico</b>
-												<td align="center" scope="col"><b>Especialidad</b>
-												<td align="center" scope="col"><b>Teléfono</b></td>
-											</tr>
-										</thead>
-									</table>
-								</div>
-							</div>						
+				<div id="menu2" class="tab-pane fade">
+					<div>
+						<br></br>
 					</div>
-			    </div>
-			  </div>
+					<h3>Gestión de Pacientes Del Centro Médico</h3>
+					<strong class="d-inline-block mb-2 text-success">Pacientes
+						del Centro Médico</strong>
+					<div class="row d-flex justify-content-center">
+						<div class="container">
+							<table id="TablaUsuariosCentro" class="table table-bordered">
+								<thead>
+									<tr class="table-primary">
+										<td align="center" scope="col"><b>DNI</b></td>
+										<td align="center" scope="col"><b>Nombre</b></td>
+										<td align="center" scope="col"><b>Centro Médico</b></td>
+									</tr>
+								</thead>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="menu3" class="tab-pane fade">
+					<div>
+						<br></br>
+					</div>
+					<h3>Gestión de Médicos Del Centro</h3>
+					<div class="row mb-2">
+						<strong class="d-inline-block mb-2 text-primary center">Médicos
+							del Centro</strong>
+						<div class="row d-flex justify-content-center">
+							<div class="container">
+								<table id="TablaMedicosCentro" class="table table-bordered">
+									<thead>
+										<tr class="table-primary">
+											<td align="center" scope="col"><b>DNI</b></td>
+											<td align="center" scope="col"><b>Nombre</b></td>
+											<td align="center" scope="col"><b>Centro Médico</b>
+											<td align="center" scope="col"><b>Especialidad</b>
+											<td align="center" scope="col"><b>Teléfono</b></td>
+										</tr>
+									</thead>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 	<!-- /.container -->
@@ -299,7 +321,7 @@
 			var url = "/gestor";
 			var type = "POST";
 			var success;
-			var async= false;
+			var async = false;
 			var xhrFields;
 			var headers = {
 				'Content-Type' : 'application/json'
@@ -326,139 +348,214 @@
 			console.log(jsoUsuarios.Pacientes.length);
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
-			
+
 			for (i = 0; i < jsoUsuarios.Pacientes.length; i++) {
-				if(jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
-					$("#TablaUsuarios").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificarCentro'+i+'\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'+'Asignar Centro'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
+				if (jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
+					$("#TablaUsuarios")
+							.append(
+									'<tr><td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].nombre
+											+ " "
+											+ jsoUsuarios.Pacientes[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].centroMedico
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonModificarCentro'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'
+											+ 'Asignar Centro'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirTrabajador'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'
+											+ 'Convertir en Médico'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirGestor'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'
+											+ 'Convertir en Gestor'
+											+ '</button> ' + '</td></tr>');
 				}
-				
-				if(jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
-					$("#TablaUsuariosCentro").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajadorCM'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonCalendario'+i+'\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'+'Calendario'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
+
+				if (jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
+					$("#TablaUsuariosCentro")
+							.append(
+									'<tr><td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].nombre
+											+ " "
+											+ jsoUsuarios.Pacientes[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].centroMedico
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirTrabajadorCM'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'
+											+ 'Convertir en Médico'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonCalendario'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionCalendario(this)">'
+											+ 'Calendario'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirGestor'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'
+											+ 'Convertir en Gestor'
+											+ '</button> ' + '</td></tr>');
 				}
 			}
-			for (j=0; j<jsoUsuarios.Medicos.length; j++) {
+			for (j = 0; j < jsoUsuarios.Medicos.length; j++) {
 				console.log(jsoUsuarios.Medicos.length);
 				console.log(jsoUsuarios.Medicos[j].DNI);
-				if(jsoUsuarios.Medicos[j].centroMedico ==centroMedicoGestor) {
-					$("#TablaMedicosCentro").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].DNI+ '</td>'
-							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].nombre + " " + jsoUsuarios.Medicos[j].apellidos + '</td>'
-							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].centroMedico + '</td>' 
-							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].especialidad + '</td>' 
-							+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Medicos[j].telefono + '</td>' 
-							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonGestionarCitas'+j+'\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'+'Gestionar Citas'+'</button> ' + '</td></tr>');
+				if (jsoUsuarios.Medicos[j].centroMedico == centroMedicoGestor) {
+					$("#TablaMedicosCentro")
+							.append(
+									'<tr><td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Medicos[j].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Medicos[j].nombre
+											+ " "
+											+ jsoUsuarios.Medicos[j].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Medicos[j].centroMedico
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Medicos[j].especialidad
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Medicos[j].telefono
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonGestionarCitas'
+											+ j
+											+ '\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'
+											+ 'Gestionar Citas' + '</button> '
+											+ '</td></tr>');
 				}
 			}
 		}
-		
+
 		function funcionGestionarCitas(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
 			console.log(dni);
 			console.log(nombreAp);
-			var jsoMedico={
-					"Medico":[
-						{"DNI":dni,
-							"nombre" : nombreAp}
-					]
+			var jsoMedico = {
+				"Medico" : [ {
+					"DNI" : dni,
+					"nombre" : nombreAp
+				} ]
 			};
 			sessionStorage.MedicoEdit = JSON.stringify(jsoMedico);
-			location.href="/medicoGestor";
+			location.href = "/medicoGestor";
 		}
-		
-		function funcionCalendario(boton){
+
+		function funcionCalendario(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
-			var jsoPaciente={
-					"Paciente":[
-						{"DNI":dni,
-							"nombre" : nombreAp}
-					]
+			var jsoPaciente = {
+				"Paciente" : [ {
+					"DNI" : dni,
+					"nombre" : nombreAp
+				} ]
 			};
 			sessionStorage.PacienteEdit = JSON.stringify(jsoPaciente);
 			getGrupoMedico(dni);
-			location.href="/citasGestor";
+			location.href = "/citasGestor";
 		}
-		
-		function getGrupoMedico(dni){
-			var data = {
-					dni : dni,
-					tipo : "getGrupoMedico"
-				};
-				var url = "/gestor";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
 
-				data = JSON.stringify(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : GrupoMedicoOK,
-					error : GrupoMedicoError
-				});
+		function getGrupoMedico(dni) {
+			var data = {
+				dni : dni,
+				tipo : "getGrupoMedico"
+			};
+			var url = "/gestor";
+			var type = "POST";
+			var success;
+			var async = false;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+
+			data = JSON.stringify(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				async : async,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : GrupoMedicoOK,
+				error : GrupoMedicoError
+			});
 		}
-		
+
 		function GrupoMedicoOK(resultado) {
 			console.log(resultado);
 			var jsoRes = JSON.parse(resultado);
 			console.log(jsoRes);
 			sessionStorage.grupoMedPaciente = JSON.stringify(jsoRes);
 		}
-		
+
 		function GrupoMedicoError(e) {
 			console.log(e);
 		}
-		
+
 		function funcionConvertirMedico(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			console.log(dni);
-			var data = {"dni" : dni};
-			var jsoDniMed={
-					"DNIMedico":[
-						{"DNI":dni}
-					]
+			var data = {
+				"dni" : dni
 			};
-			sessionStorage.nuevoMedico=JSON.stringify(jsoDniMed);
-			location.href="/formularioTrabajador";
+			var jsoDniMed = {
+				"DNIMedico" : [ {
+					"DNI" : dni
+				} ]
+			};
+			sessionStorage.nuevoMedico = JSON.stringify(jsoDniMed);
+			location.href = "/formularioTrabajador";
 		}
-		
+
 		function funcionConvertirGestor(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			console.log(dni);
-			var jsoDniGes={
-					"DNIGestor":[
-						{"DNI":dni}
-					]
+			var jsoDniGes = {
+				"DNIGestor" : [ {
+					"DNI" : dni
+				} ]
 			};
-			sessionStorage.nuevoGestor=JSON.stringify(jsoDniGes);
-			location.href="/formularioGestor";
+			sessionStorage.nuevoGestor = JSON.stringify(jsoDniGes);
+			location.href = "/formularioGestor";
 		}
 
 		function UsuariosError(e) {
 			console.log(e);
 		}
-		
-		function funcionModificarCentro(boton){
+
+		function funcionModificarCentro(boton) {
 			sessionStorage.dniModificarCentro = boton.parentNode.parentNode.children[0].textContent;
 			window.location.href = "/formularioPaciente";
 		}

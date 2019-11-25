@@ -225,7 +225,7 @@
         </div>
         
         <div class="mb-3">
-          <label for="email">Correo electrónico<span class="text-muted">(Optional)</span></label>
+          <label for="email">Correo electrónico<span class="text-muted"></span></label>
           <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com">
           <div class="invalid-feedback">
             Información necesaria.

@@ -68,22 +68,19 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Citas pacientes<span class="sr-only">(current)</span>
+				<li class="nav-item active"><a class="nav-link" href="#">Citas
+						pacientes<span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -91,23 +88,53 @@
 		<div class="span">
 			<div></div>
 			<div class="hero-unit">
-				<br></br>
-				</br>
-				</br>
+				<br></br> </br> </br>
 				<div class="row">
 					<div class="col-md-8">
 
 						<div class="card">
 							<div class="card-body">
 								<h4>Citas de pacientes</h4>
-								<p>
-									Bienvenido/a a la página de "Citas de pacientes" en la que aparecen
-									todas las citas que tiene programadas ordenadas por días.
-								</p>
+								<p>Bienvenido/a a la página de "Citas de pacientes" en la
+									que aparecen todas las citas que el médico seleccionado tiene
+									programadas ordenadas por días.</p>
+								<div class="modal fade" id="informacion" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLongTitle"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												En esta vista usted puede:
+												<h5></h5>
+												<h5>Volver a gestor</h5>
+												A través de este botón usted puede volver a su vista de
+												gestor.
+												<h5></h5>
+												<h5>Modificar cita</h5>
+												A través de este botón usted podrá modificar una de las
+												próximas citas del médico.
+												<h5></h5>
+												<h5>Eliminar cita</h5>
+												A través de este botón usted podrá eliminar una de las
+												próximas citas del médico.
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 								<p>
 									Para volver a la página principal de Gestor pulse el botón <a
-									href="gestor" class="btn btn-primary btn-large"
-									type="submit">Gestor</a>
+										href="gestor" class="btn btn-primary btn-large" type="submit">Gestor</a>
 								</p>
 							</div>
 						</div>
@@ -129,33 +156,34 @@
 			</div>
 			<div class="row d-flex justify-content-center">
 				<div class="container">
-				<div align='center'>
- 					<h2>Lista de Citas</h2>
-				</div>
-						<table id="Table" class="table table-bordered">
-							<thead>
-    							<tr class="table-primary">
-      								<td align="center" scope="col"><b>Hora</b></td>
-								    <td align="center" scope="col"><b>Fecha</b></td>
-								    <td align="center" scope="col"><b>Nombre paciente</b></td>
-								    <td align="center" scope="col"><b>DNI paciente</b></td>
-    							</tr>
- 							 </thead>
- 						</table>
- 						<div align='center'>
-							<label id="noHayCitas"></label>
-						</div>
+					<div align='center'>
+						<h2>Lista de Citas</h2>
+					</div>
+					<table id="Table" class="table table-bordered">
+						<thead>
+							<tr class="table-primary">
+								<td align="center" scope="col"><b>Hora</b></td>
+								<td align="center" scope="col"><b>Fecha</b></td>
+								<td align="center" scope="col"><b>Nombre paciente</b></td>
+								<td align="center" scope="col"><b>DNI paciente</b></td>
+							</tr>
+						</thead>
+					</table>
+					<div align='center'>
+						<label id="noHayCitas"></label>
 					</div>
 				</div>
-				<br>
 			</div>
-			</br>
+			<br>
+		</div>
+		</br>
 	</main>
 	<!-- /.container -->
 
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
