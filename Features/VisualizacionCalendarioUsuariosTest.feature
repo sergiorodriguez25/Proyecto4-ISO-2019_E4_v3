@@ -16,17 +16,6 @@ Feature: Comprobar el correcto funcionamiento de la visualizacion del calendario
   Scenario: Al solicitar los usuarios nos devuelve todos los usuarios del sistema
     When Solicitamos los usuarios
     Then Se obtienen todos los usuarios
-    
-  @Scenario3
-  Scenario: Al seleccionar un paciente se muestra la vista del paciente
-    When Se selecciona un paciente
-    Then Se abre la pagina de citas gestor
-    And Se elimina el usuario
-    
-  @Scenario4
-  Scenario: Al seleccionar un medico se muestra la vista del medico
-    When Se selecciona un medico
-    Then Se abre la pagina de medico gestor
     And Se elimina el gestor
     And Se elimina el medico
     And Se elimina el usuario
