@@ -224,6 +224,7 @@ public class Manager {
 			JSONObject jsoCita = new JSONObject();
 			jsoCita.put("hora", cita.getHora());
 			jsoCita.put("dia", cita.getDia());
+			jsoCita.put("DNIPaciente", cita.getDniPaciente());
 			jsoCita.put("nombreApe", usuario.getNombre() + " " + usuario.getApellidos());
 			arrayCitas.put(i, jsoCita);
 		}

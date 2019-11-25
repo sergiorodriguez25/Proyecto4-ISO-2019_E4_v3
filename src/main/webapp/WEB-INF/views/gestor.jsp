@@ -413,11 +413,6 @@
 			console.log(e);
 		}
 		
-		function funcionGestionarCitas(boton){
-			var dni = boton.parentNode.parentNode.children[0].innerHTML;
-			location.href="/medicoGestor";
-		}
-		
 		function funcionConvertirMedico(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			console.log(dni);

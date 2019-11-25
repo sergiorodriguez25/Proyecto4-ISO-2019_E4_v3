@@ -200,10 +200,16 @@
 							if (referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
 										&& referrer != 'http://localhost:8080/citasGestor'
-										&& referrer != 'https://the-good-health.herokuapp.com/citasGestor') {
+										&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
+											&& referrer != 'http://localhost:8080/medicoGestor'
+												&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
+							}
+							if (referrer == 'http://localhost:8080/medicoGestor'
+								|| referrer != 'https://the-good-health.herokuapp.com/medicoGestor'){
+								document.getElementById("tituloespecialidad").innerHTML = "";
 							}
 							var jsoModif = JSON.parse(sessionStorage.modificar);
 							var espec = jsoModif.citaModificar[0].especialidad;
@@ -294,6 +300,10 @@
 			if (referrer == 'http://localhost:8080/citasGestor'
 					|| referrer == 'https://the-good-health.herokuapp.com/citasGestor'){
 				location.href="/citasGestor";
+			}
+			else if (referrer == 'http://localhost:8080/medicoGestor'
+				|| referrer == 'https://the-good-health.herokuapp.com/medicoGestor'){
+				location.href="/medicoGestor";
 			}
 			else location.href="/citas";
     	});
@@ -453,14 +463,18 @@
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var jsoModif = JSON.parse(sessionStorage.modificar);
-			var jsoEdit = JSON.parse(sessionStorage.PacienteEdit);
+			
 			var dniMed = jsoModif.citaModificar[0].dniMedico;
 			var antDia = jsoModif.citaModificar[0].dia;
 			var antHora = jsoModif.citaModificar[0].hora;
 			var dniPac;
 			var referrer = document.referrer;
-			if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor")
+			if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor"){
+				var jsoEdit = JSON.parse(sessionStorage.PacienteEdit);
 				dniPac = jsoEdit.Paciente[0].DNI;
+			}
+			else if (referrer == "http://localhost:8080/medicoGestor" || referrer == "https://the-good-health.herokuapp.com/medicoGestor")
+				dniPac = jsoModif.citaModificar[0].dniPaciente;
 			else dniPac = jsoUser.resultado.usuario.dni;
 			var data = {
 				dniPaciente : dniPac,
@@ -504,6 +518,8 @@
 				var referrer = document.referrer;
 				if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor")
 					window.location.href = "/citasGestor";
+				else if (referrer == "http://localhost:8080/medicoGestor" || referrer == "https://the-good-health.herokuapp.com/medicoGestor")
+					window.location.href = "/medicoGestor";
 				else
 					window.location.href = "/citas";
 			});
