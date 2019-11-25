@@ -90,15 +90,11 @@
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown01">
 						<a class="dropdown-item" href="#">Mi Perfil</a> <a
-							class="dropdown-item" href="#">Información</a> <a
+							class="dropdown-item" data-toggle="modal"
+							data-target="#informacion">Información</a> <a
 							class="dropdown-item" href="/">Cerrar sesión</a>
 					</div></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="text" placeholder="Buscar"
-					aria-label="Search">
-				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-			</form>
 		</div>
 	</nav>
 
@@ -108,68 +104,92 @@
 		<div class="span">
 			<div></div>
 			<div class="container center">
-			<div class="hero-unit">
-				<br></br>
-				<br></br>
-				<div></div>
-				<div></div>
-				<div class="row align-items-center">
-					<div class="col-md-8">
-						<div class="card">
-							<div class="card-body">
-								<h4>Formulario de Modificación</h4>
-								<p>Para modificar una cita, cambie los campos que
-									encontrará a continuación,
-									después pulse en el botón de Modificar cita.</p>
+				<div class="hero-unit">
+					<br></br> <br></br>
+					<div></div>
+					<div></div>
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<div class="card">
+								<div class="card-body">
+									<h4>Formulario de Modificación</h4>
+									<p>Para modificar una cita, cambie los campos que
+										encontrará a continuación, después pulse en el botón de
+										Modificar cita.</p>
+								</div>
+								<div class="modal fade" id="informacion" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLongTitle"
+									aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Información</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												En esta vista usted puede:
+												<h5></h5>
+												<h5>Modificar cita</h5>
+												Para modificar una cita, cambie los campos que encontrará a
+												continuación, después pulse en el botón de Modificar cita.
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
 
+						</div>
+						<div class="col-md-1"></div>
 					</div>
-					<div class="col-md-1"></div>
+					<br></br>
 				</div>
-				<br></br>
-			</div>
 			</div>
 			<div class="container center">
 				<div class="jumbotron jumbotron-fluid">
 					<div align='center'>
-					<div class="col-md-6 mb-3">
-						<label id="tituloespecialidad"><b>Especialidad</b></label> 
-						<div>
-						<label id="especialidad"></label></div>
-					</div>
-					<br></br>
+						<div class="col-md-6 mb-3">
+							<label id="tituloespecialidad"><b>Especialidad</b></label>
+							<div>
+								<label id="especialidad"></label>
+							</div>
+						</div>
+						<br></br>
 
-					<div class="col-md-6 mb-3">
-						<label for="fecha_ini">Día</label> <input type="text"
+						<div class="col-md-6 mb-3">
+							<label for="fecha_ini">Día</label> <input type="text"
+								id="fecha_ini" class="form-control">
+							<div class="invalid-feedback">Información necesaria.</div>
+							<label id="fecha"></label>
+						</div>
+						<br></br>
 
-							id="fecha_ini" class="form-control">
-						<div class="invalid-feedback">Información necesaria.</div>
-						<label id="fecha"></label>
-					</div>
-					<br></br>
+						<div class="col-md-6 mb-3">
+							<label for="hora">Hora</label> <select
+								class="form-control form-control-lg align:center" id="hora">
 
-					<div class="col-md-6 mb-3">
-									<label for="hora">Hora</label> <select
-										class="form-control form-control-lg align:center" id="hora">
-									
-									</select>
-									<label id="noHayHora"></label>
-								</div>
-							
-							<br></br>
+							</select> <label id="noHayHora"></label>
+						</div>
 
-							<hr class="mb-4">
-							<a id="modificarcita" class="btn btn-primary btn-large" type="submit">Modificar
-								cita</a> <a id="volverAtras" class="btn btn-primary btn-large" type="submit">Volver
-								atrás</a>
+						<br></br>
+
+						<hr class="mb-4">
+						<a id="modificarcita" class="btn btn-primary btn-large"
+							type="submit">Modificar cita</a> <a id="volverAtras"
+							class="btn btn-primary btn-large" type="submit">Volver atrás</a>
 						</form>
-					</div>
 					</div>
 				</div>
 			</div>
-			</div>
-			<br></br>
+		</div>
+		</div>
+		<br></br>
 	</main>
 	<!-- /.container -->
 
@@ -191,7 +211,9 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-	jQuery(document).ready(function($) {
+		jQuery(document)
+				.ready(
+						function($) {
 							/*
 							 * Control para que no acceda a travï¿½s de la url a alguna pï¿½gina que no sea el home
 							 * Hay que ponerlo en todos los jsp que se hagan prï¿½ximamente
@@ -199,16 +221,16 @@
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
-										&& referrer != 'http://localhost:8080/citasGestor'
-										&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
-											&& referrer != 'http://localhost:8080/medicoGestor'
-												&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor') {
+									&& referrer != 'http://localhost:8080/citasGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'http://localhost:8080/medicoGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();
 							}
 							if (referrer == 'http://localhost:8080/medicoGestor'
-								|| referrer != 'https://the-good-health.herokuapp.com/medicoGestor'){
+									|| referrer != 'https://the-good-health.herokuapp.com/medicoGestor') {
 								document.getElementById("tituloespecialidad").innerHTML = "";
 							}
 							var jsoModif = JSON.parse(sessionStorage.modificar);
@@ -217,190 +239,222 @@
 							var horaAModificar = jsoModif.citaModificar[0].hora;
 							var dniMedico = jsoModif.citaModificar[0].dniMedico;
 							console.log(diaAModificar);
-							
-							var weekday=new Array(7);
-							weekday[0]="Domingo";
-							weekday[1]="Lunes";
-							weekday[2]="Martes";
-							weekday[3]="Miércoles";
-							weekday[4]="Jueves";
-							weekday[5]="Viernes";
-							weekday[6]="Sábado";
+
+							var weekday = new Array(7);
+							weekday[0] = "Domingo";
+							weekday[1] = "Lunes";
+							weekday[2] = "Martes";
+							weekday[3] = "Miércoles";
+							weekday[4] = "Jueves";
+							weekday[5] = "Viernes";
+							weekday[6] = "Sábado";
 							var dateParts = diaAModificar.split("/");
-							var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+							var dateObject = new Date(+dateParts[2],
+									dateParts[1] - 1, +dateParts[0]);
 							var diaSemana = weekday[dateObject.getDay()];
-							
+
 							$('#especialidad').html(espec);
-							$('#fecha_ini').datepicker('setDate', diaAModificar);
+							$('#fecha_ini')
+									.datepicker('setDate', diaAModificar);
 							$('#hora').html(horaAModificar);
 							solicitarHorarioMedico(dniMedico);
-							
+
 							var jsoHorario = JSON.parse(sessionStorage.horario);
 							var horario = jsoHorario.horarioMedico.horario;
-							var numHoras=0;
-							for(var j=0; j<horario.length; j++){
-								if( diaSemana==horario[j][0]){
+							var numHoras = 0;
+							for (var j = 0; j < horario.length; j++) {
+								if (diaSemana == horario[j][0]) {
 									numHoras++;
 								}
 							}
 							console.log(numHoras);
 							var horasDisponibles = new Array(numHoras);
-							var k=0;
-							for(var i=0; i<horario.length; i++){
-								if(diaSemana==horario[i][0]){
-									horasDisponibles[k]=horario[i][1];
+							var k = 0;
+							for (var i = 0; i < horario.length; i++) {
+								if (diaSemana == horario[i][0]) {
+									horasDisponibles[k] = horario[i][1];
 									console.log(horasDisponibles[k]);
 									k++;
 								}
 							}
 							var dniMedico = jsoHorario.horarioMedico.DNI;
-							getHorasCitasDiaSeleccionado(diaAModificar, dniMedico);
-							var jsoHorasOcu = JSON.parse(sessionStorage.horasOcupadas);
+							getHorasCitasDiaSeleccionado(diaAModificar,
+									dniMedico);
+							var jsoHorasOcu = JSON
+									.parse(sessionStorage.horasOcupadas);
 							var horasOcupadas = jsoHorasOcu.horas;
-							
-							var horasOcupadasSinActual = new Array(horasOcupadas.length - 1);
+
+							var horasOcupadasSinActual = new Array(
+									horasOcupadas.length - 1);
 							var contador = 0;
-							for(var l=0; l<horasOcupadas.length; l++){
-								if (horasOcupadas[l]!=horaAModificar) {
-									horasOcupadasSinActual[contador]=horasOcupadas[l];
+							for (var l = 0; l < horasOcupadas.length; l++) {
+								if (horasOcupadas[l] != horaAModificar) {
+									horasOcupadasSinActual[contador] = horasOcupadas[l];
 									contador++;
 								}
 							}
-							
-							if(horasOcupadas.length != 0) {
-								var horasDefinitivo = horasDisponibles.filter(function(e) {
-								    return horasOcupadasSinActual.indexOf(e) == -1
-								});
-								sessionStorage.horas=JSON.stringify(horasDefinitivo);
+
+							if (horasOcupadas.length != 0) {
+								var horasDefinitivo = horasDisponibles
+										.filter(function(e) {
+											return horasOcupadasSinActual
+													.indexOf(e) == -1
+										});
+								sessionStorage.horas = JSON
+										.stringify(horasDefinitivo);
 							} else {
-								sessionStorage.horas=JSON.stringify(horasDisponibles);
+								sessionStorage.horas = JSON
+										.stringify(horasDisponibles);
 							}
-							
-							if(horasDisponibles.length!=0){
-								document.getElementById("hora").disabled=false;
+
+							if (horasDisponibles.length != 0) {
+								document.getElementById("hora").disabled = false;
 								$('#noHayHora').html("");
 								rellenarHoras();
-							}
-							else {
+							} else {
 								$('#hora').html("");
-								document.getElementById("hora").disabled=true;
-								if($("#fecha_ini").datepicker("getDate") != null) {
-									
-									$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
+								document.getElementById("hora").disabled = true;
+								if ($("#fecha_ini").datepicker("getDate") != null) {
+
+									$('#noHayHora')
+											.html(
+													"No hay horas disponibles para este día, seleccione otro.");
 									$('#noHayHora').css("color", "red");
 								}
 							}
-							
-		});
-	
-	jQuery(document).ready(function($) {
-    	$('#volverAtras').click(function(event) {
-    		event.preventDefault();
-    		var referrer = document.referrer;
-			if (referrer == 'http://localhost:8080/citasGestor'
-					|| referrer == 'https://the-good-health.herokuapp.com/citasGestor'){
-				location.href="/citasGestor";
-			}
-			else if (referrer == 'http://localhost:8080/medicoGestor'
-				|| referrer == 'https://the-good-health.herokuapp.com/medicoGestor'){
-				location.href="/medicoGestor";
-			}
-			else location.href="/citas";
-    	});
-    });
-	
+
+						});
+
+		jQuery(document)
+				.ready(
+						function($) {
+							$('#volverAtras')
+									.click(
+											function(event) {
+												event.preventDefault();
+												var referrer = document.referrer;
+												if (referrer == 'http://localhost:8080/citasGestor'
+														|| referrer == 'https://the-good-health.herokuapp.com/citasGestor') {
+													location.href = "/citasGestor";
+												} else if (referrer == 'http://localhost:8080/medicoGestor'
+														|| referrer == 'https://the-good-health.herokuapp.com/medicoGestor') {
+													location.href = "/medicoGestor";
+												} else
+													location.href = "/citas";
+											});
+						});
+
 		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
 			var data = {
-					dniMedico : dniMedico,
-					fecha : fecha,
-					tipo : "getCitasDiaMedico"
-				};
-				var url = "/formularioModificar";
-				var type = "POST";
-				var success;
-				var async= false;
-				var xhrFields;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
-	
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					async : async,
-					headers : headers,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : getCitasOK,
-					error : getCitasError
-				});
+				dniMedico : dniMedico,
+				fecha : fecha,
+				tipo : "getCitasDiaMedico"
+			};
+			var url = "/formularioModificar";
+			var type = "POST";
+			var success;
+			var async = false;
+			var xhrFields;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
+
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				async : async,
+				headers : headers,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : getCitasOK,
+				error : getCitasError
+			});
 		}
-		
+
 		function getCitasOK(respuesta) {
 			console.log(respuesta);
 			var jsoHorasOcu = JSON.parse(respuesta);
 			sessionStorage.horasOcupadas = JSON.stringify(jsoHorasOcu);
 		}
-		
-		function getCitasError(e){
+
+		function getCitasError(e) {
 			console.log(e)
 		}
-			
-		$(document).ready(function(){
-			$('#modificarcita').click(function(event) {
-				if (!(comprobarFecha(document
-						.getElementById("fecha_ini").value) + comprobarHora(document
-						.getElementById("hora").value)) != 0) {
-					event.preventDefault();
-					enviarDatos();
-				}
-			});
-		});
-		
-		$(document).ready(function(){
-	        $("#fecha_ini").change(function(){
-	        	$('#fecha').html("");
-	        	var jsoHorario = JSON.parse(sessionStorage.horario);
-				var horario = jsoHorario.horarioMedico.horario;
-				var numHoras=0;
-				console.log($('#fecha_ini').val());
-				for(var j=0; j<horario.length; j++){
-					if( $('#fecha_ini').val()==horario[j][0]){
-						numHoras++;
-					}
-				}
-				console.log(numHoras);
-				var horasDisponibles = new Array(numHoras);
-				var k=0;
-				for(var i=0; i<horario.length; i++){
-					if( $('#fecha_ini').val()==horario[i][0]){
-						horasDisponibles[k]=horario[i][1];
-						console.log(horasDisponibles[k]);
-						k++;
-					}
-				}
-				sessionStorage.horas=JSON.stringify(horasDisponibles);
-				if(horasDisponibles.length!=0){
-					document.getElementById("hora").disabled=false;
-					$('#noHayHora').html("");
-					rellenarHoras();
-				}
-				else {
-					$('#hora').html("");
-					document.getElementById("hora").disabled=true;
-					if($("#fecha_ini").datepicker("getDate") != null) {
-						$('#noHayHora').html("No hay horas disponibles para este día, seleccione otro.");
-						$('#noHayHora').css("color", "red");
-					}
-				}
-	        });
-		});
-		
-		function rellenarHoras(){
+
+		$(document)
+				.ready(
+						function() {
+							$('#modificarcita')
+									.click(
+											function(event) {
+												if (!(comprobarFecha(document
+														.getElementById("fecha_ini").value) + comprobarHora(document
+														.getElementById("hora").value)) != 0) {
+													event.preventDefault();
+													enviarDatos();
+												}
+											});
+						});
+
+		$(document)
+				.ready(
+						function() {
+							$("#fecha_ini")
+									.change(
+											function() {
+												$('#fecha').html("");
+												var jsoHorario = JSON
+														.parse(sessionStorage.horario);
+												var horario = jsoHorario.horarioMedico.horario;
+												var numHoras = 0;
+												console.log($('#fecha_ini')
+														.val());
+												for (var j = 0; j < horario.length; j++) {
+													if ($('#fecha_ini').val() == horario[j][0]) {
+														numHoras++;
+													}
+												}
+												console.log(numHoras);
+												var horasDisponibles = new Array(
+														numHoras);
+												var k = 0;
+												for (var i = 0; i < horario.length; i++) {
+													if ($('#fecha_ini').val() == horario[i][0]) {
+														horasDisponibles[k] = horario[i][1];
+														console
+																.log(horasDisponibles[k]);
+														k++;
+													}
+												}
+												sessionStorage.horas = JSON
+														.stringify(horasDisponibles);
+												if (horasDisponibles.length != 0) {
+													document
+															.getElementById("hora").disabled = false;
+													$('#noHayHora').html("");
+													rellenarHoras();
+												} else {
+													$('#hora').html("");
+													document
+															.getElementById("hora").disabled = true;
+													if ($("#fecha_ini")
+															.datepicker(
+																	"getDate") != null) {
+														$('#noHayHora')
+																.html(
+																		"No hay horas disponibles para este día, seleccione otro.");
+														$('#noHayHora').css(
+																"color", "red");
+													}
+												}
+											});
+						});
+
+		function rellenarHoras() {
 			$('#hora').empty();
 			var jsoModif = JSON.parse(sessionStorage.modificar);
 			var dniM = jsoModif.citaModificar[0].dniMedico;
@@ -408,74 +462,76 @@
 			var jsoHoras = JSON.parse(sessionStorage.horas);
 			var select = document.getElementById("hora");
 			var horaM = jsoModif.citaModificar[0].hora;
-			for(var i = 0; i <jsoHoras.length ; i++) {
-			  	var option = document.createElement('option');
-			  	option.text = option.value = jsoHoras[i];
-			   	select.add(option, 0);
+			for (var i = 0; i < jsoHoras.length; i++) {
+				var option = document.createElement('option');
+				option.text = option.value = jsoHoras[i];
+				select.add(option, 0);
 			}
 			$("#hora").val(horaM);
 		}
-		
+
 		function solicitarHorarioMedico(dniMedico) {
 			var data = {
-					dniMedico : dniMedico,
-					tipo : "solicitar"
-				};
-				var url = "/formularioCitas";
-				var type = "POST";
-				var success;
-				var xhrFields;
-				var async= false;
-				var headers = {
-					'Content-Type' : 'application/json'
-				};
+				dniMedico : dniMedico,
+				tipo : "solicitar"
+			};
+			var url = "/formularioCitas";
+			var type = "POST";
+			var success;
+			var xhrFields;
+			var async = false;
+			var headers = {
+				'Content-Type' : 'application/json'
+			};
 
-				data = JSON.stringify(data);
-				console.log(data);
-				$.ajax({
-					type : type,
-					url : url,
-					data : data,
-					headers : headers,
-					async : async,
-					xhrFields : {
-						withCredentials : true
-					},
-					success : solicitarOK,
-					error : solicitarError
-				});
+			data = JSON.stringify(data);
+			console.log(data);
+			$.ajax({
+				type : type,
+				url : url,
+				data : data,
+				headers : headers,
+				async : async,
+				xhrFields : {
+					withCredentials : true
+				},
+				success : solicitarOK,
+				error : solicitarError
+			});
 		}
-		
-		function solicitarOK(respuesta){
+
+		function solicitarOK(respuesta) {
 			console.log(respuesta);
 			var jsoHorarioM = JSON.parse(respuesta);
 			console.log(jsoHorarioM);
 			console.log(jsoHorarioM.horarioMedico.horario);
 			var arrayHorario = jsoHorarioM.horarioMedico.horario;
-			document.getElementById("fecha_ini").disabled=false;
-			sessionStorage.horario=JSON.stringify(jsoHorarioM);
+			document.getElementById("fecha_ini").disabled = false;
+			sessionStorage.horario = JSON.stringify(jsoHorarioM);
 		}
-		
-		function solicitarError(error){
+
+		function solicitarError(error) {
 			console.log(error);
 		}
 
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var jsoModif = JSON.parse(sessionStorage.modificar);
-			
+
 			var dniMed = jsoModif.citaModificar[0].dniMedico;
 			var antDia = jsoModif.citaModificar[0].dia;
 			var antHora = jsoModif.citaModificar[0].hora;
 			var dniPac;
 			var referrer = document.referrer;
-			if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor"){
+			if (referrer == "http://localhost:8080/citasGestor"
+					|| referrer == "https://the-good-health.herokuapp.com/citasGestor") {
 				var jsoEdit = JSON.parse(sessionStorage.PacienteEdit);
 				dniPac = jsoEdit.Paciente[0].DNI;
-			}
-			else if (referrer == "http://localhost:8080/medicoGestor" || referrer == "https://the-good-health.herokuapp.com/medicoGestor")
+			} else if (referrer == "http://localhost:8080/medicoGestor"
+					|| referrer == "https://the-good-health.herokuapp.com/medicoGestor")
 				dniPac = jsoModif.citaModificar[0].dniPaciente;
-			else dniPac = jsoUser.resultado.usuario.dni;
+			else
+				dniPac = jsoUser.resultado.usuario.dni;
 			var data = {
 				dniPaciente : dniPac,
 				dniMedico : dniMed,
@@ -514,15 +570,19 @@
 				title : "Solicitud Recibida",
 				text : "Has modificado la cita",
 				icon : "success",
-			}).then(function() {
-				var referrer = document.referrer;
-				if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor")
-					window.location.href = "/citasGestor";
-				else if (referrer == "http://localhost:8080/medicoGestor" || referrer == "https://the-good-health.herokuapp.com/medicoGestor")
-					window.location.href = "/medicoGestor";
-				else
-					window.location.href = "/citas";
-			});
+			})
+					.then(
+							function() {
+								var referrer = document.referrer;
+								if (referrer == "http://localhost:8080/citasGestor"
+										|| referrer == "https://the-good-health.herokuapp.com/citasGestor")
+									window.location.href = "/citasGestor";
+								else if (referrer == "http://localhost:8080/medicoGestor"
+										|| referrer == "https://the-good-health.herokuapp.com/medicoGestor")
+									window.location.href = "/medicoGestor";
+								else
+									window.location.href = "/citas";
+							});
 		}
 
 		function ModificarCitaError(e) {
@@ -533,7 +593,8 @@
 			document.getElementById("noHayHora").style.display = 'none';
 			if (texto == '') {
 				document.getElementById("noHayHora").style.display = 'inline';
-				$('#noHayHora').html("Tiene que escoger una hora para su cita.");
+				$('#noHayHora')
+						.html("Tiene que escoger una hora para su cita.");
 				$('#noHayHora').css("color", "red");
 				return 1;
 			}
