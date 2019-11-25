@@ -335,6 +335,80 @@
 			}
 		}
 		
+		function funcionGestionarCitas(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
+			console.log(dni);
+			console.log(nombreAp);
+			var jsoMedico={
+					"Medico":[
+						{"DNI":dni,
+							"nombre" : nombreAp}
+					]
+			};
+			sessionStorage.MedicoEdit = JSON.stringify(jsoMedico);
+			location.href="/medicoGestor";
+		}
+		
+		function funcionCalendario(boton){
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
+			var jsoPaciente={
+					"Paciente":[
+						{"DNI":dni,
+							"nombre" : nombreAp}
+					]
+			};
+			sessionStorage.PacienteEdit = JSON.stringify(jsoPaciente);
+			getGrupoMedico(dni);
+			location.href="/citasGestor";
+		}
+		
+		function getGrupoMedico(dni){
+			var data = {
+					dni : dni,
+					tipo : "getGrupoMedico"
+				};
+				var url = "/gestor";
+				var type = "POST";
+				var success;
+				var async= false;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					async : async,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : GrupoMedicoOK,
+					error : GrupoMedicoError
+				});
+		}
+		
+		function GrupoMedicoOK(resultado) {
+			console.log(resultado);
+			var jsoRes = JSON.parse(resultado);
+			console.log(jsoRes);
+			sessionStorage.grupoMedPaciente = JSON.stringify(jsoRes);
+		}
+		
+		function GrupoMedicoError(e) {
+			console.log(e);
+		}
+		
+		function funcionGestionarCitas(boton){
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			location.href="/medicoGestor";
+		}
+		
 		function funcionConvertirMedico(boton) {
 			var dni = boton.parentNode.parentNode.children[0].innerHTML;
 			console.log(dni);

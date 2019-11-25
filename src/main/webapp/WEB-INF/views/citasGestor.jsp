@@ -132,7 +132,7 @@
 			<div class="row d-flex justify-content-center">
 				<div class="container">
 				<div align='center'>
- 					<h2>Lista de Citas</h2>
+ 					<h2 id="misCitas">Lista de Citas</h2>
 				</div>
 						<table id="Table" class="table">
 							<thead>
@@ -171,6 +171,9 @@
 
 	<script type="text/javascript">
 	jQuery(document).ready(function($) {
+		var jsoPaciente = JSON.parse(sessionStorage.PacienteEdit);
+		var nombre = jsoPaciente.Paciente[0].nombre;
+		document.getElementById("misCitas").innerHTML = "Lista de Citas de "+nombre;
 		/*
 		 * Control para que no acceda a travis de la url a alguna página que no sea el home
 		 * Hay que ponerlo en todos los jsp que se hagan próximamente
@@ -179,7 +182,11 @@
 		if (referrer != 'http://localhost:8080/'
 				&& referrer != 'https://the-good-health.herokuapp.com/'
 				&& referrer != 'http://localhost:8080/gestor'
-				&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+				&& referrer != 'https://the-good-health.herokuapp.com/gestor'
+					&& referrer != 'http://localhost:8080/formularioModificar'
+						&& referrer != 'https://the-good-health.herokuapp.com/formularioModificar'
+							&& referrer != 'http://localhost:8080/citasGestor'
+								&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'){
 			var forma = document.forms[0];
 			forma.action = "/error";
 			forma.submit();
@@ -193,12 +200,12 @@
 		});
 		
 		function enviardni(){
-			var jsoUser = JSON.parse(sessionStorage.usuario);
+			var jsoPaciente = JSON.parse(sessionStorage.PacienteEdit);
 			var data = {
-					DNI : jsoUser.resultado.usuario.dni,
+					DNI : jsoPaciente.Paciente[0].DNI,
 					tipo : "mostrar"
 				};
-				var url = "/citas";
+				var url = "/citasGestor";
 				var type = "POST";
 				var success;
 				var xhrFields;
@@ -247,16 +254,20 @@
 		}
 		
 		function funcionModificar(boton){
+			//Falta esto, igual que el eliminar hay que hacer
+			
 			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dniPaciente = jsoUser.resultado.usuario.dni;
+			var jsoUser = JSON.parse(sessionStorage.PacienteEdit);
+			var dniPaciente = jsoUser.Paciente[0].DNI;
+			var jsoGrupo = JSON.parse(sessionStorage.grupoMedPaciente);
+			var listaM = jsoGrupo.Grupo;
 			console.log(boton.parentNode.parentNode.children[3].innerHTML);
-			for(var i=0; i<jsoUser.resultado.grupoMedico.listaMedicos.length; i++){
-				if(boton.parentNode.parentNode.children[3].innerHTML == (jsoUser.resultado.grupoMedico.listaMedicos[i].nombre + " " +jsoUser.resultado.grupoMedico.listaMedicos[i].apellidos)){
-						var dniMedico = jsoUser.resultado.grupoMedico.listaMedicos[i].DNI;
-						var especialidad = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+			for(var i=0; i<listaM.length; i++){
+				if(boton.parentNode.parentNode.children[3].innerHTML == (listaM[i].nombre + " " +listaM[i].apellidos)){
+						var dniMedico = listaM[i].DNI;
+						var especialidad = listaM[i].especialidad;
 				}
 			}
 			var jsoModif={
@@ -264,6 +275,7 @@
 						{"dniPaciente":dniPaciente,"dia":dia,"hora":hora,"dniMedico":dniMedico,"especialidad":especialidad}
 					]
 			};
+			console.log(jsoModif);
 			sessionStorage.modificar=JSON.stringify(jsoModif);
 			console.log(jsoModif);
 			location.href="/formularioModificar";
@@ -276,9 +288,10 @@
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
 			var especialidad = boton.parentNode.parentNode.children[2].innerHTML;
 			console.log(especialidad);
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dni = jsoUser.resultado.usuario.dni;
-			var listaMed = jsoUser.resultado.grupoMedico.listaMedicos;
+			var jsoUser = JSON.parse(sessionStorage.PacienteEdit);
+			var dni = jsoUser.Paciente[0].DNI;
+			var jsoGrupoM = JSON.parse(sessionStorage.grupoMedPaciente);
+			var listaMed = jsoGrupoM.Grupo;
 			for(var i=0; i<listaMed.length;i++){
 				if(listaMed[i].especialidad == especialidad){
 					var dniMedico = listaMed[i].DNI;
@@ -307,7 +320,7 @@
 				    swal("Cita eliminada correctamente", {
 				      icon: "success",
 				    }).then(function() {
-						window.location.href = "/citas";
+						window.location.href = "/citasGestor";
 					});
 				  } else {
 				    swal("La cita NO se ha eliminado", {
@@ -317,7 +330,7 @@
 		}
 		
 		function enviarEliminarCita(data) {
-			var url = "/citas";
+			var url = "/citasGestor";
 			var type = "POST";
 			var success;
 			var error;
