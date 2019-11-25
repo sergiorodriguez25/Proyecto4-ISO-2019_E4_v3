@@ -334,6 +334,11 @@
 		function UsuariosError(e) {
 			console.log(e);
 		}
+		
+		function funcionModificarCentro(boton){
+			sessionStorage.dniModificarCentro = boton.parentNode.parentNode.children[0].textContent;
+			window.location.href = "/formularioPaciente";
+		}
 
 		function ponerNombreApellidos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);

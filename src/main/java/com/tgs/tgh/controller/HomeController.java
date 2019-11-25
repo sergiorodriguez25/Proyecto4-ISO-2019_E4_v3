@@ -220,6 +220,8 @@ public class HomeController {
 		if (jso.get("tipo").equals("getMedicosCentro")) {
 			JSONObject jsorespuesta = Manager.get().getMedicosCentro(jso.get("centroMedico"));
 			return jsorespuesta.toString();
+		} else if (jso.get("tipo").equals("modificarCentro")) {
+			System.out.println(jso);
 		}
 		return "";
 	}

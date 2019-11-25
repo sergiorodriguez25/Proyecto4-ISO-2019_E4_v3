@@ -350,7 +350,7 @@
 						</div>
 					</div>
 					<div align="center">
-						<a href="/gestor" class="btn btn-success btn-large" type="submit">Aceptar</a>
+						<a id="aceptar" class="btn btn-success btn-large" type="submit">Aceptar</a>
 					</div>
 					<br></br>
 				</div>
@@ -402,6 +402,60 @@
 							ponerNombreApellidos();
 
 						});
+
+		$(document)
+				.ready(
+						function() {
+							$('#aceptar')
+									.click(
+											function(event) {
+												if (elegidos.length > 0) {
+													enviarDatos();
+												} else {
+													document.getElementById("noHaySeleccionados").style.color = "red";
+												}
+											});
+						});
+
+		function enviarDatos() {
+			var data = {
+					tipo : "modificarCentro",
+					dni : sessionStorage.dniModificarCentro,
+					centro : document.getElementById("centroMedico").textContent,
+					grupo : JSON.stringify(elegidos)
+				};
+				var url = "/formularioPaciente";
+				var type = "POST";
+				var success;
+				var xhrFields;
+				var headers = {
+					'Content-Type' : 'application/json'
+				};
+
+				data = JSON.stringify(data);
+				console.log(data);
+				$.ajax({
+					type : type,
+					url : url,
+					data : data,
+					headers : headers,
+					xhrFields : {
+						withCredentials : true
+					},
+					success : asignarCentroOK
+				});
+		}
+		
+		function asignarCentroOK(respuesta) {
+			console.log("Centro OK");
+			swal({
+				title : "Solicitud recibida",
+				text : "Has añadido el paciente",
+				icon : "success",
+			}).then(function() {
+				window.location.href = "/gestor";
+			});
+		}
 
 		function pedirMedicosDelCentro(centroMedico) {
 			var data = {
@@ -694,6 +748,7 @@
 		}
 
 		function funcionAsignarEspecialista(boton) {
+			document.getElementById("noHaySeleccionados").style.color = "black";
 			var hijos = boton.parentNode.parentNode.parentNode.children;
 			for (var i = 1; i < hijos.length; i++) {
 				hijos[i].children[3].firstElementChild.disabled = true;
@@ -725,9 +780,41 @@
 		}
 
 		function funcioneliminarEspecialista(boton) {
-			console.log(boton.parentNode.parentNode.parentNode.children.length);
-			if(boton.parentNode.parentNode.parentNode.children.length == 2){
+			if (boton.parentNode.parentNode.parentNode.children.length == 2) {
 				document.getElementById('noHaySeleccionados').innerHTML = "No hay especialistas seleccionados.";
+			}
+			var dni = boton.parentNode.parentNode.children[0].textContent;
+			for (var i = 0; i < elegidos.length; i++) {
+				if (elegidos[i] === dni) {
+					elegidos.pop(i);
+				}
+			}
+			var espec = boton.parentNode.parentNode.children[1].innerHTML;
+			switch (espec) {
+			case "Podólogo":
+				habilitarBotonesTabla("TablePodologo");
+				break;
+			case "Médico de Cabecera":
+				habilitarBotonesTabla("TableCabecera");
+				break;
+			case "Traumatólogo":
+				habilitarBotonesTabla("TableTraumatologo");
+				break;
+			case "Alergología":
+				habilitarBotonesTabla("TableAlergologia");
+				break;
+			case "Geriatría":
+				habilitarBotonesTabla("TableGeriatria");
+				break;
+			case "Enfermería":
+				habilitarBotonesTabla("TableEnfermeria");
+				break;
+			case "Pediatría":
+				habilitarBotonesTabla("TablePediatria");
+				break;
+			case "Psiquiatría":
+				habilitarBotonesTabla("TablePsiquiatria");
+				break;
 			}
 			var fila = boton.parentNode.parentNode.rowIndex;
 			document.getElementById('TablaElegidos').deleteRow(fila);
@@ -735,6 +822,13 @@
 
 		function UsuariosError(e) {
 			console.log(e);
+		}
+
+		function habilitarBotonesTabla(nombre) {
+			var tabla = document.getElementById(nombre);
+			for (var i = 1; i < tabla.children.length; i++) {
+				tabla.children[i].children[3].firstElementChild.disabled = false;
+			}
 		}
 
 		function ponerNombreApellidos() {
