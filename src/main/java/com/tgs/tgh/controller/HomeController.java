@@ -45,13 +45,9 @@ public class HomeController {
 	@PostMapping(value = "/home", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String login(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		String dni = jso.get("DNI");
-		System.out.println(dni);
 		String pwd = jso.get("password");
-		System.out.println(pwd);
 		JSONObject jsoRespuesta = Manager.get().login(dni, pwd);
-		System.out.println(jsoRespuesta);
 		JSONObject resultado = new JSONObject();
 		if (jsoRespuesta.get("usuario").equals("invalido")) {
 			resultado.put("type", "CredencialesMal");
@@ -59,7 +55,6 @@ public class HomeController {
 		}
 		resultado.put("resultado", jsoRespuesta);
 		resultado.put("type", "OK");
-		System.out.println(resultado);
 		return resultado.toString();
 	}
 
@@ -81,7 +76,6 @@ public class HomeController {
 	@RequestMapping(value = "/registro", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String registro(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		String dni = jso.get("DNI");
 		String pwd = jso.get("password");
 		String nombre = jso.get("nombre");
@@ -102,7 +96,6 @@ public class HomeController {
 			JSONObject resultado = new JSONObject();
 			resultado.put("resultado", jsoRespuesta);
 			resultado.put("type", "OK");
-			System.out.println(resultado);
 			return resultado.toString();
 		}
 
@@ -130,15 +123,11 @@ public class HomeController {
 	@RequestMapping(value = "/formularioCitas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String formularioC(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		if (jso.get("tipo").equals("solicitar")) {
-			System.out.println(jso.get("dniMedico"));
 			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
-			System.out.println(resultado);
 			return resultado.toString();
 		} else if (jso.get("tipo").equals("getCitasDiaMedico")) {
 			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
-			System.out.println(resultado);
 			return resultado.toString();
 		} else {
 			String dniPaciente = jso.get("dniPaciente");
@@ -160,7 +149,6 @@ public class HomeController {
 	@RequestMapping(value = "/medico", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String medico(@RequestBody Map<String, String> jso) throws Throwable {
-		System.out.println(jso);
 		String dni = jso.get("DNI");
 		JSONArray jsorespuesta = Manager.get().getCitasMedico(dni);
 		return jsorespuesta.toString();
@@ -193,7 +181,6 @@ public class HomeController {
 	@RequestMapping(value = "/citas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String citas(@RequestBody Map<String, String> jso) throws Throwable {
-		System.out.println(jso);
 		String dni = jso.get("DNI");
 		if (jso.get("tipo").equals("mostrar")) {
 			JSONArray jsorespuesta = Manager.get().getCitas(dni);
@@ -244,20 +231,17 @@ public class HomeController {
 	@RequestMapping(value = "/formularioModificar", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String formModif(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		if (jso.get("tipo").equals("solicitar")) {
 			String hora = jso.get("antiguaHora");
 			String dia = jso.get("antiguoDia");
 			String dniMedico = jso.get("dniMedico");
 			Cita cita = new Cita(jso.get("dniPaciente"), dniMedico, dia, hora);
-			System.out.println(cita.getDia());
 			String nuevoDia = jso.get("nuevoDia");
 			String nuevaHora = jso.get("nuevaHora");
 
 			Manager.get().modificarCita(cita, nuevoDia, nuevaHora);
 		} else if (jso.get("tipo").equals("getCitasDiaMedico")) {
 			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
-			System.out.println(resultado);
 			return resultado.toString();
 		}
 
@@ -274,7 +258,6 @@ public class HomeController {
 	@RequestMapping(value = "/formularioTrabajador", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String formTrabaj(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		JSONObject resultado = new JSONObject();
 		if(jso.get("tipo").equals("solicitarEspecialidades")) {
 			resultado = Manager.get().getEspecialidades();
@@ -288,11 +271,8 @@ public class HomeController {
 			dias = dias.replace("[", "");
 			dias = dias.replace("]", "");
 			dias = dias.replace("\"", "");
-			System.out.println(dias);
 			String[] diasElegidos = dias.split(",");
-			System.out.println(diasElegidos[0]);
 			String centro = jso.get("centro");
-			System.out.println(centro);
 			resultado = Manager.get().guardarNuevoMedico(dni, especialidad, horaIni, horaFin, diasElegidos, centro);
 		}
 		return resultado.toString();
@@ -308,7 +288,6 @@ public class HomeController {
 	@RequestMapping(value = "/formularioGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String formGestor(@RequestBody Map<String, String> jso) throws Exception {
-		System.out.println(jso);
 		String dniNuevoGestor = jso.get("DNI");
 		String centro = jso.get("centro");
 		Manager.get().guardarNuevoGestor(dniNuevoGestor, centro);
@@ -328,7 +307,6 @@ public class HomeController {
 		JSONObject resultado = new JSONObject();
 		if(jso.get("tipo").equals("getCitas")) {
 			String fecha = jso.get("fecha");
-			System.out.println(fecha);
 			resultado = Manager.getCitasPorFecha(fecha);
 			
 		}
@@ -371,7 +349,6 @@ public class HomeController {
 	@RequestMapping(value = "/medicoGestor", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public String medicoGestor(@RequestBody Map<String, String> jso) throws Throwable {
-		System.out.println(jso);
 		JSONArray jsorespuesta = new JSONArray();
 		if(jso.get("tipo").equals("getCitas")) {
 			String dni = jso.get("DNI");	

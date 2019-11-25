@@ -250,11 +250,9 @@ public class DBBroker<T> {
 	public Usuario getUsuario(String dni) throws Exception {
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Usuarios", BsonDocument.class);
 		BsonDocument criterion = new BsonDocument();
-		System.out.println(dni);
 		criterion.append("DNI", new BsonString(Encriptador.encriptar(dni)));
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
-		System.out.println(bso);
 		Usuario user = new Usuario(dni, bso.get("Password").asString().getValue(),
 				bso.get("Nombre").asString().getValue(),
 				Encriptador.desencriptar(bso.get("Apellidos").asString().getValue()),

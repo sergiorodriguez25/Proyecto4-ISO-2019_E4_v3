@@ -21,7 +21,6 @@ public class CitaDAO {
 	}
 	
 	public static void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
-		System.out.println(cita.getDia());
 		boolean comprobar = DBBroker.get().modificarCita(cita.getDniPaciente(), cita.getDia(), cita.getHora(), nuevoDia, nuevaHora);
 		if (!comprobar)
 			throw new Exception("Error al modificar la cita");
@@ -42,10 +41,8 @@ public class CitaDAO {
 	@SuppressWarnings("unchecked")
 	public static ArrayList<String> getCitasDiaMedico(String dniMedico, String fecha) {
 		FindIterable<BsonDocument> docs = DBBroker.get().getCitasDiaMedico(dniMedico, fecha);
-		System.out.println(docs);
 		ArrayList<String> lista = new ArrayList<String>();
 		BsonDocument bso = docs.first();
-		System.out.println(bso);
 		for (BsonDocument doc : docs) { 
 			String hora;
 			hora = doc.get("hora").asString().getValue();

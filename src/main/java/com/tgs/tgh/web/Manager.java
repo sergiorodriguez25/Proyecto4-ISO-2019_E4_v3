@@ -64,7 +64,6 @@ public class Manager {
 		Usuario usuario = UsuarioDAO.login(dni, pwd);
 		if (usuario == null || dni.length() == 0 || pwd.length() == 0)
 			return new JSONObject().put("usuario", "invalido");
-		System.out.println(usuario.getDNI());
 		JSONObject respuesta = new JSONObject();
 		JSONObject jsoUsu = new JSONObject();
 		jsoUsu.put("dni", usuario.getDNI());
@@ -154,12 +153,10 @@ public class Manager {
 	public JSONArray getCitas(String dni) throws Throwable {
 		List<Cita> citas = CitaDAO.getCitas(dni);
 		JSONArray arrayCitas = new JSONArray();
-		System.out.println(arrayCitas);
 		for (int i = 0; i < citas.size(); i++) {
 			String dniM = citas.get(i).getDniMedico();
 			Usuario usu = UsuarioDAO.getUsuario(dniM);
 			Medico medico = MedicoDAO.esMedico(usu);
-			System.out.println(medico);
 			Cita cita = citas.get(i);
 			JSONObject jsoCita = new JSONObject();
 			jsoCita.put("especialidad", medico.getEspecialidad());
@@ -303,9 +300,7 @@ public class Manager {
 		Date dateFin = new Date();
 		try {
 			dateIni = format.parse(horaIni);
-			System.out.println(dateIni);
 			dateFin = format.parse(horaFin);
-			System.out.println(dateFin);
 
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -314,13 +309,11 @@ public class Manager {
 		calendarFin.setTime(dateFin);
 		int hourFin = calendarFin.get(Calendar.HOUR_OF_DAY);
 		int minFin = calendarFin.get(Calendar.MINUTE);
-		System.out.println(hourFin + " " + minFin);
 		Calendar calendarPonerPrimeraHora = GregorianCalendar.getInstance();
 		calendarPonerPrimeraHora.setTime(dateIni);
 		int hourFirst = calendarPonerPrimeraHora.get(Calendar.HOUR_OF_DAY);
 		int minFirst = calendarPonerPrimeraHora.get(Calendar.MINUTE);
 		String primeraHora = montarHoras(hourFirst, minFirst);
-		System.out.println(primeraHora);
 		for (int i = 0; i < diasElegidos.length; i++)
 			HorarioMedicoDAO.anadirHoraMedico(diasElegidos[i], primeraHora, dni);
 		int hour = 0;
@@ -335,7 +328,6 @@ public class Manager {
 			hour = calendar.get(Calendar.HOUR_OF_DAY);
 			min = calendar.get(Calendar.MINUTE);
 			String nuevaHora = montarHoras(hour, min);
-			System.out.println(nuevaHora);
 			try {
 				dateIni = format.parse(nuevaHora);
 			} catch (ParseException e) {

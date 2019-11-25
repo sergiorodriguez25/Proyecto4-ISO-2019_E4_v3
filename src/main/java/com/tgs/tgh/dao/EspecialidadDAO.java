@@ -10,10 +10,8 @@ public class EspecialidadDAO {
 
 	public static ArrayList<String[]> getEspecialidades() {
 		FindIterable<BsonDocument> docs = DBBroker.get().getEspecialidades();
-		System.out.println(docs);
 		ArrayList<String[]> lista = new ArrayList<String[]>();
 		BsonDocument bso = docs.first();
-		System.out.println(bso);
 		for (BsonDocument doc : docs) { 
 			String especialidad = doc.get("Especialidad").asString().getValue();
 			String duracion = doc.get("duracionCita").asString().getValue();
