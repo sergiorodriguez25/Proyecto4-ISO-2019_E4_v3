@@ -259,13 +259,15 @@
 			//console.log(boton.parentNode.parentNode.children[0].firstElementChild.innerHTML);
 			var hora = boton.parentNode.parentNode.children[0].firstElementChild.innerHTML;
 			var dia = boton.parentNode.parentNode.children[1].firstElementChild.innerHTML;
-			var jsoUser = JSON.parse(sessionStorage.usuario);
-			var dniPaciente = jsoUser.resultado.usuario.dni;
+			var jsoUser = JSON.parse(sessionStorage.PacienteEdit);
+			var dniPaciente = jsoUser.Paciente[0].DNI;
+			var jsoGrupo = JSON.parse(sessionStorage.grupoMedPaciente);
+			var listaM = jsoGrupo.Grupo;
 			console.log(boton.parentNode.parentNode.children[3].innerHTML);
-			for(var i=0; i<jsoUser.resultado.grupoMedico.listaMedicos.length; i++){
-				if(boton.parentNode.parentNode.children[3].innerHTML == (jsoUser.resultado.grupoMedico.listaMedicos[i].nombre + " " +jsoUser.resultado.grupoMedico.listaMedicos[i].apellidos)){
-						var dniMedico = jsoUser.resultado.grupoMedico.listaMedicos[i].DNI;
-						var especialidad = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
+			for(var i=0; i<listaM.length; i++){
+				if(boton.parentNode.parentNode.children[3].innerHTML == (listaM[i].nombre + " " +listaM[i].apellidos)){
+						var dniMedico = listaM[i].DNI;
+						var especialidad = listaM[i].especialidad;
 				}
 			}
 			var jsoModif={
@@ -273,6 +275,7 @@
 						{"dniPaciente":dniPaciente,"dia":dia,"hora":hora,"dniMedico":dniMedico,"especialidad":especialidad}
 					]
 			};
+			console.log(jsoModif);
 			sessionStorage.modificar=JSON.stringify(jsoModif);
 			console.log(jsoModif);
 			location.href="/formularioModificar";

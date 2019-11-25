@@ -441,11 +441,17 @@
 		function enviarDatos() {
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			var jsoModif = JSON.parse(sessionStorage.modificar);
+			var jsoEdit = JSON.parse(sessionStorage.PacienteEdit);
 			var dniMed = jsoModif.citaModificar[0].dniMedico;
 			var antDia = jsoModif.citaModificar[0].dia;
 			var antHora = jsoModif.citaModificar[0].hora;
+			var dniPac;
+			var referrer = document.referrer;
+			if(referrer == "http://localhost:8080/citasGestor" || referrer == "https://the-good-health.herokuapp.com/citasGestor")
+				dniPac = jsoEdit.Paciente[0].DNI;
+			else dniPac = jsoUser.resultado.usuario.dni;
 			var data = {
-				dniPaciente : jsoUser.resultado.usuario.dni,
+				dniPaciente : dniPac,
 				dniMedico : dniMed,
 				nuevoDia : $('#fecha_ini').val(),
 				nuevaHora : $('#hora').val(),
@@ -479,7 +485,7 @@
 		function ModificarCitaOK(respuesta) {
 			console.log("Cita OK");
 			swal({
-				title : "Bien hecho",
+				title : "Solicitud Recibida",
 				text : "Has modificado la cita",
 				icon : "success",
 			}).then(function() {
