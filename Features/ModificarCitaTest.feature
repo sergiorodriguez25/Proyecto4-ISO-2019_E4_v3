@@ -10,4 +10,4 @@ Feature: Comprobar el correcto funcionamiento de la modificación de citas
     Then La cita cambia en la base de datos
     And Se elimina el usuario
     And Se elimina el medico
-    And Se elimina la cita
+    And Se elimina la cita modificada

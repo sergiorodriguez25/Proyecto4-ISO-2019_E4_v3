@@ -317,6 +317,14 @@ public final class formularioGestor_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\t\t\tconsole.log(dni);\r\n");
       out.write("\t\t\tdocument.getElementById('DNI').innerHTML = dni;\r\n");
       out.write("\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\tvar jsoDNI = JSON.parse(sessionStorage.nuevoGestor);\r\n");
+      out.write("\t\t\t\t\t\t\tconsole.log(jsoDNI);\r\n");
+      out.write("\t\t\t\t\t\t\tvar dni = jsoDNI.DNIGestor[0].DNI;\r\n");
+      out.write("\t\t\t\t\t\t\tconsole.log(dni);\r\n");
+      out.write("\t\t\t\t\t\t\tdocument.getElementById('DNI').innerHTML= dni;\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
       out.write("\t\t});\r\n");
       out.write("\r\n");
       out.write("\t\t$(document).ready(function() {\r\n");

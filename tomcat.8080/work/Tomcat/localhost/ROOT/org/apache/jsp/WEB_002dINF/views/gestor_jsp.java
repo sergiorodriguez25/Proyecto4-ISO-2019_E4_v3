@@ -493,6 +493,15 @@ public final class gestor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t\t\t+ '\\' class=\\'btn btn-primary \\' onClick=\"funcionConvertirGestor(this)\">'\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t+ 'Convertir en Gestor'\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t+ '</button> ' + '</td></tr>');\r\n");
+      out.write("\t\t\t\r\n");
+      out.write("\t\t\tfor (var i = 0; i < jsoUsuarios.Pacientes.length; i++) {\r\n");
+      out.write("\t\t\t\tif(jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {\r\n");
+      out.write("\t\t\t\t\t$(\"#TablaUsuarios\").append('<tr><td align=\"center\" style=\"dislay: none;\">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'\r\n");
+      out.write("\t\t\t\t\t+ '<td align=\"center\" style=\"dislay: none;\">' + jsoUsuarios.Pacientes[i].nombre + \" \" + jsoUsuarios.Pacientes[i].apellidos + '</td>'\r\n");
+      out.write("\t\t\t\t\t+ '<td align=\"center\" style=\"dislay: none;\">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' \r\n");
+      out.write("\t\t\t\t\t+ '<td align=\"center\" style=\"dislay: none;\">' + '<button id=\\'botonModificarCentro'+i+'\\' class=\\'btn btn-primary \\' onClick=\"funcionModificarCentro(this)\">'+'Asignar Centro'+'</button> ' + '</td>'\r\n");
+      out.write("\t\t\t\t\t+ '<td align=\"center\" style=\"dislay: none;\">' + '<button id=\\'botonConvertirTrabajador'+i+'\\' class=\\'btn btn-primary \\' onClick=\"funcionConvertirMedico(this)\">'+'Convertir en Médico'+'</button> ' + '</td>'\r\n");
+      out.write("\t\t\t\t\t+ '<td align=\"center\" style=\"dislay: none;\">' + '<button id=\\'botonConvertirGestor'+i+'\\' class=\\'btn btn-primary \\' onClick=\"funcionConvertirGestor(this)\">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');\r\n");
       out.write("\t\t\t\t}\r\n");
       out.write("\r\n");
       out.write("\t\t\t\tif (jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {\r\n");
@@ -532,6 +541,7 @@ public final class gestor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t}\r\n");
       out.write("\t\t\t}\r\n");
       out.write("\t\t\tfor (j = 0; j < jsoUsuarios.Medicos.length; j++) {\r\n");
+      out.write("\t\t\tfor (var j=0; j<jsoUsuarios.Medicos.length; j++) {\r\n");
       out.write("\t\t\t\tconsole.log(jsoUsuarios.Medicos.length);\r\n");
       out.write("\t\t\t\tconsole.log(jsoUsuarios.Medicos[j].DNI);\r\n");
       out.write("\t\t\t\tif (jsoUsuarios.Medicos[j].centroMedico == centroMedicoGestor) {\r\n");

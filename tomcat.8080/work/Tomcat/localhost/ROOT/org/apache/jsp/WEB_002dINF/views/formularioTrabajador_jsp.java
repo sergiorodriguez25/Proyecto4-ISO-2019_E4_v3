@@ -365,6 +365,12 @@ public final class formularioTrabajador_jsp extends org.apache.jasper.runtime.Ht
       out.write("\t\t\tvar dni = jsoDNI.DNIMedico.DNI;\r\n");
       out.write("\t\t\tpedirEspecialidades();\r\n");
       out.write("\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\tvar jsoDNI = JSON.parse(sessionStorage.nuevoMedico);\r\n");
+      out.write("\t\t\t\t\t\t\tvar dni = jsoDNI.DNIMedico.DNI;\r\n");
+      out.write("\t\t\t\t\t\t\tpedirEspecialidades();\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
+      out.write("\t\t\t\t\t\t\t\r\n");
       out.write("\t\t});\r\n");
       out.write("\r\n");
       out.write("\t\tfunction pedirEspecialidades() {\r\n");

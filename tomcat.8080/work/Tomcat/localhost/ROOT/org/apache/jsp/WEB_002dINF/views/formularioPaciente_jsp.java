@@ -277,7 +277,7 @@ public final class formularioPaciente_jsp extends org.apache.jasper.runtime.Http
       out.write("\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t<p align=\"center\">\r\n");
       out.write("\t\t\t\t\t<b>Seleccione el especialista que quiere asignar, una vez haya\r\n");
-      out.write("\t\t\t\t\t\tterminado pulse el botón</b>\r\n");
+      out.write("\t\t\t\t\t\tterminado pulse el botón Aceptar</b>\r\n");
       out.write("\t\t\t\t</p>\r\n");
       out.write("\t\t\t\t<br>\r\n");
       out.write("\t\t\t\t<div class=\"container\" id=\"myGroup\">\r\n");
@@ -498,7 +498,9 @@ public final class formularioPaciente_jsp extends org.apache.jasper.runtime.Http
       out.write("\t\t\t\t\t\t\t */\r\n");
       out.write("\t\t\t\t\t\t\tvar referrer = document.referrer;\r\n");
       out.write("\t\t\t\t\t\t\tif (referrer != 'http://localhost:8080/gestor'\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t&& referrer != 'https://the-good-health.herokuapp.com/gestor') {\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t&& referrer != 'https://the-good-health.herokuapp.com/gestor'\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t&& referrer != 'http://the-good-health.herokuapp.com/gestor'\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t&& referrer != 'the-good-health.herokuapp.com/gestor') {\r\n");
       out.write("\t\t\t\t\t\t\t\tvar forma = document.forms[0];\r\n");
       out.write("\t\t\t\t\t\t\t\tforma.action = \"/error\";\r\n");
       out.write("\t\t\t\t\t\t\t\tforma.submit();\r\n");
