@@ -80,8 +80,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#"
-					tabindex="-1" aria-disabled="true">Asignar Especialistas</a></li>
+				<li class="nav-item"><a class="nav-link" href="#" tabindex="-1"
+					aria-disabled="true">Asignar Especialistas</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="dropdown01"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cuenta</a>
@@ -110,10 +110,10 @@
 							<div class="card">
 								<div class="card-body">
 									<h4>Formulario de Asignación de Especialistas</h4>
-									<p>
-										Se encuentra en la página de gestión de especialistas, asigne
-										el o los distintos especialistas del paciente seleccionado.</p>
-			
+									<p>Se encuentra en la página de gestión de especialistas,
+										asigne el o los distintos especialistas del paciente
+										seleccionado.</p>
+
 									<div class="modal fade" id="informacion" tabindex="-1"
 										role="dialog" aria-labelledby="exampleModalLongTitle"
 										aria-hidden="true">

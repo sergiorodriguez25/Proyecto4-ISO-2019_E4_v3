@@ -70,7 +70,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="/citas">THE GOOD HEALTH</a>
+		<a class="navbar-brand" href="#">THE GOOD HEALTH</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExampleDefault"
 			aria-controls="navbarsExampleDefault" aria-expanded="false"
@@ -80,7 +80,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/citas"
+				<li class="nav-item"><a class="nav-link" href="#"
 					tabindex="-1" aria-disabled="true">Mis citas</a></li>
 				<li class="nav-item active"><a class="nav-link" href="#">Modificar
 						cita <span class="sr-only">(current)</span>

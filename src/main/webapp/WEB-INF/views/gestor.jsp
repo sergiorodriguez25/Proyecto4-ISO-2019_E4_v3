@@ -304,6 +304,8 @@
 									&& referrer != 'https://the-good-health.herokuapp.com/formularioGestor'
 										&& referrer != 'http://the-good-health.herokuapp.com/formularioGestor'
 											&& referrer != 'the-good-health.herokuapp.com/formularioGestor') {
+									&& referrer != 'http://localhost:8080/calendarioGlobal'
+									&& referrer != 'https://the-good-health.herokuapp.com/calendarioGlobal') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();

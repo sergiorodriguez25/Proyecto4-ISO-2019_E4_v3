@@ -191,11 +191,6 @@ public final class gestor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\tclass=\"dropdown-item\" href=\"/\">Cerrar sesión</a>\r\n");
       out.write("\t\t\t\t\t</div></li>\r\n");
       out.write("\t\t\t</ul>\r\n");
-      out.write("\t\t\t<form class=\"form-inline my-2 my-lg-0\">\r\n");
-      out.write("\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Buscar\"\r\n");
-      out.write("\t\t\t\t\taria-label=\"Search\">\r\n");
-      out.write("\t\t\t\t<button class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\">Buscar</button>\r\n");
-      out.write("\t\t\t</form>\r\n");
       out.write("\t\t</div>\r\n");
       out.write("\t</nav>\r\n");
       out.write("\r\n");
@@ -416,6 +411,8 @@ public final class gestor_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t&& referrer != 'https://the-good-health.herokuapp.com/formularioGestor'\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t&& referrer != 'http://the-good-health.herokuapp.com/formularioGestor'\r\n");
       out.write("\t\t\t\t\t\t\t\t\t\t\t&& referrer != 'the-good-health.herokuapp.com/formularioGestor') {\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t&& referrer != 'http://localhost:8080/calendarioGlobal'\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t&& referrer != 'https://the-good-health.herokuapp.com/calendarioGlobal') {\r\n");
       out.write("\t\t\t\t\t\t\t\tvar forma = document.forms[0];\r\n");
       out.write("\t\t\t\t\t\t\t\tforma.action = \"/error\";\r\n");
       out.write("\t\t\t\t\t\t\t\tforma.submit();\r\n");
