@@ -20,7 +20,7 @@ public class CitaDAO {
 			throw new Exception("Error al eliminar la cita");
 	}
 	
-	public static void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception{
+	public static void modificarCita(Cita cita, String nuevoDia, String nuevaHora) throws Exception {
 		System.out.println(cita.getDia());
 		boolean comprobar = DBBroker.get().modificarCita(cita.getDniPaciente(), cita.getDia(), cita.getHora(), nuevoDia, nuevaHora);
 		if (!comprobar)
@@ -29,14 +29,12 @@ public class CitaDAO {
 	
 	@SuppressWarnings("unchecked")
 	public static List<Cita> getCitas(String dni) throws Throwable {
-		List<Cita> citas = DBBroker.get().getCitaBD(dni);
-		return citas;
+		return DBBroker.get().getCitaBD(dni);
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Cita> getCitasMedicoDAO(String dni) throws Throwable {
-		List<Cita> citas = DBBroker.get().getCitasMedico(dni);
-		return citas;
+		return DBBroker.get().getCitasMedico(dni);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -56,8 +54,7 @@ public class CitaDAO {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<Cita> getCitasPorFecha(String fecha) {
-		ArrayList<Cita> citas = DBBroker.get().getCitaPorFecha(fecha);
-		return citas;
+		return DBBroker.get().getCitaPorFecha(fecha);
 	}
 
 }

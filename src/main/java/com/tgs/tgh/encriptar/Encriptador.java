@@ -10,7 +10,7 @@ import org.apache.commons.codec.binary.Base64;
 public class Encriptador {
 
 	static String secretKey = "geometria";
-	static String base64EncryptedString = "";
+	static String b64Encrypted = "";
 
 	public static String encriptar(String texto) {
 
@@ -27,12 +27,12 @@ public class Encriptador {
 			byte[] plainTextBytes = texto.getBytes("utf-8");
 			byte[] buf = cipher.doFinal(plainTextBytes);
 			byte[] base64Bytes = Base64.encodeBase64(buf);
-			base64EncryptedString = new String(base64Bytes);
+			b64Encrypted = new String(base64Bytes);
 
 		} catch (Exception ex) {
 			System.out.println("Fallo de encriptación.");
 		}
-		return base64EncryptedString;
+		return b64Encrypted;
 	}
 
 	public static String desencriptar(String textoEncriptado) throws Exception {
@@ -49,12 +49,12 @@ public class Encriptador {
 
 			byte[] plainText = decipher.doFinal(message);
 
-			base64EncryptedString = new String(plainText, "UTF-8");
+			b64Encrypted = new String(plainText, "UTF-8");
 
 		} catch (Exception ex) {
 			System.out.println("Fallo de desencriptación.");
 		}
-		return base64EncryptedString;
+		return b64Encrypted;
 	}
 
 }

@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.18.0" timestamp="2019-11-25T12:16:29.788">
+<file name="src/main/java/com/tgs/tgh/controller/HomeController.java">
+<violation beginline="22" endline="22" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.mongodb.util.JSON'
+</violation>
+<violation beginline="22" endline="22" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.mongodb.util.JSON'
+</violation>
+<violation beginline="30" endline="319" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="30" endline="319" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="47" endline="47" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="47" endline="47" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="51" endline="51" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="51" endline="51" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="53" endline="53" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="53" endline="53" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="57" endline="57" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="57" endline="57" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="61" endline="61" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="61" endline="61" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="83" endline="83" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="83" endline="83" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="97" endline="97" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="97" endline="97" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="97" endline="97" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="97" endline="97" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="104" endline="104" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="104" endline="104" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="132" endline="132" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="132" endline="132" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="134" endline="134" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="134" endline="134" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="136" endline="136" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="136" endline="136" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="137" endline="137" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="137" endline="137" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="140" endline="140" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="140" endline="140" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="141" endline="141" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="141" endline="141" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="162" endline="162" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="162" endline="162" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="178" endline="178" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="178" endline="178" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="181" endline="181" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="181" endline="181" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="190" endline="190" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="190" endline="190" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="194" endline="194" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="194" endline="194" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="215" endline="215" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="215" endline="215" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="221" endline="221" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="221" endline="221" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="229" endline="229" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="229" endline="229" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="230" endline="230" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="230" endline="230" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="246" endline="246" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="246" endline="246" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="256" endline="256" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="256" endline="256" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="258" endline="258" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="258" endline="258" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="260" endline="260" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="260" endline="260" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="280" endline="280" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="280" endline="280" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="300" endline="300" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="300" endline="300" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.controller" class="HomeController" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/CitaDAO.java">
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="38" endline="38" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="39" endline="39" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+<violation beginline="39" endline="39" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+<violation beginline="43" endline="43" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="43" endline="43" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="44" endline="44" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="44" endline="44" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="45" endline="45" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="45" endline="45" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="48" endline="48" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="58" endline="58" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="58" endline="58" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="59" endline="59" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="59" endline="59" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="60" endline="60" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+<violation beginline="60" endline="60" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="CitaDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/DBBroker.java">
+<violation beginline="23" endline="364" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="23" endline="364" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="36" endline="36" begincolumn="0" endcolumn="0" rule="AccessorClassGeneration" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#accessorclassgeneration" priority="3">
+AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+</violation>
+<violation beginline="36" endline="36" begincolumn="0" endcolumn="0" rule="AccessorClassGeneration" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#accessorclassgeneration" priority="3">
+AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+</violation>
+<violation beginline="40" endline="40" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'SingletonHolder.singleton' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="40" endline="40" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'SingletonHolder.singleton' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="49" endline="50" begincolumn="0" endcolumn="0" rule="SimplifyBooleanReturns" ruleset="Design" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#simplifybooleanreturns" priority="4">
+SimplifyBooleanReturns: Avoid unnecessary if..then..else statements when returning booleans
+</violation>
+<violation beginline="49" endline="50" begincolumn="0" endcolumn="0" rule="SimplifyBooleanReturns" ruleset="Design" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#simplifybooleanreturns" priority="4">
+SimplifyBooleanReturns: Avoid unnecessary if..then..else statements when returning booleans
+</violation>
+<violation beginline="50" endline="50" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="50" endline="50" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="50" endline="50" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="50" endline="50" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="62" endline="62" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="62" endline="62" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="62" endline="62" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="62" endline="62" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="72" endline="72" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="72" endline="72" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="72" endline="72" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+</violation>
+<violation beginline="72" endline="72" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+</violation>
+<violation beginline="84" endline="84" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="84" endline="84" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="84" endline="84" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="84" endline="84" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="91" endline="91" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+</violation>
+<violation beginline="91" endline="91" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+</violation>
+<violation beginline="101" endline="101" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="101" endline="101" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="101" endline="101" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="101" endline="101" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="107" endline="107" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+</violation>
+<violation beginline="107" endline="107" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+</violation>
+<violation beginline="117" endline="117" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="117" endline="117" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="117" endline="117" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="117" endline="117" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="122" endline="122" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+</violation>
+<violation beginline="122" endline="122" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+</violation>
+<violation beginline="166" endline="166" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="166" endline="166" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="191" endline="191" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="191" endline="191" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="208" endline="208" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="208" endline="208" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="228" endline="229" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="228" endline="229" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="243" endline="244" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="243" endline="244" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="254" endline="254" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="254" endline="254" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="258" endline="258" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="258" endline="258" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="265" endline="265" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+</violation>
+<violation beginline="265" endline="265" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+</violation>
+<violation beginline="268" endline="268" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="268" endline="268" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="344" endline="344" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="344" endline="344" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="353" endline="354" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="353" endline="354" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="358" endline="358" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="358" endline="358" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.dao" class="DBBroker" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java">
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="30" endline="30" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'duracion'
+</violation>
+<violation beginline="30" endline="30" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="EspecialidadDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'duracion'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/GestorDAO.java">
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="29" endline="29" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="29" endline="29" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="30" endline="30" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="30" endline="30" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="31" endline="31" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="31" endline="31" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="34" endline="34" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="36" endline="46" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="36" endline="46" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="53" endline="53" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="53" endline="53" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GestorDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/GrupoMedicoDAO.java">
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GrupoMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.dao" class="GrupoMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GrupoMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="GrupoMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java">
+<violation beginline="4" endline="4" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.HashMap'
+</violation>
+<violation beginline="4" endline="4" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.HashMap'
+</violation>
+<violation beginline="5" endline="5" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="5" endline="5" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.tgs.tgh.model.Medico'
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.tgs.tgh.model.Medico'
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="21" endline="21" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="21" endline="21" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="31" endline="31" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="31" endline="31" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="35" endline="35" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="35" endline="35" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="HorarioMedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/MedicoDAO.java">
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="MedicoDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/PacienteDAO.java">
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="14" endline="14" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="18" endline="18" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="20" endline="20" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="25" endline="25" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="29" endline="29" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="29" endline="29" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="PacienteDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/dao/UsuarioDAO.java">
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'usu'
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'usu'
+</violation>
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="17" endline="17" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="AvoidThrowingRawExceptionTypes" ruleset="Design" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#avoidthrowingrawexceptiontypes" priority="1">
+AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="19" endline="19" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="23" endline="23" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+<violation beginline="27" endline="27" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.dao" class="UsuarioDAO" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/encriptar/Encriptador.java">
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like base64EncryptedString
+</violation>
+<violation beginline="13" endline="13" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like base64EncryptedString
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="33" endline="33" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="55" endline="55" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="55" endline="55" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.encriptar" class="Encriptador" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/model/Cita.java">
+<violation beginline="3" endline="51" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Cita" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Cita' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=9)
+</violation>
+<violation beginline="3" endline="51" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Cita" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Cita' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=9)
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/model/GrupoMedico.java">
+<violation beginline="5" endline="32" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'GrupoMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+</violation>
+<violation beginline="5" endline="32" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'GrupoMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+</violation>
+<violation beginline="7" endline="7" begincolumn="0" endcolumn="0" rule="StringInstantiation" ruleset="Performance" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#stringinstantiation" priority="2">
+StringInstantiation: Avoid instantiating String objects; this is usually unnecessary.
+</violation>
+<violation beginline="7" endline="7" begincolumn="0" endcolumn="0" rule="StringInstantiation" ruleset="Performance" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#stringinstantiation" priority="2">
+StringInstantiation: Avoid instantiating String objects; this is usually unnecessary.
+</violation>
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="8" endline="8" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="GrupoMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/model/HorarioMedico.java">
+<violation beginline="4" endline="4" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="4" endline="4" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.util.List'
+</violation>
+<violation beginline="6" endline="32" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'HorarioMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+</violation>
+<violation beginline="6" endline="32" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'HorarioMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="9" endline="9" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="11" endline="11" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="24" endline="24" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="LooseCoupling" ruleset="Best Practices" package="com.tgs.tgh.model" class="HorarioMedico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#loosecoupling" priority="3">
+LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/model/Medico.java">
+<violation beginline="3" endline="35" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Medico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Medico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=6)
+</violation>
+<violation beginline="3" endline="35" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Medico" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Medico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=6)
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/model/Usuario.java">
+<violation beginline="5" endline="5" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.tgs.tgh.dao.UsuarioDAO'
+</violation>
+<violation beginline="5" endline="5" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'com.tgs.tgh.dao.UsuarioDAO'
+</violation>
+<violation beginline="8" endline="120" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Usuario' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=20, WMC=22)
+</violation>
+<violation beginline="8" endline="120" begincolumn="0" endcolumn="0" rule="DataClass" ruleset="Design" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#dataclass" priority="3">
+DataClass: The class 'Usuario' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=20, WMC=22)
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="SuspiciousConstantFieldName" ruleset="Code Style" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#suspiciousconstantfieldname" priority="3">
+SuspiciousConstantFieldName: The field name indicates a constant but its modifiers do not
+</violation>
+<violation beginline="10" endline="10" begincolumn="0" endcolumn="0" rule="SuspiciousConstantFieldName" ruleset="Code Style" package="com.tgs.tgh.model" class="Usuario" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#suspiciousconstantfieldname" priority="3">
+SuspiciousConstantFieldName: The field name indicates a constant but its modifiers do not
+</violation>
+</file>
+<file name="src/main/java/com/tgs/tgh/web/Manager.java">
+<violation beginline="1" endline="387" begincolumn="0" endcolumn="0" rule="ExcessiveImports" ruleset="Design" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#excessiveimports" priority="3">
+ExcessiveImports: A high number of imports can indicate a high degree of coupling within an object.
+</violation>
+<violation beginline="1" endline="387" begincolumn="0" endcolumn="0" rule="ExcessiveImports" ruleset="Design" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#excessiveimports" priority="3">
+ExcessiveImports: A high number of imports can indicate a high degree of coupling within an object.
+</violation>
+<violation beginline="3" endline="3" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.text.DateFormat'
+</violation>
+<violation beginline="3" endline="3" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'java.text.DateFormat'
+</violation>
+<violation beginline="35" endline="35" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'gherkin.deps.com.google.gson.JsonObject'
+</violation>
+<violation beginline="35" endline="35" begincolumn="0" endcolumn="0" rule="UnusedImports" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedimports" priority="3">
+UnusedImports: Avoid unused imports such as 'gherkin.deps.com.google.gson.JsonObject'
+</violation>
+<violation beginline="38" endline="387" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="38" endline="387" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="39" endline="39" begincolumn="0" endcolumn="0" rule="UnusedPrivateField" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="2">
+UnusedPrivateField: Avoid unused private fields such as 'usuarios'.
+</violation>
+<violation beginline="39" endline="39" begincolumn="0" endcolumn="0" rule="UnusedPrivateField" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="2">
+UnusedPrivateField: Avoid unused private fields such as 'usuarios'.
+</violation>
+<violation beginline="42" endline="42" begincolumn="0" endcolumn="0" rule="UnusedPrivateField" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="2">
+UnusedPrivateField: Avoid unused private fields such as 'usuDao'.
+</violation>
+<violation beginline="42" endline="42" begincolumn="0" endcolumn="0" rule="UnusedPrivateField" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="2">
+UnusedPrivateField: Avoid unused private fields such as 'usuDao'.
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="AccessorClassGeneration" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#accessorclassgeneration" priority="3">
+AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+</violation>
+<violation beginline="49" endline="49" begincolumn="0" endcolumn="0" rule="AccessorClassGeneration" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#accessorclassgeneration" priority="3">
+AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+</violation>
+<violation beginline="54" endline="54" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'ManagerHolder.singleton' due to existing same package import 'com.tgs.tgh.web.*'
+</violation>
+<violation beginline="54" endline="54" begincolumn="0" endcolumn="0" rule="UnnecessaryFullyQualifiedName" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessaryfullyqualifiedname" priority="4">
+UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'ManagerHolder.singleton' due to existing same package import 'com.tgs.tgh.web.*'
+</violation>
+<violation beginline="59" endline="59" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'comprobar'
+</violation>
+<violation beginline="59" endline="59" begincolumn="0" endcolumn="0" rule="UnnecessaryLocalBeforeReturn" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#unnecessarylocalbeforereturn" priority="3">
+UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'comprobar'
+</violation>
+<violation beginline="65" endline="65" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="65" endline="65" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="65" endline="65" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="65" endline="65" begincolumn="0" endcolumn="0" rule="OnlyOneReturn" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#onlyonereturn" priority="3">
+OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+</violation>
+<violation beginline="66" endline="66" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="66" endline="66" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="156" endline="156" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="156" endline="156" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="161" endline="161" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="161" endline="161" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="163" endline="163" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="163" endline="163" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="223" endline="223" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="223" endline="223" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="247" endline="254" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="247" endline="254" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="253" endline="253" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="253" endline="253" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="281" endline="281" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="281" endline="281" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="283" endline="283" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="283" endline="283" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="287" endline="287" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="287" endline="287" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="293" endline="293" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="293" endline="293" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="294" endline="294" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like calendarPonerPrimeraHora
+</violation>
+<violation beginline="294" endline="294" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like calendarPonerPrimeraHora
+</violation>
+<violation beginline="299" endline="299" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="299" endline="299" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="300" endline="302" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="300" endline="302" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="315" endline="315" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="315" endline="315" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="320" endline="320" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="320" endline="320" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="322" endline="323" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="322" endline="323" begincolumn="0" endcolumn="0" rule="ControlStatementBraces" ruleset="Code Style" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#controlstatementbraces" priority="3">
+ControlStatementBraces: This statement should have braces
+</violation>
+<violation beginline="322" endline="323" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="322" endline="323" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="333" endline="333" begincolumn="0" endcolumn="0" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="333" endline="333" begincolumn="0" endcolumn="0" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="338" endline="338" begincolumn="0" endcolumn="0" rule="AppendCharacterWithChar" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#appendcharacterwithchar" priority="3">
+AppendCharacterWithChar: Avoid appending characters as strings in StringBuffer.append.
+</violation>
+<violation beginline="338" endline="338" begincolumn="0" endcolumn="0" rule="AppendCharacterWithChar" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#appendcharacterwithchar" priority="3">
+AppendCharacterWithChar: Avoid appending characters as strings in StringBuffer.append.
+</violation>
+<violation beginline="339" endline="339" begincolumn="0" endcolumn="0" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="339" endline="339" begincolumn="0" endcolumn="0" rule="AvoidLiteralsInIfCondition" ruleset="Error Prone" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_errorprone.html#avoidliteralsinifcondition" priority="3">
+AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="354" endline="354" begincolumn="0" endcolumn="0" rule="UnusedLocalVariable" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="2">
+UnusedLocalVariable: Avoid unused local variables such as 'jsoResultado'.
+</violation>
+<violation beginline="354" endline="354" begincolumn="0" endcolumn="0" rule="UnusedLocalVariable" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="2">
+UnusedLocalVariable: Avoid unused local variables such as 'jsoResultado'.
+</violation>
+<violation beginline="356" endline="380" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="356" endline="380" begincolumn="0" endcolumn="0" rule="ForLoopCanBeForeach" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#forloopcanbeforeach" priority="3">
+ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+</violation>
+<violation beginline="360" endline="360" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="360" endline="360" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="361" endline="361" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="361" endline="361" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="367" endline="367" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="367" endline="367" begincolumn="0" endcolumn="0" rule="AvoidPrintStackTrace" ruleset="Best Practices" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#avoidprintstacktrace" priority="3">
+AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+</violation>
+<violation beginline="370" endline="370" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+<violation beginline="370" endline="370" begincolumn="0" endcolumn="0" rule="AvoidInstantiatingObjectsInLoops" ruleset="Performance" package="com.tgs.tgh.web" class="Manager" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_performance.html#avoidinstantiatingobjectsinloops" priority="3">
+AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+</violation>
+</file>
+<file name="src/main/java/launch/Main.java">
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="launch" class="Main" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="28" endline="28" begincolumn="0" endcolumn="0" rule="SystemPrintln" ruleset="Best Practices" package="launch" class="Main" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+SystemPrintln: System.out.println is used
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="launch" class="Main" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like additionWebInfClasses
+</violation>
+<violation beginline="32" endline="32" begincolumn="0" endcolumn="0" rule="LongVariable" ruleset="Code Style" package="launch" class="Main" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#longvariable" priority="3">
+LongVariable: Avoid excessively long variable names like additionWebInfClasses
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/AccesoSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="AccesoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="AccesoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/AnadirCitaSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="AnadirCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="AnadirCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/ConsultarCitasMedicoSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ConsultarCitasMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ConsultarCitasMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/DatosRegistroSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="DatosRegistroSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="DatosRegistroSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/EliminarCitaSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="EliminarCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="EliminarCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/GrupoMedicoSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="GrupoMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="GrupoMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/LoginSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="LoginSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="LoginSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="24" endline="105" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.stepDefinition" class="LoginSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+<violation beginline="24" endline="105" begincolumn="0" endcolumn="0" rule="TooManyMethods" ruleset="Design" package="com.tgs.tgh.stepDefinition" class="LoginSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_design.html#toomanymethods" priority="4">
+TooManyMethods: This class has too many methods, consider refactoring it.
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/ModificacionCentroMedicoSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificacionCentroMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificacionCentroMedicoSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/ModificarCalendarioUsuariosSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificarCalendarioUsuariosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificarCalendarioUsuariosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/ModificarCitaSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificarCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ModificarCitaSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/ProteccionDatosSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ProteccionDatosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="ProteccionDatosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/Recursos.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="Recursos" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="Recursos" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/RegisterSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="RegisterSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="RegisterSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/RegistroDeTrabajadorSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="RegistroDeTrabajadorSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="RegistroDeTrabajadorSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/VisualizacionCalendarioUsuariosSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="VisualizacionCalendarioUsuariosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="VisualizacionCalendarioUsuariosSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/VisualizadoDeCitasSteps.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="VisualizadoDeCitasSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="VisualizadoDeCitasSteps" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+<file name="src/test/java/com/tgs/tgh/stepDefinition/WebDriver.java">
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="WebDriver" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+<violation beginline="1" endline="1" begincolumn="0" endcolumn="0" rule="PackageCase" ruleset="Code Style" package="com.tgs.tgh.stepDefinition" class="WebDriver" externalInfoUrl="https://pmd.github.io/pmd-6.18.0/pmd_rules_java_codestyle.html#packagecase" priority="3">
+PackageCase: Package name contains upper case characters
+</violation>
+</file>
+</pmd>

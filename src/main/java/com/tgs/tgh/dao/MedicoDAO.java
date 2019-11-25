@@ -16,8 +16,9 @@ public class MedicoDAO {
 
 	public static void eliminar(Medico medico) throws Exception {
 		boolean comprobar = DBBroker.get().eliminar("Medicos", medico.getDNI());
-		if (!comprobar)
+		if (!comprobar) {
 			throw new Exception("Error al eliminar el medico");
+		}
 	}
 
 }

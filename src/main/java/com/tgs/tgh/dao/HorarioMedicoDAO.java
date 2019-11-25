@@ -18,7 +18,7 @@ public class HorarioMedicoDAO {
 		ArrayList<String[]> lista = new ArrayList<String[]>();
 		HorarioMedico hm = new HorarioMedico(dniMedico, lista);
 		for (BsonDocument doc : docs) {
-			String dupla[] = new String[2];
+			String[] dupla = new String[2];
 			dupla[0]=doc.get("Dia").asString().getValue();
 			dupla[1]=doc.get("Hora").asString().getValue();
 			hm.getHorario().add(dupla);

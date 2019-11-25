@@ -23,6 +23,7 @@ import com.tgs.tgh.model.Usuario;
 public class DBBroker<T> {
 
 	private MongoClient client;
+	
 	private MongoDatabase db;
 
 	private DBBroker() {
@@ -75,7 +76,7 @@ public class DBBroker<T> {
 
 	public Medico comprobarSiEsMedico(Usuario usuario) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("DNI", new BsonString((Encriptador.encriptar(usuario.getDNI()))));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(usuario.getDNI())));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Medicos", BsonDocument.class);
 		FindIterable<BsonDocument> iterator = collection.find(criterion);
 		BsonDocument bso = iterator.first();
@@ -353,8 +354,7 @@ public class DBBroker<T> {
 						fecha, bso.get("hora").asString().getValue());
 				list.add(cita);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(e);
 			}	
 		}
 		return list;

@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mongodb.util.JSON;
 import com.tgs.tgh.model.Cita;
 import com.tgs.tgh.web.Manager;
 
@@ -93,8 +92,9 @@ public class HomeController {
 		String email = jso.get("email");
 
 		boolean existeDNI = Manager.get().comprobarSiExisteDNI(dni);
-		if (existeDNI)
+		if (existeDNI) {
 			throw new Exception("El DNI ya existe en la Base de Datos");
+		}
 		else {
 			JSONObject jsoRespuesta = Manager.get().registro(dni, pwd, nombre, apellidos, nacimiento, domicilio,
 					poblacion, cp, telefono, email);
@@ -135,8 +135,7 @@ public class HomeController {
 			JSONObject resultado = Manager.get().getHorarioCitas(jso.get("dniMedico"));
 			System.out.println(resultado);
 			return resultado.toString();
-		}
-		else if(jso.get("tipo").equals("getCitasDiaMedico")) {
+		} else if (jso.get("tipo").equals("getCitasDiaMedico")) {
 			JSONObject resultado = Manager.get().getCitasDiaMedico(jso.get("dniMedico"), jso.get("fecha"));
 			System.out.println(resultado);
 			return resultado.toString();
@@ -250,10 +249,6 @@ public class HomeController {
 			resultado = Manager.get().getEspecialidades();
 		}
 		else if(jso.get("tipo").equals("enviarDatos")) {
-			String dni = jso.get("DNI");
-			String especialidad = jso.get("especialidad");
-			String horaIni = jso.get("horaInicio");
-			String horaFin = jso.get("horaFin");
 			String dias = jso.get("dias");
 			dias = dias.replace("[", "");
 			dias = dias.replace("]", "");
@@ -263,6 +258,10 @@ public class HomeController {
 			System.out.println(diasElegidos[0]);
 			String centro = jso.get("centro");
 			System.out.println(centro);
+			String dni = jso.get("DNI");
+			String especialidad = jso.get("especialidad");
+			String horaIni = jso.get("horaInicio");
+			String horaFin = jso.get("horaFin");
 			resultado = Manager.get().guardarNuevoMedico(dni, especialidad, horaIni, horaFin, diasElegidos, centro);
 		}
 		return resultado.toString();

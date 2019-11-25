@@ -1,10 +1,8 @@
 package com.tgs.tgh.dao;
 
-import java.util.ArrayList;
-
-import org.bson.BsonDocument;
-
 import com.mongodb.client.FindIterable;
+import java.util.ArrayList;
+import org.bson.BsonDocument;
 
 public class EspecialidadDAO {
 
@@ -18,8 +16,8 @@ public class EspecialidadDAO {
 			String especialidad = doc.get("Especialidad").asString().getValue();
 			String duracion = doc.get("duracionCita").asString().getValue();
 			String[] array = new String[2];
-			array[0]=especialidad;
-			array[1]=duracion;
+			array[0] = especialidad;
+			array[1] = duracion;
 			lista.add(array);
 		}
 		return lista;

@@ -1,0 +1,414 @@
+src/main/java/com/tgs/tgh/controller/HomeController.java(22,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.mongodb.util.JSON'
+src/main/java/com/tgs/tgh/controller/HomeController.java(22,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.mongodb.util.JSON'
+src/main/java/com/tgs/tgh/controller/HomeController.java(30,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/controller/HomeController.java(30,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/controller/HomeController.java(47,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(47,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(49,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(49,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(51,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(51,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(53,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(53,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(57,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(57,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(61,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(61,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(83,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(83,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(97,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/controller/HomeController.java(97,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/controller/HomeController.java(97,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/controller/HomeController.java(97,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/controller/HomeController.java(104,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(104,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(132,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(132,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(134,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(134,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(136,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(136,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(137,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(137,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(140,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(140,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(141,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(141,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(162,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(162,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(178,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(178,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(181,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(181,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(190,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(190,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(194,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(194,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(215,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(215,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(221,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(221,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(229,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(229,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(230,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(230,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/controller/HomeController.java(246,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(246,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(256,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(256,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(258,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(258,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(260,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(260,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(280,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(280,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(300,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/controller/HomeController.java(300,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(20,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(20,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(24,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(24,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(25,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(25,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(27,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(27,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(27,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(27,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(32,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(32,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(33,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(33,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(38,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(38,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(39,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(39,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(43,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(43,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(44,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(44,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(45,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(45,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(48,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(48,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(58,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(58,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(59,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(59,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(60,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/CitaDAO.java(60,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'citas'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(23,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/dao/DBBroker.java(23,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/dao/DBBroker.java(36,  AccessorClassGeneration):  AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+src/main/java/com/tgs/tgh/dao/DBBroker.java(36,  AccessorClassGeneration):  AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+src/main/java/com/tgs/tgh/dao/DBBroker.java(40,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'SingletonHolder.singleton' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(40,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'SingletonHolder.singleton' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(49,  SimplifyBooleanReturns):  SimplifyBooleanReturns: Avoid unnecessary if..then..else statements when returning booleans
+src/main/java/com/tgs/tgh/dao/DBBroker.java(49,  SimplifyBooleanReturns):  SimplifyBooleanReturns: Avoid unnecessary if..then..else statements when returning booleans
+src/main/java/com/tgs/tgh/dao/DBBroker.java(50,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(50,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(50,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(50,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(62,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(62,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(62,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(62,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(72,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(72,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(72,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(72,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(84,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(84,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(84,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(84,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(91,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(91,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(101,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(101,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(101,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(101,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(107,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(107,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(117,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(117,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/DBBroker.java(117,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(117,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(122,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(122,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(166,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(166,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(191,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(191,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(208,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(208,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/dao/DBBroker.java(228,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(228,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(243,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(243,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(254,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/DBBroker.java(254,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/DBBroker.java(258,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/DBBroker.java(258,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/DBBroker.java(265,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(265,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'user'
+src/main/java/com/tgs/tgh/dao/DBBroker.java(268,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/DBBroker.java(268,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/DBBroker.java(344,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/DBBroker.java(344,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/DBBroker.java(353,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(353,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/DBBroker.java(358,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/dao/DBBroker.java(358,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(9,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(9,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(10,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(10,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(11,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(11,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(14,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(14,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(18,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(18,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(27,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(27,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(30,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'duracion'
+src/main/java/com/tgs/tgh/dao/EspecialidadDAO.java(30,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'duracion'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(19,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(19,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'gestor'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(23,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(23,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(25,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(25,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(29,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(29,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(30,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(30,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(31,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(31,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(34,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(34,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(36,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(36,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(53,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GestorDAO.java(53,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GrupoMedicoDAO.java(8,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/GrupoMedicoDAO.java(8,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/dao/GrupoMedicoDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/GrupoMedicoDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(4,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.HashMap'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(4,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.HashMap'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(5,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.List'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(5,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.List'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(11,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.tgs.tgh.model.Medico'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(11,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.tgs.tgh.model.Medico'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(17,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(17,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(21,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(21,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(31,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(31,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(35,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/HorarioMedicoDAO.java(35,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(10,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(10,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'medico'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/MedicoDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(9,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(10,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(10,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'paciente'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(14,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(18,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(20,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(25,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(25,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(29,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/PacienteDAO.java(29,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(8,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(8,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(9,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'usu'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(9,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'usu'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(13,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(13,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(17,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(17,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(19,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(19,  AvoidThrowingRawExceptionTypes):  AvoidThrowingRawExceptionTypes: Avoid throwing raw exception types.
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(19,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(19,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(23,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(23,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(27,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/dao/UsuarioDAO.java(27,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'DBBroker.get' due to existing same package import 'com.tgs.tgh.dao.*'
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(13,  LongVariable):  LongVariable: Avoid excessively long variable names like base64EncryptedString
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(13,  LongVariable):  LongVariable: Avoid excessively long variable names like base64EncryptedString
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(33,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(33,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(55,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/encriptar/Encriptador.java(55,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/model/Cita.java(3,  DataClass):  DataClass: The class 'Cita' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=9)
+src/main/java/com/tgs/tgh/model/Cita.java(3,  DataClass):  DataClass: The class 'Cita' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=8, WMC=9)
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(5,  DataClass):  DataClass: The class 'GrupoMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(5,  DataClass):  DataClass: The class 'GrupoMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(7,  StringInstantiation):  StringInstantiation: Avoid instantiating String objects; this is usually unnecessary.
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(7,  StringInstantiation):  StringInstantiation: Avoid instantiating String objects; this is usually unnecessary.
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(8,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(8,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(10,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(10,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(24,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(24,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(28,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/GrupoMedico.java(28,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(4,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.List'
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(4,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.util.List'
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(6,  DataClass):  DataClass: The class 'HorarioMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(6,  DataClass):  DataClass: The class 'HorarioMedico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=5)
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(9,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(9,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(11,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(11,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(24,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(24,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(28,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/HorarioMedico.java(28,  LooseCoupling):  LooseCoupling: Avoid using implementation types like 'ArrayList'; use the interface instead
+src/main/java/com/tgs/tgh/model/Medico.java(3,  DataClass):  DataClass: The class 'Medico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=6)
+src/main/java/com/tgs/tgh/model/Medico.java(3,  DataClass):  DataClass: The class 'Medico' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=4, WMC=6)
+src/main/java/com/tgs/tgh/model/Usuario.java(5,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.tgs.tgh.dao.UsuarioDAO'
+src/main/java/com/tgs/tgh/model/Usuario.java(5,  UnusedImports):  UnusedImports: Avoid unused imports such as 'com.tgs.tgh.dao.UsuarioDAO'
+src/main/java/com/tgs/tgh/model/Usuario.java(8,  DataClass):  DataClass: The class 'Usuario' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=20, WMC=22)
+src/main/java/com/tgs/tgh/model/Usuario.java(8,  DataClass):  DataClass: The class 'Usuario' is suspected to be a Data Class (WOC=0.000%, NOPA=0, NOAM=20, WMC=22)
+src/main/java/com/tgs/tgh/model/Usuario.java(10,  SuspiciousConstantFieldName):  SuspiciousConstantFieldName: The field name indicates a constant but its modifiers do not
+src/main/java/com/tgs/tgh/model/Usuario.java(10,  SuspiciousConstantFieldName):  SuspiciousConstantFieldName: The field name indicates a constant but its modifiers do not
+src/main/java/com/tgs/tgh/web/Manager.java(1,  ExcessiveImports):  ExcessiveImports: A high number of imports can indicate a high degree of coupling within an object.
+src/main/java/com/tgs/tgh/web/Manager.java(1,  ExcessiveImports):  ExcessiveImports: A high number of imports can indicate a high degree of coupling within an object.
+src/main/java/com/tgs/tgh/web/Manager.java(3,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.text.DateFormat'
+src/main/java/com/tgs/tgh/web/Manager.java(3,  UnusedImports):  UnusedImports: Avoid unused imports such as 'java.text.DateFormat'
+src/main/java/com/tgs/tgh/web/Manager.java(35,  UnusedImports):  UnusedImports: Avoid unused imports such as 'gherkin.deps.com.google.gson.JsonObject'
+src/main/java/com/tgs/tgh/web/Manager.java(35,  UnusedImports):  UnusedImports: Avoid unused imports such as 'gherkin.deps.com.google.gson.JsonObject'
+src/main/java/com/tgs/tgh/web/Manager.java(38,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/web/Manager.java(38,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/main/java/com/tgs/tgh/web/Manager.java(39,  UnusedPrivateField):  UnusedPrivateField: Avoid unused private fields such as 'usuarios'.
+src/main/java/com/tgs/tgh/web/Manager.java(39,  UnusedPrivateField):  UnusedPrivateField: Avoid unused private fields such as 'usuarios'.
+src/main/java/com/tgs/tgh/web/Manager.java(42,  UnusedPrivateField):  UnusedPrivateField: Avoid unused private fields such as 'usuDao'.
+src/main/java/com/tgs/tgh/web/Manager.java(42,  UnusedPrivateField):  UnusedPrivateField: Avoid unused private fields such as 'usuDao'.
+src/main/java/com/tgs/tgh/web/Manager.java(49,  AccessorClassGeneration):  AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+src/main/java/com/tgs/tgh/web/Manager.java(49,  AccessorClassGeneration):  AccessorClassGeneration: Avoid instantiation through private constructors from outside of the constructors class.
+src/main/java/com/tgs/tgh/web/Manager.java(54,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'ManagerHolder.singleton' due to existing same package import 'com.tgs.tgh.web.*'
+src/main/java/com/tgs/tgh/web/Manager.java(54,  UnnecessaryFullyQualifiedName):  UnnecessaryFullyQualifiedName: Unnecessary use of fully qualified name 'ManagerHolder.singleton' due to existing same package import 'com.tgs.tgh.web.*'
+src/main/java/com/tgs/tgh/web/Manager.java(59,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'comprobar'
+src/main/java/com/tgs/tgh/web/Manager.java(59,  UnnecessaryLocalBeforeReturn):  UnnecessaryLocalBeforeReturn: Consider simply returning the value vs storing it in local variable 'comprobar'
+src/main/java/com/tgs/tgh/web/Manager.java(65,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(65,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(65,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/web/Manager.java(65,  OnlyOneReturn):  OnlyOneReturn: A method should have only one exit point, and that should be the last statement in the method
+src/main/java/com/tgs/tgh/web/Manager.java(66,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(66,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(156,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(156,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(161,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(161,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(163,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(163,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(223,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(223,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(247,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(247,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(253,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(253,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(281,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(281,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(283,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(283,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(287,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(287,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(293,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(293,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(294,  LongVariable):  LongVariable: Avoid excessively long variable names like calendarPonerPrimeraHora
+src/main/java/com/tgs/tgh/web/Manager.java(294,  LongVariable):  LongVariable: Avoid excessively long variable names like calendarPonerPrimeraHora
+src/main/java/com/tgs/tgh/web/Manager.java(299,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(299,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(300,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(300,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(315,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(315,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/com/tgs/tgh/web/Manager.java(320,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(320,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(322,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(322,  ControlStatementBraces):  ControlStatementBraces: This statement should have braces
+src/main/java/com/tgs/tgh/web/Manager.java(322,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(322,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(333,  AvoidLiteralsInIfCondition):  AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/main/java/com/tgs/tgh/web/Manager.java(333,  AvoidLiteralsInIfCondition):  AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/main/java/com/tgs/tgh/web/Manager.java(338,  AppendCharacterWithChar):  AppendCharacterWithChar: Avoid appending characters as strings in StringBuffer.append.
+src/main/java/com/tgs/tgh/web/Manager.java(338,  AppendCharacterWithChar):  AppendCharacterWithChar: Avoid appending characters as strings in StringBuffer.append.
+src/main/java/com/tgs/tgh/web/Manager.java(339,  AvoidLiteralsInIfCondition):  AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/main/java/com/tgs/tgh/web/Manager.java(339,  AvoidLiteralsInIfCondition):  AvoidLiteralsInIfCondition: Avoid using Literals in Conditional Statements
+src/main/java/com/tgs/tgh/web/Manager.java(354,  UnusedLocalVariable):  UnusedLocalVariable: Avoid unused local variables such as 'jsoResultado'.
+src/main/java/com/tgs/tgh/web/Manager.java(354,  UnusedLocalVariable):  UnusedLocalVariable: Avoid unused local variables such as 'jsoResultado'.
+src/main/java/com/tgs/tgh/web/Manager.java(356,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(356,  ForLoopCanBeForeach):  ForLoopCanBeForeach: This for loop can be replaced by a foreach loop
+src/main/java/com/tgs/tgh/web/Manager.java(360,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(360,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(361,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(361,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(367,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(367,  AvoidPrintStackTrace):  AvoidPrintStackTrace: Avoid printStackTrace(); use a logger call instead.
+src/main/java/com/tgs/tgh/web/Manager.java(370,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/com/tgs/tgh/web/Manager.java(370,  AvoidInstantiatingObjectsInLoops):  AvoidInstantiatingObjectsInLoops: Avoid instantiating new objects inside loops
+src/main/java/launch/Main.java(28,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/launch/Main.java(28,  SystemPrintln):  SystemPrintln: System.out.println is used
+src/main/java/launch/Main.java(32,  LongVariable):  LongVariable: Avoid excessively long variable names like additionWebInfClasses
+src/main/java/launch/Main.java(32,  LongVariable):  LongVariable: Avoid excessively long variable names like additionWebInfClasses
+src/test/java/com/tgs/tgh/stepDefinition/AccesoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/AccesoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/AnadirCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/AnadirCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ConsultarCitasMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ConsultarCitasMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/DatosRegistroSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/DatosRegistroSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/EliminarCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/EliminarCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/GrupoMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/GrupoMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/LoginSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/LoginSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/LoginSteps.java(24,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/test/java/com/tgs/tgh/stepDefinition/LoginSteps.java(24,  TooManyMethods):  TooManyMethods: This class has too many methods, consider refactoring it.
+src/test/java/com/tgs/tgh/stepDefinition/ModificacionCentroMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ModificacionCentroMedicoSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ModificarCalendarioUsuariosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ModificarCalendarioUsuariosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ModificarCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ModificarCitaSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ProteccionDatosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/ProteccionDatosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/Recursos.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/Recursos.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/RegisterSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/RegisterSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/RegistroDeTrabajadorSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/RegistroDeTrabajadorSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/VisualizacionCalendarioUsuariosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/VisualizacionCalendarioUsuariosSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/VisualizadoDeCitasSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/VisualizadoDeCitasSteps.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/WebDriver.java(1,  PackageCase):  PackageCase: Package name contains upper case characters
+src/test/java/com/tgs/tgh/stepDefinition/WebDriver.java(1,  PackageCase):  PackageCase: Package name contains upper case characters

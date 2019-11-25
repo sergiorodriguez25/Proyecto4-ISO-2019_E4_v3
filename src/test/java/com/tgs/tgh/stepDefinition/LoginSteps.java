@@ -36,7 +36,8 @@ public class LoginSteps {
 
 	@When("^Se introducen las credenciales invalidas$")
 	public void se_introducen_las_credenciales_invalidas() throws Throwable {
-		WebElement elementDNI, elementPwd;
+		WebElement elementDNI;
+		WebElement elementPwd;
 		elementDNI = driver.findElement(By.id("inputDNI"));
 		elementDNI.sendKeys("00000000Z");
 		elementPwd = driver.findElement(By.id("inputPassword"));

@@ -297,8 +297,9 @@ public class Manager {
 		int minFirst = calendarPonerPrimeraHora.get(Calendar.MINUTE);
 		String primeraHora = montarHoras(hourFirst, minFirst);
 		System.out.println(primeraHora);
-		for(int i=0; i<diasElegidos.length; i++)
+		for (int i = 0; i < diasElegidos.length; i++) {
 			HorarioMedicoDAO.anadirHoraMedico(diasElegidos[i], primeraHora, dni);
+		}
 		int hour = 0;
 		int min = 0;
 		while (hour < hourFin || min < minFin) {
