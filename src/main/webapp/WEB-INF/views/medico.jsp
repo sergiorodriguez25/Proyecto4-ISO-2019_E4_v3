@@ -180,12 +180,20 @@
 			var referrer = document.referrer;
 			if (referrer != 'http://localhost:8080/'
 					&& referrer != 'https://the-good-health.herokuapp.com/'
+						&& referrer != 'http://the-good-health.herokuapp.com/'
+							&& referrer != 'the-good-health.herokuapp.com/'
 					&& referrer != 'http://localhost:8080/registro'
 					&& referrer != 'https://the-good-health.herokuapp.com/registro'
+						&& referrer != 'http://the-good-health.herokuapp.com/registro'
+							&& referrer != 'the-good-health.herokuapp.com/registro'
 					&& referrer != 'http://localhost:8080/citas'
 					&& referrer != 'https://the-good-health.herokuapp.com/citas'
+						&& referrer != 'http://the-good-health.herokuapp.com/citas'
+							&& referrer != 'the-good-health.herokuapp.com/citas'
 					&& referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'){
+					&& referrer != 'https://the-good-health.herokuapp.com/gestor'
+						&& referrer != 'http://the-good-health.herokuapp.com/gestor'
+							&& referrer != 'the-good-health.herokuapp.com/gestor'){
 				var forma = document.forms[0];
 				forma.action = "/error";
 				forma.submit();

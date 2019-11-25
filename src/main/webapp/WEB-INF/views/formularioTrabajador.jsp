@@ -229,18 +229,6 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 							
-// 							$('DNIMedico').html(dni);
-							/*
-							 * Control para que no acceda a trav�s de la url a alguna p�gina que no sea el home
-							 * Hay que ponerlo en todos los jsp que se hagan pr�ximamente
-							 */
-// 							var referrer = document.referrer;
-// 							if (referrer != 'http://localhost:8080/citas'
-// 									&& referrer != 'https://the-good-health.herokuapp.com/citas') {
-// 								var forma = document.forms[0];
-// 								forma.action = "/error";
-// 								forma.submit();
-// 							}
 							var jsoDNI = JSON.parse(sessionStorage.nuevoMedico);
 							var dni = jsoDNI.DNIMedico.DNI;
 							pedirEspecialidades();

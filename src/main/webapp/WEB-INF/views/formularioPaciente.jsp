@@ -172,7 +172,7 @@
 				</div>
 				<p align="center">
 					<b>Seleccione el especialista que quiere asignar, una vez haya
-						terminado pulse el botón</b>
+						terminado pulse el botón Aceptar</b>
 				</p>
 				<br>
 				<div class="container" id="myGroup">
@@ -393,7 +393,9 @@
 							 */
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/gestor'
-									&& referrer != 'https://the-good-health.herokuapp.com/gestor') {
+									&& referrer != 'https://the-good-health.herokuapp.com/gestor'
+										&& referrer != 'http://the-good-health.herokuapp.com/gestor'
+											&& referrer != 'the-good-health.herokuapp.com/gestor') {
 								var forma = document.forms[0];
 								forma.action = "/error";
 								forma.submit();

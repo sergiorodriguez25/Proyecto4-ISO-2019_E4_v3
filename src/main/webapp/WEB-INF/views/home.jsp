@@ -42,7 +42,7 @@
     	<!--  <div class="col-lg-4"> -->
     	<div class="text-center">
     	
-			<a><img src='http://s2.subirimagenes.com/otros/previo/thump_9911960iconotgh.jpg' alt='subir imagenes' border='0' ></a>    	</div>
+			<a><img src="https://fotos.subefotos.com/b519ac3aaa9a444fd72a30516bf571a8o.png"  width="200" height="200"></a>
         </div>
 	</div>
     <div class="container">
