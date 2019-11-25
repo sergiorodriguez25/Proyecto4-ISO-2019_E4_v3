@@ -347,11 +347,9 @@ public class DBBroker<T> {
 
 	public void modificarCentroMedicoPaciente(String dniPaciente, String nuevoCentro) {
 		BsonDocument criterion = new BsonDocument();
-		criterion.append("dniPaciente", new BsonString(Encriptador.encriptar(dniPaciente)));
+		criterion.append("DNI", new BsonString(Encriptador.encriptar(dniPaciente)));
 		MongoCollection<BsonDocument> collection = this.db.getCollection("Pacientes", BsonDocument.class);
-		collection.deleteOne(criterion);
-		criterion.append("CentroMedico", new BsonString(nuevoCentro));
-		collection.insertOne(criterion);
+		collection.updateOne(criterion, new Document("$set", new Document("CentroMedico", nuevoCentro)));
 	}
 
 	public void insertarGestor(String dniNuevoGestor, String centro) {
