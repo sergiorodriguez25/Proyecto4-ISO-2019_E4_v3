@@ -33,7 +33,7 @@ public class ConsultarCitasMedicoSteps {
 
 	@When("^Se abre la pagina de medico$")
 	public void se_abre_la_pagina_de_medico() throws Throwable {
-		WebDriverWait wait = new WebDriverWait(driver, 2);
+		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.titleIs("Medico"));
 		assertEquals("Medico", driver.getTitle());
 	}
