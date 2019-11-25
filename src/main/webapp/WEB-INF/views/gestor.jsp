@@ -133,7 +133,6 @@
 							</div>
 						</div>
 					</div>
-					<a href = "/formularioTrabajador" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</a>
 					
 					<div class="col-md-1"></div>
 					<div class="col-md-3">
