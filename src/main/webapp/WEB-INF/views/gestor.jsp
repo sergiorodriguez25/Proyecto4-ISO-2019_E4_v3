@@ -133,7 +133,6 @@
 							</div>
 						</div>
 					</div>
-					<a href = "/formularioTrabajador" class="btn btn-lg btn-primary btn-block" type="submit">Registrarse</a>
 					
 					<div class="col-md-1"></div>
 					<div class="col-md-3">
@@ -334,6 +333,21 @@
 							+ '<td align="center" style="dislay: none;">' + '<button id=\'botonGestionarCitas'+j+'\' class=\'btn btn-primary \' onClick="funcionGestionarCitas(this)">'+'Gestionar Citas'+'</button> ' + '</td></tr>');
 				}
 			}
+		}
+		
+		function funcionGestionarCitas(boton) {
+			var dni = boton.parentNode.parentNode.children[0].innerHTML;
+			var nombreAp = boton.parentNode.parentNode.children[1].innerHTML;
+			console.log(dni);
+			console.log(nombreAp);
+			var jsoMedico={
+					"Medico":[
+						{"DNI":dni,
+							"nombre" : nombreAp}
+					]
+			};
+			sessionStorage.MedicoEdit = JSON.stringify(jsoMedico);
+			location.href="/medicoGestor";
 		}
 		
 		function funcionCalendario(boton){

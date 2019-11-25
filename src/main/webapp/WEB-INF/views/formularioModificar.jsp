@@ -161,7 +161,7 @@
 
 							<hr class="mb-4">
 							<a id="modificarcita" class="btn btn-primary btn-large" type="submit">Modificar
-								cita</a> <a href="/citas" class="btn btn-primary btn-large" type="submit">Volver
+								cita</a> <a id="volverAtras" class="btn btn-primary btn-large" type="submit">Volver
 								atrás</a>
 						</form>
 					</div>
@@ -286,6 +286,18 @@
 							}
 							
 		});
+	
+	jQuery(document).ready(function($) {
+    	$('#volverAtras').click(function(event) {
+    		event.preventDefault();
+    		var referrer = document.referrer;
+			if (referrer == 'http://localhost:8080/citasGestor'
+					|| referrer == 'https://the-good-health.herokuapp.com/citasGestor'){
+				location.href="/citasGestor";
+			}
+			else location.href="/citas";
+    	});
+    });
 	
 		function getHorasCitasDiaSeleccionado(fecha, dniMedico) {
 			var data = {
