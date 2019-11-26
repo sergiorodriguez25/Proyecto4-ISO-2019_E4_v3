@@ -274,36 +274,36 @@
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/'
 									&& referrer != 'https://the-good-health.herokuapp.com/'
-										&& referrer != 'http://the-good-health.herokuapp.com/'
-											&& referrer != 'the-good-health.herokuapp.com/'
+									&& referrer != 'http://the-good-health.herokuapp.com/'
+									&& referrer != 'the-good-health.herokuapp.com/'
 									&& referrer != 'http://localhost:8080/registro'
 									&& referrer != 'https://the-good-health.herokuapp.com/registro'
-										&& referrer != 'http://the-good-health.herokuapp.com/registro'
-											&& referrer != 'the-good-health.herokuapp.com/registro'
+									&& referrer != 'http://the-good-health.herokuapp.com/registro'
+									&& referrer != 'the-good-health.herokuapp.com/registro'
 									&& referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
-										&& referrer != 'http://the-good-health.herokuapp.com/citas'
-											&& referrer != 'the-good-health.herokuapp.com/citas'
+									&& referrer != 'http://the-good-health.herokuapp.com/citas'
+									&& referrer != 'the-good-health.herokuapp.com/citas'
 									&& referrer != 'http://localhost:8080/formularioPaciente'
 									&& referrer != 'https://the-good-health.herokuapp.com/formularioPaciente'
-										&& referrer != 'http://the-good-health.herokuapp.com/formularioPaciente'
-											&& referrer != 'the-good-health.herokuapp.com/formularioPaciente'
+									&& referrer != 'http://the-good-health.herokuapp.com/formularioPaciente'
+									&& referrer != 'the-good-health.herokuapp.com/formularioPaciente'
 									&& referrer != 'http://localhost:8080/citasGestor'
 									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
-										&& referrer != 'http://the-good-health.herokuapp.com/citasGestor'
-											&& referrer != 'the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'http://the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'the-good-health.herokuapp.com/citasGestor'
 									&& referrer != 'http://localhost:8080/medicoGestor'
 									&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'
-										&& referrer != 'http://the-good-health.herokuapp.com/medicoGestor'
-											&& referrer != 'the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'http://the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'the-good-health.herokuapp.com/medicoGestor'
 									&& referrer != 'http://localhost:8080/formularioTrabajador'
 									&& referrer != 'https://the-good-health.herokuapp.com/formularioTrabajador'
-										&& referrer != 'http://the-good-health.herokuapp.com/formularioTrabajador'
-											&& referrer != 'the-good-health.herokuapp.com/formularioTrabajador'
+									&& referrer != 'http://the-good-health.herokuapp.com/formularioTrabajador'
+									&& referrer != 'the-good-health.herokuapp.com/formularioTrabajador'
 									&& referrer != 'http://localhost:8080/formularioGestor'
 									&& referrer != 'https://the-good-health.herokuapp.com/formularioGestor'
-										&& referrer != 'http://the-good-health.herokuapp.com/formularioGestor'
-											&& referrer != 'the-good-health.herokuapp.com/formularioGestor') {
+									&& referrer != 'http://the-good-health.herokuapp.com/formularioGestor'
+									&& referrer != 'the-good-health.herokuapp.com/formularioGestor'
 									&& referrer != 'http://localhost:8080/calendarioGlobal'
 									&& referrer != 'https://the-good-health.herokuapp.com/calendarioGlobal') {
 								var forma = document.forms[0];
@@ -352,13 +352,40 @@
 			var centroMedicoGestor = jsoUser.resultado.gestor.centro;
 
 			for (var i = 0; i < jsoUsuarios.Pacientes.length; i++) {
-				if(jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
-					$("#TablaUsuarios").append('<tr><td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].DNI+ '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].nombre + " " + jsoUsuarios.Pacientes[i].apellidos + '</td>'
-					+ '<td align="center" style="dislay: none;">' + jsoUsuarios.Pacientes[i].centroMedico + '</td>' 
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonModificarCentro'+i+'\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'+'Asignar Centro'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirTrabajador'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'+'Convertir en Médico'+'</button> ' + '</td>'
-					+ '<td align="center" style="dislay: none;">' + '<button id=\'botonConvertirGestor'+i+'\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'+'Convertir en Gestor'+'</button> ' + '</td></tr>');
+				if (jsoUsuarios.Pacientes[i].centroMedico != centroMedicoGestor) {
+					$("#TablaUsuarios")
+							.append(
+									'<tr><td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].DNI
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].nombre
+											+ " "
+											+ jsoUsuarios.Pacientes[i].apellidos
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ jsoUsuarios.Pacientes[i].centroMedico
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonModificarCentro'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionModificarCentro(this)">'
+											+ 'Asignar Centro'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirTrabajador'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirMedico(this)">'
+											+ 'Convertir en Médico'
+											+ '</button> '
+											+ '</td>'
+											+ '<td align="center" style="dislay: none;">'
+											+ '<button id=\'botonConvertirGestor'
+											+ i
+											+ '\' class=\'btn btn-primary \' onClick="funcionConvertirGestor(this)">'
+											+ 'Convertir en Gestor'
+											+ '</button> ' + '</td></tr>');
 				}
 
 				if (jsoUsuarios.Pacientes[i].centroMedico == centroMedicoGestor) {
@@ -397,8 +424,8 @@
 											+ '</button> ' + '</td></tr>');
 				}
 			}
-			
-			for (var j=0; j<jsoUsuarios.Medicos.length; j++) {
+
+			for (var j = 0; j < jsoUsuarios.Medicos.length; j++) {
 				console.log(jsoUsuarios.Medicos.length);
 				console.log(jsoUsuarios.Medicos[j].DNI);
 				if (jsoUsuarios.Medicos[j].centroMedico == centroMedicoGestor) {
