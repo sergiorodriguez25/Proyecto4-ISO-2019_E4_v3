@@ -427,7 +427,6 @@
 		function getDNIMedico(especialidadSeleccionada) {
 			var jsoGrupo = JSON.parse(sessionStorage.usuario);
 			var listaMedicos = jsoGrupo.resultado.grupoMedico.listaMedicos;
-			console.log(listaMedicos[1].especialidad);
 			for (var i = 0; i < listaMedicos.length; i++) {
 				if (listaMedicos[i].especialidad == especialidadSeleccionada) {
 					var dniMedico = listaMedicos[i].DNI;
@@ -486,7 +485,7 @@
 			var jsoUser = JSON.parse(sessionStorage.usuario);
 			console.log(sessionStorage.usuario);
 			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
-			for (var i = 0; i <= numEspecialidades; i++) {
+			for (var i = 0; i < numEspecialidades; i++) {
 				var option = document.createElement('option');
 				option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
 				select.add(option, 0);

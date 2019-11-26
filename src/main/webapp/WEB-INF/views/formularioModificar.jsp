@@ -80,8 +80,8 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#"
-					tabindex="-1" aria-disabled="true">Mis citas</a></li>
+				<li class="nav-item"><a class="nav-link" href="#" tabindex="-1"
+					aria-disabled="true">Mis citas</a></li>
 				<li class="nav-item active"><a class="nav-link" href="#">Modificar
 						cita <span class="sr-only">(current)</span>
 				</a></li>
@@ -221,16 +221,16 @@
 							var referrer = document.referrer;
 							if (referrer != 'http://localhost:8080/citas'
 									&& referrer != 'https://the-good-health.herokuapp.com/citas'
-										&& referrer != 'http://the-good-health.herokuapp.com/citas'
-											&& referrer != 'the-good-health.herokuapp.com/citas'
-										&& referrer != 'http://localhost:8080/citasGestor'
-										&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
-											&& referrer != 'http://the-good-health.herokuapp.com/citasGestor'
-												&& referrer != 'the-good-health.herokuapp.com/citasGestor'
-											&& referrer != 'http://localhost:8080/medicoGestor'
-												&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'
-													&& referrer != 'http://the-good-health.herokuapp.com/medicoGestor'
-														&& referrer != 'the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'http://the-good-health.herokuapp.com/citas'
+									&& referrer != 'the-good-health.herokuapp.com/citas'
+									&& referrer != 'http://localhost:8080/citasGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'http://the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'the-good-health.herokuapp.com/citasGestor'
+									&& referrer != 'http://localhost:8080/medicoGestor'
+									&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'http://the-good-health.herokuapp.com/medicoGestor'
+									&& referrer != 'the-good-health.herokuapp.com/medicoGestor'
 									&& referrer != 'http://localhost:8080/citasGestor'
 									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
 									&& referrer != 'http://localhost:8080/medicoGestor'
