@@ -132,7 +132,7 @@
 								</p>
 								<p id="volverGestor">
 									Para volver a la página principal de Gestor pulse el botón <a
-										href="gestor" class="btn btn-primary btn-large" type="submit">Gestor</a>
+										href="/gestor" class="btn btn-primary btn-large" type="submit">Gestor</a>
 								</p>
 							</div>
 						</div>
@@ -192,34 +192,6 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-    		enviardni();
-			/*
-			 * Control para que no acceda a travis de la url a alguna página que no sea el home
-			 * Hay que ponerlo en todos los jsp que se hagan próximamente
-			 */
-			var referrer = document.referrer;
-			if (referrer != 'http://localhost:8080/'
-					&& referrer != 'https://the-good-health.herokuapp.com/'
-						&& referrer != 'http://the-good-health.herokuapp.com/'
-							&& referrer != 'the-good-health.herokuapp.com/'
-					&& referrer != 'http://localhost:8080/registro'
-					&& referrer != 'https://the-good-health.herokuapp.com/registro'
-						&& referrer != 'http://the-good-health.herokuapp.com/registro'
-							&& referrer != 'the-good-health.herokuapp.com/registro'
-					&& referrer != 'http://localhost:8080/citas'
-					&& referrer != 'https://the-good-health.herokuapp.com/citas'
-						&& referrer != 'http://the-good-health.herokuapp.com/citas'
-							&& referrer != 'the-good-health.herokuapp.com/citas'
-					&& referrer != 'http://localhost:8080/gestor'
-					&& referrer != 'https://the-good-health.herokuapp.com/gestor'
-						&& referrer != 'http://the-good-health.herokuapp.com/gestor'
-							&& referrer != 'the-good-health.herokuapp.com/gestor'){
-				var forma = document.forms[0];
-				forma.action = "/error";
-				forma.submit();
-			}
-			//     		getParametersURL();
 		jQuery(document)
 				.ready(
 						function($) {

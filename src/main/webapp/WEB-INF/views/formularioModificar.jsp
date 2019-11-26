@@ -230,7 +230,7 @@
 											&& referrer != 'http://localhost:8080/medicoGestor'
 												&& referrer != 'https://the-good-health.herokuapp.com/medicoGestor'
 													&& referrer != 'http://the-good-health.herokuapp.com/medicoGestor'
-														&& referrer != 'the-good-health.herokuapp.com/medicoGestor') {
+														&& referrer != 'the-good-health.herokuapp.com/medicoGestor'
 									&& referrer != 'http://localhost:8080/citasGestor'
 									&& referrer != 'https://the-good-health.herokuapp.com/citasGestor'
 									&& referrer != 'http://localhost:8080/medicoGestor'
