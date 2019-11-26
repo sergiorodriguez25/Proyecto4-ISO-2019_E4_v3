@@ -421,10 +421,27 @@
 														.parse(sessionStorage.horario);
 												var horario = jsoHorario.horarioMedico.horario;
 												var numHoras = 0;
-												console.log($('#fecha_ini')
-														.val());
+
+												var weekday = new Array(7);
+												weekday[0] = "Domingo";
+												weekday[1] = "Lunes";
+												weekday[2] = "Martes";
+												weekday[3] = "Miércoles";
+												weekday[4] = "Jueves";
+												weekday[5] = "Viernes";
+												weekday[6] = "Sábado";
+												var dateParts = $('#fecha_ini')
+														.val().split("/");
+												var dateObject = new Date(
+														+dateParts[2],
+														dateParts[1] - 1,
+														+dateParts[0]);
+												var diaSemana = weekday[dateObject
+														.getDay()];
+
+												console.log(diaSemana);
 												for (var j = 0; j < horario.length; j++) {
-													if ($('#fecha_ini').val() == horario[j][0]) {
+													if (diaSemana === horario[j][0]) {
 														numHoras++;
 													}
 												}
@@ -433,7 +450,7 @@
 														numHoras);
 												var k = 0;
 												for (var i = 0; i < horario.length; i++) {
-													if ($('#fecha_ini').val() == horario[i][0]) {
+													if (diaSemana === horario[i][0]) {
 														horasDisponibles[k] = horario[i][1];
 														console
 																.log(horasDisponibles[k]);
