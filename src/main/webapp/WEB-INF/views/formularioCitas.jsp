@@ -484,10 +484,13 @@
 		function cargarDatosFormulario() {
 			var select = document.getElementById("especialidad");
 			var jsoUser = JSON.parse(sessionStorage.usuario);
+			console.log("por aqui");
 			console.log(sessionStorage.usuario);
 			var numEspecialidades = jsoUser.resultado.grupoMedico.listaMedicos.length;
+			console.log(numEspecialidades);
 			for (var i = 0; i <= numEspecialidades; i++) {
 				var option = document.createElement('option');
+				console.log(jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad);
 				option.text = option.value = jsoUser.resultado.grupoMedico.listaMedicos[i].especialidad;
 				select.add(option, 0);
 			}
